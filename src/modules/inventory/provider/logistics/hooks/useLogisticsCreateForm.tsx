@@ -35,7 +35,11 @@ const initValues: Partial<ILogistics> = {
   otherTags: [],
 };
 
-const useLogisticsCreateForm = (countryCode: string, onClose: () => void, defaultValues: Partial<ILogistics> = initValues) => {
+const useLogisticsCreateForm = (
+  countryCode: string,
+  onClose: () => void,
+  defaultValues: Partial<ILogistics> = initValues,
+) => {
   const { t } = useTranslation('logistics');
   const { data: tagList } = useFindTagByRequired(TAG_NAMES.LOGISTIC);
   const queryClient = useQueryClient();

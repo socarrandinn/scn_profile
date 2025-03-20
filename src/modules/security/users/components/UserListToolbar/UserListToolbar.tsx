@@ -21,9 +21,7 @@ const UserListToolbar = ({ children }: ChildrenProps) => {
       <TableToolbar>
         <TableToolbarActions settings={settings}></TableToolbarActions>
       </TableToolbar>
-      <GeneralActions>
-        {children}
-      </GeneralActions>
+      <GeneralActions>{children}</GeneralActions>
     </>
   );
 };

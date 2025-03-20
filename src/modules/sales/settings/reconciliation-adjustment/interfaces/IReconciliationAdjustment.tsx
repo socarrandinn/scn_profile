@@ -3,8 +3,8 @@ import { PROVIDER_TYPE_ENUM } from 'modules/inventory/provider/common/constants'
 export interface IReconciliationAdjustment {
   _id?: string;
   causeAdjustment: string | null;
-  provider: any
-  totalAmount: number
+  provider: any;
+  totalAmount: number;
   providerType: PROVIDER_TYPE_ENUM;
   description: string;
   conciliation?: string;

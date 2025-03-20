@@ -1,1 +1,1 @@
-export * from './IOffer'
+export * from './IOffer';

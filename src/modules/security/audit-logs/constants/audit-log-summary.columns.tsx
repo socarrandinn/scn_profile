@@ -15,7 +15,4 @@ export const auditLogBeforeColumn: HeadCell<IOrderStatus> = {
   sortable: false,
 };
 
-export const auditLogSummaryChangeColumns: Array<HeadCell<any>> = [
-  auditLogChangeColumn,
-  auditLogBeforeColumn
-];
+export const auditLogSummaryChangeColumns: Array<HeadCell<any>> = [auditLogChangeColumn, auditLogBeforeColumn];

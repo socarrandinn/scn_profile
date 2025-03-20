@@ -34,10 +34,8 @@ const ProductStockCreateModal = ({
 }: ProductStockCreateModalProps) => {
   const { t } = useTranslation('common');
 
-  const { control, onSubmit, isLoading, reset, error, quantity, isAdd, setValue, formState } = useProductStockCreateForm(
-    onClose,
-    initValue,
-  );
+  const { control, onSubmit, isLoading, reset, error, quantity, isAdd, setValue, formState } =
+    useProductStockCreateForm(onClose, initValue);
 
   const handleClose = useCallback(() => {
     onClose?.();

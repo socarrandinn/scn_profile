@@ -38,13 +38,9 @@ const RoleRowActions = ({ data, type }: Props) => {
 
   return (
     <Stack direction='row' spacing={1}>
-      {!data?.isSystemRole &&
+      {!data?.isSystemRole && (
         <>
-          <RowActions
-            tooltip={t('role:permissionManage')}
-            onClick={handleOpen}
-            icon={SecurityIconRole}
-          />
+          <RowActions tooltip={t('role:permissionManage')} onClick={handleOpen} icon={SecurityIconRole} />
           <EditRowActions onClick={handleEdit} />
           <DeleteRowAction
             isOpen={isOpen}
@@ -55,7 +51,7 @@ const RoleRowActions = ({ data, type }: Props) => {
             onDelete={mutate}
           />
         </>
-      }
+      )}
     </Stack>
   );
 };

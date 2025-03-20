@@ -33,11 +33,13 @@ export const categoryIconColumn: HeadCell<ICategory> = {
   headerName: 'category:fields.icon',
   sortable: false,
   renderCell: (value, category) => (
-    <Box sx={{
-      '.MuiSvgIcon-root': {
-        fill: '#FFF',
-      },
-    }}>
+    <Box
+      sx={{
+        '.MuiSvgIcon-root': {
+          fill: '#FFF',
+        },
+      }}
+    >
       <IconPreview variant={'filled'} bgColor={category?.color} value={value} />
     </Box>
   ),

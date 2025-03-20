@@ -14,10 +14,10 @@ const LogisticStoresContainer = () => {
   return (
     <PagePaperLayout title={t('warehouses')} mb={3}>
       <TableProvider id={'warehouses'} filters={warehouseLogisticProviderFilters}>
-        <StoreListContainer logisticProviderId={params?.id}/>
+        <StoreListContainer logisticProviderId={params?.id} />
       </TableProvider>
     </PagePaperLayout>
-  )
+  );
 };
 
 export default memo(LogisticStoresContainer);

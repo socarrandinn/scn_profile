@@ -76,7 +76,9 @@ const ImporterProductCodeAlert = ({ isOpen, title, watch, append, onClose, error
         </DialogContent>
       </ConditionContainer>
       <DialogActions>
-        <Button variant='grey' onClick={onClose}>{t('common:cancel')}</Button>
+        <Button variant='grey' onClick={onClose}>
+          {t('common:cancel')}
+        </Button>
         <Button variant='contained' disabled={isEmpty(items)} type={'submit'} onClick={addProduct}>
           {t('add')}
         </Button>

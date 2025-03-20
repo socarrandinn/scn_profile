@@ -16,9 +16,11 @@ export const useDeleteRolesUser = (_id: string, allRoles: IRoleSetting[], onClos
 
   return useMutation(
     async (role: IRoleSetting) =>
-      await UserAdminService.addRoles(_id,
-        allRoles.filter((r) => r._id !== role._id).map(
-          (role) => role?.role), role?.space),
+      await UserAdminService.addRoles(
+        _id,
+        allRoles.filter((r) => r._id !== role._id).map((role) => role?.role),
+        role?.space,
+      ),
 
     {
       onSuccess: () => {

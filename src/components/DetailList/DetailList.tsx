@@ -44,9 +44,7 @@ const DetailList = ({ data, isLoading, labelSx = tableCellSx, valueSx, tableRowS
                 <TableCell component='th' scope='row' sx={labelSx}>
                   {isLoading ? <Skeleton variant='text' /> : row.label}
                 </TableCell>
-                <TableCell sx={valueSx}>
-                  {isLoading ? <Skeleton variant='text' /> : row.value}
-                </TableCell>
+                <TableCell sx={valueSx}>{isLoading ? <Skeleton variant='text' /> : row.value}</TableCell>
               </TableRow>
             );
           })}

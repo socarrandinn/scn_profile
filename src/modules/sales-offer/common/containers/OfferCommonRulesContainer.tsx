@@ -46,7 +46,7 @@ const OfferCommonRulesContainer = ({ sections, ...props }: Props) => {
       </PanelEnableSection>
 
       {/* section usage  */}
-       <PanelEnableSection
+      <PanelEnableSection
         title={t('sections.usage.title')}
         subtitle={t('sections.usage.subtitle')}
         checked={sections?.usage}

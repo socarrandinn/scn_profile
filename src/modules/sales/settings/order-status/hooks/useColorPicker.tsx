@@ -31,7 +31,7 @@ const useColorPicker = (initialColor: string) => {
     blue,
     setBlue,
     open,
-    setOpen
+    setOpen,
   };
 };
 

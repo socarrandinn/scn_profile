@@ -5,10 +5,16 @@ const EmptyResultCmp = () => {
   const { t } = useTranslation('homeDelivery');
 
   return (
-    <Box sx={{ py: 3, fontWeight: 500, '.MuiCollapse-root': { background: '#FFF !important', paddingBottom: '10px !important' } }}>
+    <Box
+      sx={{
+        py: 3,
+        fontWeight: 500,
+        '.MuiCollapse-root': { background: '#FFF !important', paddingBottom: '10px !important' },
+      }}
+    >
       {t('emptyResult')}
     </Box>
-  )
+  );
 };
 
 export default EmptyResultCmp;

@@ -29,7 +29,11 @@ type ShippingHomeContextProps = {
  * */
 const ShippingHomeSettingsProvider = (props: ShippingHomeContextProps) => {
   const { distributionCenterId } = useDistributionCenterDetail();
-  const { isLoading, data: settings, error } = useFindOneShipping(Boolean(distributionCenterId))(distributionCenterId ?? null);
+  const {
+    isLoading,
+    data: settings,
+    error,
+  } = useFindOneShipping(Boolean(distributionCenterId))(distributionCenterId ?? null);
 
   return <ShippingHomeContext.Provider value={{ settings, isLoading, error, distributionCenterId }} {...props} />;
 };

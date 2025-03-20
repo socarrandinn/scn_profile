@@ -40,19 +40,19 @@ const ProductScoreInformation = () => {
     <FormPaper
       mbHeader={'0px'}
       title={t('section.summary.score.title')}
-      actions={
-        <FormPaperAction
-          onToggle={handleToggle}
-          open={open}
-          permissions={PRODUCT_PERMISSIONS.PRODUCT_WRITE}
-        />
-      }
+      actions={<FormPaperAction onToggle={handleToggle} open={open} permissions={PRODUCT_PERMISSIONS.PRODUCT_WRITE} />}
     >
       {isLoading && '...'}
       {error && <HandlerError error={error} mapError={mapGetOneErrors} />}
       {!isLoading && !error && (
         <Box marginTop={5}>
-          <Slider value={typeof product?.score === 'number' ? product?.score : 0} valueLabelDisplay='on' step={10} marks={productScoreMarks} max={1000} />
+          <Slider
+            value={typeof product?.score === 'number' ? product?.score : 0}
+            valueLabelDisplay='on'
+            step={10}
+            marks={productScoreMarks}
+            max={1000}
+          />
         </Box>
       )}
     </FormPaper>

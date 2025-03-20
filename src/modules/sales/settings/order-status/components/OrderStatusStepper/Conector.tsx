@@ -2,7 +2,7 @@ import styled from '@emotion/styled';
 import { StepConnector, useTheme, stepConnectorClasses } from '@mui/material';
 
 const Connector = styled(StepConnector)(() => {
-  const theme = useTheme()
+  const theme = useTheme();
   return {
     [`&.${stepConnectorClasses.alternativeLabel}`]: {
       top: 10,
@@ -26,4 +26,4 @@ const Connector = styled(StepConnector)(() => {
   };
 });
 
-export default Connector
+export default Connector;

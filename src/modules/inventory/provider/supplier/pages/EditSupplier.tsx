@@ -6,13 +6,8 @@ import SupplierCreate from 'modules/inventory/provider/supplier/pages/SupplierCr
 
 const EditSupplier = () => {
   const { id } = useParams();
-  const {
-    data,
-    isLoading,
-  } = useFindOneProducts(id as string);
+  const { data, isLoading } = useFindOneProducts(id as string);
   useBreadcrumbName(data?._id || '', data?.name, isLoading);
-  return (
-    <SupplierCreate title={'edit'} initValue={data} />
-  );
+  return <SupplierCreate title={'edit'} initValue={data} />;
 };
 export default memo(EditSupplier);

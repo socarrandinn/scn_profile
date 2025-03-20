@@ -5,7 +5,7 @@ import { OrderCompleteButton } from 'modules/sales/common/components/OrderComple
 
 type UserStatusProps = {
   rowId: string;
-  record: IOrder
+  record: IOrder;
 };
 
 const PaidOrderRowActions = ({ rowId: orderId, record }: UserStatusProps) => {

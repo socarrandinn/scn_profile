@@ -24,13 +24,17 @@ const initValues: IBank = {
     city: '',
   },
   branch: '',
-  branchHolder: ''
+  branchHolder: '',
 };
 
 const useBankCreateForm = (onClose: () => void, defaultValues: IBank = initValues) => {
   const { t } = useTranslation('bank');
   const queryClient = useQueryClient();
-  const { control, handleSubmit, reset: resetForm } = useForm({
+  const {
+    control,
+    handleSubmit,
+    reset: resetForm,
+  } = useForm({
     resolver: yupResolver(bankSchema),
     defaultValues,
   });
@@ -39,27 +43,27 @@ const useBankCreateForm = (onClose: () => void, defaultValues: IBank = initValue
     if (defaultValues) resetForm(defaultValues);
   }, [defaultValues, resetForm]);
 
-  const { mutate, reset: resetMutation, error, isLoading, isSuccess, data } = useMutation(
-    (bank: IBank) => BankService.saveOrUpdate(bank),
-    {
-      onSuccess: (data, values) => {
-        queryClient.invalidateQueries([BANKS_LIST_KEY]);
-        values?._id && queryClient.invalidateQueries([values._id]);
-        toast.success(t(values?._id ? 'successUpdate' : 'successCreated'));
-        onClose?.();
-        resetForm();
-      },
+  const {
+    mutate,
+    reset: resetMutation,
+    error,
+    isLoading,
+    isSuccess,
+    data,
+  } = useMutation((bank: IBank) => BankService.saveOrUpdate(bank), {
+    onSuccess: (data, values) => {
+      queryClient.invalidateQueries([BANKS_LIST_KEY]);
+      values?._id && queryClient.invalidateQueries([values._id]);
+      toast.success(t(values?._id ? 'successUpdate' : 'successCreated'));
+      onClose?.();
+      resetForm();
     },
-  );
+  });
 
-  const reset = useCallback(
-    () => {
-      resetForm()
-      resetMutation()
-    },
-    [resetForm, resetMutation],
-  )
-
+  const reset = useCallback(() => {
+    resetForm();
+    resetMutation();
+  }, [resetForm, resetMutation]);
 
   return {
     control,

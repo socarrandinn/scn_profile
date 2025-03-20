@@ -7,7 +7,7 @@ import { HomeDeliverySubTable } from '../../home-delivery/components/HomeDeliver
 import { memo, Suspense } from 'react';
 
 const LocationsTableContainer = ({ isLoading, error, data, columns }: TableProps) => {
-  if (isLoading) return <EmptyLocationSkeleton />
+  if (isLoading) return <EmptyLocationSkeleton />;
 
   return (
     <>

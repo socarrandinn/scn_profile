@@ -43,38 +43,23 @@ const MarketList = ({ listNode, dataChildren }: MarketListProps) => {
           eventHandlers={{
             click: () => {
               setSelect(item);
-              map.setView(
-                [
-                  item.address?.location?.coordinates?.[0],
-                  item.address?.location?.coordinates?.[1],
-                ],
-                11,
-              );
+              map.setView([item.address?.location?.coordinates?.[0], item.address?.location?.coordinates?.[1]], 11);
             },
           }}
-          position={[
-            item?.address?.location?.coordinates?.[0],
-            item?.address?.location?.coordinates?.[1],
-          ]}
+          position={[item?.address?.location?.coordinates?.[0], item?.address?.location?.coordinates?.[1]]}
         >
           <Popup closeButton={false} autoPan={false}>
             <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
               <span>{item?.name}</span>
               <IconButton
-                aria-label="visibility"
-                size="small"
+                aria-label='visibility'
+                size='small'
                 onClick={() => {
                   setSelect(null);
-                  map.setView(
-                    [
-                      item.address?.location?.coordinates?.[0],
-                      item.address?.location?.coordinates?.[1],
-                    ],
-                    7,
-                  );
+                  map.setView([item.address?.location?.coordinates?.[0], item.address?.location?.coordinates?.[1]], 7);
                 }}
               >
-                <VisibilityOffIcon fontSize="small" />
+                <VisibilityOffIcon fontSize='small' />
               </IconButton>
             </div>
           </Popup>
@@ -85,10 +70,7 @@ const MarketList = ({ listNode, dataChildren }: MarketListProps) => {
         dataChildren?.map((item: any, index: any) => (
           <>
             <Circle
-              center={[
-                item?.address?.location?.coordinates?.[0],
-                item?.address?.location?.coordinates?.[1],
-              ]}
+              center={[item?.address?.location?.coordinates?.[0], item?.address?.location?.coordinates?.[1]]}
               pathOptions={fillBlueOptions}
               radius={map?.getZoom() * 60}
             />
@@ -96,14 +78,8 @@ const MarketList = ({ listNode, dataChildren }: MarketListProps) => {
               key={index}
               pathOptions={limeOptions}
               positions={[
-                [
-                  item?.address?.location?.coordinates?.[0],
-                  item?.address?.location?.coordinates?.[1],
-                ],
-                [
-                  select?.address?.location?.coordinates?.[0],
-                  select?.address?.location?.coordinates?.[1],
-                ],
+                [item?.address?.location?.coordinates?.[0], item?.address?.location?.coordinates?.[1]],
+                [select?.address?.location?.coordinates?.[0], select?.address?.location?.coordinates?.[1]],
               ]}
             />
           </>

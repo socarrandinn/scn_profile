@@ -2,12 +2,10 @@ import { FormFieldControl, FormLabel } from '@dfl/mui-react-common';
 import { FormHelperText } from '@mui/material';
 import {
   MultipleMediaUploaderProps,
-  SingleMediaUploaderProps
+  SingleMediaUploaderProps,
 } from 'modules/common/components/MediaUploader/interfaces';
 import SingleMediaUploader from 'modules/common/components/MediaUploader/SingleMediaUploader';
-import {
-  useSingleUploaderController
-} from 'modules/common/components/MediaUploader/hooks/useSingleUploaderController';
+import { useSingleUploaderController } from 'modules/common/components/MediaUploader/hooks/useSingleUploaderController';
 
 const MediaUploaderField = ({
   value,
@@ -18,22 +16,22 @@ const MediaUploaderField = ({
   helperText,
   ...props
 }: SingleMediaUploaderProps) => {
-  const { uploadError, isLoading, onAcceptFilesHandler } = useSingleUploaderController(value, onChange)
+  const { uploadError, isLoading, onAcceptFilesHandler } = useSingleUploaderController(value, onChange);
 
   return (
-        <FormLabel label={label} required={required}>
-            <SingleMediaUploader
-                image={value}
-                onAcceptFiles={onAcceptFilesHandler}
-                uploading={isLoading}
-                error={uploadError}
-                {...props}
-            />
-            {helperText ? <FormHelperText error={error}>{helperText}</FormHelperText> : <></>}
-        </FormLabel>
+    <FormLabel label={label} required={required}>
+      <SingleMediaUploader
+        image={value}
+        onAcceptFiles={onAcceptFilesHandler}
+        uploading={isLoading}
+        error={uploadError}
+        {...props}
+      />
+      {helperText ? <FormHelperText error={error}>{helperText}</FormHelperText> : <></>}
+    </FormLabel>
   );
 };
 
 export const FormSingleMediaUploaderField = (props: MultipleMediaUploaderProps) => {
-  return <FormFieldControl {...props} Component={MediaUploaderField}/>;
+  return <FormFieldControl {...props} Component={MediaUploaderField} />;
 };

@@ -50,13 +50,17 @@ const AddLocationButton = ({ deliveryType, icon = false, state, country, id }: P
       <PermissionCheck permissions={HOME_DELIVERY_PERMISSIONS.HOME_DELIVERY_WRITE}>
         {icon ? (
           <IconButton tooltip={t('common:addRule')} onClick={handleOpen}>
-            <AddCircle color="primary" />
+            <AddCircle color='primary' />
           </IconButton>
         ) : (
           <AddButton action={handleOpen}>{t('add')}</AddButton>
         )}
       </PermissionCheck>
-      <HomeDeliveryCreateModal open={isOpen} onClose={handleClose} initValue={{ ...emptyDelivery, location: { type: deliveryType, state, country } }} />
+      <HomeDeliveryCreateModal
+        open={isOpen}
+        onClose={handleClose}
+        initValue={{ ...emptyDelivery, location: { type: deliveryType, state, country } }}
+      />
     </>
   );
 };

@@ -49,7 +49,7 @@ const OrderShippingInfo = ({ shipping }: Props) => {
                 padding: '0 8px',
                 alignItems: 'center',
                 fontWeight: 400,
-                gap:1
+                gap: 1,
               }}
             >
               <ClockIcon fontSize='small' />

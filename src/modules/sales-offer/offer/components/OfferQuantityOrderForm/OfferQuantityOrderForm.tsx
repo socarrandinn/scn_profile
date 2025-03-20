@@ -27,13 +27,7 @@ const OfferQuantityOrderForm = ({ section, control }: OfferQuantityOrderFormProp
   return (
     <Stack gap={2}>
       {fields?.map((amount, index) => (
-        <OfferQuantityOrderItem
-          key={amount?.id}
-          remove={remove}
-          index={index}
-          name={name}
-          section={!section}
-        />
+        <OfferQuantityOrderItem key={amount?.id} remove={remove} index={index} name={name} section={!section} />
       ))}
       <Button
         onClick={addAmountRule}

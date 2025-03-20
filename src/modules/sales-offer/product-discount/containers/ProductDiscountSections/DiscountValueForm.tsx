@@ -12,31 +12,13 @@ const DiscountValueForm = ({ priceType }: DiscountValueFormProps) => {
   return (
     <Grid container spacing={{ xs: 1, md: 2 }} columns={{ xs: 4, sm: 8, md: 12 }}>
       <Grid item xs={12} md={12}>
-        <FormTextField
-          fullWidth
-          required
-          name='discount'
-          label={t('fields.discount')}
-          size='medium'
-        />
+        <FormTextField fullWidth required name='discount' label={t('fields.discount')} size='medium' />
       </Grid>
       <Grid item xs={12} md={12}>
-        <FormDateTimePickerField
-          fullWidth
-          required
-          name='startDate'
-          label={t('fields.startDate')}
-          size='medium'
-        />
+        <FormDateTimePickerField fullWidth required name='startDate' label={t('fields.startDate')} size='medium' />
       </Grid>
       <Grid item xs={12} md={12}>
-        <FormDateTimePickerField
-          fullWidth
-          required
-          name='endDate'
-          label={t('fields.endDate')}
-          size='medium'
-        />
+        <FormDateTimePickerField fullWidth required name='endDate' label={t('fields.endDate')} size='medium' />
       </Grid>
     </Grid>
   );

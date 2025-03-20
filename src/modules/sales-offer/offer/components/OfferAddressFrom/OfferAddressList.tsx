@@ -17,12 +17,7 @@ const OfferAddressList = ({ section, fields, removeRule }: OfferAddressListProps
     <List sx={{ width: '100%' }}>
       {fields?.map((ruleAddress: any, index: number) => (
         <Stack key={ruleAddress?.id}>
-          <OfferAddressFromItem
-            removeRule={removeRule}
-            index={index}
-            ruleAddress={ruleAddress}
-            section={section}
-          />
+          <OfferAddressFromItem removeRule={removeRule} index={index} ruleAddress={ruleAddress} section={section} />
           <Divider />
         </Stack>
       ))}

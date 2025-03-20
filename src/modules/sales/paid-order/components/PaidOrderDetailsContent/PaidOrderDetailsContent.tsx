@@ -10,10 +10,7 @@ const PaidOrderDetailsContent = () => {
 
   return (
     <Suspense fallback={<ContentLoader />}>
-      <RouteLoader
-        routes={paidOrderRouters}
-        notfoundRedirect={`${PAID_ORDER_ROUTE.DETAIL(order?._id as string)}`}
-      />
+      <RouteLoader routes={paidOrderRouters} notfoundRedirect={`${PAID_ORDER_ROUTE.DETAIL(order?._id as string)}`} />
     </Suspense>
   );
 };

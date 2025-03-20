@@ -22,7 +22,14 @@ const ReportCauseForm = ({ error, control, isLoading, onSubmit }: ReportCauseFor
             <FormTextField fullWidth autoFocus required name='name' label={t('fields.name')} />
           </Grid>
           <Grid item xs={12}>
-            <FormTextField required fullWidth multiline minRows={3} name='description' label={t('fields.description')} />
+            <FormTextField
+              required
+              fullWidth
+              multiline
+              minRows={3}
+              name='description'
+              label={t('fields.description')}
+            />
           </Grid>
         </Grid>
       </Form>

@@ -6,7 +6,7 @@ import { Add } from '@mui/icons-material';
 
 interface IAddNewAudienceButton {
   append: UseFieldArrayAppend<ICausesIncidence, 'notification.audience'>;
-  disabled: boolean
+  disabled: boolean;
 }
 
 const AddNewAudienceButton = ({ append, disabled }: IAddNewAudienceButton) => {

@@ -24,7 +24,7 @@ const useRoleUpdateIconForm = (role: IRole | undefined, onClose?: () => void) =>
     isLoading,
     isSuccess,
     data,
-    onSubmit: mutate
+    onSubmit: mutate,
   };
 };
 

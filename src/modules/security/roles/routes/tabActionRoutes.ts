@@ -1,4 +1,3 @@
-
 import { RouteConfig } from '@dfl/react-security';
 import { RoleList, RoleProviderList } from 'modules/security/roles/pages';
 import RolePublicList from '../pages/RolePublicList';

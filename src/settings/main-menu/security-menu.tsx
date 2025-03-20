@@ -2,7 +2,7 @@ import { IMenu } from '@dfl/mui-react-common';
 import { AudiLogIcon, RoleIcon, UserIcon } from 'modules/security/common/components/icons';
 import { ProviderUserIcon } from 'modules/security/common/components/icons/ProviderUserIcon';
 
-export const SECURITY_MENU: Array<IMenu & { modulePath?: string, items: any[] }> = [
+export const SECURITY_MENU: Array<IMenu & { modulePath?: string; items: any[] }> = [
   {
     title: 'main_menu.admin.section.security.title',
     permissions: ['ADMIN'],

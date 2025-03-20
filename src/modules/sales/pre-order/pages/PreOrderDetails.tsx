@@ -2,7 +2,7 @@ import { memo } from 'react';
 import PreOrderDetailContainer from '../containers/PreOrderDetailContainer';
 
 const PreOrderDetails = () => {
-  return <PreOrderDetailContainer/>
+  return <PreOrderDetailContainer />;
 };
 
 export default memo(PreOrderDetails);

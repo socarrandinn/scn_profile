@@ -8,9 +8,7 @@ const HomeDeliveryListToolbar = () => {
   return (
     <>
       <GeneralActions>
-        <AddLocationButton
-          deliveryType={ADDRESS_COUNTRY_CODE === 'CU' ? LOCATION_TYPE.STATE : LOCATION_TYPE.COUNTRY}
-        />
+        <AddLocationButton deliveryType={ADDRESS_COUNTRY_CODE === 'CU' ? LOCATION_TYPE.STATE : LOCATION_TYPE.COUNTRY} />
       </GeneralActions>
     </>
   );

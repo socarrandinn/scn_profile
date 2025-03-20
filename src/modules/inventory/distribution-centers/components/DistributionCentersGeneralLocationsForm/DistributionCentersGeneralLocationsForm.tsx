@@ -11,7 +11,12 @@ type DistributionCentersGeneralLocationsFormProps = {
   onSubmit: FormEventHandler | undefined;
 };
 
-const DistributionCentersGeneralLocationsForm = ({ error, control, isLoading, onSubmit }: DistributionCentersGeneralLocationsFormProps) => {
+const DistributionCentersGeneralLocationsForm = ({
+  error,
+  control,
+  isLoading,
+  onSubmit,
+}: DistributionCentersGeneralLocationsFormProps) => {
   const { t } = useTranslation('warehouse');
   return (
     <div>

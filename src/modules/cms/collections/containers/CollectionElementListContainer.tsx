@@ -26,7 +26,7 @@ const columns = {
 };
 const CollectionElementListContainer = ({ contentType }: Props) => {
   const { collectionId } = useCollectionDetails();
-  const noPagination = [COLLECTION_CONTENT_TYPE.PRODUCT].some(c => c === contentType);
+  const noPagination = [COLLECTION_CONTENT_TYPE.PRODUCT].some((c) => c === contentType);
 
   const { data, error, isLoading } = useFindCollectionElements(collectionId as string, contentType);
 

@@ -16,9 +16,25 @@ const LocationInternationalForm = ({ type }: LocationFormProps) => {
   return useMemo(() => {
     switch (type) {
       case LOCATION_TYPE.STATE:
-        return <FormTextField autoComplete='off' required name={'location.state'} label={t('fields.address.state')} disabled={Boolean(value)} />;
+        return (
+          <FormTextField
+            autoComplete='off'
+            required
+            name={'location.state'}
+            label={t('fields.address.state')}
+            disabled={Boolean(value)}
+          />
+        );
       case LOCATION_TYPE.CITY:
-        return <FormTextField autoComplete='off' required name={'location.city'} label={t('fields.address.city')} disabled={Boolean(value)} />;
+        return (
+          <FormTextField
+            autoComplete='off'
+            required
+            name={'location.city'}
+            label={t('fields.address.city')}
+            disabled={Boolean(value)}
+          />
+        );
       default:
         return (
           <FormSelectCountry

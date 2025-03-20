@@ -1,11 +1,7 @@
-import TrackingStatusPicker from '../components/TrackingStatusPicker/TrackingStatusPicker'
+import TrackingStatusPicker from '../components/TrackingStatusPicker/TrackingStatusPicker';
 
 const UpdateManyTrackingStatusesContainer = () => {
-  return (
+  return <TrackingStatusPicker value={true} handleChange={() => {}} isLoading={false} />;
+};
 
-      <TrackingStatusPicker value={true} handleChange={() => {}} isLoading={false}/>
-
-  )
-}
-
-export default UpdateManyTrackingStatusesContainer
+export default UpdateManyTrackingStatusesContainer;

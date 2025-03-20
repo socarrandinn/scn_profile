@@ -11,7 +11,7 @@ const TestimonyEditModal = () => {
   const { isLoading, data, error } = useFindOneTestimony(entityId);
 
   const handleCloseEdit = useCallback(() => {
-    entityId && searchParams.delete('edit')
+    entityId && searchParams.delete('edit');
     setSearchParams(searchParams);
   }, [searchParams, setSearchParams, entityId]);
 

@@ -1,12 +1,12 @@
 import { IImageMedia } from 'modules/common/interfaces';
 
-export type IUploadImage = IImageMedia & { isLoading?: boolean, isError?: boolean }
+export type IUploadImage = IImageMedia & { isLoading?: boolean; isError?: boolean };
 
 export type UploadOptions = {
-  maxSize?: number,
-  maxFiles?: number,
-  multiple?: boolean
-}
+  maxSize?: number;
+  maxFiles?: number;
+  multiple?: boolean;
+};
 
 export type MediaUploaderProps = {
   onSuccess?: () => void;
@@ -17,7 +17,7 @@ export type MediaUploaderProps = {
   error?: boolean;
   required?: boolean;
   serverPath?: string;
-  uploadOptions?: UploadOptions
+  uploadOptions?: UploadOptions;
 };
 
 export type MultipleMediaUploaderProps = MediaUploaderProps & {

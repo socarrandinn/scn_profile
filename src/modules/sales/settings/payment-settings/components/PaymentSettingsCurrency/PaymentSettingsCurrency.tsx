@@ -21,17 +21,17 @@ const PaymentSettingsCurrency = () => {
 
     return {
       primary: safeSettings?.primary || CURRENCY_TYPE_ENUM.USD,
-      currencies: safeSettings?.currencies.map((currency) => ({
-        ...currency,
-        isCustomRate:
-          currency?.isCustomRate === true
-            ? CURRENCY_RATE_MODE.MANUAL
-            : CURRENCY_RATE_MODE.AUTOMATIC,
-      })) || [],
-    }
+      currencies:
+        safeSettings?.currencies.map((currency) => ({
+          ...currency,
+          isCustomRate: currency?.isCustomRate === true ? CURRENCY_RATE_MODE.MANUAL : CURRENCY_RATE_MODE.AUTOMATIC,
+        })) || [],
+    };
   }, [settings]);
 
-  const { onSubmit, control, error, isLoading, formState, watch, setValue } = useCurrencySettingsCreateForm(currencyData as ICurrencySettings);
+  const { onSubmit, control, error, isLoading, formState, watch, setValue } = useCurrencySettingsCreateForm(
+    currencyData as ICurrencySettings,
+  );
 
   return (
     <PagePaperLayout title={t('currencySettings')}>

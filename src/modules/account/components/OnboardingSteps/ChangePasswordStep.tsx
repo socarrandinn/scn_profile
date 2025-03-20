@@ -9,7 +9,7 @@ const ChangePasswordStep = ({ setStep }: { setStep: Dispatch<SetStateAction<numb
   const { t } = useTranslation('common');
 
   const handleBackClick = useCallback(() => {
-    setStep(1)
+    setStep(1);
   }, [setStep]);
 
   return (
@@ -24,10 +24,14 @@ const ChangePasswordStep = ({ setStep }: { setStep: Dispatch<SetStateAction<numb
       className='p-[32px_27px_10px_27px]'
       size='small'
       helperText={t('account:onboarding.changePassword.helperText')}
-      otherAction={<Button color='success' onClick={handleBackClick}>{t('back')}</Button>}
+      otherAction={
+        <Button color='success' onClick={handleBackClick}>
+          {t('back')}
+        </Button>
+      }
       buttonText={t('save')}
     />
-  )
+  );
 };
 
 export default memo(ChangePasswordStep);

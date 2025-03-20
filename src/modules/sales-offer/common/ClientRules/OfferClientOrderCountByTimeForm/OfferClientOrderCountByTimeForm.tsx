@@ -35,9 +35,7 @@ const OfferClientOrderCountByTimeForm = ({
           {...props}
         />
 
-        {errors?.rulesCategories?.type === 'min' && (
-          <Alert severity='error'>{t(errors?.[name]?.message)}</Alert>
-        )}
+        {errors?.rulesCategories?.type === 'min' && <Alert severity='error'>{t(errors?.[name]?.message)}</Alert>}
       </Stack>
     </Stack>
   );

@@ -19,7 +19,10 @@ const initValues: Partial<IDistributionCenters> = {
   },
 };
 
-const useDistributionCentersContactCreateForm = (onClose: () => void, defaultValues: Partial<IDistributionCenters> = initValues) => {
+const useDistributionCentersContactCreateForm = (
+  onClose: () => void,
+  defaultValues: Partial<IDistributionCenters> = initValues,
+) => {
   const { t } = useTranslation('provider');
   const queryClient = useQueryClient();
   const { control, handleSubmit, reset, formState } = useForm({

@@ -31,12 +31,7 @@ const ConciliationAdjustmentCausesListToolbar = () => {
 
   return (
     <>
-      <TableToolbar
-        selectActions={
-          <Stack direction={'row'} spacing={1}>
-          </Stack>
-        }
-      >
+      <TableToolbar selectActions={<Stack direction={'row'} spacing={1}></Stack>}>
         <TableToolbarActions settings={settings} />
       </TableToolbar>
       <GeneralActions>

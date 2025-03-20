@@ -30,22 +30,17 @@ const BankListToolbar = () => {
   const { isOpen, settings, onClose, onOpen } = useToolbarSetting();
 
   return (
-        <>
-            <TableToolbar
-                selectActions={
-                    <Stack direction={'row'} spacing={1}>
-                    </Stack>
-                }
-            >
-                <TableToolbarActions settings={settings}/>
-            </TableToolbar>
-            <GeneralActions>
-                <PermissionCheck permissions={BANK_PERMISSIONS.BANK_WRITE}>
-                    <AddButton action={onOpen}/>
-                </PermissionCheck>
-            </GeneralActions>
-            <BankCreateModal open={isOpen} onClose={onClose}/>
-        </>
+    <>
+      <TableToolbar selectActions={<Stack direction={'row'} spacing={1}></Stack>}>
+        <TableToolbarActions settings={settings} />
+      </TableToolbar>
+      <GeneralActions>
+        <PermissionCheck permissions={BANK_PERMISSIONS.BANK_WRITE}>
+          <AddButton action={onOpen} />
+        </PermissionCheck>
+      </GeneralActions>
+      <BankCreateModal open={isOpen} onClose={onClose} />
+    </>
   );
 };
 

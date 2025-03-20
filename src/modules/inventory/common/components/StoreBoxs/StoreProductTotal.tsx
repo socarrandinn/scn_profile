@@ -13,7 +13,10 @@ type StoreProductTotalProps = {
 const StoreProductTotal = ({ distributions }: StoreProductTotalProps) => {
   const { t } = useTranslation('warehouse');
   const productTotal = useMemo(() => distributions?.[0]?.of, [distributions]);
-  const path = useMemo(() => distributions?.map((warehouse) => `warehouse=${warehouse?.warehouse}`).join('&'), [distributions]);
+  const path = useMemo(
+    () => distributions?.map((warehouse) => `warehouse=${warehouse?.warehouse}`).join('&'),
+    [distributions],
+  );
   return (
     <PaperContent
       sx={{

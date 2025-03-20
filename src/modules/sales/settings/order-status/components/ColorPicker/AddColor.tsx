@@ -1,11 +1,4 @@
-import {
-  Dialog,
-  Box,
-  DialogTitle,
-  Typography,
-  DialogContent,
-  DialogActions,
-} from '@mui/material';
+import { Dialog, Box, DialogTitle, Typography, DialogContent, DialogActions } from '@mui/material';
 import CloseIcon from '@mui/icons-material/Close';
 import { FlexBox, IconButton } from '@dfl/mui-react-common';
 import AddIcon from '@mui/icons-material/Add';
@@ -21,8 +14,8 @@ interface IAddColor {
 }
 
 const AddColor = ({ onColorSelect }: IAddColor) => {
-  const { t } = useTranslation()
-  const { blue, green, red, setBlue, setGreen, setRed, open, setOpen } = useColorPicker('')
+  const { t } = useTranslation();
+  const { blue, green, red, setBlue, setGreen, setRed, open, setOpen } = useColorPicker('');
 
   const toHex = (value: number): string => {
     return value.toString(16).padStart(2, '0');

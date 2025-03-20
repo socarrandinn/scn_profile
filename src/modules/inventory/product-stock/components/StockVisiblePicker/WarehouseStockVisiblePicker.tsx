@@ -12,7 +12,11 @@ type Props = {
 
 const WarehouseStockVisiblePicker = ({ value, rowId, button, warehouseId }: Props) => {
   const { id } = useParams();
-  const { updateVisible, isLoading, value: lastValue } = useWarehouseStockUpdateVisible(warehouseId || id as string, rowId);
+  const {
+    updateVisible,
+    isLoading,
+    value: lastValue,
+  } = useWarehouseStockUpdateVisible(warehouseId || (id as string), rowId);
 
   return (
     <StockVisiblePickerContainer

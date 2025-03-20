@@ -7,19 +7,27 @@ export const round = (value: number) => {
 
 class SupplierAnalyticsService extends EntityApiService<any> {
   getSupplierReportSaleByLocation = (supplierProductId: string, params: any, config?: any) => {
-    return this.handleResponse(ApiClientService.post(this.getPath(`/summary/by-location/${supplierProductId}`), params, config));
+    return this.handleResponse(
+      ApiClientService.post(this.getPath(`/summary/by-location/${supplierProductId}`), params, config),
+    );
   };
 
   getSupplierReportSalePercentByLocation = (supplierProductId: string, params: any, config?: any) => {
-    return this.handleResponse(ApiClientService.post(this.getPath(`/summary/percent-by-location/${supplierProductId}`), params, config));
+    return this.handleResponse(
+      ApiClientService.post(this.getPath(`/summary/percent-by-location/${supplierProductId}`), params, config),
+    );
   };
 
   getSupplierReportSaleByDays = (supplierProductId: string, params: any, config?: any) => {
-    return this.handleResponse(ApiClientService.post(this.getPath(`/summary/by-days/${supplierProductId}`), params, config));
+    return this.handleResponse(
+      ApiClientService.post(this.getPath(`/summary/by-days/${supplierProductId}`), params, config),
+    );
   };
 
   getSupplierReportSaleByCountry = (supplierProductId: string, params: any, config?: any) => {
-    return this.handleResponse(ApiClientService.post(this.getPath(`/summary/by-country/${supplierProductId}`), params, config));
+    return this.handleResponse(
+      ApiClientService.post(this.getPath(`/summary/by-country/${supplierProductId}`), params, config),
+    );
   };
 }
 

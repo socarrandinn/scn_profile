@@ -13,7 +13,13 @@ const usePaymentMethodCreateForm = (id: string, defaultValues: IPaymentSettings,
   const { t } = useTranslation('paymentSettings');
   const queryClient = useQueryClient();
 
-  const { control, handleSubmit, reset: resetForm, watch, formState } = useForm({
+  const {
+    control,
+    handleSubmit,
+    reset: resetForm,
+    watch,
+    formState,
+  } = useForm({
     resolver: yupResolver(paymentSettingsSchema),
     defaultValues,
   });
@@ -24,26 +30,27 @@ const usePaymentMethodCreateForm = (id: string, defaultValues: IPaymentSettings,
     if (defaultValues) resetForm(defaultValues);
   }, [defaultValues, resetForm]);
 
-  const { mutate, reset: resetMutation, error, isLoading, isSuccess, data } = useMutation(
-    (settings: IPaymentSettings) => PaymentMethodsService.updateSettings(id, { settings }),
-    {
-      onSuccess: (data, values) => {
-        queryClient.invalidateQueries([PAYMENT_METHOD_LIST_KEY]);
-        queryClient.invalidateQueries([data?._id, PAYMENT_METHOD_ONE_KEY]);
-        toast.success(t('successUpdate'));
-        onClose?.();
-        resetForm();
-      },
+  const {
+    mutate,
+    reset: resetMutation,
+    error,
+    isLoading,
+    isSuccess,
+    data,
+  } = useMutation((settings: IPaymentSettings) => PaymentMethodsService.updateSettings(id, { settings }), {
+    onSuccess: (data, values) => {
+      queryClient.invalidateQueries([PAYMENT_METHOD_LIST_KEY]);
+      queryClient.invalidateQueries([data?._id, PAYMENT_METHOD_ONE_KEY]);
+      toast.success(t('successUpdate'));
+      onClose?.();
+      resetForm();
     },
-  );
+  });
 
-  const reset = useCallback(
-    () => {
-      resetForm()
-      resetMutation()
-    },
-    [resetForm, resetMutation],
-  )
+  const reset = useCallback(() => {
+    resetForm();
+    resetMutation();
+  }, [resetForm, resetMutation]);
 
   return {
     control,

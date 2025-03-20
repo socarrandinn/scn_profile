@@ -12,4 +12,4 @@ export const useDashboardFilter = () => {
     if (Object.keys(filters).length === 0) return {};
     return { filters };
   }, [urlFilterObj]);
-}
+};

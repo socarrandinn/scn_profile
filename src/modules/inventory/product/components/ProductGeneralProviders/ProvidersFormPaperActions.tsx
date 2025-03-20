@@ -16,11 +16,19 @@ const ProvidersFormPaperActions = ({ label, onToggle, open }: Props) => {
   return (
     <Box display={'flex'} justifyContent={'space-between'} alignContent={'center'} width={'100%'}>
       <Box>
-        <Typography marginTop={'6px'} fontWeight={500} fontSize={14}>{label}</Typography>
+        <Typography marginTop={'6px'} fontWeight={500} fontSize={14}>
+          {label}
+        </Typography>
       </Box>
       <Box>
         <LoadingButton onClick={onToggle}>
-          {open ? t('common:close') : <Tooltip title={t('common:updateInfo')}><BorderColorOutlinedIcon sx={{ fontSize: '17px' }} /></Tooltip>}
+          {open ? (
+            t('common:close')
+          ) : (
+            <Tooltip title={t('common:updateInfo')}>
+              <BorderColorOutlinedIcon sx={{ fontSize: '17px' }} />
+            </Tooltip>
+          )}
         </LoadingButton>
       </Box>
     </Box>

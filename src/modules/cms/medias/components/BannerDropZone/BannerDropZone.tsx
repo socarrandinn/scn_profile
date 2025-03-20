@@ -33,7 +33,7 @@ type BannerDropZoneProps = TextFieldProps & {
   showDropzoneWrapper?: boolean;
   documentName?: string;
   boxSx?: BoxProps['sx'];
-  imageOption: IImageOption
+  imageOption: IImageOption;
 };
 
 const BannerDropZone = ({

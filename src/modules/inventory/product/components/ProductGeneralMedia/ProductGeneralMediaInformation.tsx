@@ -58,13 +58,7 @@ const ProductGeneralMediaInformation = () => {
     <FormPaper
       mbHeader={'13.04px'}
       title={t('section.media.title')}
-      actions={
-        <FormPaperAction
-          onToggle={handleToggle}
-          open={open}
-          permissions={PRODUCT_PERMISSIONS.PRODUCT_WRITE}
-        />
-      }
+      actions={<FormPaperAction onToggle={handleToggle} open={open} permissions={PRODUCT_PERMISSIONS.PRODUCT_WRITE} />}
     >
       {isLoading && <ProductGeneralMediaSkeleton />}
       {error && <HandlerError error={error} mapError={mapGetOneErrors} />}

@@ -18,7 +18,13 @@ type WarehouseUpdateStockFormProps = {
   formState: any;
 };
 
-const WarehouseUpdateStockForm = ({ isLoading, onSubmit, onlyAdd, control, setValue }: WarehouseUpdateStockFormProps) => {
+const WarehouseUpdateStockForm = ({
+  isLoading,
+  onSubmit,
+  onlyAdd,
+  control,
+  setValue,
+}: WarehouseUpdateStockFormProps) => {
   const { t } = useTranslation(['stock', 'warehouseArea', 'product']);
   const { operation, warehouseArea } = useWatch({ control });
   const isAdd = useMemo(() => operation === STOCK_OPERATIONS.ADDED, [operation]);

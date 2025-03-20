@@ -10,7 +10,12 @@ type ConciliationAdjustmentCausesFormProps = {
   onSubmit: FormEventHandler | undefined;
 };
 
-const ConciliationAdjustmentCausesForm = ({ error, control, isLoading, onSubmit }: ConciliationAdjustmentCausesFormProps) => {
+const ConciliationAdjustmentCausesForm = ({
+  error,
+  control,
+  isLoading,
+  onSubmit,
+}: ConciliationAdjustmentCausesFormProps) => {
   const { t } = useTranslation('conciliationAdjustmentCauses');
 
   return (

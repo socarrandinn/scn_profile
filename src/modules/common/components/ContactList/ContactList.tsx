@@ -21,9 +21,7 @@ const ContactList = ({ contacts }: ContactListProps) => {
           <ListItemText
             primary={
               <Stack gap={0.5} flexDirection={'row'}>
-                <Typography fontWeight={800}>
-                  {`${t(contact?.label)}:`}
-                </Typography>
+                <Typography fontWeight={800}>{`${t(contact?.label)}:`}</Typography>
                 <Typography variant={'body1'} sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
                   {contact?.value}
                   {contact?.principal ? <CheckCircle fontSize='small' color='success' /> : ''}

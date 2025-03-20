@@ -16,7 +16,7 @@ type CausesIncidenceSelectProps = {
   multiple?: boolean;
 };
 
-const renderLabel = (option: ICausesIncidence) => option?.name as unknown as string || '';
+const renderLabel = (option: ICausesIncidence) => (option?.name as unknown as string) || '';
 
 const renderOption = (props: any, option: ICausesIncidence, { selected }: any) => {
   return (

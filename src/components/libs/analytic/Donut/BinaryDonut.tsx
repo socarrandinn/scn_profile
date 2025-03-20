@@ -15,7 +15,7 @@ export const optionsDefault: ApexOptions = {
 
 const BinaryDonut = ({ value, rest, color = 'primary', ...props }: BinaryDonutProps) => {
   const { palette } = useTheme();
-  const { series, colors } = useMemo<{ colors: string[], series: any[] }>(() => {
+  const { series, colors } = useMemo<{ colors: string[]; series: any[] }>(() => {
     const series = [rest || 0, value || 0];
     // @ts-ignore
     const colorP = color ? palette[color]?.main || palette.primary.main : optionsDefault.colors[1];
@@ -27,9 +27,7 @@ const BinaryDonut = ({ value, rest, color = 'primary', ...props }: BinaryDonutPr
     };
   }, [value, rest, color, palette]);
 
-  return (
-        <Donut value={series} colors={colors} {...props}/>
-  );
+  return <Donut value={series} colors={colors} {...props} />;
 };
 
 export default memo(BinaryDonut);

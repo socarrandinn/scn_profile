@@ -17,17 +17,10 @@ const UserDetailsContent = ({ path, tabs }: Props) => {
   return (
     <Box pt={1}>
       <TabsHeader>
-        <RouterTab
-          tabs={tabs}
-          prefix={`/${path}/${user?._id as string}`}
-          translationNs={'account'}
-        />
+        <RouterTab tabs={tabs} prefix={`/${path}/${user?._id as string}`} translationNs={'account'} />
       </TabsHeader>
       <Box>
-        <RouteLoader
-          routes={accountRoutes}
-          notfoundRedirect={`/${path}/${user?._id as string}/general`}
-        />
+        <RouteLoader routes={accountRoutes} notfoundRedirect={`/${path}/${user?._id as string}/general`} />
       </Box>
     </Box>
   );

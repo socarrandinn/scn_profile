@@ -36,7 +36,7 @@ const useResetPasswordForm = (key: string) => {
     data,
     mutate,
     onSubmit: handleSubmit((value) => {
-      mutate(value)
+      mutate(value);
     }),
   };
 };

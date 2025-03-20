@@ -4,10 +4,10 @@ import { IUploadImage } from 'modules/common/components/MediaUploader/interfaces
 import { ImageListProps } from '@mui/material';
 
 type MultipleMediaUploaderProps = MediaUploaderProps & {
-  images?: IUploadImage[]
+  images?: IUploadImage[];
   imageListProps?: ImageListProps;
   onDeleteImage?: (index: number, image: IUploadImage) => void;
-}
+};
 const MultipleMediaUploader = ({
   images,
   onDeleteImage,
@@ -16,10 +16,9 @@ const MultipleMediaUploader = ({
   ...props
 }: MultipleMediaUploaderProps) => {
   return (
-        <MediaUploader {...props} >
-            <ImageList images={images || []} onDeleteImage={onDeleteImage || (() => {
-            })} {...imageListProps} size={100}/>
-        </MediaUploader>
+    <MediaUploader {...props}>
+      <ImageList images={images || []} onDeleteImage={onDeleteImage || (() => {})} {...imageListProps} size={100} />
+    </MediaUploader>
   );
 };
 

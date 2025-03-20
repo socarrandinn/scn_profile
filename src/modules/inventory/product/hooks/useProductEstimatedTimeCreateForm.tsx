@@ -15,7 +15,10 @@ const initValues: Partial<IProductCreate> = {
   shippingSettings: productInitValue.shippingSettings,
 };
 
-const useProductEstimatedTimeCreateForm = (onClose: () => void, defaultValues: Partial<IProductCreate> = initValues) => {
+const useProductEstimatedTimeCreateForm = (
+  onClose: () => void,
+  defaultValues: Partial<IProductCreate> = initValues,
+) => {
   const { t } = useTranslation('provider');
   const queryClient = useQueryClient();
   const { control, handleSubmit, reset, formState } = useForm({

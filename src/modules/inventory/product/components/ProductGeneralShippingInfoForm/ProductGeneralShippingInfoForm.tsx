@@ -8,7 +8,6 @@ type ProductGeneralShippingInfoFormProps = {
   control: any;
   isLoading: boolean;
   onSubmit: FormEventHandler | undefined;
-
 };
 
 const ProductGeneralShippingInfoForm = ({
@@ -22,7 +21,7 @@ const ProductGeneralShippingInfoForm = ({
       <HandlerError error={error} />
       <Form onSubmit={onSubmit} control={control} isLoading={isLoading} size={'small'} id={'form'}>
         <Grid container spacing={{ xs: 1, md: 2 }} columns={{ xs: 4, sm: 8, md: 12 }}>
-          <ShippingInfoForm/>
+          <ShippingInfoForm />
         </Grid>
       </Form>
     </Box>

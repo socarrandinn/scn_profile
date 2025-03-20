@@ -15,9 +15,12 @@ const initValue = {
   handlingCos: {
     type: PRICE_TYPE.FIXED,
     value: 0,
-  }
-}
-const useDistributionCentersUpdateCommission = (onClose: () => void, defaultValues: Partial<IDistributionCenters> = initValue) => {
+  },
+};
+const useDistributionCentersUpdateCommission = (
+  onClose: () => void,
+  defaultValues: Partial<IDistributionCenters> = initValue,
+) => {
   const { t } = useTranslation('distributionCenters');
   const queryClient = useQueryClient();
   const {
@@ -46,7 +49,8 @@ const useDistributionCentersUpdateCommission = (onClose: () => void, defaultValu
     isSuccess,
     data,
   } = useMutation(
-    (distributionCenters: Partial<IDistributionCenters>) => DistributionCentersService.updateCommission(distributionCenters),
+    (distributionCenters: Partial<IDistributionCenters>) =>
+      DistributionCentersService.updateCommission(distributionCenters),
     {
       onSuccess: (data, values) => {
         queryClient.invalidateQueries([DISTRIBUTION_CENTERS_ONE_KEY]);

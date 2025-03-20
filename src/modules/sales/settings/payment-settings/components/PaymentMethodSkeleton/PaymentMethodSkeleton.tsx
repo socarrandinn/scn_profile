@@ -5,7 +5,7 @@ export const PaymentMethodSkeleton = () => {
   return (
     <FormPaper
       title={<Skeleton height={40} variant='text' width={300} />}
-      sx={{ padding: { xs: 1, md: '20px' }, }}
+      sx={{ padding: { xs: 1, md: '20px' } }}
       mbHeader={'5px !important'}
     >
       <Skeleton height={30} width={700} sx={{ mb: 2 }} />
@@ -17,5 +17,5 @@ export const PaymentMethodSkeleton = () => {
         ))}
       </Grid>
     </FormPaper>
-  )
-}
+  );
+};

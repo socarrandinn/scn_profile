@@ -12,7 +12,9 @@ export const ImagesScheme = Yup.array()
   .max(5, 'maximumImages')
   .test('isError', 'uploadFile.hasErrors', function (array) {
     return !array?.some((item) => item.isError);
-  }).nullable()
+  })
+  .nullable()
   .test('isLoading', 'waitUploading', function (array) {
     return !array?.some((item) => item.isLoading);
-  }).nullable();
+  })
+  .nullable();

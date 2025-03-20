@@ -54,7 +54,7 @@ export const logisticStatusColumn: HeadCell<IProvider> = {
       record={data}
       permissions={LOGISTICS_PERMISSIONS.LOGISTICS_WRITE}
     />
-  )
+  ),
 };
 
 export const logisticsActionsColumn: HeadCell<ILogistics> = {

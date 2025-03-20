@@ -3,7 +3,11 @@ import { FormPaper } from 'modules/common/components/FormPaper';
 import { memo, useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { COLLECTION_BANNER_TYPE } from '../../constants/collection-types';
-import { DragBannerMultipleContent, DragBannerSideBySideContent, DragBannerSimpleContent } from '../BannerDragAndDrop/DragBanner';
+import {
+  DragBannerMultipleContent,
+  DragBannerSideBySideContent,
+  DragBannerSimpleContent,
+} from '../BannerDragAndDrop/DragBanner';
 import { useCollectionDetails } from '../../context/CollectionContext';
 
 const Component = {

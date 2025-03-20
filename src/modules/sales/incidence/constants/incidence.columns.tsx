@@ -8,7 +8,7 @@ export const incidenceNameColumn: HeadCell<IIncidence> = {
   field: 'name',
   headerName: 'incidence:fields.name',
   disablePadding: false,
-  renderCell: (name: string, data?: IIncidence) => (<EditLink entityId={data?._id as string}>{name}</EditLink>),
+  renderCell: (name: string, data?: IIncidence) => <EditLink entityId={data?._id as string}>{name}</EditLink>,
 };
 
 export const incidenceDescriptionColumn: HeadCell<IIncidence> = {
@@ -30,5 +30,5 @@ export const incidenceColumns: Array<HeadCell<any>> = [
   incidenceNameColumn,
   incidenceDescriptionColumn,
   createdATColumn,
-  incidenceActionsColumn
+  incidenceActionsColumn,
 ];

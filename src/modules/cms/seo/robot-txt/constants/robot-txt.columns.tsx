@@ -8,7 +8,7 @@ export const robotTxtNameColumn: HeadCell<IRobotTxt> = {
   field: 'name',
   headerName: 'robotTxt:fields.name',
   disablePadding: false,
-  renderCell: (name: string, data: IRobotTxt) => (<EditLink entityId={data._id as string}>{name}</EditLink>),
+  renderCell: (name: string, data: IRobotTxt) => <EditLink entityId={data._id as string}>{name}</EditLink>,
 };
 
 export const robotTxtDescriptionColumn: HeadCell<IRobotTxt> = {
@@ -30,5 +30,5 @@ export const robotTxtColumns: Array<HeadCell<any>> = [
   robotTxtNameColumn,
   robotTxtDescriptionColumn,
   createdATColumn,
-  robotTxtActionsColumn
+  robotTxtActionsColumn,
 ];

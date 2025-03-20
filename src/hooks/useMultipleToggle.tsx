@@ -8,7 +8,7 @@ const defaultStates: Record<string, boolean> = {
 
 const useMultipleToggle = (init: Record<string, boolean> = defaultStates) => {
   const [state, setState] = useState<Record<string, boolean>>(init);
-  const [allOpen, setOpen] = useState(false)
+  const [allOpen, setOpen] = useState(false);
 
   const onAllToggle = useCallback(() => {
     setState((prevState) => {
@@ -18,7 +18,7 @@ const useMultipleToggle = (init: Record<string, boolean> = defaultStates) => {
           newState[key] = !allOpen;
         }
       }
-      setOpen(!allOpen)
+      setOpen(!allOpen);
 
       return newState;
     });
@@ -43,7 +43,7 @@ const useMultipleToggle = (init: Record<string, boolean> = defaultStates) => {
     onOneClose,
     onOneOpen,
     allOpen,
-    setOpen
+    setOpen,
   };
 };
 

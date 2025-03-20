@@ -6,13 +6,17 @@ import PriceCell from 'modules/security/audit-logs/components/TableCells/PriceCe
 export const PAYMENT_DETAILS_SUMMARY: DetailStackItemRecord[] = [
   {
     label: 'common:fields.minAmount',
-    render: (data: IPaymentMethod) => <CurrencyValue value={data?.settings?.minAmount} currency='$' sx={{ fontWeight: 500 }} />,
+    render: (data: IPaymentMethod) => (
+      <CurrencyValue value={data?.settings?.minAmount} currency='$' sx={{ fontWeight: 500 }} />
+    ),
     hideEmpty: true,
     translate: true,
   },
   {
     label: 'common:fields.maxAmount',
-    render: (data: IPaymentMethod) => <CurrencyValue value={data?.settings?.maxAmount} currency='$' sx={{ fontWeight: 500 }} />,
+    render: (data: IPaymentMethod) => (
+      <CurrencyValue value={data?.settings?.maxAmount} currency='$' sx={{ fontWeight: 500 }} />
+    ),
     hideEmpty: true,
     translate: true,
   },

@@ -80,11 +80,7 @@ const UpdateAvailableProductForm = ({
           )}
           <Grid item xs={12}>
             <Stack flexDirection={'row'} gap={2} alignItems={'start'}>
-              <FormSelectField
-                name='operation'
-                required
-                placeholder={t('cause.title')}
-              >
+              <FormSelectField name='operation' required placeholder={t('cause.title')}>
                 {map(PRODUCT_STOCK_OPERATIONS, (value: string, key: any) => (
                   <MenuItem key={key} value={value}>
                     <>{t(`stock.${value}`)}</>

@@ -6,15 +6,7 @@ const DeleteManyStatuses = () => {
   const { isLoading, mutate } = useDeleteManyOrderStatuses();
   const { isOpen, onClose, onOpen } = useToggle(false);
 
-  return (
-    <DeleteRowAction
-      isOpen={isOpen}
-      isLoading={isLoading}
-      onClose={onClose}
-      onOpen={onOpen}
-      onDelete={mutate}
-    />
-  );
-}
+  return <DeleteRowAction isOpen={isOpen} isLoading={isLoading} onClose={onClose} onOpen={onOpen} onDelete={mutate} />;
+};
 
-export default DeleteManyStatuses
+export default DeleteManyStatuses;

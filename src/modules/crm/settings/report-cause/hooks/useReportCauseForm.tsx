@@ -11,17 +11,12 @@ const initValues: ICause = {
 };
 
 const useReportCauseForm = (onReject: (cause: string) => void, defaultValues: ICause = initValues) => {
-  const {
-    control,
-    handleSubmit,
-    reset,
-    watch
-  } = useForm({
+  const { control, handleSubmit, reset, watch } = useForm({
     resolver: yupResolver(reportCauseIdSchema),
     defaultValues,
   });
 
-  const cause = watch('cause')
+  const cause = watch('cause');
 
   useEffect(() => {
     // @ts-ignore

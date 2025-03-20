@@ -57,7 +57,13 @@ const ProductInventoryListToolbar = ({ stockResume }: Props) => {
       <Typography variant='subtitle2'>{t('section.inventory.title')}</Typography>
 
       <GeneralActions>
-        <FlexBox my={1} sx={{ width: '100%' }} flexDirection={'row'} justifyContent={'space-between'} alignItems={'center'}>
+        <FlexBox
+          my={1}
+          sx={{ width: '100%' }}
+          flexDirection={'row'}
+          justifyContent={'space-between'}
+          alignItems={'center'}
+        >
           <Typography variant='subtitle2'>
             {t('section.inventory.total')}: {stockResume?.available}
           </Typography>
@@ -70,7 +76,6 @@ const ProductInventoryListToolbar = ({ stockResume }: Props) => {
               </AddButton>
             </div>
           </PermissionCheck>
-
         </FlexBox>
       </GeneralActions>
 

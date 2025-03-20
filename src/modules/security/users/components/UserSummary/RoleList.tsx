@@ -60,18 +60,21 @@ const RoleList = ({ roles, user, canEdit, ...rest }: RoleListProps) => {
     });
   }, [groupedRoles]);
 
-  const handleEdit = useCallback((roleType: ROLE_TYPE_ENUM, space?: string) => {
-    const params = new URLSearchParams();
-    params.set('roleType', roleType);
-    if (space) {
-      params.set('space', space);
-    }
-    navigate(`?${params.toString()}`);
-  }, [navigate]);
+  const handleEdit = useCallback(
+    (roleType: ROLE_TYPE_ENUM, space?: string) => {
+      const params = new URLSearchParams();
+      params.set('roleType', roleType);
+      if (space) {
+        params.set('space', space);
+      }
+      navigate(`?${params.toString()}`);
+    },
+    [navigate],
+  );
 
   return (
-    <div className="my-5 mx-[18px]">
-      <Typography variant="body1" sx={{ mb: 2 }}>
+    <div className='my-5 mx-[18px]'>
+      <Typography variant='body1' sx={{ mb: 2 }}>
         {t('currentRoles')}
       </Typography>
 
@@ -83,9 +86,7 @@ const RoleList = ({ roles, user, canEdit, ...rest }: RoleListProps) => {
         const isProviderGroup = firstRole?.type === ROLE_TYPE_ENUM.PROVIDER;
         const roleType = firstRole?.type as ROLE_TYPE_ENUM; // Asegurar que sea public, provider o admin
 
-        const summaryTitle = isProviderGroup
-          ? firstRole?.spaceName
-          : t(`type.${roleType}`);
+        const summaryTitle = isProviderGroup ? firstRole?.spaceName : t(`type.${roleType}`);
 
         return (
           <Accordion
@@ -98,34 +99,25 @@ const RoleList = ({ roles, user, canEdit, ...rest }: RoleListProps) => {
             }}
           >
             <AccordionSummaryStyled id={groupKey} expandIcon={<ExpandMore />}>
-              <div className="flex ml-2">
-                <Typography
-                  sx={{ fontSize: '14px', color: '#2B3445', fontWeight: 500 }}
-                >
-                  {summaryTitle}
-                </Typography>
+              <div className='flex ml-2'>
+                <Typography sx={{ fontSize: '14px', color: '#2B3445', fontWeight: 500 }}>{summaryTitle}</Typography>
                 <Typography sx={{ pl: 0.5 }}>({groupRoles.length})</Typography>
               </div>
               {canEdit && (
                 <IconButton
                   tooltip={t('users:changeRole')}
-                  onClick={() => { handleEdit(roleType, firstRole?.space); }}
+                  onClick={() => {
+                    handleEdit(roleType, firstRole?.space);
+                  }}
                 >
-                  <EditOutlined fontSize="small" color="primary" />
+                  <EditOutlined fontSize='small' color='primary' />
                 </IconButton>
-
               )}
             </AccordionSummaryStyled>
 
             <AccordionDetails>
               {groupRoles?.map((role) => (
-                <RoleItem
-                  userId={user?._id as string}
-                  key={role?._id}
-                  role={role}
-                  roles={roles}
-                  {...rest}
-                />
+                <RoleItem userId={user?._id as string} key={role?._id} role={role} roles={roles} {...rest} />
               ))}
             </AccordionDetails>
           </Accordion>

@@ -1,4 +1,4 @@
-import TrackingStatusPicker from '../components/TrackingStatusPicker/TrackingStatusPicker'
+import TrackingStatusPicker from '../components/TrackingStatusPicker/TrackingStatusPicker';
 import useUpdateTrackingStatus from '../hooks/useUpdateTrackingStatus';
 
 interface IUpdateTrackinsStatusContainer {
@@ -10,8 +10,14 @@ const UpdateTrackingStatusContainer = ({ rowId, value }: IUpdateTrackinsStatusCo
   const { isLoading, updateTrackingStatus } = useUpdateTrackingStatus(rowId);
 
   return (
-    <TrackingStatusPicker isLoading={isLoading} value={value} handleChange={() => { updateTrackingStatus(!value) }}/>
-  )
-}
+    <TrackingStatusPicker
+      isLoading={isLoading}
+      value={value}
+      handleChange={() => {
+        updateTrackingStatus(!value);
+      }}
+    />
+  );
+};
 
-export default UpdateTrackingStatusContainer
+export default UpdateTrackingStatusContainer;

@@ -13,23 +13,12 @@ const SelectProviderAndType = ({ provider }: { provider?: string }) => {
     <>
       {provider ? (
         <Grid item xs={12}>
-          <FormTextField
-            disabled
-            name='space'
-            value={provider}
-            required
-            label={t('provider.title')}
-          />
+          <FormTextField disabled name='space' value={provider} required label={t('provider.title')} />
         </Grid>
       ) : (
         <>
           <Grid item xs={12}>
-            <SelectProviderType
-              name='type'
-              required
-              label={t('provider.type')}
-              placeholder={t('provider.type')}
-            />
+            <SelectProviderType name='type' required label={t('provider.type')} placeholder={t('provider.type')} />
           </Grid>
           <Grid item xs={12}>
             <SelectProviderByType
@@ -44,7 +33,7 @@ const SelectProviderAndType = ({ provider }: { provider?: string }) => {
         </>
       )}
     </>
-  )
+  );
 };
 
 export default SelectProviderAndType;

@@ -1,1 +1,1 @@
-export { default as PaidOrderDetailsContent } from './PaidOrderDetailsContent'
+export { default as PaidOrderDetailsContent } from './PaidOrderDetailsContent';

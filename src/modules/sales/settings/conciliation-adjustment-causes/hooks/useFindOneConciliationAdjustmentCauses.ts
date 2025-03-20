@@ -6,5 +6,7 @@ import { IConciliationAdjustmentCauses } from 'modules/sales/settings/conciliati
 
 export const useFindOneConciliationAdjustmentCauses = (id: string | null) => {
   const fetch = useCallback(() => ConciliationAdjustmentCausesService.getOne(id as string), [id]);
-  return useQuery<IConciliationAdjustmentCauses>([id, CONCILIATION_ADJUSTMENT_CAUSES_ONE_KEY], fetch, { enabled: !!id });
+  return useQuery<IConciliationAdjustmentCauses>([id, CONCILIATION_ADJUSTMENT_CAUSES_ONE_KEY], fetch, {
+    enabled: !!id,
+  });
 };

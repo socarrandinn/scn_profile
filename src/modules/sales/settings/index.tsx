@@ -42,7 +42,7 @@ const routes = {
   BankList: {
     path: '/banks/*',
     component: BankModule,
-  }
+  },
 };
 
 const SettingsModule = () => {

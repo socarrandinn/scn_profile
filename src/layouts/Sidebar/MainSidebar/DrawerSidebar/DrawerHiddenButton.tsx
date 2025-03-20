@@ -3,7 +3,7 @@ import { memo } from 'react';
 import { ExpandMore } from './styled';
 import { useMenuContext } from 'settings/main-menu/context/useMenuContext';
 type DrawerHiddenButtonProps = {
-  disabled?: boolean
+  disabled?: boolean;
   left: number;
 };
 

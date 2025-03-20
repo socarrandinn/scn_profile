@@ -10,7 +10,7 @@ const SignUpSent = ({ email }: SignUpSentProps) => {
   const { mutate, isLoading, error } = useResendConfirmationForm();
 
   const handleSend = () => {
-    mutate({ email })
+    mutate({ email });
   };
 
   return (

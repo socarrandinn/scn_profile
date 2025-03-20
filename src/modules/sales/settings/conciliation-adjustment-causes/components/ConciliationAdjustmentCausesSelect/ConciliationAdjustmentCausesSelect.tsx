@@ -26,7 +26,14 @@ const renderOption = (props: any, option: IConciliationAdjustmentCauses, { selec
   );
 };
 
-const ConciliationAdjustmentCausesSelect = ({ name, required, multiple, label, placeholder, helperText }: ConciliationAdjustmentCausesSelectProps) => {
+const ConciliationAdjustmentCausesSelect = ({
+  name,
+  required,
+  multiple,
+  label,
+  placeholder,
+  helperText,
+}: ConciliationAdjustmentCausesSelectProps) => {
   return (
     <FormAsyncSelectAutocompleteField
       multiple={multiple}
@@ -40,7 +47,9 @@ const ConciliationAdjustmentCausesSelect = ({ name, required, multiple, label, p
       isOptionEqualToValue={isOptionEqualToValue}
       fieldValue={'_id'}
       loadValue
-      fetchValueFunc={multiple ? ConciliationAdjustmentCausesService.search : ConciliationAdjustmentCausesService.getOne}
+      fetchValueFunc={
+        multiple ? ConciliationAdjustmentCausesService.search : ConciliationAdjustmentCausesService.getOne
+      }
       id='select-conciliation-adjustment-causes'
       getOptionLabel={renderLabel}
       renderOption={renderOption}

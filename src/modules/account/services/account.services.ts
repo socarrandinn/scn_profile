@@ -7,23 +7,16 @@ class AccountService extends EntityApiService<IUser> {
   };
 
   save = (params?: any, config?: RequestConfig): Promise<IUser> => {
-    return this.handleResponse(ApiClientService.patch(
-      this.getPath(null),
-      params,
-      config,
-    ));
+    return this.handleResponse(ApiClientService.patch(this.getPath(null), params, config));
   };
 
   updatePassword = (currentPassword: string, newPassword: string) => {
     if (newPassword) {
       return this.handleResponse(
-        ApiClientService.post(
-          '/ms-auth/api/account/update-password',
-          {
-            currentPassword: currentPassword || null,
-            newPassword,
-          },
-        ),
+        ApiClientService.post('/ms-auth/api/account/update-password', {
+          currentPassword: currentPassword || null,
+          newPassword,
+        }),
       );
     }
 

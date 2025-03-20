@@ -15,24 +15,25 @@ const InviteUser = ({ provider, providerType }: ProviderProps) => {
   const { isOpen, onClose, onOpen } = useToggle(false);
   const { id } = useParams();
 
-  return (<>
-    <AddButton action={onOpen} startIcon={<Send />}>
-      {t('inviteUser')}
-    </AddButton>
-    <UserInvitationModal
-      open={isOpen}
-      provider={id}
-      providerType={providerType}
-      onClose={onClose}
-      apiPath={'/providers/invite'}
-      validationScheme={userProviderSchema}
-      queryKey={USERS_INVITATION_LIST_KEY}
-      redirect={'/security/providers-users/user'}
-      rolesType={ROLE_TYPE_ENUM.PROVIDER}
-    >
-      <SelectProviderAndType provider={provider} />
-    </UserInvitationModal>
-  </>
+  return (
+    <>
+      <AddButton action={onOpen} startIcon={<Send />}>
+        {t('inviteUser')}
+      </AddButton>
+      <UserInvitationModal
+        open={isOpen}
+        provider={id}
+        providerType={providerType}
+        onClose={onClose}
+        apiPath={'/providers/invite'}
+        validationScheme={userProviderSchema}
+        queryKey={USERS_INVITATION_LIST_KEY}
+        redirect={'/security/providers-users/user'}
+        rolesType={ROLE_TYPE_ENUM.PROVIDER}
+      >
+        <SelectProviderAndType provider={provider} />
+      </UserInvitationModal>
+    </>
   );
 };
 

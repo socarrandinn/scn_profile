@@ -17,7 +17,7 @@ const EnabledCell = ({ data }: Props) => {
   const { onOpen, isOpen, onClose } = useToggle();
 
   const { control } = useForm({
-    defaultValues: { enabled: data?.enabled }
+    defaultValues: { enabled: data?.enabled },
   });
 
   const { mutate, isLoading } = useDeliveryUpdateEnabled(data?._id as string, data?.space as string);
@@ -27,25 +27,23 @@ const EnabledCell = ({ data }: Props) => {
   }, [mutate, data?.enabled]);
 
   return (
-    <Box sx={{ '.MuiFormControlLabel-root': { marginRight: '0px !important', marginLeft: '1px !important' }, '.MuiButtonBase-root': { padding: 0.5 } }} >
+    <Box
+      sx={{
+        '.MuiFormControlLabel-root': { marginRight: '0px !important', marginLeft: '1px !important' },
+        '.MuiButtonBase-root': { padding: 0.5 },
+      }}
+    >
       <Form id='global-config-form' control={control}>
-        <Tooltip title={data?.enabled ? t('fields.disabled') : t('fields.enabled')} >
+        <Tooltip title={data?.enabled ? t('fields.disabled') : t('fields.enabled')}>
           <FormControlLabel
-            control={
-              <Checkbox
-                onChange={onOpen}
-                checked={data?.enabled}
-                name={'enabled'}
-                disabled={isLoading}
-              />
-            }
+            control={<Checkbox onChange={onOpen} checked={data?.enabled} name={'enabled'} disabled={isLoading} />}
             label={undefined}
           />
         </Tooltip>
       </Form>
       <ConfirmAction onClose={onClose} open={isOpen} onConfirm={handleSubmit} isLoading={isLoading} />
     </Box>
-  )
+  );
 };
 
 export default memo(EnabledCell);

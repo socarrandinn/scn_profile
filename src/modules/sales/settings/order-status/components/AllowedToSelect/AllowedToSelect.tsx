@@ -13,7 +13,7 @@ interface IAllowedToSelect {
 }
 
 const renderLabel = (option: IOrderStatus) => {
-  return option?.title
+  return option?.title;
 };
 const renderOption = (props: any, option: IOrderStatus, { selected }: any) => {
   return (

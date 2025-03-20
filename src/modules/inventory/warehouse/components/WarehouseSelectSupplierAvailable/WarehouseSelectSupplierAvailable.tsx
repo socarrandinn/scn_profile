@@ -65,7 +65,9 @@ const WarehouseSelectSupplierAvailable = ({
       disabled={disabled}
       disableCloseOnSelect={multiple}
       fetchFunc={(params: any) => WarehouseSupplierService.searchSupplierAvailable(warehouse, params)}
-      fetchValueFunc={multiple ? () => WarehouseSupplierService.searchSupplierAvailable(warehouse) : WarehouseSupplierService.getOne}
+      fetchValueFunc={
+        multiple ? () => WarehouseSupplierService.searchSupplierAvailable(warehouse) : WarehouseSupplierService.getOne
+      }
       queryKey={WAREHOUSE_SUPPLIER_AVAILABLE_LIST_KEY}
       autoHighlight
       key={`${warehouse}-${props?.value as string}`}

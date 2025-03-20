@@ -1,5 +1,5 @@
 import { Box } from '@mui/material';
-import { IDelivery } from 'modules/sales/settings/common/interfaces'
+import { IDelivery } from 'modules/sales/settings/common/interfaces';
 import { ADDRESS_COUNTRY_CODE } from 'settings/address-location';
 import ProvinceByCountryTable from 'modules/sales/settings/common/components/ProvinceByCountryTable/ProvinceByCountryTable';
 import HomeDeliveryCityByProvinceTable from '../HomeDeliveryCityByProvinceTable/HomeDeliveryCityByProvinceTable';
@@ -14,7 +14,8 @@ const HomeDeliverySubTable = ({ row, index }: { row: IDelivery | undefined; inde
           color: '#2B3445 !important',
           opacity: 1,
         },
-      }}>
+      }}
+    >
       {ADDRESS_COUNTRY_CODE === 'CU' ? (
         <HomeDeliveryCityByProvinceTable row={row} key={index} />
       ) : (

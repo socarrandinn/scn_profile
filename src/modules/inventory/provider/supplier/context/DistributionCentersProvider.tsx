@@ -19,7 +19,11 @@ type DistributioncentersContextProps = {
 };
 
 const DistributioncentersContextProvider = ({ children, distributionCenterId }: DistributioncentersContextProps) => {
-  return <DistributioncentersContext.Provider value={{ distributionCenterId }}>{children}</DistributioncentersContext.Provider>;
+  return (
+    <DistributioncentersContext.Provider value={{ distributionCenterId }}>
+      {children}
+    </DistributioncentersContext.Provider>
+  );
 };
 
 const useDistributioncentersContext = () => {

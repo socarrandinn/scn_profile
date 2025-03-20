@@ -9,5 +9,5 @@ export const components: any = {
   MuiDialogTitle,
   MuiDialogContent,
   MuiAlert,
-  MuiButton
+  MuiButton,
 };

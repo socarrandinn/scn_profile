@@ -5,7 +5,7 @@ import { SUPPLIER_PERMISSIONS } from 'modules/inventory/provider/supplier/consta
 import {
   providerEmailColumn,
   providerPhoneColumn,
-  providerImageColumn
+  providerImageColumn,
 } from 'modules/inventory/provider/common/constants';
 import { IProvider } from 'modules/inventory/provider/common/interfaces';
 import { PercentValue } from 'components/libs/PercentValue';
@@ -48,7 +48,7 @@ export const supplierStatusColumn: HeadCell<IProvider> = {
       record={data}
       permissions={SUPPLIER_PERMISSIONS.SUPPLIER_WRITE}
     />
-  )
+  ),
 };
 
 export const supplierColumns: Array<HeadCell<any>> = [

@@ -9,8 +9,8 @@ type ImageListProps = Omit<ImageListPropsBase, 'children'> & {
   images: IUploadImage[];
   onDeleteImage: (index: number, image: IUploadImage) => void;
   onSelect?: (value: any) => void;
-  active?: number
-  size?: number
+  active?: number;
+  size?: number;
 };
 
 const ImageList = ({ images, title, active, onSelect, onDeleteImage, size }: ImageListProps) => {
@@ -19,24 +19,24 @@ const ImageList = ({ images, title, active, onSelect, onDeleteImage, size }: Ima
   }
 
   return (
-        <FlexBox flexWrap={'wrap'} gap={2}>
-            {images.map((item, index) => (
-                <Thumb
-                    key={index}
-                    size={size}
-                    image={item}
-                    active={active === index}
-                    title={title}
-                    onDeleteClick={() => {
-                      onDeleteImage(index, item);
-                    }}
-                    onSelect={(e) => {
-                      eventClick(e)
-                      onSelect?.(index);
-                    }}
-                />
-            ))}
-        </FlexBox>
+    <FlexBox flexWrap={'wrap'} gap={2}>
+      {images.map((item, index) => (
+        <Thumb
+          key={index}
+          size={size}
+          image={item}
+          active={active === index}
+          title={title}
+          onDeleteClick={() => {
+            onDeleteImage(index, item);
+          }}
+          onSelect={(e) => {
+            eventClick(e);
+            onSelect?.(index);
+          }}
+        />
+      ))}
+    </FlexBox>
   );
 };
 

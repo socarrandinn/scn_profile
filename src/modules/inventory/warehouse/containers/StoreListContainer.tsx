@@ -13,7 +13,7 @@ const StoreListContainer = ({ logisticProviderId }: Props) => {
   const { isLoading, error, data, filters, search } = useFindStores(logisticProviderId);
   return (
     <Box>
-      <StoreListToolbar logisticProviderId={logisticProviderId} search={search} filters={filters} total={data?.total}/>
+      <StoreListToolbar logisticProviderId={logisticProviderId} search={search} filters={filters} total={data?.total} />
       <Table
         columns={logisticProviderId ? logisticWarehouseColumns : warehouseColumns}
         data={data?.data}

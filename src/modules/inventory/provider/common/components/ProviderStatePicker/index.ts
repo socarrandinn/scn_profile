@@ -1,1 +1,1 @@
-export { default as ProviderStatePicker } from './ProviderStatePicker'
+export { default as ProviderStatePicker } from './ProviderStatePicker';

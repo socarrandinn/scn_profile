@@ -20,10 +20,10 @@ const ProductDetailSeoUpdateContainer = ({
   initValue,
   loadingInitData,
   onClose,
-}:
-productDetailSEOUpdateContainerProps) => {
+}: productDetailSEOUpdateContainerProps) => {
   const { t } = useTranslation('common');
-  const { control, onSubmit, isLoading, error, reset, seoTitle, seoDescription, slugDescription, formState } = useProductSEOCreateForm(initValue, onClose);
+  const { control, onSubmit, isLoading, error, reset, seoTitle, seoDescription, slugDescription, formState } =
+    useProductSEOCreateForm(initValue, onClose);
 
   const handleClose = useCallback(() => {
     onClose?.();
@@ -48,7 +48,9 @@ productDetailSEOUpdateContainerProps) => {
       )}
 
       <Stack mt={{ xs: 1, md: 3 }} gap={1} justifyContent={'end'} direction={'row'}>
-        <Button variant='grey' onClick={handleClose}>{t('common:cancel')}</Button>
+        <Button variant='grey' onClick={handleClose}>
+          {t('common:cancel')}
+        </Button>
         <LoadingButton
           variant='contained'
           type={'submit'}

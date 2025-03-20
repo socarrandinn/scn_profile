@@ -22,7 +22,10 @@ const DistributionCentersDetailLocationsUpdateContainer = ({
   onClose,
 }: DistributionCentersDetailLocationsUpdateContainerProps) => {
   const { t } = useTranslation('common');
-  const { control, onSubmit, isLoading, error, reset, formState } = useDistributionCenterLocationsCreateForm(onClose, initValue);
+  const { control, onSubmit, isLoading, error, reset, formState } = useDistributionCenterLocationsCreateForm(
+    onClose,
+    initValue,
+  );
 
   const handleClose = useCallback(() => {
     onClose?.();
@@ -34,12 +37,19 @@ const DistributionCentersDetailLocationsUpdateContainer = ({
       {dataError && <HandlerError error={dataError} />}
       {!dataError && (
         <ConditionContainer active={!loadingInitData} alternative={<DistributionCentersGeneralLocationsFormSkeleton />}>
-          <DistributionCentersGeneralLocationsForm error={error} isLoading={isLoading} control={control} onSubmit={onSubmit} />
+          <DistributionCentersGeneralLocationsForm
+            error={error}
+            isLoading={isLoading}
+            control={control}
+            onSubmit={onSubmit}
+          />
         </ConditionContainer>
       )}
 
       <Stack mt={{ xs: 1, md: 3 }} gap={1} justifyContent={'end'} direction={'row'}>
-        <Button variant='grey' onClick={handleClose}>{t('common:cancel')}</Button>
+        <Button variant='grey' onClick={handleClose}>
+          {t('common:cancel')}
+        </Button>
         <LoadingButton
           variant='contained'
           type={'submit'}

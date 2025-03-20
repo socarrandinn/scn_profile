@@ -24,7 +24,10 @@ const IncidenceCreateModal = ({
 }: IncidenceCreateModalProps) => {
   const { t } = useTranslation('incidence');
 
-  const { control, onSubmit, isLoading, reset, error, watch, formState, setValue } = useIncidenceCreateForm(onClose, initValue);
+  const { control, onSubmit, isLoading, reset, error, watch, formState, setValue } = useIncidenceCreateForm(
+    onClose,
+    initValue,
+  );
 
   const handleClose = useCallback(() => {
     onClose?.();
@@ -62,7 +65,9 @@ const IncidenceCreateModal = ({
         )}
       </DialogContent>
       <DialogActions>
-        <Button variant='grey' onClick={handleClose}>{t('common:cancel')}</Button>
+        <Button variant='grey' onClick={handleClose}>
+          {t('common:cancel')}
+        </Button>
         <LoadingButton
           variant='contained'
           type={'submit'}

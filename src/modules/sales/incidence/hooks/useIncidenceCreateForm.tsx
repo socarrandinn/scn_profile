@@ -15,14 +15,21 @@ export const emptyIncidence: IIncidence = {
   description: '',
   cause: { _id: '', name: '' },
   orderReference: '',
-  status: INCIDENCE_STATUS.OPEN
+  status: INCIDENCE_STATUS.OPEN,
 };
 
 const useIncidenceCreateForm = (onClose: () => void, defaultValues: IIncidence = emptyIncidence) => {
   const { t } = useTranslation('incidence');
   const queryClient = useQueryClient();
 
-  const { control, handleSubmit, reset: resetForm, watch, formState, setValue } = useForm({
+  const {
+    control,
+    handleSubmit,
+    reset: resetForm,
+    watch,
+    formState,
+    setValue,
+  } = useForm({
     resolver: yupResolver(incidenceSchema),
     defaultValues,
   });
@@ -31,7 +38,14 @@ const useIncidenceCreateForm = (onClose: () => void, defaultValues: IIncidence =
     if (defaultValues) resetForm(defaultValues);
   }, [defaultValues, resetForm]);
 
-  const { mutate, reset: resetMutation, error, isLoading, isSuccess, data } = useMutation(
+  const {
+    mutate,
+    reset: resetMutation,
+    error,
+    isLoading,
+    isSuccess,
+    data,
+  } = useMutation(
     (incidence: IIncidence) => {
       return IncidenceService.saveOrUpdate(incidence);
     },
@@ -46,13 +60,10 @@ const useIncidenceCreateForm = (onClose: () => void, defaultValues: IIncidence =
     },
   );
 
-  const reset = useCallback(
-    () => {
-      resetForm()
-      resetMutation()
-    },
-    [resetForm, resetMutation],
-  )
+  const reset = useCallback(() => {
+    resetForm();
+    resetMutation();
+  }, [resetForm, resetMutation]);
 
   return {
     control,

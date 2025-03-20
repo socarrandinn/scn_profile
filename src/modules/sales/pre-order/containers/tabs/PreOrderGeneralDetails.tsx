@@ -14,7 +14,7 @@ const PreOrderGeneralDetails = () => {
     <DetailLayout mb={3}>
       <DetailContent ghost>
         <OrderShippingInfo isParent />
-        <OrderProductsInfo isParent/>
+        <OrderProductsInfo isParent />
       </DetailContent>
       <DetailSummary ghost width={{ md: 400, lg: 450, xl: 500 }}>
         <PermissionCheck permissions={[ORDER_PERMISSIONS.VIEW_PAYMENT_INFO]}>

@@ -13,7 +13,7 @@ export type UserTableContainerProps = ChildrenProps & {
   status: USER_LIST_TYPES;
   columns: Array<HeadCell<IUser>>;
   space?: string;
-}
+};
 
 const UserTableContainer = ({ type, status, columns, space, ...props }: UserTableContainerProps) => {
   const { isLoading, error, data } = useFindUsersTable(type, status, space);
@@ -21,13 +21,7 @@ const UserTableContainer = ({ type, status, columns, space, ...props }: UserTabl
   return (
     <Box>
       <UserListToolbar {...props} />
-      <Table
-        columns={columns}
-        data={data?.data}
-        total={data?.total}
-        isLoading={isLoading}
-        error={error}
-      />
+      <Table columns={columns} data={data?.data} total={data?.total} isLoading={isLoading} error={error} />
     </Box>
   );
 };

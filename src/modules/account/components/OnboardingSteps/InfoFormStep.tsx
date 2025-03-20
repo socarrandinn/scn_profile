@@ -4,8 +4,8 @@ import { memo } from 'react';
 import { StepsHeader } from './StepsHeader';
 
 type Props = {
-  form: any,
-  isLoading?: boolean,
+  form: any;
+  isLoading?: boolean;
 };
 
 const OnboardingInfoForm = ({ form, isLoading }: Props) => {
@@ -25,7 +25,7 @@ const OnboardingInfoForm = ({ form, isLoading }: Props) => {
       className='p-[30px_27px_10px_27px]'
       buttonText='continue'
     />
-  )
+  );
 };
 
 export default memo(OnboardingInfoForm);

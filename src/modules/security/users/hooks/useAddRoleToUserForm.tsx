@@ -17,7 +17,7 @@ const useAddRoleToUserForm = (user: IUser | undefined, onClose: () => void, spac
   const { t } = useTranslation('users');
 
   const defaultRoles = user?.security?.roles || [];
-  const filteredRoles = space ? defaultRoles.filter(role => role.space === space) : defaultRoles;
+  const filteredRoles = space ? defaultRoles.filter((role) => role.space === space) : defaultRoles;
 
   const { control, handleSubmit, reset } = useForm({
     resolver: yupResolver(userRolesSchema),
@@ -34,7 +34,7 @@ const useAddRoleToUserForm = (user: IUser | undefined, onClose: () => void, spac
     reset: resetMutation,
     isError,
   } = useMutation(
-    (values: { roles: Array<{ _id: string, role?: string }> }) => {
+    (values: { roles: Array<{ _id: string; role?: string }> }) => {
       const rolesIds: string[] = values?.roles?.map((role) => role.role || role._id) || [];
       return UserAdminService.addRoles(user?._id, rolesIds, space);
     },

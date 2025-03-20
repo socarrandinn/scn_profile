@@ -10,7 +10,7 @@ import SecondaryCurrencyForm from './SecondaryCurrencyForm';
 import { UseFormSetValue } from 'react-hook-form';
 
 type Props = {
-  setValue: UseFormSetValue<any>
+  setValue: UseFormSetValue<any>;
 };
 
 const PaymentSettingsForm = ({ setValue }: Props) => {
@@ -19,9 +19,7 @@ const PaymentSettingsForm = ({ setValue }: Props) => {
   const primaryCurrency = watch?.('primary');
   const currencies = watch?.('currencies') || [];
 
-  const secondaryCurrencies = currencies?.filter(
-    (c: ICurrencyConfig) => c?.enabled && c?.currency !== primaryCurrency
-  );
+  const secondaryCurrencies = currencies?.filter((c: ICurrencyConfig) => c?.enabled && c?.currency !== primaryCurrency);
 
   useEffect(() => {
     const updatedCurrencies = currencies?.map((c: ICurrencyConfig) => {
@@ -37,7 +35,7 @@ const PaymentSettingsForm = ({ setValue }: Props) => {
   const handleCurrencyChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const currency = event.target.value as CURRENCY_TYPE_ENUM;
     const updatedCurrencies = currencies?.map((c: ICurrencyConfig) =>
-      c?.currency === currency ? { ...c, enabled: !c?.enabled } : c
+      c?.currency === currency ? { ...c, enabled: !c?.enabled } : c,
     );
 
     setValue('currencies', updatedCurrencies, { shouldDirty: true });
@@ -53,13 +51,8 @@ const PaymentSettingsForm = ({ setValue }: Props) => {
               <FormControlLabel
                 key={currency?._id}
                 value={currency?.currency}
-                name="currencies"
-                control={
-                  <Checkbox
-                    checked={currency?.enabled}
-                    onChange={handleCurrencyChange}
-                  />
-                }
+                name='currencies'
+                control={<Checkbox checked={currency?.enabled} onChange={handleCurrencyChange} />}
                 sx={{ '.MuiSvgIcon-root': { width: 28, height: 28 } }}
                 label={currency?.currency}
               />
@@ -79,9 +72,7 @@ const PaymentSettingsForm = ({ setValue }: Props) => {
           <Typography>{t('secondaryHelp')}</Typography>
         </div>
       </Grid>
-      {secondaryCurrencies?.length > 0 &&
-        <SecondaryCurrencyForm secondaryCurrencies={secondaryCurrencies} />
-      }
+      {secondaryCurrencies?.length > 0 && <SecondaryCurrencyForm secondaryCurrencies={secondaryCurrencies} />}
     </Grid>
   );
 };

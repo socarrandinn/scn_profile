@@ -38,7 +38,7 @@ const CollectionProvider = ({ contentType, ...props }: CollectionContextProps) =
         isLoading,
         error,
         collectionId,
-        contentType
+        contentType,
       }}
       {...props}
     />

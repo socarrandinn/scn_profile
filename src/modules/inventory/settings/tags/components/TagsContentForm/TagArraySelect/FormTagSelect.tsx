@@ -30,7 +30,7 @@ const FormTagSelect = ({ label, name, options, multiple = false, required }: For
 
   return (
     <FormSelectAutocompleteField
-    autoHighlight
+      autoHighlight
       isOptionEqualToValue={isOptionEqualToValue}
       id='select-tag'
       getOptionLabel={renderLabel}

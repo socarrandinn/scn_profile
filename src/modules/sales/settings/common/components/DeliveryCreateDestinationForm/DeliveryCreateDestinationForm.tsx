@@ -14,15 +14,11 @@ import { useFindShippingSettings } from 'modules/sales/settings/home-delivery/ho
 
 type DeliveryCreateDestinationFormProps = {
   type: string | null;
-  state: string,
+  state: string;
   settings: IDelivery;
 };
 
-const DeliveryCreateDestinationForm = ({
-  state,
-  settings,
-  type,
-}: DeliveryCreateDestinationFormProps) => {
+const DeliveryCreateDestinationForm = ({ state, settings, type }: DeliveryCreateDestinationFormProps) => {
   const { t } = useTranslation('homeDelivery');
   const stateCode: string = useMemo(() => state || '', [state]);
   const { value } = useSearchParamsChange('ruleId');
@@ -31,13 +27,17 @@ const DeliveryCreateDestinationForm = ({
   return (
     <Grid container spacing={{ xs: 1, md: 2 }} columns={{ xs: 4, sm: 8, md: 12 }} mt={1}>
       <Grid item xs={12}>
-        {ADDRESS_COUNTRY_CODE === 'CU' ? <LocationCubanForm type={type as string} stateCode={stateCode} /> : <LocationInternationalForm type={type as string} />}
+        {ADDRESS_COUNTRY_CODE === 'CU' ? (
+          <LocationCubanForm type={type as string} stateCode={stateCode} />
+        ) : (
+          <LocationInternationalForm type={type as string} />
+        )}
       </Grid>
-      {type !== LOCATION_TYPE.CITY &&
+      {type !== LOCATION_TYPE.CITY && (
         <Grid item xs={12}>
           <FormSwitchField name={'global'} label={t(`enabled.${type as string}`)} />
         </Grid>
-      }
+      )}
       <Grid item xs={12} marginBottom={1}>
         <LocationCostForm name={'customPrice'} global={settings} data={data?.data?.[0]} />
       </Grid>

@@ -12,10 +12,7 @@ export const MunicipalityValue = ({ value }: { value: IAddress }) => {
     );
   }
 
-  const location: ILocationMunicipality | undefined = findMunicipalityByStateAndMunicipality(
-    value.state,
-    value.city,
-  );
+  const location: ILocationMunicipality | undefined = findMunicipalityByStateAndMunicipality(value.state, value.city);
 
   return (
     <FlexBox alignItems={'center'}>

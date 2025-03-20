@@ -71,13 +71,13 @@ const AuditLogEventCustomCaseByArray = ({ _key, value }: AuditLogEventCustomCase
         <TableCell>
           <ContactList contacts={value} />
         </TableCell>
-      )
+      );
     case 'settings.gatewayConfig':
       return (
         <TableCell>
           <GatewayConfigView data={value as IGatewayConfig[]} />
         </TableCell>
-      )
+      );
     default:
       return <TableCell>{<pre> {JSON.stringify(value, null, 2)} </pre>}</TableCell>;
   }

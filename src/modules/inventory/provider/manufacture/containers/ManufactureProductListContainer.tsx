@@ -9,7 +9,7 @@ const ManufactureProductListContainer = () => {
   const { isLoading, error, data } = useFindProductsByManufacturer();
   return (
     <Box>
-      <ManufactureProductListToolbar/>
+      <ManufactureProductListToolbar />
       <Table
         columns={manufacturerProductColumns}
         data={data?.data}

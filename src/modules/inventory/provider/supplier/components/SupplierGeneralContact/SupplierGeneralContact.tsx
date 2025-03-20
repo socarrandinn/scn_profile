@@ -36,12 +36,9 @@ const SupplierGeneralContact = () => {
     <FormPaper
       title={t('fields.contact.title')}
       actions={
-        <FormPaperAction
-          onToggle={handleToggle}
-          open={open}
-          permissions={[SUPPLIER_PERMISSIONS.SUPPLIER_WRITE]}
-        />
-      }>
+        <FormPaperAction onToggle={handleToggle} open={open} permissions={[SUPPLIER_PERMISSIONS.SUPPLIER_WRITE]} />
+      }
+    >
       <BasicTableHeadless
         columns={simpleColumns}
         data={getArray(providerProducts as ISupplier) || []}

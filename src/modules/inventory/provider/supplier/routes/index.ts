@@ -18,13 +18,13 @@ const routes: RouteConfig = {
   DetailProviderProducts: {
     path: '/:id/*',
     permissions: SUPPLIER_PERMISSIONS.SUPPLIER_VIEW,
-    component: Supplier
+    component: Supplier,
   },
   EditProviderProducts: {
     path: '/:id/edit',
     permissions: SUPPLIER_PERMISSIONS.SUPPLIER_WRITE,
     component: EditProviderProducts,
-  }
+  },
 };
 
 export default routes;

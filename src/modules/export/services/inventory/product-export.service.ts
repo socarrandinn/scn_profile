@@ -35,7 +35,7 @@ export class ProductExportService extends CommonExport<any> {
     const { providerId, ...rest } = payload;
     if (providerId) {
       await this.exportToExcel({ ...rest, pathName: `/products/${providerId}/export`, name: 'product_supplier' });
-      return
+      return;
     }
     throw new Error('You must be inside a supplier _id');
   };
@@ -44,7 +44,7 @@ export class ProductExportService extends CommonExport<any> {
     const { providerId, ...rest } = payload;
     if (providerId) {
       await this.exportToExcel({ ...rest, pathName: `/products/${providerId}/export`, name: 'product_logistic' });
-      return
+      return;
     }
     throw new Error('You must be inside a logistic _id');
   };

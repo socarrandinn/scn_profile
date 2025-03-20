@@ -16,13 +16,7 @@ const ProductGeneralEstimatedTime = () => {
     <FormPaper
       mbHeader={!open ? '0px' : undefined}
       title={t('section.deliveryTime.title')}
-      actions={
-        <FormPaperAction
-          onToggle={handleToggle}
-          open={open}
-          permissions={PRODUCT_PERMISSIONS.PRODUCT_WRITE}
-        />
-      }
+      actions={<FormPaperAction onToggle={handleToggle} open={open} permissions={PRODUCT_PERMISSIONS.PRODUCT_WRITE} />}
     >
       <EstimatedTimeContent />
     </FormPaper>

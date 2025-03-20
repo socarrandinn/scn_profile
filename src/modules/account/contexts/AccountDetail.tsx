@@ -44,7 +44,10 @@ const AccountDetailProvider = (props: UserContextProps) => {
 
   const value = useMemo(() => {
     return {
-      user, setUser, isLoading, error: false,
+      user,
+      setUser,
+      isLoading,
+      error: false,
     };
   }, [user, isLoading]);
 

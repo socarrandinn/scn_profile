@@ -36,7 +36,7 @@ const AddressMapView = ({ address }: Props) => {
           borderRadius: 0.5,
         }}
       >
-        <FormattedAddressCell address={address} lineClamp={4}/>
+        <FormattedAddressCell address={address} lineClamp={4} />
       </Typography>
 
       {coordinates && (

@@ -11,8 +11,8 @@ import { useWatch } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
 
 type Props = {
-  control: any,
-  setValue: any
+  control: any;
+  setValue: any;
 };
 
 const StockReductionCauseForm = ({ control, setValue }: Props) => {
@@ -67,7 +67,7 @@ const StockReductionCauseForm = ({ control, setValue }: Props) => {
         </Grid>
       )}
     </>
-  )
+  );
 };
 
 export default memo(StockReductionCauseForm);

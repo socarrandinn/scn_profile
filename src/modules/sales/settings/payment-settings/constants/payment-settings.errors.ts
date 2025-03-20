@@ -9,5 +9,5 @@ export const PAYMENT_SETTINGS_ERRORS = {
   [ERROR_REFS.DUPLICATE_KEY]: {
     title: 'paymentSettings:errors.duplicatedName',
     description: 'paymentSettings:errors.duplicatedNameDescription',
-  }
+  },
 };

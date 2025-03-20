@@ -21,7 +21,7 @@ export const initCategoryValue: ICategory = {
     thumb: '',
     width: 0,
   },
-  parent: null
+  parent: null,
 };
 
 const useCategoryCreateForm = (onClose: () => void, defaultValues: ICategory = initCategoryValue) => {

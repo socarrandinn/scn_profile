@@ -15,7 +15,7 @@ const initValues: IMessage = {
   status: '',
   assigned: '',
   // createdAt: '',
-  active: true
+  active: true,
 };
 
 const useMessageCreateForm = (onClose: () => void, defaultValues: IMessage = initValues) => {

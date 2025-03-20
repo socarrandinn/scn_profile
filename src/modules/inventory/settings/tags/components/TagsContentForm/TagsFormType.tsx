@@ -69,7 +69,7 @@ const TagFormLayout = ({
   tag,
   isBoolean,
   onRemoveTag,
-}: ChildrenProps & { tag: ISummaryTags; onRemoveTag: () => void, isBoolean?: boolean }) => {
+}: ChildrenProps & { tag: ISummaryTags; onRemoveTag: () => void; isBoolean?: boolean }) => {
   return (
     <Stack gap={1}>
       <Stack gap={2} mb={1} flexDirection={'row'} justifyContent={'space-between'} alignItems={'center'}>

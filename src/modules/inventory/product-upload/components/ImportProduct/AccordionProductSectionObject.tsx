@@ -34,7 +34,7 @@ const AccordionProductSectionObject = ({ name, data, oneItem, twoItem }: Accordi
 
   const getValue = (obj: any) => {
     const key = twoItemKey?.find((key: string) => obj[key] !== null && obj[key] !== undefined && obj[key] !== '');
-    return obj?.[key || 'name'] ?? t('stock:emptyValue.notName')
+    return obj?.[key || 'name'] ?? t('stock:emptyValue.notName');
   };
 
   const handleChange = () => {

@@ -12,7 +12,7 @@ import { ISupplier } from '../interfaces';
 const initValues: Partial<ISupplier> = {
   _id: '',
   name: '',
-  commission: 0
+  commission: 0,
 };
 
 const useSupplierAddressBasicForm = (onClose: () => void, defaultValues: Partial<ISupplier> = initValues) => {

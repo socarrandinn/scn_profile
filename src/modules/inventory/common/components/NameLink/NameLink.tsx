@@ -16,7 +16,7 @@ const NameLink = ({ noLink = false, name, route, sx, permissions }: NameLinkProp
   const { hasPermission } = useSecurity();
 
   if (isEmpty(name)) return <></>;
-  if (noLink || (!hasPermission(permissions))) return <>{name}</>;
+  if (noLink || !hasPermission(permissions)) return <>{name}</>;
 
   return (
     <ReactLink to={route || '/'} underline={'hover'}>

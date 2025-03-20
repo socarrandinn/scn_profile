@@ -10,7 +10,7 @@ const AccountGeneral = () => {
 
   return (
     <PaperTabView firsts>
-      <UserGeneralInfo {...form} isLoadingUser={isLoading} isMe/>
+      <UserGeneralInfo {...form} isLoadingUser={isLoading} isMe />
     </PaperTabView>
   );
 };

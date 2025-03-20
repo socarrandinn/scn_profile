@@ -9,7 +9,7 @@ export const stockReductionCauseNameColumn: HeadCell<IStockReductionCause> = {
   field: 'name',
   headerName: 'stockReductionCause:fields.name',
   disablePadding: false,
-  renderCell: (name: string, data?: IStockReductionCause) => (<EditLink entityId={data?._id as string}>{name}</EditLink>),
+  renderCell: (name: string, data?: IStockReductionCause) => <EditLink entityId={data?._id as string}>{name}</EditLink>,
 };
 
 export const stockReductionCauseDescriptionColumn: HeadCell<IStockReductionCause> = {
@@ -47,5 +47,5 @@ export const stockReductionCauseColumns: Array<HeadCell<any>> = [
   stockReductionCauseResponsibleColumn,
   stockReductionCauseEvidenceColumn,
   createdATColumn,
-  stockReductionCauseActionsColumn
+  stockReductionCauseActionsColumn,
 ];

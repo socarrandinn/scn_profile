@@ -50,14 +50,10 @@ function FormOtherCostInputArray ({ name, label, required, setValue }: Props) {
               }}
             />
           ))}
-          {hasError && <FormHelperText sx={{ color: 'red' }} >{t('errors:atLeast1')}</FormHelperText>}
+          {hasError && <FormHelperText sx={{ color: 'red' }}>{t('errors:atLeast1')}</FormHelperText>}
           {!(disabled || readOnly) ? (
             <div>
-              <AddButton
-                action={appendHandle}
-                sx={{ justifyContent: 'center' }}
-                disabled={isLoading}
-              />
+              <AddButton action={appendHandle} sx={{ justifyContent: 'center' }} disabled={isLoading} />
             </div>
           ) : (
             <></>

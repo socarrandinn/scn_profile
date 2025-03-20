@@ -24,8 +24,5 @@ const visibleFilter: Filter = {
       label: 'category:visibility.hide',
     },
   ],
-}
-export const categoryFilters: Filter[] = [
-  visibleFilter,
-  createdATFilter
-];
+};
+export const categoryFilters: Filter[] = [visibleFilter, createdATFilter];

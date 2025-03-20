@@ -22,7 +22,13 @@ type FromCreateToInviteProps = {
   onClose?: () => void;
 };
 
-export default function FromCreateToInvite ({ error, watch, redirect, apiPath, onClose }: Readonly<FromCreateToInviteProps>) {
+export default function FromCreateToInvite ({
+  error,
+  watch,
+  redirect,
+  apiPath,
+  onClose,
+}: Readonly<FromCreateToInviteProps>) {
   const { t } = useTranslation('usersInvite');
 
   const email = watch('email');
@@ -31,7 +37,10 @@ export default function FromCreateToInvite ({ error, watch, redirect, apiPath, o
 
   const { mutate, error: errorInvite, reset } = useUsersInviteForm(userInvitationSchema, redirect, apiPath);
 
-  const isDuplicated = useMemo(() => error?.reference === COMMON_ERRORS.DUPLICATE_KEY && error?.key?.includes('email'), [error?.reference, error?.key]);
+  const isDuplicated = useMemo(
+    () => error?.reference === COMMON_ERRORS.DUPLICATE_KEY && error?.key?.includes('email'),
+    [error?.reference, error?.key],
+  );
 
   const { isOpen, onClose: onCloseModal, setOpen } = useToggle(isDuplicated);
 
@@ -59,15 +68,20 @@ export default function FromCreateToInvite ({ error, watch, redirect, apiPath, o
       >
         <DialogTitle id='alert-dialog-title'>{t('duplicatedUser')}</DialogTitle>
         <DialogContent>
-          {errorInvite?.reference === USER_ERROR.INVITATION_ALREADY_EXISTS &&
-            <HandlerError error={errorInvite} errors={USERS_ERRORS} />}
+          {errorInvite?.reference === USER_ERROR.INVITATION_ALREADY_EXISTS && (
+            <HandlerError error={errorInvite} errors={USERS_ERRORS} />
+          )}
           <DialogContentText>{t('duplicatedUserError')}</DialogContentText>
         </DialogContent>
         <DialogActions>
           <Button variant='grey' onClick={handleClose}>
             {t('cancel')}
           </Button>
-          <Button variant='contained' onClick={handleInvite} disabled={errorInvite?.reference === USER_ERROR.INVITATION_ALREADY_EXISTS}>
+          <Button
+            variant='contained'
+            onClick={handleInvite}
+            disabled={errorInvite?.reference === USER_ERROR.INVITATION_ALREADY_EXISTS}
+          >
             {t('invite')}
           </Button>
         </DialogActions>

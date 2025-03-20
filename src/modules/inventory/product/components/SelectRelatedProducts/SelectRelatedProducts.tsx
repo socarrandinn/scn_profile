@@ -49,7 +49,7 @@ const SelectRelatedProducts = ({ name, label, ...props }: ISelectRelatedProducts
         filters: {
           type: 'AND',
           filters: [{ type: 'TERM', field: '_id', value: { $nin: excludedIds } }],
-        }
+        },
       }}
       filterSelectedOptions
     />

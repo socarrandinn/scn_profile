@@ -51,11 +51,7 @@ const SupplierGeneralBasic = () => {
     <FormPaper
       title={t('fields.basicInformation')}
       actions={
-        <FormPaperAction
-          onToggle={handleToggle}
-          open={open}
-          permissions={[SUPPLIER_PERMISSIONS.SUPPLIER_WRITE]}
-        />
+        <FormPaperAction onToggle={handleToggle} open={open} permissions={[SUPPLIER_PERMISSIONS.SUPPLIER_WRITE]} />
       }
     >
       <BasicTableHeadless

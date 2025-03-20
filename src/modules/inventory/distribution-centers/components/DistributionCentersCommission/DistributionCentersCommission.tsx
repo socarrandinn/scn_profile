@@ -16,10 +16,7 @@ const DistributionCenterCommission = () => {
 
   if (open) {
     return (
-      <FormPaper
-        title={t('handlingCost.title')}
-        actions={<FormPaperAction onToggle={handleToggle} open={open} />}
-      >
+      <FormPaper title={t('handlingCost.title')} actions={<FormPaperAction onToggle={handleToggle} open={open} />}>
         <DistributionCentersCommissionUpdate
           initValue={{
             _id: distributionCenter?._id,

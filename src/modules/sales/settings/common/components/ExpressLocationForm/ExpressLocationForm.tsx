@@ -20,28 +20,28 @@ const ExpressLocationForm = ({ global, data }: Props) => {
 
   useEffect(() => {
     if (selectedCost === COST_TYPE.BASE) {
-      setValue?.('expressPrice', global?.expressPrice)
-      setValue?.('expressTime', global?.expressTime)
+      setValue?.('expressPrice', global?.expressPrice);
+      setValue?.('expressTime', global?.expressTime);
     }
   }, [global?.expressPrice, setValue, global?.expressTime, selectedCost]);
 
-  if (selectedCost === COST_TYPE.BASE && (!global?.hasExpress)) return <SwitchField label={t('expressDelivery:expressDisabled')} checked={global?.hasExpress} />;
+  if (selectedCost === COST_TYPE.BASE && !global?.hasExpress) { return <SwitchField label={t('expressDelivery:expressDisabled')} checked={global?.hasExpress} />; }
 
   return (
     <>
-      {selectedCost === COST_TYPE.BASE && (global?.hasExpress) && (data || global) &&
+      {selectedCost === COST_TYPE.BASE && global?.hasExpress && (data || global) && (
         <>
-          <SwitchField label={t(global?.hasExpress ? 'expressDelivery:expressEnabled' : 'expressDelivery:expressDisabled')} checked={global?.hasExpress} />
-          <Box sx={{ '.MuiTable-root': { minWidth: '553px' }, mt: 1, display: 'flex', gap: 3, flexDirection: 'column' }}>
-            <Table
-              columns={shippingExpressColumns}
-              data={[data || global]}
-              total={1}
-              hidePagination
-            />
+          <SwitchField
+            label={t(global?.hasExpress ? 'expressDelivery:expressEnabled' : 'expressDelivery:expressDisabled')}
+            checked={global?.hasExpress}
+          />
+          <Box
+            sx={{ '.MuiTable-root': { minWidth: '553px' }, mt: 1, display: 'flex', gap: 3, flexDirection: 'column' }}
+          >
+            <Table columns={shippingExpressColumns} data={[data || global]} total={1} hidePagination />
           </Box>
         </>
-      }
+      )}
       {selectedCost === COST_TYPE.CUSTOM && (
         <>
           <FormSwitchField
@@ -50,9 +50,7 @@ const ExpressLocationForm = ({ global, data }: Props) => {
             checked={global?.hasExpress}
             sx={{ mb: 1 }}
           />
-          {hasExpress && (
-            <ExpressDeliveryGlobalForm mdProps={{ price: 6, time: 6 }} />
-          )}
+          {hasExpress && <ExpressDeliveryGlobalForm mdProps={{ price: 6, time: 6 }} />}
         </>
       )}
     </>

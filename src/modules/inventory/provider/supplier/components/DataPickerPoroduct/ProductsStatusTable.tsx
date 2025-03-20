@@ -8,19 +8,13 @@ type ProductStatusTableProps = {
   rowId: string;
 };
 
-const ProductStatusTable = ({
-  value,
-  rowId
-}: ProductStatusTableProps) => {
-  const {
-    isLoading,
-    updateState
-  } = useUpdateStatusProducts(rowId);
+const ProductStatusTable = ({ value, rowId }: ProductStatusTableProps) => {
+  const { isLoading, updateState } = useUpdateStatusProducts(rowId);
 
   return (
     <StatusPicker
       options={STATE}
-      name="active"
+      name='active'
       size={'small'}
       value={STATE_MAP.get(value) as IStatus}
       isLoading={isLoading}

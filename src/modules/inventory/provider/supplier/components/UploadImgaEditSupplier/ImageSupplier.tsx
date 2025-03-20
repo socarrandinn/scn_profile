@@ -6,7 +6,7 @@ import { useUploadImageProviderProducts } from '../../hooks/useUploadImageProvid
 
 type ImageCategoryProps = {
   providerProducts?: ISupplier;
-  size?: number
+  size?: number;
 };
 
 const ImageSupplier = ({ providerProducts, size = 150 }: ImageCategoryProps) => {
@@ -14,14 +14,19 @@ const ImageSupplier = ({ providerProducts, size = 150 }: ImageCategoryProps) => 
 
   const onSubmit = (f: any) => {
     if (f.length) {
-      mutate(f[0])
+      mutate(f[0]);
     }
-  }
+  };
 
   return (
     <div>
-      <AvatarEditable avatar={providerProducts?.avatar} onSubmit={onSubmit} isLoading={isLoading} size={size}
-        variant={'rounded'}>
+      <AvatarEditable
+        avatar={providerProducts?.avatar}
+        onSubmit={onSubmit}
+        isLoading={isLoading}
+        size={size}
+        variant={'rounded'}
+      >
         <NoFoodIcon fontSize='small' />
       </AvatarEditable>
     </div>

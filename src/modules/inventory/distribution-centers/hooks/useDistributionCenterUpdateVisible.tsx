@@ -17,12 +17,13 @@ const useDistributionCenterUpdateVisible = (id: string) => {
       onError: () => {
         toast.error(t('generalErrorMessage', { ns: 'errors' }));
       },
-    });
+    },
+  );
 
   return {
     updateVisible: mutateAsync,
     isLoading,
-    value: data?.data?.visible
+    value: data?.data?.visible,
   };
 };
 

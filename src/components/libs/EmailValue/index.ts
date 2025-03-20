@@ -1,1 +1,1 @@
-export { default as EmailValue } from './EmailValue'
+export { default as EmailValue } from './EmailValue';

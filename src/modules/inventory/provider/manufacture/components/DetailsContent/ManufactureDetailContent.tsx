@@ -8,7 +8,10 @@ const ManufactureDetailContent = () => {
   const { id } = useParams();
   return (
     <Box>
-      <RouteLoader routes={manufactureDetailRoutes} notfoundRedirect={`/inventory/settings/manufactures/${id as string}/general`} />
+      <RouteLoader
+        routes={manufactureDetailRoutes}
+        notfoundRedirect={`/inventory/settings/manufactures/${id as string}/general`}
+      />
     </Box>
   );
 };

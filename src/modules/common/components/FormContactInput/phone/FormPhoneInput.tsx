@@ -23,11 +23,7 @@ function FormPhoneInput ({ name, onRemove, allowPrincipal, observer }: FormConta
   return (
     <FormPhoneInputStyle>
       <BaseFormPhoneInput name={`${name}.value`} />
-      <FormLabelSelectionField
-        name={`${name}.label`}
-        options={DEFAULT_PHONE_LABELS}
-        className={'phone-label-select'}
-      />
+      <FormLabelSelectionField name={`${name}.label`} options={DEFAULT_PHONE_LABELS} className={'phone-label-select'} />
       <div className={'phone-options'}>
         {allowPrincipal && <FormMakePrincipalField name={`${name}.principal`} observer={observer} />}
         {hasRemove && !readOnly && (

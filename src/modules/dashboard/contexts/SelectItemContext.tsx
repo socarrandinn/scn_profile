@@ -3,11 +3,9 @@ import { TypeMapView } from 'modules/dashboard/constant/TypeViewMap';
 
 const defaultValue: any = {
   select: null,
-  setSelect: () => {
-  },
+  setSelect: () => {},
   typeView: '',
-  setTypeView: () => {
-  },
+  setTypeView: () => {},
 };
 
 const SelectItemContext = createContext<any>(defaultValue);

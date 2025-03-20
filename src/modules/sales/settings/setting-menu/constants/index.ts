@@ -1,1 +1,1 @@
-export * from './settings-module.menu'
+export * from './settings-module.menu';

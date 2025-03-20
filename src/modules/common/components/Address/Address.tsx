@@ -4,7 +4,7 @@ import PlaceOutlined from '@mui/icons-material/PlaceOutlined';
 import { IAddress } from 'modules/common/interfaces';
 import { toAddressString } from 'utils/address';
 
-export type AddressField = 'street' | 'number' | 'city' | 'state' | 'zipCode' | 'country' | 'address'
+export type AddressField = 'street' | 'number' | 'city' | 'state' | 'zipCode' | 'country' | 'address';
 
 export const AddressValue = ({
   value,

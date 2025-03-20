@@ -1,7 +1,7 @@
 import { HeadCell } from '@dfl/mui-admin-layout';
 import { TimeCell } from '../components/TimeCell';
 import LocationCell from 'modules/common/components/LocationCell/LocationCell';
-import { IDelivery, ILocation } from 'modules/sales/settings/common/interfaces'
+import { IDelivery, ILocation } from 'modules/sales/settings/common/interfaces';
 import { CurrencyValue } from '@dfl/mui-react-common';
 
 export const locationColumn: HeadCell = {
@@ -10,7 +10,7 @@ export const locationColumn: HeadCell = {
   width: 170,
   cellClassName: 'min-w-[170px] max-w-[170px]',
   disablePadding: true,
-  renderCell: (value, data: IDelivery) => <LocationCell location={data?.location as ILocation} />
+  renderCell: (value, data: IDelivery) => <LocationCell location={data?.location as ILocation} />,
 };
 
 export const costBaseColumn: HeadCell = {
@@ -20,8 +20,8 @@ export const costBaseColumn: HeadCell = {
   cellClassName: 'min-w-[120px] max-w-[120px]',
   renderCell: (value, data) => {
     if (!value) return '-';
-    return <CurrencyValue value={value} />
-  }
+    return <CurrencyValue value={value} />;
+  },
 };
 
 export const weightCostColumn: HeadCell = {
@@ -30,8 +30,8 @@ export const weightCostColumn: HeadCell = {
   width: 120,
   cellClassName: 'min-w-[120px] max-w-[120px]',
   renderCell: (value, data) => {
-    return <CurrencyValue value={data?.weightPrice?.price} currency='$' />
-  }
+    return <CurrencyValue value={data?.weightPrice?.price} currency='$' />;
+  },
 };
 
 export const volumeCostColumn: HeadCell = {
@@ -40,8 +40,8 @@ export const volumeCostColumn: HeadCell = {
   width: 120,
   cellClassName: 'min-w-[120px] max-w-[120px]',
   renderCell: (value, data) => {
-    return <CurrencyValue value={data?.volumePrice?.price} currency='$' />
-  }
+    return <CurrencyValue value={data?.volumePrice?.price} currency='$' />;
+  },
 };
 
 export const timeColumn = (headerName?: string): HeadCell => ({
@@ -49,7 +49,7 @@ export const timeColumn = (headerName?: string): HeadCell => ({
   headerName: headerName || 'homeDelivery:fields.time',
   width: 110,
   cellClassName: 'min-w-[110px] max-w-[110px]',
-  renderCell: (value, data) => <TimeCell data={data} key={data?._id} type='normal' />
+  renderCell: (value, data) => <TimeCell data={data} key={data?._id} type='normal' />,
 });
 
 export const costExpressColumn: HeadCell = {
@@ -59,8 +59,8 @@ export const costExpressColumn: HeadCell = {
   cellClassName: 'min-w-[130px] max-w-[130px]',
   renderCell: (value, data: IDelivery) => {
     if (!value || !data?.hasExpress) return '-';
-    return <CurrencyValue value={value} />
-  }
+    return <CurrencyValue value={value} />;
+  },
 };
 
 export const expressTimeColumn = (headerName?: string): HeadCell => ({
@@ -68,7 +68,7 @@ export const expressTimeColumn = (headerName?: string): HeadCell => ({
   headerName: headerName || 'homeDelivery:fields.time',
   width: 140,
   cellClassName: 'min-w-[140px] max-w-[140px]',
-  renderCell: (value, data) => <TimeCell data={data} key={data?._id} type={'express'} />
+  renderCell: (value, data) => <TimeCell data={data} key={data?._id} type={'express'} />,
 });
 
 export const shippingColumns: HeadCell[] = [
@@ -79,7 +79,4 @@ export const shippingColumns: HeadCell[] = [
   timeColumn(),
 ];
 
-export const shippingExpressColumns: HeadCell[] = [
-  costExpressColumn,
-  expressTimeColumn(),
-];
+export const shippingExpressColumns: HeadCell[] = [costExpressColumn, expressTimeColumn()];

@@ -13,7 +13,7 @@ export const SectionPaper = styled(Paper)(({ theme }) => ({
 type Props = {
   title: ReactNode;
   titleMb?: number;
-  actions?: any
+  actions?: any;
 };
 
 const PanelSection = ({ title, titleMb = 2, children, actions }: ChildrenProps & Props) => {

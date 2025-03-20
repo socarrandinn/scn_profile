@@ -24,13 +24,15 @@ const ProvinceByCountryTable = ({ row }: Props) => {
   };
 
   return (
-    <Box sx={{
-      '.MuiTableHead-root': { display: 'none' },
-      '.MuiBox-root': { background: '#F7FBF5', marginTop: 0 },
-      '.MuiTableCell-root:first-of-type': { width: '65.98px !important' },
-      '.parent-config': { borderLeft: '5px solid #B7DA99', },
-      '.custom-config': { borderLeft: '5px solid #ffd180', },
-    }}>
+    <Box
+      sx={{
+        '.MuiTableHead-root': { display: 'none' },
+        '.MuiBox-root': { background: '#F7FBF5', marginTop: 0 },
+        '.MuiTableCell-root:first-of-type': { width: '65.98px !important' },
+        '.parent-config': { borderLeft: '5px solid #B7DA99' },
+        '.custom-config': { borderLeft: '5px solid #ffd180' },
+      }}
+    >
       <Table
         key={row?._id}
         data={data?.data}
@@ -44,7 +46,7 @@ const ProvinceByCountryTable = ({ row }: Props) => {
         emptyResultCmp={EmptyResultCmp}
       />
     </Box>
-  )
+  );
 };
 
 export default memo(ProvinceByCountryTable);

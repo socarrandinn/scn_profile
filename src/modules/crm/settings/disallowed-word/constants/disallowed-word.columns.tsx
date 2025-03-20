@@ -7,7 +7,7 @@ export const disallowedWordValueColumn: HeadCell<IDisallowedWord> = {
   field: 'word',
   headerName: 'disallowedWord:fields.word',
   disablePadding: false,
-  renderCell: (word: string, data?: IDisallowedWord) => (<EditLink entityId={data?._id as string}>{word}</EditLink>),
+  renderCell: (word: string, data?: IDisallowedWord) => <EditLink entityId={data?._id as string}>{word}</EditLink>,
 };
 
 export const disallowedWordActionsColumn: HeadCell<IDisallowedWord> = {
@@ -20,7 +20,4 @@ export const disallowedWordActionsColumn: HeadCell<IDisallowedWord> = {
   component: DisallowedWordRowActions,
 };
 
-export const disallowedWordColumns: Array<HeadCell<any>> = [
-  disallowedWordValueColumn,
-  disallowedWordActionsColumn
-];
+export const disallowedWordColumns: Array<HeadCell<any>> = [disallowedWordValueColumn, disallowedWordActionsColumn];

@@ -3,7 +3,7 @@ export interface IProductFeature {
   name: string;
   type: PRODUCT_FEATURE_TYPE_ENUM;
   values: string[];
-  isMultiValue: boolean
+  isMultiValue: boolean;
 }
 
 export enum PRODUCT_FEATURE_TYPE_ENUM {

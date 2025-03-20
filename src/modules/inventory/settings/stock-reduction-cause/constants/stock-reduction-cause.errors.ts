@@ -9,5 +9,5 @@ export const STOCK_REDUCTION_CAUSE_ERRORS = {
   [ERROR_REFS.DUPLICATE_KEY]: {
     title: 'stockReductionCause:errors.duplicatedName',
     description: 'stockReductionCause:errors.duplicatedNameDescription',
-  }
+  },
 };

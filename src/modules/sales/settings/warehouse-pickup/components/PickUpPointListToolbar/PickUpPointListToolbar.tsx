@@ -17,7 +17,7 @@ const PickUpPointListToolbar = () => {
           justifyContent={'space-between'}
         >
           <Typography fontWeight={600}>{t('pickupPoint.list')}</Typography>
-          <Button variant='outlined' startIcon={<Add />} onClick={() => { }}>
+          <Button variant='outlined' startIcon={<Add />} onClick={() => {}}>
             {t('pickupPoint.addPoint')}
           </Button>
         </Stack>

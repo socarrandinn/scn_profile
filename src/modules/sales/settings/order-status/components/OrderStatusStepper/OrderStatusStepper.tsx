@@ -5,13 +5,13 @@ import StepComponent from './Step';
 
 interface IOrderStatusStepper {
   activeStep: number;
-  steps: IOrderStatus[] | null
+  steps: IOrderStatus[] | null;
 }
 
 const OrderStatusStepper = ({ activeStep, steps }: IOrderStatusStepper) => {
   return (
     <Box sx={{ width: '100%' }}>
-      <Stepper activeStep={activeStep} alternativeLabel connector={<Connector/>}>
+      <Stepper activeStep={activeStep} alternativeLabel connector={<Connector />}>
         {steps?.map((status) => (
           <Step key={status._id}>
             <StepLabel StepIconComponent={StepComponent}>{status.title}</StepLabel>
@@ -20,6 +20,6 @@ const OrderStatusStepper = ({ activeStep, steps }: IOrderStatusStepper) => {
       </Stepper>
     </Box>
   );
-}
+};
 
-export default OrderStatusStepper
+export default OrderStatusStepper;

@@ -9,10 +9,7 @@ import { useTranslation } from 'react-i18next';
 export const CollectionBannerTypeChip = ({ type, isButton }: { type?: COLLECTION_BANNER_TYPE; isButton?: boolean }) => {
   const { t } = useTranslation('collection');
 
-  const bgColor = useMemo(
-    () => COLLECTION_BANNER_TYPE_COLOR[type ?? COLLECTION_BANNER_TYPE.SIMPLE_BANNER],
-    [type],
-  );
+  const bgColor = useMemo(() => COLLECTION_BANNER_TYPE_COLOR[type ?? COLLECTION_BANNER_TYPE.SIMPLE_BANNER], [type]);
   if (!type) return null;
   return (
     <Chip

@@ -9,16 +9,19 @@ const useInvitationAcceptanceAPi = () => {
     isLoading: true,
   });
   const { setAuth } = useAuth();
-  const mutate = useCallback(async (key: string | { key: string, [prop: string]: any }) => {
-    startRequest();
-    try {
-      const data = await InvitationService.verify(key);
-      completeRequest(data);
-      setAuth(data);
-    } catch (e) {
-      errorRequest(e);
-    }
-  }, [completeRequest, errorRequest, setAuth, startRequest]);
+  const mutate = useCallback(
+    async (key: string | { key: string; [prop: string]: any }) => {
+      startRequest();
+      try {
+        const data = await InvitationService.verify(key);
+        completeRequest(data);
+        setAuth(data);
+      } catch (e) {
+        errorRequest(e);
+      }
+    },
+    [completeRequest, errorRequest, setAuth, startRequest],
+  );
 
   return {
     ...state,
@@ -26,9 +29,9 @@ const useInvitationAcceptanceAPi = () => {
   };
 };
 
-type Executed = Record<string, boolean>
+type Executed = Record<string, boolean>;
 
-const useInvitationAcceptance = (key: string | { key: string, [prop: string]: any }) => {
+const useInvitationAcceptance = (key: string | { key: string; [prop: string]: any }) => {
   const isClientSide = useIsClientSide();
   const navigate = useNavigate();
   const { mutate, isLoading, isError, error, data, isSuccess } = useInvitationAcceptanceAPi();

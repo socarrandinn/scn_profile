@@ -13,13 +13,7 @@ type SelectProviderTypeProps = {
 
 const isOptionEqualToValue = (option: any, value: any) => option === value;
 
-const SelectProviderType = ({
-  label,
-  name,
-  required = false,
-  disabled = false,
-  ...props
-}: SelectProviderTypeProps) => {
+const SelectProviderType = ({ label, name, required = false, disabled = false, ...props }: SelectProviderTypeProps) => {
   const { t } = useTranslation('role');
   const options = useMemo(() => [PROVIDER_TYPE_ENUM.LOGISTIC, PROVIDER_TYPE_ENUM.SUPPLIER], []);
 

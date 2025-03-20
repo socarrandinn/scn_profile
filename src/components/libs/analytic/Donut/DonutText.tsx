@@ -12,29 +12,29 @@ const DonutText = ({ label, value, currency, color, ...props }: DonutTextProps) 
   const NumberCom = currency ? CurrencyValue : NumberValue;
 
   return (
-        <BinaryDonut {...props} value={value} color={color}>
-            <NumberCom
-                value={value}
-                fontSize={18}
-                fontWeight={500}
-                minWidth={100}
-                color={color}
-                textAlign={'center'}
-                bgcolor={'white'}
-            />
+    <BinaryDonut {...props} value={value} color={color}>
+      <NumberCom
+        value={value}
+        fontSize={18}
+        fontWeight={500}
+        minWidth={100}
+        color={color}
+        textAlign={'center'}
+        bgcolor={'white'}
+      />
 
-            <Typography
-                fontSize={11}
-                textAlign={'center'}
-                position={'absolute'}
-                mt={'-5px'}
-                color={'text.primary'}
-                lineHeight={1.1}
-                width={'100%'}
-            >
-                {label}
-            </Typography>
-        </BinaryDonut>
+      <Typography
+        fontSize={11}
+        textAlign={'center'}
+        position={'absolute'}
+        mt={'-5px'}
+        color={'text.primary'}
+        lineHeight={1.1}
+        width={'100%'}
+      >
+        {label}
+      </Typography>
+    </BinaryDonut>
   );
 };
 

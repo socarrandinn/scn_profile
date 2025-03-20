@@ -23,7 +23,10 @@ const ProductDetailEstimatedTimeContainer = ({
   onClose,
 }: ProductDetailEstimatedTimeContainerProps) => {
   const { t } = useTranslation('common');
-  const { control, onSubmit, isLoading, error, reset, formState } = useProductEstimatedTimeCreateForm(onClose, initValue);
+  const { control, onSubmit, isLoading, error, reset, formState } = useProductEstimatedTimeCreateForm(
+    onClose,
+    initValue,
+  );
 
   const handleClose = useCallback(() => {
     onClose?.();
@@ -40,7 +43,9 @@ const ProductDetailEstimatedTimeContainer = ({
       )}
 
       <Stack mt={{ xs: 1, md: 3 }} gap={1} justifyContent={'end'} direction={'row'}>
-        <Button variant='grey' onClick={handleClose}>{t('common:cancel')}</Button>
+        <Button variant='grey' onClick={handleClose}>
+          {t('common:cancel')}
+        </Button>
         <LoadingButton
           variant='contained'
           type={'submit'}

@@ -14,7 +14,7 @@ export const PaperCategory = styled(Paper)(({ theme }) => ({
   '.category-label': {
     fontSize: 11,
     color: theme.palette.primary.contrastText,
-    opacity: 0.8
+    opacity: 0.8,
   },
   '.category-name': {
     fontSize: 22,
@@ -41,41 +41,42 @@ export const PaperCategory = styled(Paper)(({ theme }) => ({
         fontSize: 40,
         height: 80,
         width: 80,
-      }
-    }
+      },
+    },
   },
   '.category-badged': {
     '.MuiSvgIcon-root': {
       fontSize: 20,
       color: theme.palette.primary.contrastText,
       opacity: 0.3,
-    }
-  }
+    },
+  },
 }));
 
 type StoreSectionProps = {
   name: string;
-}
+};
 
 const StoreSection = ({ name }: StoreSectionProps) => {
-  const { t } = useTranslation('warehouse')
+  const { t } = useTranslation('warehouse');
   return (
     <PaperCategory elevation={0}>
       <div className={'category-icon'}>
-        <StoreIcon fontSize='large' sx={{ color: 'white' }}/>
+        <StoreIcon fontSize='large' sx={{ color: 'white' }} />
       </div>
-    <Typography className={'category-label'} variant={'subtitle1'} textTransform={'uppercase'}>
-      {t('name_card_header')}
-    </Typography>
-    <Typography className={'category-name'} variant={'subtitle2'} textTransform={'uppercase'}>
-      {name}
-    </Typography>
-    <FlexBox gap={1} className={'category-badged'}>
-      <TurnedInNotOutlined/>
-      <TurnedInNotOutlined/>
-      <TurnedInNotOutlined/>
-    </FlexBox>
-  </PaperCategory>)
-}
+      <Typography className={'category-label'} variant={'subtitle1'} textTransform={'uppercase'}>
+        {t('name_card_header')}
+      </Typography>
+      <Typography className={'category-name'} variant={'subtitle2'} textTransform={'uppercase'}>
+        {name}
+      </Typography>
+      <FlexBox gap={1} className={'category-badged'}>
+        <TurnedInNotOutlined />
+        <TurnedInNotOutlined />
+        <TurnedInNotOutlined />
+      </FlexBox>
+    </PaperCategory>
+  );
+};
 
 export default memo(StoreSection);

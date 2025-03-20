@@ -1,1 +1,1 @@
-export { default as ChartBox } from './ChartBox'
+export { default as ChartBox } from './ChartBox';

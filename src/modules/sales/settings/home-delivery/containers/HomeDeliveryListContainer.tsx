@@ -7,16 +7,13 @@ import { homeDeliveryColumns } from '../constants/home-delivery.columns';
 import LocationsTableContainer from '../../common/containers/LocationsTableContainer';
 
 const HomeDeliveryListContainer = () => {
-  const { isLoading, error, data } = useFindHomeDeliveryPlaces(ADDRESS_COUNTRY_CODE === 'CU' ? LOCATION_TYPE.STATE : LOCATION_TYPE.COUNTRY);
+  const { isLoading, error, data } = useFindHomeDeliveryPlaces(
+    ADDRESS_COUNTRY_CODE === 'CU' ? LOCATION_TYPE.STATE : LOCATION_TYPE.COUNTRY,
+  );
 
   return (
     <>
-      <LocationsTableContainer
-        columns={homeDeliveryColumns}
-        data={data}
-        error={error}
-        isLoading={isLoading}
-      />
+      <LocationsTableContainer columns={homeDeliveryColumns} data={data} error={error} isLoading={isLoading} />
       <HomeDeliveryEditModal />
     </>
   );

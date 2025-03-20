@@ -1,1 +1,1 @@
-export { default as RoleDetailsContent } from './RoleDetailsContent'
+export { default as RoleDetailsContent } from './RoleDetailsContent';

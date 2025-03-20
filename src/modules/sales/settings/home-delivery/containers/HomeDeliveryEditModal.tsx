@@ -18,9 +18,12 @@ const HomeDeliveryEditModal = () => {
 
   const initValues = useMemo(() => {
     if (data?.data?.[0]) {
-      return { ...data?.data?.[0], customPrice: data?.data?.[0]?.customPrice === true ? COST_TYPE.CUSTOM : COST_TYPE.BASE }
+      return {
+        ...data?.data?.[0],
+        customPrice: data?.data?.[0]?.customPrice === true ? COST_TYPE.CUSTOM : COST_TYPE.BASE,
+      };
     }
-    return emptyDelivery
+    return emptyDelivery;
   }, [data?.data]);
 
   return (

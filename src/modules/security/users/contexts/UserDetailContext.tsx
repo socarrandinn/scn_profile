@@ -41,7 +41,10 @@ const UserDetailProvider = (props: UserContextProps) => {
 
   const value = useMemo(() => {
     return {
-      user, setUser, isLoading, error,
+      user,
+      setUser,
+      isLoading,
+      error,
     };
   }, [user, isLoading, error]);
 

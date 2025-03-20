@@ -7,7 +7,7 @@ class UserInviteService extends EntityApiService<IUser> {
     const transformedPayload = {
       ...payload,
       security: {
-        roles: payload.security.roles.map(r => r._id ?? r),
+        roles: payload.security.roles.map((r) => r._id ?? r),
       },
     };
     return this.handleResponse(ApiClientService.post(`/ms-auth/api/users${apiPath}`, transformedPayload, config));

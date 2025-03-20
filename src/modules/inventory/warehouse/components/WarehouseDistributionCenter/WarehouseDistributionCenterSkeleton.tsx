@@ -8,7 +8,7 @@ const WarehouseDistributionCenterSkeleton = () => {
         .fill('')
         .map((sk) => (
           <Grid key={sk} item xs={12} md={6}>
-            <Skeleton sx={{ width: '100%', height: 35, }} variant='rounded' animation='wave' />
+            <Skeleton sx={{ width: '100%', height: 35 }} variant='rounded' animation='wave' />
           </Grid>
         ))}
     </Grid>

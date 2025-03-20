@@ -26,7 +26,9 @@ const ModifyCommissionConfirmationMessage = ({
         <Paragraph>{t('commissionModifyConfirmMessage')}</Paragraph>
       </DialogContent>
       <DialogActions>
-        <Button variant='grey' onClick={handleConfirmClose}>{t('common:cancel')}</Button>
+        <Button variant='grey' onClick={handleConfirmClose}>
+          {t('common:cancel')}
+        </Button>
         <LoadingButton
           variant='contained'
           onClick={handleConfirmSubmit}

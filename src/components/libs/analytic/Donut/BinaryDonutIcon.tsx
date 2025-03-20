@@ -4,11 +4,9 @@ import BinaryDonut, { BinaryDonutProps } from 'components/libs/analytic/Donut/Bi
 type BinaryDonutIconProps = BinaryDonutProps;
 const BinaryDonutIcon = ({ children, ...props }: BinaryDonutIconProps) => {
   return (
-        <BinaryDonut {...props}>
-            <div style={{ fontSize: 4 }}>
-                {children}
-            </div>
-        </BinaryDonut>
+    <BinaryDonut {...props}>
+      <div style={{ fontSize: 4 }}>{children}</div>
+    </BinaryDonut>
   );
 };
 

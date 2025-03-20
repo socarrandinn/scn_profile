@@ -4,7 +4,10 @@ import { ConditionContainer, DialogForm, HandlerError, LoadingButton } from '@df
 import { useTranslation } from 'react-i18next';
 import useStoreAreaCreateForm from 'modules/inventory/settings/warehouse-area/hooks/useStoreAreaCreateForm';
 import { IWarehouseArea } from 'modules/inventory/settings/warehouse-area/interfaces';
-import { StoreAreaForm, StoreAreaFormSkeleton } from 'modules/inventory/settings/warehouse-area/components/StoreAreaForm';
+import {
+  StoreAreaForm,
+  StoreAreaFormSkeleton,
+} from 'modules/inventory/settings/warehouse-area/components/StoreAreaForm';
 
 type StoreAreaCreateModalProps = {
   open: boolean;
@@ -47,7 +50,9 @@ const StoreAreaCreateModal = ({
         )}
       </DialogContent>
       <DialogActions>
-        <Button variant='grey' onClick={handleClose}>{t('common:cancel')}</Button>
+        <Button variant='grey' onClick={handleClose}>
+          {t('common:cancel')}
+        </Button>
         <LoadingButton
           variant='contained'
           type={'submit'}

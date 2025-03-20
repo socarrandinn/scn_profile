@@ -4,7 +4,10 @@ import { ConditionContainer, DialogForm, HandlerError, LoadingButton } from '@df
 import { useTranslation } from 'react-i18next';
 import useConciliationAdjustmentCausesCreateForm from 'modules/sales/settings/conciliation-adjustment-causes/hooks/useConciliationAdjustmentCausesCreateForm';
 import { IConciliationAdjustmentCauses } from 'modules/sales/settings/conciliation-adjustment-causes/interfaces';
-import { ConciliationAdjustmentCausesForm, ConciliationAdjustmentCausesFormSkeleton } from 'modules/sales/settings/conciliation-adjustment-causes/components/ConciliationAdjustmentCausesForm';
+import {
+  ConciliationAdjustmentCausesForm,
+  ConciliationAdjustmentCausesFormSkeleton,
+} from 'modules/sales/settings/conciliation-adjustment-causes/components/ConciliationAdjustmentCausesForm';
 
 type ConciliationAdjustmentCausesCreateModalProps = {
   open: boolean;
@@ -42,7 +45,12 @@ const ConciliationAdjustmentCausesCreateModal = ({
 
         {!dataError && (
           <ConditionContainer active={!loadingInitData} alternative={<ConciliationAdjustmentCausesFormSkeleton />}>
-            <ConciliationAdjustmentCausesForm error={error} isLoading={isLoading} control={control} onSubmit={onSubmit} />
+            <ConciliationAdjustmentCausesForm
+              error={error}
+              isLoading={isLoading}
+              control={control}
+              onSubmit={onSubmit}
+            />
           </ConditionContainer>
         )}
       </DialogContent>

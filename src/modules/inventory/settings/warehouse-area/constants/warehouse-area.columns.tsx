@@ -29,5 +29,5 @@ export const storeAreaColumns: Array<HeadCell<any>> = [
   warehouseAreaNameColumn,
   warehouseAreaDescriptionColumn,
   createdATColumn,
-  warehouseAreaActionsColumn
+  warehouseAreaActionsColumn,
 ];

@@ -8,11 +8,7 @@ import { useAccountDetail } from 'modules/account/contexts/AccountDetail';
 const AccountSummary = () => {
   const { user } = useAccountDetail();
   return (
-    <Stack
-      direction={'column'}
-      spacing={0}
-      sx={{ paddingBottom: 1 }}
-    >
+    <Stack direction={'column'} spacing={0} sx={{ paddingBottom: 1 }}>
       <UserDetail />
       <PermissionCheck permissions={'USER_ADMIN'}>
         <Divider orientation='horizontal' />

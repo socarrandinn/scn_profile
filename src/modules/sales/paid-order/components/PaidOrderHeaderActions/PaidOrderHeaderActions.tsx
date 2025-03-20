@@ -9,7 +9,7 @@ import IncidenceMenu from 'modules/sales/incidence/components/IncidenceMenu/Inci
 
 type Props = {
   incidenceMenu?: boolean;
-}
+};
 
 const PaidOrderHeaderActions = ({ incidenceMenu = true }: Props) => {
   const { order, orderId } = useOrderContext();

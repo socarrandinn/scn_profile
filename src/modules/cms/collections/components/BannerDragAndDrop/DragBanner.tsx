@@ -17,12 +17,7 @@ export const DragBannerSideBySideContent = () => {
 export const DragBannerMultipleContent = () => {
   const { collection } = useCollectionPositionContext();
 
-  return (
-    <DragBannerSimple
-      bannerType={COLLECTION_BANNER_TYPE.MULTI_BANNER}
-      collectionId={collection?._id as string}
-    />
-  );
+  return <DragBannerSimple bannerType={COLLECTION_BANNER_TYPE.MULTI_BANNER} collectionId={collection?._id as string} />;
 };
 
 export const DragBannerSimpleContent = () => {

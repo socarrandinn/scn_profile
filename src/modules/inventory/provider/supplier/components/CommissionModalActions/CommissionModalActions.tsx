@@ -63,7 +63,9 @@ const CommissionModalActions = ({ open, title, loadingInitData, initValue, onClo
           </ConditionContainer>
         </DialogContent>
         <DialogActions>
-          <Button variant='grey' onClick={handleClose}>{t('common:cancel')}</Button>
+          <Button variant='grey' onClick={handleClose}>
+            {t('common:cancel')}
+          </Button>
           <LoadingButton variant='contained' type='submit' loading={isLoading} form='supplier-commission-form'>
             {t('common:save')}
           </LoadingButton>
@@ -71,7 +73,9 @@ const CommissionModalActions = ({ open, title, loadingInitData, initValue, onClo
       </DialogForm>
       <Dialog open={confirmOpen}>
         <DialogActions>
-          <Button variant='grey' onClick={handleConfirmClose}>{t('common:cancel')}</Button>
+          <Button variant='grey' onClick={handleConfirmClose}>
+            {t('common:cancel')}
+          </Button>
           <LoadingButton
             variant='contained'
             onClick={handleConfirmSubmit}

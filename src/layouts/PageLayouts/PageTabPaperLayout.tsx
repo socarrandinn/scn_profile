@@ -33,9 +33,7 @@ const PageTabPaperLayout = ({ children, prefix, tabs, actions }: PageTabPaperLay
               scrollButtons='auto'
             />
             <div>
-              <GeneralActions id={'page-general-actions'}>
-                {actions}
-              </GeneralActions>
+              <GeneralActions id={'page-general-actions'}>{actions}</GeneralActions>
             </div>
           </FlexBox>
           <ActionPortal.Provider

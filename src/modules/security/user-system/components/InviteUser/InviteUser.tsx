@@ -11,20 +11,21 @@ const InviteUser = () => {
   const { t } = useTranslation('users');
   const { isOpen, onClose, onOpen } = useToggle(false);
 
-  return (<>
-    <AddButton action={onOpen} startIcon={<Send />}>
-      {t('inviteUser')}
-    </AddButton>
-    <UserInvitationModal
-      open={isOpen}
-      onClose={onClose}
-      apiPath={'/admin/invite'}
-      validationScheme={userInvitationSchema}
-      queryKey={USERS_INVITATION_LIST_KEY}
-      redirect={'/security/system-users/user'}
-      rolesType={ROLE_TYPE_ENUM.ROOT}
-    />
-  </>
+  return (
+    <>
+      <AddButton action={onOpen} startIcon={<Send />}>
+        {t('inviteUser')}
+      </AddButton>
+      <UserInvitationModal
+        open={isOpen}
+        onClose={onClose}
+        apiPath={'/admin/invite'}
+        validationScheme={userInvitationSchema}
+        queryKey={USERS_INVITATION_LIST_KEY}
+        redirect={'/security/system-users/user'}
+        rolesType={ROLE_TYPE_ENUM.ROOT}
+      />
+    </>
   );
 };
 

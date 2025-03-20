@@ -16,16 +16,14 @@ const BorderLinearProgress = styled(LinearProgress)(() => ({
   },
 }));
 export const LoadingSwitch = ({ name, color, checked, onChange, isLoading, variables }: any) => {
-  const isMe = variables && name in variables
+  const isMe = variables && name in variables;
   if (isMe && isLoading) {
-    return <BorderLinearProgress color="primary" />
+    return <BorderLinearProgress color='primary' />;
   }
-  return <Switch name={name} color={color}
-    disabled={isLoading && !isMe}
-    edge='end'
-    checked={checked}
-    onChange={onChange} />
-}
+  return (
+    <Switch name={name} color={color} disabled={isLoading && !isMe} edge='end' checked={checked} onChange={onChange} />
+  );
+};
 
 const UserActions = () => {
   const { t } = useTranslation('users');
@@ -42,7 +40,7 @@ const UserActions = () => {
   const handleChange = useCallback(
     (event: React.ChangeEvent<HTMLInputElement>) => {
       mutate({
-        [event.target.name]: event.target.checked
+        [event.target.name]: event.target.checked,
       });
 
       user &&
@@ -106,12 +104,15 @@ const UserActions = () => {
             </Typography>
           }
         />
-        <LoadingSwitch name='lock' color={'primary'}
+        <LoadingSwitch
+          name='lock'
+          color={'primary'}
           variables={variables}
           isLoading={isChanging}
           edge='end'
           checked={checkedLocked}
-          onChange={handleChange} />
+          onChange={handleChange}
+        />
       </ListItem>
       <ListItem key={'switch-list-label-verify'}>
         <ListItemText
@@ -123,12 +124,15 @@ const UserActions = () => {
             </Typography>
           }
         />
-        <LoadingSwitch name='verified' color={'primary'}
+        <LoadingSwitch
+          name='verified'
+          color={'primary'}
           variables={variables}
           isLoading={isChanging}
           edge='end'
           checked={checkedVerified}
-          onChange={handleChange} />
+          onChange={handleChange}
+        />
       </ListItem>
     </List>
   );

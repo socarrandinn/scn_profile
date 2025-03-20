@@ -5,10 +5,13 @@ import { COLLECTION_CONTENT_TYPE } from '../../constants/collection-types';
 
 type Props = {
   value: COLLECTION_CONTENT_TYPE;
-  size?: 'small' | 'medium'
+  size?: 'small' | 'medium';
 };
 
-const COLOR: Record<string, 'default' | 'primary' | 'error' | 'success' | 'warning' | 'info' | 'secondary' | undefined> = {
+const COLOR: Record<
+string,
+'default' | 'primary' | 'error' | 'success' | 'warning' | 'info' | 'secondary' | undefined
+> = {
   BANNER: 'primary',
   TESTIMONY: 'warning',
   PRODUCT: 'info',
@@ -27,7 +30,7 @@ const CollectionContentTypeCell = ({ value, size = 'small' }: Props) => {
       color={COLOR[value] || 'default'}
       sx={{ px: 0.8, py: '14px !important' }}
     />
-  )
+  );
 };
 
 export default memo(CollectionContentTypeCell);

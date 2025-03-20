@@ -15,14 +15,10 @@ const initialValue: IUser = {
   security: {
     roles: [],
   },
-  space: null
+  space: null,
 };
 
-const useUserCreateForm = (
-  validationScheme: any,
-  onClose?: () => void,
-  queryKey?: string,
-) => {
+const useUserCreateForm = (validationScheme: any, onClose?: () => void, queryKey?: string) => {
   const { t } = useTranslation('account');
   const queryClient = useQueryClient();
 

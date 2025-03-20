@@ -14,7 +14,7 @@ const PaymentMethodsContainer = () => {
   const { data, isLoading } = useFindPaymentMethods();
   const { value } = useSearchParamsChange('edit');
 
-  if (isLoading) return <PaymentMethodSkeleton />
+  if (isLoading) return <PaymentMethodSkeleton />;
 
   return (
     <PagePaperLayout title={t('paymentMethods')}>
@@ -29,11 +29,10 @@ const PaymentMethodsContainer = () => {
             <Grid key={paymentMethod?._id} item xs={12} md={4}>
               <PaymentMethodCard selected={isSelected} paymentMethod={paymentMethod} />
             </Grid>
-          )
+          );
         })}
       </Grid>
     </PagePaperLayout>
-
   );
 };
 

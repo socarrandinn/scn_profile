@@ -26,7 +26,12 @@ const ManufactureGeneralDetails = () => {
   }
 
   return (
-    <FormPaper title={t('basicInformation')} actions={<FormPaperAction permissions={MANUFACTURE_PERMISSIONS.MANUFACTURE_WRITE} onToggle={handleToggle} open={open} />}>
+    <FormPaper
+      title={t('basicInformation')}
+      actions={
+        <FormPaperAction permissions={MANUFACTURE_PERMISSIONS.MANUFACTURE_WRITE} onToggle={handleToggle} open={open} />
+      }
+    >
       <BasicTableHeadless
         isLoading={isLoading}
         error={error}

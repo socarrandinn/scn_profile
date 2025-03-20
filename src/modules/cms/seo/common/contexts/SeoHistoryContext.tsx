@@ -24,7 +24,7 @@ const SeoHistoryContext = createContext<SeoHistoryContextValue>(defaultValue);
 // Proptypes of Provider component
 type SeoHistoryContextProps = ChildrenProps & {
   children: any;
-  useHook: any
+  useHook: any;
 };
 
 /**
@@ -41,7 +41,9 @@ const SeoHistoryProvider = ({ useHook, ...props }: SeoHistoryContextProps) => {
     setSearchParams(params);
   }, [searchParams, setSearchParams]);
 
-  return <SeoHistoryContext.Provider value={{ data, isLoading, error, checkSeoHistory, handleCloseSeoHistory }} {...props} />;
+  return (
+    <SeoHistoryContext.Provider value={{ data, isLoading, error, checkSeoHistory, handleCloseSeoHistory }} {...props} />
+  );
 };
 
 // Default hook to retrieve context data

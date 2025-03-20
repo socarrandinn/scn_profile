@@ -6,5 +6,5 @@ export const messageSchema = Yup.object().shape({
   description: Yup.string().required('required').min(4, 'min-4'),
   email: Yup.string().required('required').trim().email('validEmail').max(255),
   subject: Yup.string().required('required'),
-  message: Yup.string().required('required')
+  message: Yup.string().required('required'),
 });

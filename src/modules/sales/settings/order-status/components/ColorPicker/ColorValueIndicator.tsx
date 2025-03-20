@@ -1,10 +1,10 @@
-import { Typography, Box } from '@mui/material'
+import { Typography, Box } from '@mui/material';
 
 interface IColorValueIndicator {
-  redValue: number
-  blueValue: number
-  greenValue: number
-  hexValue: string
+  redValue: number;
+  blueValue: number;
+  greenValue: number;
+  hexValue: string;
 }
 
 const ColorValueIndicator = ({ redValue, blueValue, greenValue, hexValue }: IColorValueIndicator) => {
@@ -24,6 +24,6 @@ const ColorValueIndicator = ({ redValue, blueValue, greenValue, hexValue }: ICol
       </Typography>
     </Box>
   );
-}
+};
 
-export default ColorValueIndicator
+export default ColorValueIndicator;

@@ -10,7 +10,7 @@ import { PROVIDER_TYPE_ENUM } from 'modules/inventory/provider/common/constants'
 export type UserProviderProps = {
   path: string;
   provider?: string;
-  providerType?: PROVIDER_TYPE_ENUM
+  providerType?: PROVIDER_TYPE_ENUM;
 };
 
 const ProviderUsersContainer = ({ path, provider, providerType }: UserProviderProps) => {

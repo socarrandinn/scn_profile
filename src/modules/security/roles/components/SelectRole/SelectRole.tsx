@@ -40,14 +40,17 @@ const isOptionEqualToValue = (option: IRole, value: IRole) => {
 
 const SelectRole = ({ name, multiple, label, helperText, type, ...props }: SelectRoleProps) => {
   const roleType = useMemo(() => {
-    return ROLE_TYPES_MAP[type as ROLE_TYPE_ENUM]
+    return ROLE_TYPES_MAP[type as ROLE_TYPE_ENUM];
   }, [type]);
 
   const fetchFunc = useCallback(() => RoleService.searchRolesByType(roleType), [roleType]);
 
-  const getOneFunc = useCallback((params?: any) => {
-    return RoleService.getOneRoleByType(params, roleType)
-  }, [roleType]);
+  const getOneFunc = useCallback(
+    (params?: any) => {
+      return RoleService.getOneRoleByType(params, roleType);
+    },
+    [roleType],
+  );
 
   return (
     <FormAsyncSelectAutocompleteField

@@ -27,7 +27,14 @@ const SeoForm = ({ seoTitle, seoDescription, slugDescription, isEdit, imageSize,
         <Small>{t('section.searchPreview.subtitle')}</Small>
       </Grid>
       <Grid item xs={12} md={12}>
-        <SeoPreview title={title} description={description} urlSlug={slugField} isEdit={isEdit} imageSize={imageSize} mobile={mobile} />
+        <SeoPreview
+          title={title}
+          description={description}
+          urlSlug={slugField}
+          isEdit={isEdit}
+          imageSize={imageSize}
+          mobile={mobile}
+        />
       </Grid>
       <Grid item xs={12} md={12}>
         <FormTextField

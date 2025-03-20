@@ -6,11 +6,11 @@ import { useTranslation } from 'react-i18next';
 import { useDFLForm } from '@dfl/mui-react-common';
 
 type Props = {
-  disabled?: boolean,
+  disabled?: boolean;
   mdProps?: {
-    price: number,
-    time: number
-  }
+    price: number;
+    time: number;
+  };
 };
 
 const ExpressDeliveryGlobalForm = ({ disabled, mdProps }: Props) => {
@@ -31,7 +31,7 @@ const ExpressDeliveryGlobalForm = ({ disabled, mdProps }: Props) => {
       <Grid item xs={12} md={mdProps?.time ?? 3}>
         <ShippingTimeForm disabled={disabled || hasExpress === false} name='expressTime' />
       </Grid>
-    </Grid >
+    </Grid>
   );
 };
 

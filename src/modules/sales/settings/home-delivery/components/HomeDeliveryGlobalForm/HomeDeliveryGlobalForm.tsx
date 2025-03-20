@@ -4,7 +4,7 @@ import { ShippingCostForm } from 'modules/sales/settings/common/components/Shipp
 import { ShippingTimeForm } from 'modules/sales/settings/common/components/ShippingTimeForm';
 
 type Props = {
-  disabled?: boolean,
+  disabled?: boolean;
 };
 
 const HomeDeliveryGlobalForm = ({ disabled }: Props) => {
@@ -14,7 +14,7 @@ const HomeDeliveryGlobalForm = ({ disabled }: Props) => {
       <Grid item xs={12} md={3.5}>
         <ShippingTimeForm disabled={disabled} />
       </Grid>
-    </Grid >
+    </Grid>
   );
 };
 

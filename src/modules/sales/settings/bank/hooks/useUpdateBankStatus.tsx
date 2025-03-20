@@ -12,9 +12,7 @@ const useUpdateBankStatus = (bankId: string) => {
     (status: string) => BankService.updateStatus(bankId, status === 'true'),
     {
       onSuccess: ({ data }: any) => {
-        toast.success(
-          t('provider:visibilitySuccessUpdate'),
-        );
+        toast.success(t('provider:visibilitySuccessUpdate'));
         queryClient.invalidateQueries([BANKS_LIST_KEY]);
       },
       onError: () => {

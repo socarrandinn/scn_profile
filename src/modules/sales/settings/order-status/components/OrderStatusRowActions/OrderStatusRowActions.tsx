@@ -18,18 +18,24 @@ const OrderStatusRowActions = ({ rowId, allowDeleteAction = true, index, order }
   const { isOpen, onClose, onOpen } = useToggle();
   const handleEdit = useParamsLink({ edit: rowId });
 
-  const { updateIsLoading, updateOrder } = useUpdateOrder(rowId as string)
+  const { updateIsLoading, updateOrder } = useUpdateOrder(rowId as string);
 
   const { mutate, isLoading, error } = useDeleteOrderStatus(rowId as string, onClose);
 
   return (
     <>
       <Stack direction='row' spacing={1} justifyContent='end'>
-        <EditOrderActions index={index}
-                          onDownAction={() => { updateOrder(order + 1); }}
-                          onUpAction={() => { order > 0 && updateOrder(order - 1) }}
-                          isLoading={updateIsLoading}
-                          order={order}/>
+        <EditOrderActions
+          index={index}
+          onDownAction={() => {
+            updateOrder(order + 1);
+          }}
+          onUpAction={() => {
+            order > 0 && updateOrder(order - 1);
+          }}
+          isLoading={updateIsLoading}
+          order={order}
+        />
         <EditRowActions onClick={handleEdit} />
         {allowDeleteAction ? (
           <DeleteRowAction

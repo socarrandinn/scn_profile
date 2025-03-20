@@ -18,7 +18,9 @@ const LogisticStatusTable = ({ value, rowId }: LogisticStatusTableProps) => {
       size={'small'}
       value={STATE_MAP.get(value) as IStatus}
       isLoading={isLoading}
-      onChange={() => { updateState(!value); }}
+      onChange={() => {
+        updateState(!value);
+      }}
     />
   );
 };

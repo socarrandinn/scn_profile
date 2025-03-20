@@ -19,7 +19,7 @@ export const removeBorder = {
   },
 };
 
-export const sxInput = { '.MuiInputBase-input': { width: '60%' } }
+export const sxInput = { '.MuiInputBase-input': { width: '60%' } };
 
 export const StartAdornment = ({ text }: { text: string }) => {
   return (
@@ -30,7 +30,7 @@ export const StartAdornment = ({ text }: { text: string }) => {
 };
 
 type Props = {
-  disabled?: boolean,
+  disabled?: boolean;
   name?: string;
 };
 
@@ -54,9 +54,9 @@ const ShippingTimeForm = ({ disabled, name = 'time' }: Props) => {
         sx={{ ...sxInput, '.MuiFormHelperText-root': { display: 'none' } }}
         InputProps={{
           startAdornment: <StartAdornment text={t('time.from')} />,
-          endAdornment:
+          endAdornment: (
             <>
-              <Divider orientation="vertical" variant="middle" flexItem />
+              <Divider orientation='vertical' variant='middle' flexItem />
               <FormTextField
                 disabled={disabled}
                 InputProps={{
@@ -68,6 +68,7 @@ const ShippingTimeForm = ({ disabled, name = 'time' }: Props) => {
                 size='small'
               />
             </>
+          ),
         }}
       />
       {messageError(name) && (

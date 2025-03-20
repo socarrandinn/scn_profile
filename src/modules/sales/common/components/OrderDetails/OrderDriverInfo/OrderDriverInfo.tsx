@@ -8,8 +8,8 @@ import SubOrderDriverForm from 'modules/sales/sub-orders/components/SubOrderDriv
 import useSubOrderDriverForm from 'modules/sales/sub-orders/hooks/useSubOrderDriverForm';
 
 type Props = {
-  nm?: boolean
-}
+  nm?: boolean;
+};
 const OrderDriverInfo = ({ nm = false }: Props) => {
   const { t } = useTranslation('subOrder');
   const { isLoading, /* order, */ error } = useOrderContext();

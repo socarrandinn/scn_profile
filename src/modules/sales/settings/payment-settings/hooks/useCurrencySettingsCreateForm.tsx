@@ -12,7 +12,14 @@ import { currencySettingsSchema } from '../schemas/payment-settings.schema';
 const useCurrencySettingsCreateForm = (defaultValues: ICurrencySettings, onClose?: () => void) => {
   const { t } = useTranslation('paymentSettings');
   const queryClient = useQueryClient();
-  const { control, handleSubmit, reset: resetForm, watch, formState, setValue } = useForm({
+  const {
+    control,
+    handleSubmit,
+    reset: resetForm,
+    watch,
+    formState,
+    setValue,
+  } = useForm({
     resolver: yupResolver(currencySettingsSchema),
     defaultValues,
   });
@@ -21,7 +28,14 @@ const useCurrencySettingsCreateForm = (defaultValues: ICurrencySettings, onClose
     if (defaultValues) resetForm(defaultValues);
   }, [defaultValues, resetForm]);
 
-  const { mutate, reset: resetMutation, error, isLoading, isSuccess, data } = useMutation(
+  const {
+    mutate,
+    reset: resetMutation,
+    error,
+    isLoading,
+    isSuccess,
+    data,
+  } = useMutation(
     (paymentSettings: ICurrencySettings) => {
       const transformedCurrencies = paymentSettings?.currencies?.map((item) => ({
         ...item,
@@ -31,8 +45,8 @@ const useCurrencySettingsCreateForm = (defaultValues: ICurrencySettings, onClose
       const data = {
         ...paymentSettings,
         currencies: transformedCurrencies,
-      }
-      return CurrencySettingsService.save(data)
+      };
+      return CurrencySettingsService.save(data);
     },
     {
       onSuccess: (data, values) => {
@@ -44,13 +58,10 @@ const useCurrencySettingsCreateForm = (defaultValues: ICurrencySettings, onClose
     },
   );
 
-  const reset = useCallback(
-    () => {
-      resetForm()
-      resetMutation()
-    },
-    [resetForm, resetMutation],
-  )
+  const reset = useCallback(() => {
+    resetForm();
+    resetMutation();
+  }, [resetForm, resetMutation]);
 
   return {
     control,

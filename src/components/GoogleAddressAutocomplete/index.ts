@@ -1,1 +1,1 @@
-export { FormGoogleAddressAutocompleteField, GoogleAddressAutocomplete } from './GoogleAddressAutocomplete'
+export { FormGoogleAddressAutocompleteField, GoogleAddressAutocomplete } from './GoogleAddressAutocomplete';

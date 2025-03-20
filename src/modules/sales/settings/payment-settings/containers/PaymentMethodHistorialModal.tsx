@@ -15,10 +15,7 @@ type Props = {
   title?: string;
 };
 
-const PaymentMethodHistorialModal = ({
-  title = 'role:tabs.historyChange',
-  loadingInitData,
-}: Props) => {
+const PaymentMethodHistorialModal = ({ title = 'role:tabs.historyChange', loadingInitData }: Props) => {
   const { t } = useTranslation('paymentSettings');
   const { value, clean } = useSearchParamsChange('method');
 

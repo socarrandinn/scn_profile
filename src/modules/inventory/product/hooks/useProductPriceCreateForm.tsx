@@ -24,7 +24,14 @@ const initValues: Partial<IProductCreate> = {
 const useProductPriceCreateForm = (defaultValues: Partial<IProductCreate> = initValues, onClose?: () => void) => {
   const { t } = useTranslation('provider');
   const queryClient = useQueryClient();
-  const { control, handleSubmit, reset: resetForm, formState, watch, setValue } = useForm({
+  const {
+    control,
+    handleSubmit,
+    reset: resetForm,
+    formState,
+    watch,
+    setValue,
+  } = useForm({
     resolver: yupResolver(productPriceSchema),
     defaultValues,
   });
@@ -72,7 +79,7 @@ const useProductPriceCreateForm = (defaultValues: Partial<IProductCreate> = init
     logistic,
     otherCost: otherCostPrice,
     offer: undefined,
-    platform: undefined
+    platform: undefined,
   };
   const editFinalPrice = calculateFinalPrice(distribution, costVal?.value);
 
@@ -80,7 +87,14 @@ const useProductPriceCreateForm = (defaultValues: Partial<IProductCreate> = init
     if (defaultValues) resetForm(defaultValues);
   }, [defaultValues, resetForm]);
 
-  const { mutate, error, isLoading, isSuccess, data, reset: resetMutation } = useMutation(
+  const {
+    mutate,
+    error,
+    isLoading,
+    isSuccess,
+    data,
+    reset: resetMutation,
+  } = useMutation(
     (price: Partial<IProductCreate>) =>
       ProductService.updatePrice(price?._id as string, price?.priceDetails as IProductPriceDetails),
     {

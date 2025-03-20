@@ -8,12 +8,12 @@ import { HeadCell } from '@dfl/mui-admin-layout';
 import { SPACE_TYPE } from 'modules/security/users/constants/space-types.constants';
 
 type UserListContainerProps = ChildrenProps & {
-  listComponent: any,
-  path: string,
-  permission?: string,
-  userType: SPACE_TYPE
-  columns: HeadCell[]
-}
+  listComponent: any;
+  path: string;
+  permission?: string;
+  userType: SPACE_TYPE;
+  columns: HeadCell[];
+};
 
 const useTabsConfig = (path: string) => {
   return useMemo(() => mapTabs(path), [path]);

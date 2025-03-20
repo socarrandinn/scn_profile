@@ -8,7 +8,7 @@ import {
 } from 'modules/sales/settings/common/components/DeliveryCreateDestinationForm';
 import useHomeDeliveryCreateLocation from '../hooks/useHomeDeliveryCreateLocation';
 import { useShippingHomeSettings } from '../contexts';
-import { IDelivery } from 'modules/sales/settings/common/interfaces'
+import { IDelivery } from 'modules/sales/settings/common/interfaces';
 import { DELIVERY_CITY_ERRORS, DELIVERY_ERRORS, DELIVERY_PROVINCE_ERRORS } from '../constants/home-delivery.errors';
 import { LOCATION_TYPE } from 'modules/common/constants/location-type.enum';
 
@@ -66,7 +66,16 @@ const HomeDeliveryCreateModal = ({
         {!dataError && (
           <ConditionContainer active={!loadingInitData} alternative={<DeliveryCreateDestinationFormSkeleton />}>
             <HandlerError error={error} errors={errorByType} />
-            <Form onSubmit={onSubmit} control={control} watch={watch} setValue={setValue} isLoading={isLoading} size={'small'} id={'location-form'} formState={formState}>
+            <Form
+              onSubmit={onSubmit}
+              control={control}
+              watch={watch}
+              setValue={setValue}
+              isLoading={isLoading}
+              size={'small'}
+              id={'location-form'}
+              formState={formState}
+            >
               <DeliveryCreateDestinationForm
                 settings={settings as IDelivery}
                 type={initValue?.location?.type}

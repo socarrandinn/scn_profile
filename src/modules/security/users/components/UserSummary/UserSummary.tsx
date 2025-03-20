@@ -12,12 +12,7 @@ const UserSummary = () => {
   const { user: currentUser } = useUser();
   const { isLoading, user } = useUserDetail();
   return (
-    <Stack
-      direction={'column'}
-      divider={<Divider orientation='horizontal' />}
-      spacing={0}
-      sx={{ paddingBottom: 1 }}
-    >
+    <Stack direction={'column'} divider={<Divider orientation='horizontal' />} spacing={0} sx={{ paddingBottom: 1 }}>
       <UserDetail />
       <PermissionCheck permissions={'USER_ADMIN'}>
         <UserRoleInfo isLoading={isLoading} user={user} />

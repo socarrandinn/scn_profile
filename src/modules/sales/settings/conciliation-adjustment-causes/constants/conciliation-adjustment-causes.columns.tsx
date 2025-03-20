@@ -8,7 +8,9 @@ export const conciliationAdjustmentCausesNameColumn: HeadCell<IConciliationAdjus
   field: 'name',
   headerName: 'conciliationAdjustmentCauses:fields.name',
   disablePadding: false,
-  renderCell: (name: string, data?: IConciliationAdjustmentCauses) => (<EditLink entityId={data?._id as string}>{name}</EditLink>),
+  renderCell: (name: string, data?: IConciliationAdjustmentCauses) => (
+    <EditLink entityId={data?._id as string}>{name}</EditLink>
+  ),
 };
 
 export const conciliationAdjustmentCausesDescriptionColumn: HeadCell<IConciliationAdjustmentCauses> = {
@@ -30,5 +32,5 @@ export const conciliationAdjustmentCausesColumns: Array<HeadCell<any>> = [
   conciliationAdjustmentCausesNameColumn,
   conciliationAdjustmentCausesDescriptionColumn,
   createdATColumn,
-  conciliationAdjustmentCausesActionsColumn
+  conciliationAdjustmentCausesActionsColumn,
 ];

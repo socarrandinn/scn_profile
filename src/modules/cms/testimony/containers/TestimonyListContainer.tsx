@@ -11,13 +11,7 @@ const TestimonyListContainer = () => {
   return (
     <Box>
       <TestimonyListToolbar />
-      <Table
-        columns={testimonyColumns}
-        data={data?.data}
-        total={data?.total}
-        isLoading={isLoading}
-        error={error}
-      />
+      <Table columns={testimonyColumns} data={data?.data} total={data?.total} isLoading={isLoading} error={error} />
       <TestimonyEditModal />
     </Box>
   );

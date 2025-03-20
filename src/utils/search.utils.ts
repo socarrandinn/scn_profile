@@ -1,13 +1,8 @@
-import {
-  EmptyFilter,
-  IFilter,
-  OperatorFilter,
-  TermFilter,
-} from '@dofleini/query-builder';
+import { EmptyFilter, IFilter, OperatorFilter, TermFilter } from '@dofleini/query-builder';
 
 export const escapeRegExp = (string: string) => {
   return string.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'); // $& means the whole matched string
-}
+};
 
 /**
  * Builds a partial search query filter using the provided text criteria and fields to search .
@@ -15,10 +10,7 @@ export const escapeRegExp = (string: string) => {
  * @param {string[]} fields - The array of fields to search in.
  * @returns {IFilter} - An IFilter object which represents the partial search query.
  */
-export const buildSearchPartialQuery = (
-  text: string,
-  fields: string[],
-): IFilter => {
+export const buildSearchPartialQuery = (text: string, fields: string[]): IFilter => {
   if (!fields?.length) return new EmptyFilter();
 
   const query: any[] = [];

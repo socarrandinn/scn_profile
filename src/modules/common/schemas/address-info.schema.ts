@@ -5,7 +5,7 @@ import { ADDRESS_COUNTRY_CODE } from 'settings/address-location';
 const mixedSchema = Yup.mixed()
   .required('required')
   ?.transform((value) => {
-    return (value?.code || value).toString()
+    return (value?.code || value).toString();
   });
 
 const baseAddress = {
@@ -30,7 +30,8 @@ const cubanAddress = {
 const internationalAddress = {
   address1: Yup.string()
     .required('required')
-    .transform((value) => value?.display_name || value).trim(),
+    .transform((value) => value?.display_name || value)
+    .trim(),
   houseNumber: Yup.string(),
   address2: Yup.string().nullable(),
   zipCode: Yup.string().required('required'),

@@ -112,9 +112,7 @@ const UpdateStockForm = ({
             </Stack>
           </Grid>
 
-          {!isAdd && (
-            <StockReductionCauseForm control={control} setValue={setValue} />
-          )}
+          {!isAdd && <StockReductionCauseForm control={control} setValue={setValue} />}
 
           <Grid item xs={12} mt={1}>
             <FormTextField name='note' type='text' multiline minRows={3} label={`${t('description')} (${t('note')})`} />

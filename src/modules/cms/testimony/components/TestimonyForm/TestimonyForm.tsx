@@ -33,14 +33,7 @@ const TestimonyForm = ({ error, control, isLoading, onSubmit, formState }: Testi
             <FormTextField fullWidth required name='title' label={t('fields.title')} />
           </Grid>
           <Grid item xs={12}>
-            <FormTextField
-              fullWidth
-              required
-              multiline
-              minRows={3}
-              name='comment'
-              label={t('fields.comment')}
-            />
+            <FormTextField fullWidth required multiline minRows={3} name='comment' label={t('fields.comment')} />
           </Grid>
         </Grid>
       </Form>

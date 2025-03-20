@@ -14,6 +14,6 @@ export const useFindLogisticProducts = (logisticId: string | undefined) => {
   return {
     ...query,
     filters,
-    search
+    search,
   };
 };

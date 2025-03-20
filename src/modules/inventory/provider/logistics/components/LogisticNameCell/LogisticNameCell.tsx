@@ -1,11 +1,9 @@
-import { useFindOneLogistics } from '../../hooks/useFindOneLogistics'
+import { useFindOneLogistics } from '../../hooks/useFindOneLogistics';
 
 const LogisticNameCell = ({ providerId }: { providerId: string }) => {
-  const { data } = useFindOneLogistics(providerId)
+  const { data } = useFindOneLogistics(providerId);
 
-  return (
-    <div>{data?.name}</div>
-  )
-}
+  return <div>{data?.name}</div>;
+};
 
-export default LogisticNameCell
+export default LogisticNameCell;

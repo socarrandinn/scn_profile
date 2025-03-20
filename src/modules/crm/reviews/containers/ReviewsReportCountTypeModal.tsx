@@ -43,13 +43,21 @@ const ReviewsReportCountTypeModal = ({
           justifyContent: 'end',
         }}
       >
-        <ButtonLink variant='outlined' to={`/crm/reviews/${reviewId}`} size='small' sx={{ marginLeft: 'auto' }} onClick={handleClose}>
+        <ButtonLink
+          variant='outlined'
+          to={`/crm/reviews/${reviewId}`}
+          size='small'
+          sx={{ marginLeft: 'auto' }}
+          onClick={handleClose}
+        >
           {t('common:showMore')}
         </ButtonLink>
         <ReviewReportChart data={initValue} isLoading={loadingInitData} />
       </DialogContent>
       <DialogActions>
-        <Button variant='grey' onClick={handleClose}>{t('common:cancel')}</Button>
+        <Button variant='grey' onClick={handleClose}>
+          {t('common:cancel')}
+        </Button>
       </DialogActions>
     </DialogForm>
   );

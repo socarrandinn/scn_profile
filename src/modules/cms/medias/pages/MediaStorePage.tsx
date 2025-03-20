@@ -6,7 +6,7 @@ import { PagePaperLayout } from 'layouts/index';
 const MediaStorePage = () => {
   const { t } = useTranslation('media');
   return (
-    <PagePaperLayout title={t('list')} >
+    <PagePaperLayout title={t('list')}>
       <MediaStoreContainer />
     </PagePaperLayout>
   );

@@ -24,12 +24,7 @@ const CategoryExportButton = (props: ExportProps) => {
     <>
       <ExportButton onClick={OpenExport} />
 
-      <DownloadFile
-        isOpen={isOpen}
-        onClose={onClose}
-        fnDownloadService={fnDownload}
-        initResponse={data}
-      />
+      <DownloadFile isOpen={isOpen} onClose={onClose} fnDownloadService={fnDownload} initResponse={data} />
     </>
   );
 };

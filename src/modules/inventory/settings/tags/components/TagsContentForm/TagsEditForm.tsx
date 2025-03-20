@@ -10,7 +10,7 @@ type TagsEditFormProps = {
   control: any;
   isLoading: boolean;
   onSubmit: FormEventHandler | undefined;
-  tagName: TAG_NAMES
+  tagName: TAG_NAMES;
 };
 
 const TagsEditForm = ({ error, control, isLoading, onSubmit, tagName }: TagsEditFormProps) => {

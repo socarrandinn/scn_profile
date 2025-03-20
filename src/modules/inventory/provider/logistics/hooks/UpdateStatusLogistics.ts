@@ -8,20 +8,23 @@ const useUpdateStatusLogistics = (idProoviderLogistics: string) => {
   const { t } = useTranslation('errors');
   const queryClient = useQueryClient();
 
-  const { mutate, isLoading } = useMutation((active: boolean) => LogisticsService.update(idProoviderLogistics, { active }), {
-    onSuccess: ({ data }: any) => {
-      queryClient.invalidateQueries([LOGISTICS_LIST_KEY]);
-      queryClient.invalidateQueries([idProoviderLogistics]);
-      toast.success(t('successUpdate'));
+  const { mutate, isLoading } = useMutation(
+    (active: boolean) => LogisticsService.update(idProoviderLogistics, { active }),
+    {
+      onSuccess: ({ data }: any) => {
+        queryClient.invalidateQueries([LOGISTICS_LIST_KEY]);
+        queryClient.invalidateQueries([idProoviderLogistics]);
+        toast.success(t('successUpdate'));
+      },
+      onError: () => {
+        toast.error(t('generalErrorMessage', { ns: 'errors' }));
+      },
     },
-    onError: () => {
-      toast.error(t('generalErrorMessage', { ns: 'errors' }));
-    },
-  })
+  );
   return {
     updateState: mutate,
     isLoading,
   };
-}
+};
 
 export default useUpdateStatusLogistics;

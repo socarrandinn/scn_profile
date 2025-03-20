@@ -9,5 +9,5 @@ export const TESTIMONY_ERRORS = {
   [ERROR_REFS.DUPLICATE_KEY]: {
     title: 'testimony:errors.duplicatedName',
     description: 'testimony:errors.duplicatedNameDescription',
-  }
+  },
 };

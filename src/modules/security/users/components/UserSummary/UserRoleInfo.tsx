@@ -10,7 +10,7 @@ import { useSearchParams } from 'react-router-dom';
 type UserRoleInfoProps = {
   isLoading: boolean;
   user?: IUser;
-}
+};
 
 const UserRoleInfo = ({ isLoading, user }: UserRoleInfoProps) => {
   const { hasPermission } = useSecurity();
@@ -42,12 +42,7 @@ const UserRoleInfo = ({ isLoading, user }: UserRoleInfoProps) => {
   return (
     <>
       {!!user?.security?.roles?.length && (
-        <RoleList
-          roles={user?.security?.roles}
-          user={user}
-          readOnly={!canEdit}
-          canEdit={canEdit}
-        />
+        <RoleList roles={user?.security?.roles} user={user} readOnly={!canEdit} canEdit={canEdit} />
       )}
       <AddRoleToUserModal user={user} open={!!roleType} onClose={handleClose} />
     </>

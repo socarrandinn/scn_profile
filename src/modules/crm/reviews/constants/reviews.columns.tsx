@@ -29,11 +29,7 @@ export const titleColumn: HeadCell = {
   field: 'title',
   headerName: 'rate:fields.title',
   renderCell: (title: string, data: IReviews) => (
-    <AvatarNameCell
-      link={`/crm/reviews/${data?._id as string}`}
-      name={title}
-      hideImage
-    />
+    <AvatarNameCell link={`/crm/reviews/${data?._id as string}`} name={title} hideImage />
   ),
 };
 export const commentColumn: HeadCell = {

@@ -8,15 +8,15 @@ import { FormUploadImage } from 'modules/common/components/MediaUploader/FormUpl
 const ImageInfoFrom = ({ children }: ChildrenProps) => {
   const { t } = useTranslation('provider');
   return (
-        <FormPaper nm title={t('section.image.title')}>
-            <Grid container spacing={{ xs: 1, md: 2 }} columns={{ xs: 4, sm: 8, md: 12 }}>
-                <Grid item xs={12}>
-                    <FormUploadImage name={'avatar'}/>
-                </Grid>
-                {children}
-            </Grid>
-        </FormPaper>
-  )
-}
+    <FormPaper nm title={t('section.image.title')}>
+      <Grid container spacing={{ xs: 1, md: 2 }} columns={{ xs: 4, sm: 8, md: 12 }}>
+        <Grid item xs={12}>
+          <FormUploadImage name={'avatar'} />
+        </Grid>
+        {children}
+      </Grid>
+    </FormPaper>
+  );
+};
 
-export default memo(ImageInfoFrom)
+export default memo(ImageInfoFrom);

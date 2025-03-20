@@ -15,8 +15,15 @@ const HomeDeliveryCityByProvinceTable = ({ row }: Props) => {
   const { data, isLoading, error } = useFindHomeDeliveryPlaces(LOCATION_TYPE.CITY, undefined, row?.location?.state);
 
   const modifiedColumns = [
-    { field: 'empty', headerName: '', sortable: false, renderCell: () => null, width: 61.98, cellClassName: 'min-w-[63.98px] max-w-[63.98px]' },
-    ...homeDeliveryColumns
+    {
+      field: 'empty',
+      headerName: '',
+      sortable: false,
+      renderCell: () => null,
+      width: 61.98,
+      cellClassName: 'min-w-[63.98px] max-w-[63.98px]',
+    },
+    ...homeDeliveryColumns,
   ];
 
   const getRowClassName = (rowData: any) => {
@@ -25,12 +32,17 @@ const HomeDeliveryCityByProvinceTable = ({ row }: Props) => {
 
   return (
     <>
-      <Box sx={{
-        '.MuiTableHead-root': { display: 'none' },
-        '.MuiBox-root': { background: '#F7FBF5', marginTop: 0 },
-        '.parent-config': { borderLeft: '5px solid #B7DA99', '.MuiTableCell-root:first-of-type': { width: '60px !important' } },
-        '.custom-config': { borderLeft: '5px solid #ffd180', },
-      }}>
+      <Box
+        sx={{
+          '.MuiTableHead-root': { display: 'none' },
+          '.MuiBox-root': { background: '#F7FBF5', marginTop: 0 },
+          '.parent-config': {
+            borderLeft: '5px solid #B7DA99',
+            '.MuiTableCell-root:first-of-type': { width: '60px !important' },
+          },
+          '.custom-config': { borderLeft: '5px solid #ffd180' },
+        }}
+      >
         <Table
           key={row?._id}
           data={data?.data}
@@ -44,8 +56,7 @@ const HomeDeliveryCityByProvinceTable = ({ row }: Props) => {
         />
       </Box>
     </>
-
-  )
+  );
 };
 
 export default memo(HomeDeliveryCityByProvinceTable);

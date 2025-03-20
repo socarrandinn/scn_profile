@@ -8,18 +8,13 @@ const CurrencySelect = ({ name, multiple, label, ...props }: SelectFieldProps) =
   const { t } = useTranslation('paymentSettings');
 
   return (
-    <FormSelectField
-      {...props}
-      name={name || 'primaryCurrency'}
-      label={label || t('currencies')}
-      multiple={multiple}
-    >
+    <FormSelectField {...props} name={name || 'primaryCurrency'} label={label || t('currencies')} multiple={multiple}>
       {LIST_CURRENCIES?.map((currency) => (
         <MenuItem key={currency} value={currency}>
           {currency}
         </MenuItem>
       ))}
-    </FormSelectField>
+    </>
   );
 };
 export default memo(CurrencySelect);

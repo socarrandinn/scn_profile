@@ -22,14 +22,32 @@ const DeliverySettingsGlobal = () => {
         title={
           <div className='flex gap-2 items-center mb-2'>
             <Typography variant='h3'>{t('list')}</Typography>
-            {distributionCenterId ? <CenterDeliveryActiveCheckbox settings={settings} isLoading={isLoading} distributionCenterId={distributionCenterId } /> : <HomeDeliveryActiveCheckbox settings={settings} isLoading={isLoading} />}
+            {distributionCenterId ? (
+              <CenterDeliveryActiveCheckbox
+                settings={settings}
+                isLoading={isLoading}
+                distributionCenterId={distributionCenterId}
+              />
+            ) : (
+              <HomeDeliveryActiveCheckbox settings={settings} isLoading={isLoading} />
+            )}
           </div>
         }
       >
-        <Typography color={'subtitle2'} sx={{ mb: 1.5 }}>{t('activeDescription')}</Typography>
+        <Typography color={'subtitle2'} sx={{ mb: 1.5 }}>
+          {t('activeDescription')}
+        </Typography>
         <HomeDeliveryGlobalConfig data={settings as IDelivery} />
       </FormPaper>
-      <FormPaper sx={{ maxWidth: { xs: undefined, xl: '420px' }, display: 'flex', gap: 2, borderLeft: '8px solid #65BE46', position: 'relative', }}>
+      <FormPaper
+        sx={{
+          maxWidth: { xs: undefined, xl: '420px' },
+          display: 'flex',
+          gap: 2,
+          borderLeft: '8px solid #65BE46',
+          position: 'relative',
+        }}
+      >
         <Info fontSize='small' color='primary' />
         <Typography>{t('description')}</Typography>
         <InfoIcon sx={{ position: 'absolute', bottom: '-4px', right: 0, width: 50, height: 50 }} />

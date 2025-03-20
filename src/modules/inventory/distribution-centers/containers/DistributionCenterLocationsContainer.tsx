@@ -7,16 +7,13 @@ import { useFindHomeDeliveryPlaces } from 'modules/sales/settings/home-delivery/
 import { ADDRESS_COUNTRY_CODE } from 'settings/address-location';
 
 const DistributionCenterLocationsContainer = () => {
-  const { isLoading, error, data } = useFindHomeDeliveryPlaces(ADDRESS_COUNTRY_CODE === 'CU' ? LOCATION_TYPE.STATE : LOCATION_TYPE.COUNTRY);
+  const { isLoading, error, data } = useFindHomeDeliveryPlaces(
+    ADDRESS_COUNTRY_CODE === 'CU' ? LOCATION_TYPE.STATE : LOCATION_TYPE.COUNTRY,
+  );
 
   return (
     <>
-      <LocationsTableContainer
-        columns={homeDeliveryColumns}
-        data={data}
-        error={error}
-        isLoading={isLoading}
-      />
+      <LocationsTableContainer columns={homeDeliveryColumns} data={data} error={error} isLoading={isLoading} />
       <HomeDeliveryEditModal />
     </>
   );

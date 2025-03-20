@@ -38,11 +38,7 @@ const StoreGeneralBasic = () => {
       mbHeader={'0px'}
       title={t('fields.basicInformation')}
       actions={
-        <FormPaperAction
-          onToggle={handleToggle}
-          open={open}
-          permissions={[WAREHOUSE_PERMISSIONS.WAREHOUSE_WRITE]}
-        />
+        <FormPaperAction onToggle={handleToggle} open={open} permissions={[WAREHOUSE_PERMISSIONS.WAREHOUSE_WRITE]} />
       }
     >
       <BasicTableHeadless

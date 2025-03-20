@@ -43,7 +43,7 @@ const useOfferCreateForm = (defaultValues: IExtendOffer = initOfferValues, onClo
     defaultValues,
   });
 
-  console.log(errors)
+  console.log(errors);
 
   const handleDiscountValueType = useCallback(
     (env: any) => {

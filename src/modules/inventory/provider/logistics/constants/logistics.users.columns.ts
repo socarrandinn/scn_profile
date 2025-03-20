@@ -1,10 +1,6 @@
 import { HeadCell } from '@dfl/mui-admin-layout';
 import { createdATColumn, emailColumn, phoneColumn } from 'modules/common/constants';
-import {
-  userFullNameColumn,
-  userRolesColumn,
-  userStatusColumn,
-} from 'modules/security/users/constants/user.columns';
+import { userFullNameColumn, userRolesColumn, userStatusColumn } from 'modules/security/users/constants/user.columns';
 import { LogisticUserRowActions } from 'modules/inventory/provider/logistics/components/LogisticUserRowActions';
 
 export const logisticUsersActionsColumn: HeadCell = {

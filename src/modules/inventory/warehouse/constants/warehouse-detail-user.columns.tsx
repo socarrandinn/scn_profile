@@ -20,11 +20,6 @@ export const skillsColumn: HeadCell = {
 export const dateColumn: HeadCell = {
   field: 'createdAt',
   headerName: 'demos:tables.table.data.user.createdAt',
-}
+};
 
-export const columns: HeadCell[] = [
-  userFirstNameColumn,
-  userLastNameColumn,
-  skillsColumn,
-  dateColumn,
-];
+export const columns: HeadCell[] = [userFirstNameColumn, userLastNameColumn, skillsColumn, dateColumn];

@@ -14,6 +14,6 @@ export const useFindSupplierProducts = (supplierId: string | undefined) => {
   return {
     ...query,
     filters,
-    search
+    search,
   };
 };

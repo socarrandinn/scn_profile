@@ -1,1 +1,1 @@
-export { default as PreOrderDetailsContent } from './PreOrderDetailsContent'
+export { default as PreOrderDetailsContent } from './PreOrderDetailsContent';

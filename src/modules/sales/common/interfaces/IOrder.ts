@@ -64,9 +64,9 @@ export interface IOrderPayment {
   paidAt: Date;
   transactionId: string;
 
-  currency: string
-  exchangeRate: string,
-  amount: number
+  currency: string;
+  exchangeRate: string;
+  amount: number;
 }
 
 export interface IBilling {

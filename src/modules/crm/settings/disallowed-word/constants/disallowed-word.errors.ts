@@ -9,5 +9,5 @@ export const DISALLOWED_WORD_ERRORS = {
   [ERROR_REFS.DUPLICATE_KEY]: {
     title: 'disallowedWord:errors.duplicatedName',
     description: 'disallowedWord:errors.duplicatedNameDescription',
-  }
+  },
 };

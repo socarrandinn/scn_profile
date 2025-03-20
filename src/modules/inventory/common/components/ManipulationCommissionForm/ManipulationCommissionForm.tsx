@@ -5,7 +5,7 @@ import FormDiscountField from 'modules/inventory/product/components/FormDiscount
 import { PRICE_TYPE } from '../../constants/price-type.enum';
 
 type Props = {
-  initPriceType?: PRICE_TYPE,
+  initPriceType?: PRICE_TYPE;
 };
 
 const ManipulationCommissionForm = ({ initPriceType }: Props) => {

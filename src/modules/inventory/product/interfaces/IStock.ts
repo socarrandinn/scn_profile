@@ -36,7 +36,7 @@ export interface IStock {
   quantity: number;
   file?: string;
   note?: string;
-  cause?: IStockReductionCause | null
+  cause?: IStockReductionCause | null;
 }
 
 export interface IPartialStock {
@@ -44,7 +44,7 @@ export interface IPartialStock {
   operation: PRODUCT_STOCK_OPERATIONS;
   quantity: number;
   stock: number;
-  cause?: IStockReductionCause | null
+  cause?: IStockReductionCause | null;
 }
 
 export interface IAddProductStock {

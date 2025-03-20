@@ -8,8 +8,8 @@ export const staticSiteMapItemSchema = Yup.object().shape({
   url: Yup.string()
     .min(2, 'min-2')
     .max(61, 'invalidPath')
-    .test('test-no-path', 'invalidPath', (text) => (!!text?.match(PATH_REGEX)))
-    .test('test-no-space', 'invalidPath', (text) => (!!text?.match(SPACE)))
+    .test('test-no-path', 'invalidPath', (text) => !!text?.match(PATH_REGEX))
+    .test('test-no-space', 'invalidPath', (text) => !!text?.match(SPACE))
     .required('required'),
   active: Yup.boolean().default(false),
 });

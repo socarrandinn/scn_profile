@@ -1,9 +1,5 @@
 import IMenuItemPage from 'components/libs/SettingMenuContent/IMenuItemPage';
-import {
-  CAUSES_INCIDENCE,
-  ORDERS,
-  HOME_DELIVERY,
-} from 'modules/sales/constants/sales.entities.styles';
+import { CAUSES_INCIDENCE, ORDERS, HOME_DELIVERY } from 'modules/sales/constants/sales.entities.styles';
 import { CAUSES_INCIDENCE_PERMISSIONS } from 'modules/sales/settings/causes-incidence/constants';
 import { HOME_DELIVERY_PERMISSIONS } from 'modules/sales/settings/home-delivery/constants';
 

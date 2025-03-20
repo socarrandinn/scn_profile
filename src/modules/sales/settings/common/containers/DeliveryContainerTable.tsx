@@ -1,5 +1,5 @@
 import { HeadCell, Table } from '@dfl/mui-admin-layout';
-import { Box, useTheme } from '@mui/material'
+import { Box, useTheme } from '@mui/material';
 import { memo } from 'react';
 import { SearchResponseType } from '@dfl/react-security';
 
@@ -9,7 +9,7 @@ export type TableProps = {
   error: any;
   renderSubTable?: (row: any, index: number) => JSX.Element;
   columns: HeadCell[];
-}
+};
 
 const DeliveryContainerTable = ({ data, isLoading, error, columns, renderSubTable }: TableProps) => {
   const theme = useTheme();
@@ -27,7 +27,8 @@ const DeliveryContainerTable = ({ data, isLoading, error, columns, renderSubTabl
             background: theme.palette.primary.dark,
           },
         },
-      }}>
+      }}
+    >
       <Table
         columns={columns || []}
         data={data?.data}
@@ -37,7 +38,7 @@ const DeliveryContainerTable = ({ data, isLoading, error, columns, renderSubTabl
         renderCollapsibleRowContent={renderSubTable}
       />
     </Box>
-  )
+  );
 };
 
 export default memo(DeliveryContainerTable);

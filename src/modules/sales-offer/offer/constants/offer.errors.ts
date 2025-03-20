@@ -9,5 +9,5 @@ export const OFFER_ERRORS = {
   [ERROR_REFS.DUPLICATE_KEY]: {
     title: 'offerOrder:errors.duplicatedName',
     description: 'offerOrder:errors.duplicatedNameDescription',
-  }
+  },
 };

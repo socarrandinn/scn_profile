@@ -12,13 +12,15 @@ const initValues: IPaymentSettings = {
   currency: [],
   tax: {
     type: PRICE_TYPE.FIXED,
-    value: 0
+    value: 0,
   },
-  gatewayConfig: [{
-    currency: [],
-    gateway: PAYMENT_GATEWAYS_ENUM.STRIPE,
-    enabled: false,
-  }]
+  gatewayConfig: [
+    {
+      currency: [],
+      gateway: PAYMENT_GATEWAYS_ENUM.STRIPE,
+      enabled: false,
+    },
+  ],
 };
 
 const PaymentMethodEditModal = () => {
@@ -29,11 +31,11 @@ const PaymentMethodEditModal = () => {
   const { isLoading, data, error } = useFindOnePaymentMethod(entityId);
 
   const handleCloseEdit = useCallback(() => {
-    entityId && searchParams.delete('edit')
+    entityId && searchParams.delete('edit');
     setSearchParams(searchParams);
   }, [entityId, searchParams, setSearchParams]);
 
-  if (isLoading) return <></>
+  if (isLoading) return <></>;
 
   return (
     <PaymentMethodCreateModal

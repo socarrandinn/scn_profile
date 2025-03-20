@@ -7,7 +7,7 @@ export interface IFileProps {
   open: any;
   maxFiles?: number;
   type: TYPE_DROP;
-  documentName?: string
+  documentName?: string;
   actions: {
     isDelete?: boolean;
     isDownload?: boolean;

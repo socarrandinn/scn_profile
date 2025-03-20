@@ -1,4 +1,3 @@
-
 import { FormSwitchField, FormSwitchFieldProps } from '@dfl/mui-react-common';
 import { memo } from 'react';
 

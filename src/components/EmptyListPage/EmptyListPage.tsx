@@ -12,7 +12,7 @@ const EmptyListPage = () => {
         description='No pierdas la oportunidad de publicar las ofertas de trabajo para captar a futuros trabajadores . ¿Qué esperas?'
         textButton='Añadir oferta'
       />
-    </PagePaperLayout >
+    </PagePaperLayout>
   );
 };
 

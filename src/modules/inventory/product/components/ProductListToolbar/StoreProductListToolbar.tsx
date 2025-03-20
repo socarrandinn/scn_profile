@@ -9,7 +9,10 @@ import { useWarehouseDetail } from 'modules/inventory/warehouse/context/Warehous
 import { PermissionCheck } from '@dfl/react-security';
 import { WarehouseProductExportButton } from 'modules/export/components/modules/inventory/WarehouseProductExportButton';
 import { STOCK_PERMISSIONS } from 'modules/inventory/product-stock/constants/stock.permissions';
-import { StockWarehouseAction, StockWarehouseImportAction } from 'modules/inventory/product-stock/components/StockWarehouseAction';
+import {
+  StockWarehouseAction,
+  StockWarehouseImportAction,
+} from 'modules/inventory/product-stock/components/StockWarehouseAction';
 import { PRODUCT_PERMISSIONS } from '../../constants';
 import { Stack } from '@mui/material';
 import ChangeManyStatusButton from 'components/Actions/VisibilityAction/ChangeManyStatusButton';

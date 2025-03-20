@@ -2,7 +2,7 @@ import { memo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Form, HandlerError, LoadingButton } from '@dfl/mui-react-common';
 import { HomeDeliveryGlobalForm } from '../HomeDeliveryGlobalForm';
-import { IDelivery } from 'modules/sales/settings/common/interfaces'
+import { IDelivery } from 'modules/sales/settings/common/interfaces';
 import useHomeDeliveryCreateGlobalForm from '../../hooks/useHomeDeliveryCreateGlobalForm';
 import { ExpressDeliveryGlobalForm } from '../ExpressDeliveryGlobalForm';
 import { Typography } from '@mui/material';
@@ -13,7 +13,15 @@ const HomeDeliveryGlobalConfig = ({ data }: { data: IDelivery }) => {
   const { onSubmit, control, error, isLoading, formState, watch } = useHomeDeliveryCreateGlobalForm(data);
 
   return (
-    <Form control={control} onSubmit={onSubmit} isLoading={isLoading} size={'small'} id='home-delivery-global-form' formState={formState} watch={watch}>
+    <Form
+      control={control}
+      onSubmit={onSubmit}
+      isLoading={isLoading}
+      size={'small'}
+      id='home-delivery-global-form'
+      formState={formState}
+      watch={watch}
+    >
       <HandlerError error={error} />
       <div className='flex flex-col md:flex-row gap-5 mt-2'>
         <HomeDeliveryGlobalForm disabled={!data?.enabled || isLoading} />

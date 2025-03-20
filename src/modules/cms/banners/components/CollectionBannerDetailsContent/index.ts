@@ -1,1 +1,1 @@
-export { default as CollectionBannerDetailsContent } from './CollectionBannerDetailsContent'
+export { default as CollectionBannerDetailsContent } from './CollectionBannerDetailsContent';

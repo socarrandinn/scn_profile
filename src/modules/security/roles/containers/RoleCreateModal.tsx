@@ -34,12 +34,7 @@ const RoleCreateModal = ({
   }, [onClose, reset]);
 
   return (
-    <DialogForm
-      open={open}
-      isLoading={loadingInitData}
-      title={t(title)}
-      aria-labelledby={'role-creation-title'}
-    >
+    <DialogForm open={open} isLoading={loadingInitData} title={t(title)} aria-labelledby={'role-creation-title'}>
       <DialogContent>
         {dataError && <HandlerError error={dataError} />}
 
@@ -50,7 +45,9 @@ const RoleCreateModal = ({
         )}
       </DialogContent>
       <DialogActions>
-        <Button variant='grey' onClick={handleClose}>{t('common:cancel')}</Button>
+        <Button variant='grey' onClick={handleClose}>
+          {t('common:cancel')}
+        </Button>
         <LoadingButton
           variant='contained'
           type={'submit'}

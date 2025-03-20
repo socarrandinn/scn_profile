@@ -22,10 +22,10 @@ const LocationCostForm = ({ global, data, name }: Props) => {
 
   useEffect(() => {
     if (selectedCost === COST_TYPE.BASE) {
-      setValue?.('price', global?.price)
-      setValue?.('time', global?.time)
-      setValue?.('weightPrice', global?.weightPrice)
-      setValue?.('volumePrice', global?.volumePrice)
+      setValue?.('price', global?.price);
+      setValue?.('time', global?.time);
+      setValue?.('weightPrice', global?.weightPrice);
+      setValue?.('volumePrice', global?.volumePrice);
     }
   }, [selectedCost, global?.price, setValue, global?.time, global?.volumePrice, global?.weightPrice]);
 
@@ -37,12 +37,7 @@ const LocationCostForm = ({ global, data, name }: Props) => {
             <FormControlLabel
               key={cost}
               value={cost}
-              control={
-                <Radio
-                  icon={<RadioButtonUnchecked />}
-                  checkedIcon={<RadioButtonChecked color="primary" />}
-                />
-              }
+              control={<Radio icon={<RadioButtonUnchecked />} checkedIcon={<RadioButtonChecked color='primary' />} />}
               sx={{ '.MuiSvgIcon-root': { width: 28, height: 28 } }}
               label={t(`costType.${cost}`)}
             />
@@ -54,12 +49,7 @@ const LocationCostForm = ({ global, data, name }: Props) => {
       </FormRadioGroupField>
       {selectedCost === COST_TYPE.BASE && (data || global) ? (
         <Box sx={{ '.MuiTable-root': { minWidth: '553px' }, mt: 1, display: 'flex', gap: 3, flexDirection: 'column' }}>
-          <Table
-            columns={shippingColumns?.slice(1)}
-            data={[data || global]}
-            total={1}
-            hidePagination
-          />
+          <Table columns={shippingColumns?.slice(1)} data={[data || global]} total={1} hidePagination />
         </Box>
       ) : (
         <Box sx={{ mt: 1 }}>

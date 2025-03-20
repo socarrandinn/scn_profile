@@ -23,7 +23,7 @@ const CausesIncidenceForm = ({ error, control, isLoading, onSubmit }: CausesInci
 
   return (
     <div>
-      <HandlerError error={error} errors={CAUSE_INCIDENCE_ERRORS}/>
+      <HandlerError error={error} errors={CAUSE_INCIDENCE_ERRORS} />
       <Form onSubmit={onSubmit} control={control} isLoading={isLoading} size={'small'} id={'form'} dark>
         <Grid container spacing={{ xs: 1, md: 2 }} columns={{ xs: 4, sm: 8, md: 12 }}>
           <Grid item xs={12}>

@@ -28,13 +28,7 @@ const UserBasicForm = () => {
         />
       </Grid>
       <Grid item xs={12}>
-        <FormTextField
-          fullWidth
-          name='email'
-          required
-          label={t('common:email')}
-          placeholder='example@gmail.com'
-        />
+        <FormTextField fullWidth name='email' required label={t('common:email')} placeholder='example@gmail.com' />
       </Grid>
     </>
   );

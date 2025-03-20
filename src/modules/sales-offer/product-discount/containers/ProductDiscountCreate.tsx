@@ -25,12 +25,19 @@ const ProductDiscountCreate = () => {
     navigate('/sales/offers/settings/product_discounts');
   }, [navigate]);
 
-  const { control, onSubmit, isLoading, error, discountType, watch } =
-    useProductDiscountCreateForm(handleCancel);
+  const { control, onSubmit, isLoading, error, discountType, watch } = useProductDiscountCreateForm(handleCancel);
   return (
     <CenterPageLayout maxWidth={1230}>
       <HandlerError error={error} mapErrors={mapGetOneErrors} />
-      <Form onSubmit={onSubmit} control={control} isLoading={isLoading} size={'large'} id='product-discount-form' watch={watch} noValidate>
+      <Form
+        onSubmit={onSubmit}
+        control={control}
+        isLoading={isLoading}
+        size={'large'}
+        id='product-discount-form'
+        watch={watch}
+        noValidate
+      >
         <PageHeader title={t('create')}>
           <Stack direction={'row'} spacing={2}>
             <LoadingButton variant={'contained'} loading={isLoading} type={'submit'} form='product-discount-form'>

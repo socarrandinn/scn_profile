@@ -9,5 +9,5 @@ export const INCIDENCE_ERRORS = {
   [ERROR_REFS.DUPLICATE_KEY]: {
     title: 'incidence:errors.duplicatedName',
     description: 'incidence:errors.duplicatedNameDescription',
-  }
+  },
 };

@@ -47,13 +47,7 @@ const ProductGeneralRulesInfo = () => {
     <FormPaper
       mbHeader={'0px'}
       title={t('section.shippingInfo.rules')}
-      actions={
-        <FormPaperAction
-          onToggle={handleToggle}
-          open={open}
-          permissions={PRODUCT_PERMISSIONS.PRODUCT_WRITE}
-        />
-      }
+      actions={<FormPaperAction onToggle={handleToggle} open={open} permissions={PRODUCT_PERMISSIONS.PRODUCT_WRITE} />}
     >
       <BasicTableDoubleColumnHeadless
         columns={simpleColumns}

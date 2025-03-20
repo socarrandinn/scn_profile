@@ -5,7 +5,7 @@ import Chart from 'react-apexcharts';
 import { ISerie } from '../SummaryStoreBox';
 
 type RadialBarChartProps = {
-  values: ISerie[]
+  values: ISerie[];
   colors?: string[];
   total: string;
 };
@@ -20,8 +20,8 @@ const RadialBarChart = ({ values, colors, total }: RadialBarChartProps) => {
         height: 180,
         maxWidth: 180,
         margin: {
-          xs: 'auto'
-        }
+          xs: 'auto',
+        },
       }}
     >
       <Chart options={options} series={series} type='radialBar' height={'100%'} />

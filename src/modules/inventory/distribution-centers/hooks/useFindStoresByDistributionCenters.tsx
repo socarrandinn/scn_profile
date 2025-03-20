@@ -4,10 +4,11 @@ import { DISTRIBUTION_CENTER_WAREHOUSE_LIST_KEY } from 'modules/inventory/distri
 import { DistributionCentersService } from '../services';
 
 export const useFindStoresByDistributionCenters = (distributionCenterId: string) => {
-  const { fetch, queryKey } = useTableRequest((params, config) => DistributionCentersService.searchWarehouses(distributionCenterId, params, config)
+  const { fetch, queryKey } = useTableRequest((params, config) =>
+    DistributionCentersService.searchWarehouses(distributionCenterId, params, config),
   );
 
   return useQuery([DISTRIBUTION_CENTER_WAREHOUSE_LIST_KEY, queryKey], fetch, {
-    enabled: !!distributionCenterId
+    enabled: !!distributionCenterId,
   });
 };

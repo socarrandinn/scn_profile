@@ -19,7 +19,11 @@ const StoreGeneralContact = () => {
 
   if (open) {
     return (
-      <FormPaper mbHeader={'8px'} title={t('fields.contact.title')} actions={<FormPaperAction onToggle={handleToggle} open={open} />}>
+      <FormPaper
+        mbHeader={'8px'}
+        title={t('fields.contact.title')}
+        actions={<FormPaperAction onToggle={handleToggle} open={open} />}
+      >
         <DistributionCentersDetailContactUpdateContainer
           initValue={{
             _id: distributionCenter?._id,
@@ -42,7 +46,8 @@ const StoreGeneralContact = () => {
           open={open}
           permissions={[DISTRIBUTION_CENTER_PERMISSIONS.DISTRIBUTION_CENTER_WRITE]}
         />
-      }>
+      }
+    >
       <BasicTableHeadless
         columns={simpleColumns}
         data={getArray(distributionCenter as IDistributionCenters) || []}

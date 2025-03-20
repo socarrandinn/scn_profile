@@ -13,14 +13,14 @@ type ManufactureCellProps = {
 };
 const ManufactureCell = ({ manufactured, name, image }: ManufactureCellProps) => {
   return (
-        <ReactLink to={`/inventory/settings/manufactures/${manufactured}/general`} underline={'hover'}>
-            <FlexBox alignItems={'center'} gap={1}>
-                <AvatarMedia name={name} avatar={image} variant={'rounded'}>
-                    <NoFoodIcon fontSize='small'/>
-                </AvatarMedia>
-                <Typography>{name}</Typography>
-            </FlexBox>
-        </ReactLink>
+    <ReactLink to={`/inventory/settings/manufactures/${manufactured}/general`} underline={'hover'}>
+      <FlexBox alignItems={'center'} gap={1}>
+        <AvatarMedia name={name} avatar={image} variant={'rounded'}>
+          <NoFoodIcon fontSize='small' />
+        </AvatarMedia>
+        <Typography>{name}</Typography>
+      </FlexBox>
+    </ReactLink>
   );
 };
 

@@ -20,7 +20,7 @@ export interface IStockSummary {
     productWithErrors: Array<{ code: string; count: 4 }>;
   };
   details: IStockDetailCallback;
-  showDetail?: boolean
+  showDetail?: boolean;
 }
 
 export interface IStockSuccessData {

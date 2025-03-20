@@ -43,7 +43,8 @@ const DistributionCentersGeneralBasic = () => {
           open={open}
           permissions={[DISTRIBUTION_CENTER_PERMISSIONS.DISTRIBUTION_CENTER_WRITE]}
         />
-      }>
+      }
+    >
       <BasicTableHeadless
         columns={simpleColumns}
         data={getArray(distributionCenter as IDistributionCenters) || []}

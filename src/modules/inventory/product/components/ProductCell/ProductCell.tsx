@@ -18,14 +18,16 @@ type ProductCellProps = {
 };
 
 const LinkPermission = ({ children, productId }: ChildrenProps & { productId: string }) => {
-  const { hasPermission } = useSecurity()
+  const { hasPermission } = useSecurity();
   if (hasPermission(PRODUCT_PERMISSIONS.PRODUCT_VIEW)) {
-    return <ReactLink to={`/rrhh/products/${productId}/personal`} underline={'hover'}>
-      {children}
-    </ReactLink>
+    return (
+      <ReactLink to={`/rrhh/products/${productId}/personal`} underline={'hover'}>
+        {children}
+      </ReactLink>
+    );
   }
-  return <>{children}</>
-}
+  return <>{children}</>;
+};
 
 const ProductCell = ({
   productId,
@@ -35,7 +37,7 @@ const ProductCell = ({
   category,
   position,
   titleComponent,
-  className
+  className,
 }: ProductCellProps) => {
   if (!productId) {
     return <></>;

@@ -33,7 +33,7 @@ const ConfirmButton = ({
   icon,
   confirmButtonText,
   disabled,
-  imageUrl
+  imageUrl,
 }: ConfirmActionProps) => {
   return (
     <>

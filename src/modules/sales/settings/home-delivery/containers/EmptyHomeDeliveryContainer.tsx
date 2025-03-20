@@ -9,11 +9,17 @@ import { AddLocationButton } from '../components/AddLocationButton';
 const EmptyHomeDeliveryContainer = () => {
   const { settings, isLoading } = useShippingHomeSettings();
 
-  if (isLoading) return <EmptyLocationSkeleton />
+  if (isLoading) return <EmptyLocationSkeleton />;
 
   if (!settings?.enabled) return <DeliveryDisabled />;
 
-  return <EmptyLocations button={<AddLocationButton deliveryType={ADDRESS_COUNTRY_CODE === 'CU' ? LOCATION_TYPE.STATE : LOCATION_TYPE.COUNTRY} />} />
+  return (
+    <EmptyLocations
+      button={
+        <AddLocationButton deliveryType={ADDRESS_COUNTRY_CODE === 'CU' ? LOCATION_TYPE.STATE : LOCATION_TYPE.COUNTRY} />
+      }
+    />
+  );
 };
 
-export default (EmptyHomeDeliveryContainer);
+export default EmptyHomeDeliveryContainer;

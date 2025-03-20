@@ -37,7 +37,7 @@ function FormPhoneInputArray ({ name, required, label }: FormContactInputArrayPr
 
   return (
     <FormLabel label={label} required={required}>
-      <FormControl fullWidth error={hasError || selectedMainPhone }>
+      <FormControl fullWidth error={hasError || selectedMainPhone}>
         <Stack spacing={1}>
           {fields.map((field, index) => {
             return (

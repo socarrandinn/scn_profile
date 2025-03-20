@@ -5,12 +5,12 @@ import { useUploadAvatar } from 'modules/security/users/components/AvatarUser/us
 
 type AvatarUserProps = {
   user: IUser;
-  size?: number
-  account?: boolean
+  size?: number;
+  account?: boolean;
 };
 
 const AvatarUser = ({ user, size = 150, account }: AvatarUserProps) => {
-  const { mutate, isLoading } = useUploadAvatar(account ? undefined : user?._id as string);
+  const { mutate, isLoading } = useUploadAvatar(account ? undefined : (user?._id as string));
 
   const onSubmit = (f: any) => {
     if (f.length) {

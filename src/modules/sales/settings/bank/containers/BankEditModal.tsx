@@ -4,7 +4,7 @@ import { useFindOneBank } from '../hooks/useFindOneBank';
 import BankCreateModal from './BankCreateModal';
 
 const BankEditModal = () => {
-  let [searchParams, setSearchParams] = useSearchParams();
+  const [searchParams, setSearchParams] = useSearchParams();
   const entityId = searchParams.get('edit');
   const { isLoading, data, error } = useFindOneBank(entityId);
 

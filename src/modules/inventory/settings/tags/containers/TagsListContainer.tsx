@@ -11,13 +11,7 @@ const TagsListContainer = () => {
   return (
     <Box>
       <TagsListToolbar />
-      <Table
-        columns={tagsColumns}
-        data={data?.data}
-        total={data?.total}
-        isLoading={isLoading}
-        error={error}
-      />
+      <Table columns={tagsColumns} data={data?.data} total={data?.total} isLoading={isLoading} error={error} />
       <TagsEditModal />
     </Box>
   );

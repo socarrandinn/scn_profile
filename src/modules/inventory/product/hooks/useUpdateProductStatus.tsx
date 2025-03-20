@@ -11,9 +11,7 @@ const useUpdateProductStatus = (productId: string) => {
     (status: string) => ProductService.updateStatus(productId, status === 'true'),
     {
       onSuccess: ({ data }: any) => {
-        toast.success(
-          t('provider:visibilitySuccessUpdate'),
-        );
+        toast.success(t('provider:visibilitySuccessUpdate'));
       },
       onError: () => {
         toast.error(t('generalErrorMessage', { ns: 'errors' }));

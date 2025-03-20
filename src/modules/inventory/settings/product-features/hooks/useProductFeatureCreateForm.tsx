@@ -23,7 +23,7 @@ const useProductFeatureCreateForm = (onClose: () => void, defaultValues: IProduc
     control,
     handleSubmit,
     reset: resetForm,
-    formState
+    formState,
   } = useForm({
     resolver: yupResolver(productFeatureSchema),
     defaultValues,

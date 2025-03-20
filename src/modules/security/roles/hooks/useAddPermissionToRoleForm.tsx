@@ -20,7 +20,7 @@ const useAddPermissionToRoleForm = (role: IRole | undefined, type: SPACE_TYPE) =
     },
     {
       onSuccess: () => {
-        type === SPACE_TYPE.PROVIDER && queryClient.invalidateQueries([role?._id, ROLES_PROVIDER_ONE_KEY])
+        type === SPACE_TYPE.PROVIDER && queryClient.invalidateQueries([role?._id, ROLES_PROVIDER_ONE_KEY]);
         invalidateRoleListQuery(queryClient, role);
         toast.success(t('successAddPermissions'));
       },

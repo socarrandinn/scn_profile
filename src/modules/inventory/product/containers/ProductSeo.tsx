@@ -17,11 +17,7 @@ const ProductSeo = () => {
 
   if (open) {
     return (
-      <FormPaper
-        nm
-        title={t('section.seo.title')}
-        actions={<FormPaperAction onToggle={handleToggle} open={open} />}
-      >
+      <FormPaper nm title={t('section.seo.title')} actions={<FormPaperAction onToggle={handleToggle} open={open} />}>
         <ProductDetailSeoUpdate
           initValue={{
             _id: product?._id,
@@ -40,13 +36,7 @@ const ProductSeo = () => {
     <FormPaper
       nm
       title={t('section.seo.title')}
-      actions={
-        <FormPaperAction
-          onToggle={handleToggle}
-          open={open}
-          permissions={PRODUCT_PERMISSIONS.PRODUCT_WRITE}
-        />
-      }
+      actions={<FormPaperAction onToggle={handleToggle} open={open} permissions={PRODUCT_PERMISSIONS.PRODUCT_WRITE} />}
     >
       <SeoPreview
         title={product?.seo?.name}

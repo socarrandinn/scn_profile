@@ -70,7 +70,9 @@ const CreateLogisticUserModal = ({
         <AdvertisementList />
       </DialogContent>
       <DialogActions>
-        <Button variant='grey' onClick={handleClose}>{t('common:cancel')}</Button>
+        <Button variant='grey' onClick={handleClose}>
+          {t('common:cancel')}
+        </Button>
         <LoadingButton variant='contained' type={'submit'} loading={isLoading} form='logistic-user-form'>
           {t('common:save')}
         </LoadingButton>

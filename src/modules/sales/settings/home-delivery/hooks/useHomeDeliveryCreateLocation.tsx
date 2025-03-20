@@ -3,9 +3,7 @@ import { useMutation, useQueryClient } from '@tanstack/react-query';
 import toast from 'react-hot-toast';
 import { useTranslation } from 'react-i18next';
 import { HomeDeliveryPlacesService } from 'modules/sales/settings/home-delivery/services';
-import {
-  HOME_DELIVERIES_PLACES_KEY,
-} from 'modules/sales/settings/home-delivery/constants';
+import { HOME_DELIVERIES_PLACES_KEY } from 'modules/sales/settings/home-delivery/constants';
 import { useCallback } from 'react';
 import { COST_TYPE } from '../../common/constants/cost-type.enum';
 import { yupResolver } from '@hookform/resolvers/yup';
@@ -25,13 +23,27 @@ const useHomeDeliveryCreateLocation = (defaultValues: any = emptyDelivery, onClo
   const state = searchParams.get('state');
   const country = searchParams.get('country');
 
-  const { control, handleSubmit, reset: resetForm, setValue, watch, formState } = useForm({
+  const {
+    control,
+    handleSubmit,
+    reset: resetForm,
+    setValue,
+    watch,
+    formState,
+  } = useForm({
     resolver: yupResolver(homeDeliverySchema),
     defaultValues,
-    values: defaultValues
+    values: defaultValues,
   });
 
-  const { mutate, error, isLoading, isSuccess, data, reset: resetMutation } = useMutation(
+  const {
+    mutate,
+    error,
+    isLoading,
+    isSuccess,
+    data,
+    reset: resetMutation,
+  } = useMutation(
     (homeDelivery: any) => {
       const data = {
         ...homeDelivery,
@@ -41,11 +53,11 @@ const useHomeDeliveryCreateLocation = (defaultValues: any = emptyDelivery, onClo
           type,
           state: state || homeDelivery?.location?.state?.code || homeDelivery?.location?.state,
           country: MS_LOCATION_CONFIG.isCuban ? 'CU' : homeDelivery.location?.country || country,
-          city: homeDelivery?.location?.city?.code || homeDelivery?.location?.city
+          city: homeDelivery?.location?.city?.code || homeDelivery?.location?.city,
         },
-        customPrice: homeDelivery?.customPrice === COST_TYPE.CUSTOM
-      }
-      return HomeDeliveryPlacesService.saveOrUpdateCustom(data)
+        customPrice: homeDelivery?.customPrice === COST_TYPE.CUSTOM,
+      };
+      return HomeDeliveryPlacesService.saveOrUpdateCustom(data);
     },
     {
       onSuccess: (data, values) => {

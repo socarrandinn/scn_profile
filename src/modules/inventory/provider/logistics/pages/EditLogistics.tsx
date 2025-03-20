@@ -6,14 +6,11 @@ import { useBreadcrumbName } from '@dfl/mui-admin-layout';
 
 const EditLogistics = () => {
   const { id } = useParams();
-  const {
-    data,
-    isLoading,
-  } = useFindOneLogistics(id as string);
+  const { data, isLoading } = useFindOneLogistics(id as string);
   useBreadcrumbName(data?._id || '', data?.name, isLoading);
   return (
     <>
-    <LogisticsCreate title={'edit'} initValue={data} />
+      <LogisticsCreate title={'edit'} initValue={data} />
     </>
   );
 };

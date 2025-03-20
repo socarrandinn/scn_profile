@@ -19,7 +19,11 @@ const StoreGeneralContact = () => {
 
   if (open) {
     return (
-      <FormPaper mbHeader={'8px'} title={t('fields.contact.title')} actions={<FormPaperAction onToggle={handleToggle} open={open} />}>
+      <FormPaper
+        mbHeader={'8px'}
+        title={t('fields.contact.title')}
+        actions={<FormPaperAction onToggle={handleToggle} open={open} />}
+      >
         <StoreDetailContactUpdateContainer
           initValue={{
             _id: warehouse?._id,
@@ -37,11 +41,7 @@ const StoreGeneralContact = () => {
       mbHeader={'0px'}
       title={t('fields.contact.title')}
       actions={
-        <FormPaperAction
-          onToggle={handleToggle}
-          open={open}
-          permissions={[WAREHOUSE_PERMISSIONS.WAREHOUSE_WRITE]}
-        />
+        <FormPaperAction onToggle={handleToggle} open={open} permissions={[WAREHOUSE_PERMISSIONS.WAREHOUSE_WRITE]} />
       }
     >
       <BasicTableHeadless

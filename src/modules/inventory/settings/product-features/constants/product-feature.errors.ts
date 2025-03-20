@@ -9,5 +9,5 @@ export const PRODUCT_FEATURE_ERRORS = {
   [ERROR_REFS.DUPLICATE_KEY]: {
     title: 'productFeature:errors.duplicatedName',
     description: 'productFeature:errors.duplicatedNameDescription',
-  }
+  },
 };

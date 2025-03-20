@@ -2,7 +2,7 @@ import { formatDate } from 'components/libs/analytic/services/date.utils';
 import get from 'lodash/get';
 import { ApexOptions } from 'apexcharts';
 
-export type Serie = { name: string; data: Array<{ x: any; y: any }>, originalName?: string };
+export type Serie = { name: string; data: Array<{ x: any; y: any }>; originalName?: string };
 
 export type SerieData = {
   options: ApexOptions;
@@ -69,7 +69,7 @@ export const histogram = (
   const labels = data?.map((n: any) => formatDate(get(n, dateField)) || '-');
   const seriesData: Serie[] = [];
   data.forEach((item: any) => {
-    const x = get(item, dateField) || 0
+    const x = get(item, dateField) || 0;
     series.forEach((field, index) => {
       const y = get(item, field);
       if (!seriesData[index]) {

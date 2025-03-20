@@ -22,7 +22,7 @@ const useRecoveryPasswordInitForm = () => {
     isLoading,
     reset,
     onSubmit: handleSubmit((value) => {
-      mutate(value as any)
+      mutate(value as any);
     }),
   };
 };

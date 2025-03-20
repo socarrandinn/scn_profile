@@ -13,7 +13,7 @@ const STATUS_COLOR: Record<string, 'primary' | 'error' | 'success' | 'warning' |
   UNVERIFIED: 'warning',
   CANCELED: 'error',
   PENDING: 'warning',
-  ACCEPTED: 'success'
+  ACCEPTED: 'success',
 };
 
 const UserStatus = ({ value }: UserStatusProps) => {

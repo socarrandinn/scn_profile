@@ -22,32 +22,25 @@ const IncidenceForm = () => {
         <Typography fontWeight={500}>{t('selectIncidence')}</Typography>
       </Grid>
       <Grid item xs={12}>
-        <CausesIncidenceCustomSelect
-          required
-          name='cause'
-          fetchOption={{ filters }}
-          label={t('parentIncidence')}
-        />
-        {formState?.errors?.cause?._id?.message &&
+        <CausesIncidenceCustomSelect required name='cause' fetchOption={{ filters }} label={t('parentIncidence')} />
+        {formState?.errors?.cause?._id?.message && (
           <FormHelperText error={true} sx={{ ml: 2 }}>
             {t('errors:required')}
           </FormHelperText>
-        }
+        )}
       </Grid>
-      {cause?.hasChildCauses &&
+      {cause?.hasChildCauses && (
         <Grid item xs={12}>
-          <CausesIncidenceCustomSelect
-            required
-            name='subCause'
-            label={t('childIncidence')}
-          />
+          <CausesIncidenceCustomSelect required name='subCause' label={t('childIncidence')} />
         </Grid>
-      }
+      )}
       <Grid item xs={12}>
         <div className='flex items-center gap-2 my-3'>
           <Typography>{t('fields.status')}</Typography>
           <IncidenceStatusCell value={INCIDENCE_STATUS.OPEN} />
-          <Typography variant='caption' sx={{ ml: 0.5 }}>*{t('initialStatus')}</Typography>
+          <Typography variant='caption' sx={{ ml: 0.5 }}>
+            *{t('initialStatus')}
+          </Typography>
         </div>
       </Grid>
       <Grid item xs={12}>
@@ -69,13 +62,7 @@ const IncidenceForm = () => {
         />
       </Grid>
       <Grid item xs={12}>
-        <FormTextField
-          fullWidth
-          multiline
-          minRows={3}
-          name='description'
-          label={t('fields.description')}
-        />
+        <FormTextField fullWidth multiline minRows={3} name='description' label={t('fields.description')} />
       </Grid>
     </Grid>
   );

@@ -21,15 +21,25 @@ export const Component = styled('div')(() => ({
   background: 'red',
 }));
 
-const ChangePassword = ({ lastPassword, title, size, otherAction, helperText, className, buttonText }: ChangePasswordProps) => {
+const ChangePassword = ({
+  lastPassword,
+  title,
+  size,
+  otherAction,
+  helperText,
+  className,
+  buttonText,
+}: ChangePasswordProps) => {
   const { t } = useTranslation(['common', 'account']);
   const { control, onSubmit, isLoading, error } = useUserPasswordForm(lastPassword);
 
   return (
     <>
-      {title || <Typography variant={'h3'} mb={3}>
-        {t(lastPassword ? 'account:securityTab.changePassword' : 'setNewPassword')}
-      </Typography>}
+      {title || (
+        <Typography variant={'h3'} mb={3}>
+          {t(lastPassword ? 'account:securityTab.changePassword' : 'setNewPassword')}
+        </Typography>
+      )}
 
       <HandlerError error={error} errors={ACCOUNT_ERRORS} />
 
@@ -67,12 +77,12 @@ const ChangePassword = ({ lastPassword, title, size, otherAction, helperText, cl
                 label={t('account:confirmPassword')}
                 placeholder={t('account:confirmPassword')}
               />
-              {helperText &&
+              {helperText && (
                 <FormHelperText sx={{ display: 'flex', gap: 0.5, my: 2, color: '#212322' }}>
                   <InfoOutlined color='error' fontSize='small' />
                   {helperText}
                 </FormHelperText>
-              }
+              )}
             </Grid>
           </Grid>
 

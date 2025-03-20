@@ -19,10 +19,13 @@ const WarehouseHeaderDetails = () => {
     <HeaderSummaryTabs
       title={warehouse?.name || ''}
       subtitle={
-        (warehouse?.logistic?._id && hasPermission(LOGISTICS_PERMISSIONS.LOGISTICS_VIEW))
-          ? <Link to={`/inventory/settings/logistics/${warehouse?.logistic?._id as string}/general`}>
+        warehouse?.logistic?._id && hasPermission(LOGISTICS_PERMISSIONS.LOGISTICS_VIEW) ? (
+          <Link to={`/inventory/settings/logistics/${warehouse?.logistic?._id as string}/general`}>
             {warehouse?.logistic?.name || ''}
-          </Link> : warehouse?.logistic?.name || ''
+          </Link>
+        ) : (
+          warehouse?.logistic?.name || ''
+        )
       }
       hideImage
       actions={<WarehouseHeaderActions id={warehouse?._id as string} visible={warehouse?.visible} />}

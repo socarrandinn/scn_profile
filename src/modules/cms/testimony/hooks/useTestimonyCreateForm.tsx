@@ -15,14 +15,19 @@ const initValues: ITestimony = {
   comment: '',
   image: {
     thumb: '',
-    url: ''
-  }
+    url: '',
+  },
 };
 
 const useTestimonyCreateForm = (onClose: () => void, defaultValues: ITestimony = initValues) => {
   const { t } = useTranslation('testimony');
   const queryClient = useQueryClient();
-  const { control, handleSubmit, reset: resetForm, formState } = useForm({
+  const {
+    control,
+    handleSubmit,
+    reset: resetForm,
+    formState,
+  } = useForm({
     resolver: yupResolver(testimonySchema),
     defaultValues,
   });
@@ -31,26 +36,27 @@ const useTestimonyCreateForm = (onClose: () => void, defaultValues: ITestimony =
     if (defaultValues) resetForm(defaultValues);
   }, [defaultValues, resetForm]);
 
-  const { mutate, reset: resetMutation, error, isLoading, isSuccess, data } = useMutation(
-    (testimony: ITestimony) => TestimonyService.saveOrUpdate(testimony),
-    {
-      onSuccess: (data, values) => {
-        queryClient.invalidateQueries([TESTIMONIES_LIST_KEY]);
-        values?._id && queryClient.invalidateQueries([values?._id]);
-        toast.success(t(values?._id ? 'successUpdate' : 'successCreated'));
-        onClose?.();
-        resetForm();
-      },
+  const {
+    mutate,
+    reset: resetMutation,
+    error,
+    isLoading,
+    isSuccess,
+    data,
+  } = useMutation((testimony: ITestimony) => TestimonyService.saveOrUpdate(testimony), {
+    onSuccess: (data, values) => {
+      queryClient.invalidateQueries([TESTIMONIES_LIST_KEY]);
+      values?._id && queryClient.invalidateQueries([values?._id]);
+      toast.success(t(values?._id ? 'successUpdate' : 'successCreated'));
+      onClose?.();
+      resetForm();
     },
-  );
+  });
 
-  const reset = useCallback(
-    () => {
-      resetForm()
-      resetMutation()
-    },
-    [resetForm, resetMutation],
-  )
+  const reset = useCallback(() => {
+    resetForm();
+    resetMutation();
+  }, [resetForm, resetMutation]);
 
   return {
     control,

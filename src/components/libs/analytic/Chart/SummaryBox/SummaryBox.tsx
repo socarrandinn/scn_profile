@@ -79,7 +79,7 @@ const SummaryBox = ({
     <FlexBox {...props}>
       <CounterBoxS sx={paper} variant={variant} color={color}>
         <FlexBox alignItems={{ md: 'center' }} flexWrap={'wrap'} flexDirection={direction}>
-          <FlexBox flexDirection={'column'} mr={2} >
+          <FlexBox flexDirection={'column'} mr={2}>
             <Typography
               variant={'h2'}
               alignItems={'center'}

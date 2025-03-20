@@ -2,7 +2,7 @@ import { memo, useCallback } from 'react';
 import { Button, DialogActions, DialogContent } from '@mui/material';
 import { ConditionContainer, DialogForm, Form, HandlerError, LoadingButton, SkeletonForm } from '@dfl/mui-react-common';
 import { useTranslation } from 'react-i18next';
-import { IPaymentSettings } from 'modules/sales/settings/payment-settings/interfaces'
+import { IPaymentSettings } from 'modules/sales/settings/payment-settings/interfaces';
 import usePaymentMethodCreateForm from '../hooks/usePaymentMethodCreateForm';
 import { PaymentMethodForm } from '../components/PaymentMethodForm';
 
@@ -26,7 +26,11 @@ const PaymentMethodCreateModal = ({
   loadingInitData,
 }: PaymentMethodCreateModalProps) => {
   const { t } = useTranslation('paymentSettings');
-  const { control, onSubmit, isLoading, reset, error, formState, watch, initTaxType } = usePaymentMethodCreateForm(methodId as string, initValue, onClose);
+  const { control, onSubmit, isLoading, reset, error, formState, watch, initTaxType } = usePaymentMethodCreateForm(
+    methodId as string,
+    initValue,
+    onClose,
+  );
 
   const handleClose = useCallback(() => {
     onClose?.();
@@ -47,7 +51,14 @@ const PaymentMethodCreateModal = ({
         {!dataError && (
           <ConditionContainer active={!loadingInitData} alternative={<SkeletonForm numberItemsToShow={3} />}>
             <HandlerError error={error} />
-            <Form formState={formState} isLoading={isLoading} control={control} onSubmit={onSubmit} watch={watch} id={'payment-method-form'}>
+            <Form
+              formState={formState}
+              isLoading={isLoading}
+              control={control}
+              onSubmit={onSubmit}
+              watch={watch}
+              id={'payment-method-form'}
+            >
               <PaymentMethodForm data={initValue} initTaxType={initTaxType} />
             </Form>
           </ConditionContainer>

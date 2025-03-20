@@ -18,4 +18,4 @@ export const LogoSidebar = () => {
       <Logo />
     </LogoContainer>
   );
-}
+};

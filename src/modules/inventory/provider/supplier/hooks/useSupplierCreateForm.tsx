@@ -32,7 +32,11 @@ const initValues: Partial<ISupplier> = {
   // selectedTag: [],
 };
 
-const useSupplierCreateForm = (countryCode: string, onClose: () => void, defaultValues: Partial<ISupplier> = initValues) => {
+const useSupplierCreateForm = (
+  countryCode: string,
+  onClose: () => void,
+  defaultValues: Partial<ISupplier> = initValues,
+) => {
   const { t } = useTranslation('supplier');
   const { data: list } = useFindTagByRequired(TAG_NAMES.SUPPLIER);
   const queryClient = useQueryClient();

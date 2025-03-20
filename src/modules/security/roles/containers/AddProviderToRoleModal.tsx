@@ -45,8 +45,7 @@ const AddProviderToRoleModal = ({ open, onClose, providerType }: AddPermissionTo
           size={'large'}
           id={'form-add-provider-to-role'}
         >
-          <Box mt={1}>
-          </Box>
+          <Box mt={1}></Box>
           <Box mt={1}>
             <SelectUser name={'users'} placeholder={t('users')} />
           </Box>
@@ -57,7 +56,9 @@ const AddProviderToRoleModal = ({ open, onClose, providerType }: AddPermissionTo
       </DialogContent>
 
       <DialogActions>
-        <Button variant='grey' onClick={handleClose}>{t('common:cancel')}</Button>
+        <Button variant='grey' onClick={handleClose}>
+          {t('common:cancel')}
+        </Button>
         <LoadingButton variant='contained' type={'submit'} loading={isLoading} form='form-add-provider-to-role'>
           {t('common:save')}
         </LoadingButton>

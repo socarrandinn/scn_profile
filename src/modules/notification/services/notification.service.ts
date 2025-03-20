@@ -8,7 +8,9 @@ class NotificationService extends EntityApiService<INotification> {
 
   deleteNotification = (notificationId: string, config?: any) => {
     if (notificationId) {
-      return this.handleResponse(ApiClientService.post(this.getPath(`/${notificationId}/user/got-it`), undefined, config));
+      return this.handleResponse(
+        ApiClientService.post(this.getPath(`/${notificationId}/user/got-it`), undefined, config),
+      );
     }
     return Promise.reject(new Error('You must need a notificationId'));
   };

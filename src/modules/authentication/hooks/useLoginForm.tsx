@@ -33,9 +33,7 @@ const useLoginForm = () => {
         // const from = location.state?.from?.pathname || "/";
         // navigate(from, {replace: true});
         // navigate('/', { replace: true });
-      } catch (e) {
-
-      }
+      } catch (e) {}
     }),
   };
 };

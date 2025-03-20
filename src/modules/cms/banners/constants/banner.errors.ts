@@ -9,5 +9,5 @@ export const BANNER_ERRORS = {
   [ERROR_REFS.DUPLICATE_KEY]: {
     title: 'banner:errors.duplicatedName',
     description: 'banner:errors.duplicatedNameDescription',
-  }
+  },
 };

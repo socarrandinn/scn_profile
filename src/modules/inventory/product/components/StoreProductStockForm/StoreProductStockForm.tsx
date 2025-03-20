@@ -54,7 +54,7 @@ const ProductStockForm = ({
   );
 
   const onAddProductStock = useCallback(() => {
-    const code = watch('codeProduct')
+    const code = watch('codeProduct');
     const isCode = isEmpty(code);
 
     if (isCode) {

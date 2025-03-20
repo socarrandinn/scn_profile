@@ -92,7 +92,9 @@ const UpdateIconRoleModal = ({ open, onClose }: UpdateIconRoleModalProps) => {
       </DialogContent>
 
       <DialogActions>
-        <Button variant='grey' onClick={handleClose}>{t('common:cancel')}</Button>
+        <Button variant='grey' onClick={handleClose}>
+          {t('common:cancel')}
+        </Button>
         <LoadingButton variant='contained' type={'submit'} loading={isLoading} form='form-update-icon-to-role'>
           {t('common:save')}
         </LoadingButton>

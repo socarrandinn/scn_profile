@@ -45,10 +45,11 @@ const ManufactureStatePicker = ({ value, rowId, button }: ManufactureStatePicker
           title: t(STATE_MAP.get(value)?.title as string),
         }}
         isLoading={isLoading}
-        onChange={() => { updateState(!value); }}
+        onChange={() => {
+          updateState(!value);
+        }}
       />
     </Box>
-
   );
 };
 export default memo(ManufactureStatePicker);

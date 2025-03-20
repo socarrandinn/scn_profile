@@ -14,7 +14,7 @@ const GlobalCell = ({ data }: Props) => {
   const { t } = useTranslation('homeDelivery');
 
   const { control } = useForm({
-    defaultValues: { global: data?.global }
+    defaultValues: { global: data?.global },
   });
 
   const { mutate, isLoading } = useDeliveryUpdatePriceConfig(data?._id as string, data?.space);
@@ -23,7 +23,7 @@ const GlobalCell = ({ data }: Props) => {
     mutate(!data?.global);
   }, [mutate, data?.global]);
 
-  if (!data || data?.location?.type === LOCATION_TYPE.CITY) return <></>
+  if (!data || data?.location?.type === LOCATION_TYPE.CITY) return <></>;
 
   return (
     <Form id='global-config-form' control={control}>
@@ -35,7 +35,7 @@ const GlobalCell = ({ data }: Props) => {
         isLoading={isLoading}
       />
     </Form>
-  )
+  );
 };
 
 export default memo(GlobalCell);

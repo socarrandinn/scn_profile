@@ -28,7 +28,7 @@ export const useExportTicketSelected = (filters: any, selected: any) => {
         field: '_id',
         value: id,
         objectId: false,
-        isDate: false
+        isDate: false,
       })),
     })?.toQuery();
   }, [filters, selected]);

@@ -15,11 +15,10 @@ export const useVisibilityManyProductsStock = (productId: string) => {
   const mutate = useMutation(
     (status: IStatus) => {
       if (selected && selected?.length) {
-        return ProductService.changeVisibilityManyStock(
-          productId, {
-            ids: selected as string[],
-            visible: status?._id === 'true',
-          });
+        return ProductService.changeVisibilityManyStock(productId, {
+          ids: selected as string[],
+          visible: status?._id === 'true',
+        });
       }
 
       return Promise.reject({ message: 'you must have items selected to do this operation', reference: 'MD000' });

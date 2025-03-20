@@ -7,7 +7,7 @@ import { userProviderColumns, userSystemColumns } from '../constants/user.column
 
 const UserList = ({ type, status }: UserTableContainerProps) => {
   const filters = useMemo(() => userFilters(type), [type]);
-  const columns = useMemo(() => type === SPACE_TYPE.PROVIDER ? userProviderColumns : userSystemColumns, [type]);
+  const columns = useMemo(() => (type === SPACE_TYPE.PROVIDER ? userProviderColumns : userSystemColumns), [type]);
 
   return (
     <TableProvider id={`user-list-${type}`} filters={filters}>

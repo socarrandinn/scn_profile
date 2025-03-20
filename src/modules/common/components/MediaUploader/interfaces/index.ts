@@ -1,1 +1,1 @@
-export * from './media-uploader-props.interface'
+export * from './media-uploader-props.interface';

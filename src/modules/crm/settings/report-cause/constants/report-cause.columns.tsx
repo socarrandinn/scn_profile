@@ -8,7 +8,7 @@ export const reportCauseNameColumn: HeadCell<IReportCause> = {
   field: 'name',
   headerName: 'reportCause:fields.name',
   disablePadding: false,
-  renderCell: (name: string, data: IReportCause) => (<EditLink entityId={data._id as string}>{name}</EditLink>),
+  renderCell: (name: string, data: IReportCause) => <EditLink entityId={data._id as string}>{name}</EditLink>,
 };
 
 export const reportCauseDescriptionColumn: HeadCell<IReportCause> = {
@@ -30,5 +30,5 @@ export const reportCauseColumns: Array<HeadCell<any>> = [
   reportCauseNameColumn,
   reportCauseDescriptionColumn,
   createdATColumn,
-  reportCauseActionsColumn
+  reportCauseActionsColumn,
 ];

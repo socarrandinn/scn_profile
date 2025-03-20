@@ -49,6 +49,6 @@ export const Actions = ({ productId, visible }: ActionsProps) => {
       <PermissionCheck permissions={PRODUCT_PERMISSIONS.PRODUCT_WRITE}>
         <ProductDeleteButton />
       </PermissionCheck>
-    </Box >
+    </Box>
   );
 };

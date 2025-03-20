@@ -1,1 +1,1 @@
-export { default as MapContainerCmp } from './MapContainerCmp'
+export { default as MapContainerCmp } from './MapContainerCmp';

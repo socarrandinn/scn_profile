@@ -6,5 +6,5 @@ export const nameTab: TabRouteType[] = [
     to: '/general',
     label: 'tabs.general',
     translate: true,
-  }
+  },
 ];

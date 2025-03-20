@@ -4,7 +4,10 @@ import { ConditionContainer, DialogForm, HandlerError, LoadingButton } from '@df
 import { useTranslation } from 'react-i18next';
 import useCauseCancellationCreateForm from 'modules/sales/settings/cause-cancellation/hooks/useCauseCancellationCreateForm';
 import { ICauseCancellation } from 'modules/sales/settings/cause-cancellation/interfaces';
-import { CauseCancellationForm, CauseCancellationFormSkeleton } from 'modules/sales/settings/cause-cancellation/components/CauseCancellationForm';
+import {
+  CauseCancellationForm,
+  CauseCancellationFormSkeleton,
+} from 'modules/sales/settings/cause-cancellation/components/CauseCancellationForm';
 import { SIGNUP_ERRORS } from 'modules/authentication/constants/login.errors';
 import { mapGetOneErrors } from 'constants/errors';
 
@@ -49,7 +52,9 @@ const CauseCancellationCreateModal = ({
         )}
       </DialogContent>
       <DialogActions>
-        <Button variant='grey' onClick={handleClose}>{t('common:cancel')}</Button>
+        <Button variant='grey' onClick={handleClose}>
+          {t('common:cancel')}
+        </Button>
         <LoadingButton
           variant='contained'
           type={'submit'}

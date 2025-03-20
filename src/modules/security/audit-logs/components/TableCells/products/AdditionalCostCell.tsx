@@ -16,7 +16,13 @@ const AdditionalCostCell = ({ otherCost = [] }: AdditionalCostCellProps) => {
   return (
     <Stack divider={<Divider flexItem />} gap={1}>
       {otherCost?.map((cost) => (
-        <Stack key={cost?.ownership} flexDirection={'row'} alignItems={'center'} justifyContent={'space-between'} gap={1}>
+        <Stack
+          key={cost?.ownership}
+          flexDirection={'row'}
+          alignItems={'center'}
+          justifyContent={'space-between'}
+          gap={1}
+        >
           <Box>
             <AvatarNameCell
               link={`/inventory/settings/${OWNERSHIP_TYPES_MAP[cost?.ownershipType]}/${cost?.ownership}/general`}

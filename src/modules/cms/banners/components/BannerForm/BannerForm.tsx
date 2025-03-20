@@ -12,14 +12,7 @@ type BannerFormProps = {
   name?: string;
   form?: string;
 };
-const BannerForm = ({
-  error,
-  control,
-  onSubmit,
-  isLoading,
-  name,
-  form = 'banner-from',
-}: BannerFormProps) => {
+const BannerForm = ({ error, control, onSubmit, isLoading, name, form = 'banner-from' }: BannerFormProps) => {
   return (
     <Form onSubmit={onSubmit} control={control} isLoading={isLoading} size={'small'} id={form} dark>
       <HandlerError error={error} />

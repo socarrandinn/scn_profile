@@ -14,13 +14,16 @@ type FromCreateToInviteProps = {
   error: any;
   redirect: string;
   onClose?: () => void;
-}
+};
 
 export default function FromInviteToDetails ({ error, redirect, onClose }: Readonly<FromCreateToInviteProps>) {
   const { t } = useTranslation('usersInvite');
   const navigate = useNavigate();
 
-  const isExisted = useMemo(() => error?.reference === USERS_ERRORS.USER_EXISTE_IN_SYSTEM && error?.userId, [error?.reference, error?.userId]);
+  const isExisted = useMemo(
+    () => error?.reference === USERS_ERRORS.USER_EXISTE_IN_SYSTEM && error?.userId,
+    [error?.reference, error?.userId],
+  );
 
   const { isOpen, onClose: onCloseModal, setOpen } = useToggle(isExisted);
 
@@ -44,16 +47,14 @@ export default function FromInviteToDetails ({ error, redirect, onClose }: Reado
       aria-labelledby='alert-dialog-title'
       aria-describedby='alert-dialog-description'
     >
-      <DialogTitle id='alert-dialog-title'>
-        {t('userAlreadyExist')}
-      </DialogTitle>
+      <DialogTitle id='alert-dialog-title'>{t('userAlreadyExist')}</DialogTitle>
       <DialogContent>
-        <DialogContentText>
-          {t('duplicatedUserSpaceError')}
-        </DialogContentText>
+        <DialogContentText>{t('duplicatedUserSpaceError')}</DialogContentText>
       </DialogContent>
       <DialogActions>
-        <Button variant='grey' onClick={handleClose}>{t('cancel')}</Button>
+        <Button variant='grey' onClick={handleClose}>
+          {t('cancel')}
+        </Button>
         <Button variant='contained' onClick={handleDetail} autoFocus>
           {t('goToUser')}
         </Button>

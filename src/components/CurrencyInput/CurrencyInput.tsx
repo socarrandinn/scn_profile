@@ -33,7 +33,7 @@ export const NumberFormatCustom = React.forwardRef<HTMLInputElement, NumericForm
         getInputRef={ref}
       />
     );
-  }
+  },
 );
 
 NumberFormatCustom.displayName = 'NumberFormatCustom';

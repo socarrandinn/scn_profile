@@ -7,7 +7,7 @@ const OnboardingWelcome = ({ setStep }: { setStep: Dispatch<SetStateAction<numbe
   const { t } = useTranslation('account');
 
   const handleNextClick = useCallback(() => {
-    setStep(1)
+    setStep(1);
   }, [setStep]);
 
   return (
@@ -23,7 +23,7 @@ const OnboardingWelcome = ({ setStep }: { setStep: Dispatch<SetStateAction<numbe
         {t('onboarding.welcome.button')}
       </Button>
     </div>
-  )
+  );
 };
 
 export default memo(OnboardingWelcome);

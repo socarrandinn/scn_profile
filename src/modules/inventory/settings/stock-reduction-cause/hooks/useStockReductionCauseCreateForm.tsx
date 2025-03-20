@@ -13,13 +13,17 @@ const initValues: IStockReductionCause = {
   name: '',
   description: '',
   requiresResponsible: false,
-  requiresEvidence: false
+  requiresEvidence: false,
 };
 
 const useStockReductionCauseCreateForm = (onClose: () => void, defaultValues: IStockReductionCause = initValues) => {
   const { t } = useTranslation('stockReductionCause');
   const queryClient = useQueryClient();
-  const { control, handleSubmit, reset: resetForm } = useForm({
+  const {
+    control,
+    handleSubmit,
+    reset: resetForm,
+  } = useForm({
     resolver: yupResolver(stockReductionCauseSchema),
     defaultValues,
   });
@@ -28,7 +32,14 @@ const useStockReductionCauseCreateForm = (onClose: () => void, defaultValues: IS
     if (defaultValues) resetForm(defaultValues);
   }, [defaultValues, resetForm]);
 
-  const { mutate, reset: resetMutation, error, isLoading, isSuccess, data } = useMutation(
+  const {
+    mutate,
+    reset: resetMutation,
+    error,
+    isLoading,
+    isSuccess,
+    data,
+  } = useMutation(
     (stockReductionCause: IStockReductionCause) => StockReductionCauseService.saveOrUpdate(stockReductionCause),
     {
       onSuccess: (data, values) => {
@@ -41,13 +52,10 @@ const useStockReductionCauseCreateForm = (onClose: () => void, defaultValues: IS
     },
   );
 
-  const reset = useCallback(
-    () => {
-      resetForm()
-      resetMutation()
-    },
-    [resetForm, resetMutation],
-  )
+  const reset = useCallback(() => {
+    resetForm();
+    resetMutation();
+  }, [resetForm, resetMutation]);
 
   return {
     control,

@@ -16,9 +16,12 @@ const IncidenceMenu = () => {
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
   const open = Boolean(anchorEl);
 
-  const handleClick = useCallback((event: React.MouseEvent<HTMLElement>) => {
-    setAnchorEl(event.currentTarget);
-  }, [setAnchorEl]);
+  const handleClick = useCallback(
+    (event: React.MouseEvent<HTMLElement>) => {
+      setAnchorEl(event.currentTarget);
+    },
+    [setAnchorEl],
+  );
 
   const handleClose = useCallback(() => {
     setAnchorEl(null);
@@ -28,16 +31,16 @@ const IncidenceMenu = () => {
     <>
       <IconButton
         onClick={handleClick}
-        size="small"
+        size='small'
         aria-controls={open ? 'account-menu' : undefined}
-        aria-haspopup="true"
+        aria-haspopup='true'
         aria-expanded={open ? 'true' : undefined}
       >
         <MoreVert />
       </IconButton>
       <Menu
         anchorEl={anchorEl}
-        id="account-menu"
+        id='account-menu'
         open={open}
         onClose={handleClose}
         onClick={onOpen}
@@ -53,9 +56,14 @@ const IncidenceMenu = () => {
       >
         <MenuItem onClick={handleClose}>{t('create')}</MenuItem>
       </Menu>
-      <IncidenceCreateModal open={isOpen} onClose={onClose} title={t('newIncidence')} initValue={{ ...emptyIncidence, orderReference: orderId }} />
+      <IncidenceCreateModal
+        open={isOpen}
+        onClose={onClose}
+        title={t('newIncidence')}
+        initValue={{ ...emptyIncidence, orderReference: orderId }}
+      />
     </>
   );
-}
+};
 
 export default memo(IncidenceMenu);

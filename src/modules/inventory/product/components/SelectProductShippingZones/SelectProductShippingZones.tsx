@@ -51,7 +51,7 @@ const SelectProductShippingZones = ({
     return `${municipality?.name ? municipality?.name + ', ' : ''} ${province?.name || ''}${
       // eslint-disable-next-line @typescript-eslint/restrict-template-expressions
       province?.country === '53' && ', Cuba'
-      }`;
+    }`;
   };
 
   return (

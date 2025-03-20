@@ -7,20 +7,20 @@ import { FormPhoneInput } from 'components/libs/PhoneInput';
 import { ACCOUNT_ERRORS } from 'modules/account/constants/account.errors';
 
 export type UserGeneralInfoProps = {
-  isLoadingUser: boolean,
-  control: any,
-  onSubmit: any,
-  size?: 'small' | 'medium',
+  isLoadingUser: boolean;
+  control: any;
+  onSubmit: any;
+  size?: 'small' | 'medium';
 
-  isLoading: boolean,
-  readOnly?: boolean,
-  className?: string,
-  isMe?: boolean,
-  error: any,
-  sx?: SxProps,
-  buttonText?: string,
-  title?: ReactNode,
-}
+  isLoading: boolean;
+  readOnly?: boolean;
+  className?: string;
+  isMe?: boolean;
+  error: any;
+  sx?: SxProps;
+  buttonText?: string;
+  title?: ReactNode;
+};
 
 const UserGeneralInfo = ({
   isLoadingUser,
@@ -47,10 +47,11 @@ const UserGeneralInfo = ({
 
   return (
     <>
-      {title ||
+      {title || (
         <Typography variant={'h3'} mb={3}>
           {t('account:tabs.general')}
-        </Typography>}
+        </Typography>
+      )}
       <HandlerError error={error} errors={ACCOUNT_ERRORS} />
       <Form onSubmit={onSubmit} isLoading={isLoading} control={control} readOnly={readOnly || !canWrite}>
         <Box className={className}>
@@ -100,7 +101,7 @@ const UserGeneralInfo = ({
               />
             </Grid>
           </Grid>
-          {canWrite &&
+          {canWrite && (
             <Box pb={2} pt={3}>
               <Stack alignItems='flex-end'>
                 <LoadingButton variant='contained' color='success' type={'submit'} loading={isLoading}>
@@ -108,7 +109,7 @@ const UserGeneralInfo = ({
                 </LoadingButton>
               </Stack>
             </Box>
-          }
+          )}
         </Box>
       </Form>
     </>

@@ -13,8 +13,8 @@ type GridProps = {
 };
 
 type Props = {
-  disabled?: boolean,
-  mdProps?: GridProps,
+  disabled?: boolean;
+  mdProps?: GridProps;
 };
 
 const ShippingCostForm = ({ disabled, mdProps }: Props) => {
@@ -28,12 +28,7 @@ const ShippingCostForm = ({ disabled, mdProps }: Props) => {
   return (
     <>
       <Grid item xs={12} md={mdProps?.price ?? 2}>
-        <FormCurrencyField
-          name='price'
-          label={t('fields.price')}
-          size='small'
-          disabled={disabled}
-        />
+        <FormCurrencyField name='price' label={t('fields.price')} size='small' disabled={disabled} />
       </Grid>
 
       <Grid item xs={12} md={mdProps?.weightPrice ?? 5}>
@@ -47,16 +42,12 @@ const ShippingCostForm = ({ disabled, mdProps }: Props) => {
           error={Boolean(messageError('weightPrice'))}
           InputProps={{
             startAdornment: <StartAdornment text={'kg'} />,
-            endAdornment:
+            endAdornment: (
               <>
-                <Divider orientation="vertical" variant="middle" flexItem />
-                <FormCurrencyField
-                  disabled={disabled}
-                  name='weightPrice.price'
-                  sx={removeBorder}
-                  size='small'
-                />
+                <Divider orientation='vertical' variant='middle' flexItem />
+                <FormCurrencyField disabled={disabled} name='weightPrice.price' sx={removeBorder} size='small' />
               </>
+            ),
           }}
         />
         {messageError('weightPrice') && (
@@ -77,15 +68,12 @@ const ShippingCostForm = ({ disabled, mdProps }: Props) => {
           disabled={disabled}
           InputProps={{
             startAdornment: <StartAdornment text={'m³'} />,
-            endAdornment:
+            endAdornment: (
               <>
-                <Divider orientation="vertical" variant="middle" flexItem />
-                <FormCurrencyField
-                  disabled={disabled}
-                  name='volumePrice.price'
-                  sx={removeBorder}
-                />
+                <Divider orientation='vertical' variant='middle' flexItem />
+                <FormCurrencyField disabled={disabled} name='volumePrice.price' sx={removeBorder} />
               </>
+            ),
           }}
         />
         {messageError('volumePrice') && (
@@ -94,7 +82,7 @@ const ShippingCostForm = ({ disabled, mdProps }: Props) => {
           </FormHelperText>
         )}
       </Grid>
-    </ >
+    </>
   );
 };
 

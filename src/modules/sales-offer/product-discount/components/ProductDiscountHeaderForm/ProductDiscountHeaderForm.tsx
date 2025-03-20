@@ -14,7 +14,13 @@ type ProductDiscountHeaderFormProps = {
   discountType: string;
 };
 
-const ProductDiscountHeaderForm = ({ error, control, isLoading, onSubmit, discountType }: ProductDiscountHeaderFormProps) => {
+const ProductDiscountHeaderForm = ({
+  error,
+  control,
+  isLoading,
+  onSubmit,
+  discountType,
+}: ProductDiscountHeaderFormProps) => {
   const { t } = useTranslation('productDiscount');
 
   return (
@@ -29,7 +35,7 @@ const ProductDiscountHeaderForm = ({ error, control, isLoading, onSubmit, discou
         disabled={!!error}
       >
         <Grid container spacing={{ xs: 2, md: 3 }} columns={{ xs: 4, sm: 8, md: 12 }}>
-          <Grid item xs={4} sm={6} md={10} >
+          <Grid item xs={4} sm={6} md={10}>
             <FormTextField name='name' label={t('fields.name')} />
           </Grid>
           <Grid item xs={4} sm={2} md={2}>

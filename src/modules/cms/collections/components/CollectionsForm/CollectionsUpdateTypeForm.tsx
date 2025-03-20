@@ -12,7 +12,7 @@ type CollectionsUpdateTypeFormProps = {
   isLoading: boolean;
   onSubmit: FormEventHandler | undefined;
   setValue: any;
-  excludes: DYNAMIC_COLLECTION_TYPE[]
+  excludes: DYNAMIC_COLLECTION_TYPE[];
 };
 
 const CollectionsUpdateTypeForm = ({
@@ -21,7 +21,7 @@ const CollectionsUpdateTypeForm = ({
   isLoading,
   setValue,
   onSubmit,
-  excludes
+  excludes,
 }: CollectionsUpdateTypeFormProps) => {
   const { t } = useTranslation('collection');
   const contentType = useWatch({ control, name: 'contentType' });

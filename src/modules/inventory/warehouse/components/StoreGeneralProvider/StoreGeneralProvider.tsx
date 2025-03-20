@@ -58,11 +58,7 @@ const StoreGeneralProvider = () => {
       mbHeader={'12.83px'}
       title={t('fields.logistic')}
       actions={
-        <FormPaperAction
-          onToggle={handleToggle}
-          open={open}
-          permissions={[WAREHOUSE_PERMISSIONS.WAREHOUSE_WRITE]}
-        />
+        <FormPaperAction onToggle={handleToggle} open={open} permissions={[WAREHOUSE_PERMISSIONS.WAREHOUSE_WRITE]} />
       }
     >
       <DetailList

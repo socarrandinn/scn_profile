@@ -11,7 +11,7 @@ export interface IOrderStatus {
   allowTo?: string[];
   notification: INotification;
   type?: ORDER_STATUS_TYPE_ENUM;
-  validationType: ORDER_STATUS_VALIDATE_TYPE | null,
+  validationType: ORDER_STATUS_VALIDATE_TYPE | null;
 
   isSystem?: boolean;
   isStart?: boolean;

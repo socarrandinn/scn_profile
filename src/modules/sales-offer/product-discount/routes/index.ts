@@ -1,6 +1,10 @@
 import { RouteConfig } from '@dfl/react-security';
 import { PRODUCT_DISCOUNT_PERMISSIONS } from 'modules/sales-offer/product-discount/constants/product-discount.permissions';
-import { CreateProductDiscount, ProductDiscountDetails, ProductDiscountList } from 'modules/sales-offer/product-discount/pages';
+import {
+  CreateProductDiscount,
+  ProductDiscountDetails,
+  ProductDiscountList,
+} from 'modules/sales-offer/product-discount/pages';
 
 const routes: RouteConfig = {
   ProductDiscountList: {

@@ -26,7 +26,14 @@ const renderOption = (props: any, option: IDistributionCenters, { selected }: an
   );
 };
 
-const DistributionCentersSelect = ({ name, required, multiple, label, helperText, ...props }: DistributionCentersSelectProps) => {
+const DistributionCentersSelect = ({
+  name,
+  required,
+  multiple,
+  label,
+  helperText,
+  ...props
+}: DistributionCentersSelectProps) => {
   return (
     <FormAsyncSelectAutocompleteField
       {...props}

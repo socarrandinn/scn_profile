@@ -1,1 +1,1 @@
-export { default as GeneralInfoFrom } from './ImageInfoFrom'
+export { default as GeneralInfoFrom } from './ImageInfoFrom';

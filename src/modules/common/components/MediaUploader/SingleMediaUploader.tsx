@@ -6,38 +6,36 @@ import Thumb from 'modules/common/components/MediaUploader/components/ImageThumb
 import { FlexBox } from '@dfl/mui-react-common';
 
 type SingleMediaUploaderProps = MediaUploaderProps & {
-  image?: IUploadImage
+  image?: IUploadImage;
   imageProps?: {
-    size?: number
+    size?: number;
   };
-}
-const SingleMediaUploader = ({
-  image,
-  imageProps,
-  uploadOptions,
-  ...props
-}: SingleMediaUploaderProps) => {
+};
+const SingleMediaUploader = ({ image, imageProps, uploadOptions, ...props }: SingleMediaUploaderProps) => {
   const options = useMemo<UploadOptions>(() => {
     return {
       ...uploadOptions,
-      multiple: false
-    }
-  }, [uploadOptions])
+      multiple: false,
+    };
+  }, [uploadOptions]);
   const width = imageProps?.size ? imageProps.size : 200;
 
   return (
-        <MediaUploader {...props} uploadOptions={options}>
-            {image && <FlexBox justifyContent={'center'}>
-              <Thumb
-                size={width}
-                image={image}
-                onSelect={(e) => {
-                  eventClick(e)
-                }}
-            /></FlexBox>}
-            {/* <ImageList images={images || []} onDeleteImage={onDeleteImage || (() => { */}
-            {/* })} {...imageListProps} size={100}/> */}
-        </MediaUploader>
+    <MediaUploader {...props} uploadOptions={options}>
+      {image && (
+        <FlexBox justifyContent={'center'}>
+          <Thumb
+            size={width}
+            image={image}
+            onSelect={(e) => {
+              eventClick(e);
+            }}
+          />
+        </FlexBox>
+      )}
+      {/* <ImageList images={images || []} onDeleteImage={onDeleteImage || (() => { */}
+      {/* })} {...imageListProps} size={100}/> */}
+    </MediaUploader>
   );
 };
 

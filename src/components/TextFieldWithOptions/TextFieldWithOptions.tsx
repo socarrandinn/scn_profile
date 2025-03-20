@@ -115,7 +115,13 @@ const TextFieldWithOptions = ({
         }}
       />
 
-      {messageError ? <FormHelperText error={true} sx={{ pl: 2 }}>{t(messageError)}</FormHelperText> : <></>}
+      {messageError ? (
+        <FormHelperText error={true} sx={{ pl: 2 }}>
+          {t(messageError)}
+        </FormHelperText>
+      ) : (
+        <></>
+      )}
     </>
   );
 };

@@ -6,7 +6,7 @@ const AddressMapInfo = () => {
   const [close, setClose] = useState(true);
   const { t } = useTranslation('common');
   return (
-    <Collapse in={close} >
+    <Collapse in={close}>
       <Alert
         security='info'
         onClose={() => {

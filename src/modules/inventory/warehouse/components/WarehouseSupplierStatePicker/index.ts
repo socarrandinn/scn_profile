@@ -1,1 +1,1 @@
-export { default as WarehouseSupplierStatePicker } from './WarehouseSupplierStatePicker'
+export { default as WarehouseSupplierStatePicker } from './WarehouseSupplierStatePicker';

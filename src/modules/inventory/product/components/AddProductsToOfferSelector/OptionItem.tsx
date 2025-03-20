@@ -36,7 +36,8 @@ export const OptionItem = ({
         id={`${add ? 'add' : 'update'}-option-button`}
         onMouseEnter={onOpen}
         onMouseLeave={closePopup}
-        disabled={!selectedCount && !allCount} >
+        disabled={!selectedCount && !allCount}
+      >
         <FlexBox onClick={handleClose} justifyContent={'space-between'} width={400} style={{ gap: '8px' }}>
           {label}
           <ArrowRightIcon />

@@ -1,1 +1,1 @@
-export { default as CategoryOrder } from './CategoryOrder'
+export { default as CategoryOrder } from './CategoryOrder';

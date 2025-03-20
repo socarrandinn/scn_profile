@@ -187,7 +187,9 @@ export const supplierStockVisibilityColumn = (warehouseId: string) => ({
   field: 'visible',
   align: CellAlign.CENTER,
   headerName: 'warehouse:fields.visibility',
-  renderCell: (visible: boolean, data: any) => <WarehouseStockVisiblePicker value={visible} rowId={data?._id} warehouseId={warehouseId} />,
+  renderCell: (visible: boolean, data: any) => (
+    <WarehouseStockVisiblePicker value={visible} rowId={data?._id} warehouseId={warehouseId} />
+  ),
 });
 
 // route: inventory/settings/suppliers/:id/inventory > warehouses > productList

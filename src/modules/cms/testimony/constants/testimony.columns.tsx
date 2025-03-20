@@ -10,9 +10,7 @@ export const testimonyNameColumn: HeadCell<ITestimony> = {
   field: 'personName',
   headerName: 'testimony:fields.name',
   disablePadding: false,
-  renderCell: (name: string, data?: ITestimony) => (
-    <AvatarNameCell hideLink image={data?.image} name={name} />
-  ),
+  renderCell: (name: string, data?: ITestimony) => <AvatarNameCell hideLink image={data?.image} name={name} />,
 };
 
 export const testimonyTitleColumn: HeadCell<ITestimony> = {
@@ -23,7 +21,7 @@ export const testimonyTitleColumn: HeadCell<ITestimony> = {
 export const testimonyCommentColumn: HeadCell<ITestimony> = {
   field: 'comment',
   headerName: 'testimony:fields.comment',
-  renderCell: (comment: string) => <TestimonyCommentCell comment={comment} />
+  renderCell: (comment: string) => <TestimonyCommentCell comment={comment} />,
 };
 
 export const testimonyActionsColumn: HeadCell<ITestimony> = {
@@ -41,5 +39,5 @@ export const testimonyColumns: Array<HeadCell<any>> = [
   testimonyTitleColumn,
   testimonyCommentColumn,
   createdATColumn,
-  testimonyActionsColumn
+  testimonyActionsColumn,
 ];

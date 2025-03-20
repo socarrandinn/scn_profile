@@ -1,1 +1,1 @@
-export { default as ManufactureCell } from './ManufactureCell'
+export { default as ManufactureCell } from './ManufactureCell';

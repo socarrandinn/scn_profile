@@ -10,16 +10,17 @@ type ProductGeneralMediaFormProps = {
   onSubmit: FormEventHandler | undefined;
 };
 
-const ProductGeneralMediaForm = ({
-  error,
-  control,
-  isLoading,
-  onSubmit,
-}: ProductGeneralMediaFormProps) => {
+const ProductGeneralMediaForm = ({ error, control, isLoading, onSubmit }: ProductGeneralMediaFormProps) => {
   return (
     <Box paddingLeft={3}>
       <HandlerError error={error} />
-      <Form onSubmit={onSubmit} control={control} isLoading={isLoading} size={'small'} id={'product-general-media-form'}>
+      <Form
+        onSubmit={onSubmit}
+        control={control}
+        isLoading={isLoading}
+        size={'small'}
+        id={'product-general-media-form'}
+      >
         <Grid container spacing={{ xs: 1, md: 2 }} columns={{ xs: 4, sm: 8, md: 12 }}>
           <MediaForm />
         </Grid>

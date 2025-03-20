@@ -43,12 +43,21 @@ const MessageCreateModal = ({
 
         {!dataError && (
           <ConditionContainer active={!loadingInitData} alternative={<StaticSiteMapItemFormSkeleton />}>
-            <StaticSiteMapItemForm dark form='static-site-map-update-form' error={error} isLoading={isLoading} control={control} onSubmit={onSubmit} />
+            <StaticSiteMapItemForm
+              dark
+              form='static-site-map-update-form'
+              error={error}
+              isLoading={isLoading}
+              control={control}
+              onSubmit={onSubmit}
+            />
           </ConditionContainer>
         )}
       </DialogContent>
       <DialogActions>
-        <Button variant='grey' onClick={handleClose}>{t('common:cancel')}</Button>
+        <Button variant='grey' onClick={handleClose}>
+          {t('common:cancel')}
+        </Button>
         <LoadingButton
           variant='contained'
           type={'submit'}

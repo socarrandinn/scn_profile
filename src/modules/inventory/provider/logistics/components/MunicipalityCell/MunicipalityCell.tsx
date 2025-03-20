@@ -5,17 +5,17 @@ import { Typography } from '@mui/material';
 import FmdGoodIcon from '@mui/icons-material/FmdGood';
 
 type ProvinceCellProps = {
-  municipality: string
-  privinceCode: string
-}
+  municipality: string;
+  privinceCode: string;
+};
 const MunicipalityCell = ({ municipality, privinceCode }: ProvinceCellProps) => {
   const provinceByState = findMunicipalityByStateAndMunicipality(privinceCode, municipality);
 
   return (
     <FlexBox alignItems={'center'} gap={1}>
-      <FmdGoodIcon/>
+      <FmdGoodIcon />
       <Typography>{provinceByState?.name}</Typography>
     </FlexBox>
-  )
-}
+  );
+};
 export default memo(MunicipalityCell);

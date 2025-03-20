@@ -32,7 +32,7 @@ type ManufactureContextProps = {
 
 const states = {
   form_1: false,
-  form_2: false
+  form_2: false,
 };
 
 const ManufactureDetailProvider = (props: ManufactureContextProps) => {

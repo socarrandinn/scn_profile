@@ -15,5 +15,5 @@ export const mapperObjectToArrayTags = (objectTags: ItemsObjectTag) => {
       };
     });
   }
-  return []
+  return [];
 };

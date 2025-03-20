@@ -1,1 +1,1 @@
-export { default as AvatarMedia } from './AvatarMedia'
+export { default as AvatarMedia } from './AvatarMedia';

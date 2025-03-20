@@ -9,7 +9,7 @@ interface IAudienceTemplateInput {
 }
 
 const AudienceTemplateInput = ({ control, name }: IAudienceTemplateInput) => {
-  const { t } = useTranslation('orderStatus')
+  const { t } = useTranslation('orderStatus');
   return (
     <FormTextField
       fullWidth
@@ -20,6 +20,6 @@ const AudienceTemplateInput = ({ control, name }: IAudienceTemplateInput) => {
       size='small'
     />
   );
-}
+};
 
-export default AudienceTemplateInput
+export default AudienceTemplateInput;

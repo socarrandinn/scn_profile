@@ -1,7 +1,10 @@
 import { memo, useCallback } from 'react';
 import { Stack } from '@mui/material';
 import { TableToolbar, AddButton, useTableSelection, ImportButton } from '@dfl/mui-admin-layout';
-import { PRODUCT_OFFER_PERMISSIONS, PRODUCT_PERMISSIONS } from 'modules/inventory/product/constants/product.permissions';
+import {
+  PRODUCT_OFFER_PERMISSIONS,
+  PRODUCT_PERMISSIONS,
+} from 'modules/inventory/product/constants/product.permissions';
 import { GeneralActions } from 'layouts/portals';
 import { PermissionCheck } from '@dfl/react-security';
 import { useNavigate } from 'react-router';
@@ -71,7 +74,6 @@ const ProductListToolbar = ({ ...props }: ProductListToolbarProps) => {
               justifyContent={{ xs: 'end', md: 'start' }}
               flexWrap={{ xs: 'wrap', md: 'nowrap' }}
             >
-
               <PermissionCheck permissions={[PRODUCT_OFFER_PERMISSIONS.WRITE]}>
                 <AddProductsToOfferSelector selectedItems={selected} total={total} filters={filters} search={search} />
               </PermissionCheck>

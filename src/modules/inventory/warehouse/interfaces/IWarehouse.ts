@@ -12,7 +12,7 @@ export interface IWarehouse {
   address: IAddress;
   space?: string | null;
   distributionCenters?: IDistributionCenters[];
-  formattedAddress?: string
+  formattedAddress?: string;
   // locations: WarehouseLocation[] | undefined;
 }
 

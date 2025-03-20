@@ -37,11 +37,7 @@ const LogisticGeneralBasic = () => {
     <FormPaper
       title={t('fields.basicInformation')}
       actions={
-        <FormPaperAction
-          onToggle={handleToggle}
-          open={open}
-          permissions={[LOGISTICS_PERMISSIONS.LOGISTICS_WRITE]}
-        />
+        <FormPaperAction onToggle={handleToggle} open={open} permissions={[LOGISTICS_PERMISSIONS.LOGISTICS_WRITE]} />
       }
     >
       <BasicTableHeadless

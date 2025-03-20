@@ -16,7 +16,7 @@ const initValues: IPriceConfigUpdate = {
     value: 0,
   },
   supplier: '',
-  warehouse: ''
+  warehouse: '',
 };
 
 const useWarehouseSupplierCommissionUpdate = (onClose: () => void, defaultValues: IPriceConfigUpdate = initValues) => {
@@ -31,14 +31,17 @@ const useWarehouseSupplierCommissionUpdate = (onClose: () => void, defaultValues
     if (defaultValues) reset(defaultValues);
   }, [defaultValues, reset]);
 
-  const { mutate, error, isLoading, isSuccess, data } = useMutation((values: any) => WarehouseSupplierService.updateCommission(values), {
-    onSuccess: () => {
-      toast.success(t('supplier.successCommissionUpdate'));
-      queryClient.invalidateQueries([WAREHOUSES_SUPPLIER_LIST_KEY]);
-      onClose?.();
-      reset();
+  const { mutate, error, isLoading, isSuccess, data } = useMutation(
+    (values: any) => WarehouseSupplierService.updateCommission(values),
+    {
+      onSuccess: () => {
+        toast.success(t('supplier.successCommissionUpdate'));
+        queryClient.invalidateQueries([WAREHOUSES_SUPPLIER_LIST_KEY]);
+        onClose?.();
+        reset();
+      },
     },
-  });
+  );
 
   return {
     control,

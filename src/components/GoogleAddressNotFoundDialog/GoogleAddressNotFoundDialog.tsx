@@ -19,13 +19,8 @@ const GoogleAddressNotFoundDialog = ({ open, onClose }: Props) => {
   const { t } = useTranslation('common');
 
   return (
-    <Dialog
-      fullScreen={fullScreen}
-      open={open}
-      onClose={onClose}
-      aria-labelledby="responsive-address-title"
-    >
-      <DialogTitle id="responsive-address-dialog">{t('fields.address.title')}</DialogTitle>
+    <Dialog fullScreen={fullScreen} open={open} onClose={onClose} aria-labelledby='responsive-address-title'>
+      <DialogTitle id='responsive-address-dialog'>{t('fields.address.title')}</DialogTitle>
       <DialogContent>
         <DialogContentText>{t('messages.addressNotFound')}</DialogContentText>
       </DialogContent>

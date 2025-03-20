@@ -5,16 +5,16 @@ import { Typography } from '@mui/material';
 import FmdGoodIcon from '@mui/icons-material/FmdGood';
 
 type ProvinceCellProps = {
-  state: string
-}
+  state: string;
+};
 const ProvinceCell = ({ state }: ProvinceCellProps) => {
   const provinceByState = findProvinceByStateCode(state);
 
   return (
     <FlexBox alignItems={'center'} gap={1}>
-        <FmdGoodIcon/>
+      <FmdGoodIcon />
       <Typography>{provinceByState?.name}</Typography>
     </FlexBox>
-  )
-}
+  );
+};
 export default memo(ProvinceCell);

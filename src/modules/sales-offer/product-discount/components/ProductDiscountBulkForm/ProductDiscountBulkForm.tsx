@@ -13,7 +13,13 @@ type ProductDiscountBulkFormProps = {
   discountType: string;
 };
 
-const ProductDiscountBulkForm = ({ error, control, isLoading, onSubmit, discountType }: ProductDiscountBulkFormProps) => {
+const ProductDiscountBulkForm = ({
+  error,
+  control,
+  isLoading,
+  onSubmit,
+  discountType,
+}: ProductDiscountBulkFormProps) => {
   const { t } = useTranslation('productDiscount');
 
   return (

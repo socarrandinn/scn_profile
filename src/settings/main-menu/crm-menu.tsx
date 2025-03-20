@@ -1,8 +1,4 @@
-import {
-  AssessmentOutlined,
-  DescriptionOutlined,
-  ReportOutlined,
-} from '@mui/icons-material';
+import { AssessmentOutlined, DescriptionOutlined, ReportOutlined } from '@mui/icons-material';
 import { IMenu } from '@dfl/mui-react-common';
 import { REPORT_CAUSE_PERMISSIONS } from 'modules/crm/settings/report-cause/constants';
 import { DISALLOWED_WORD_PERMISSIONS } from 'modules/crm/settings/disallowed-word/constants';

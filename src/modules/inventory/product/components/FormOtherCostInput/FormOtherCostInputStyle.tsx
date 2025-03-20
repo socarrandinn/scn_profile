@@ -23,6 +23,6 @@ export const FormOtherCostInputStyle = styled(FlexBox)<Props>(({ theme, size }) 
     },
   },
   '.ownership-type-options': {
-    marginTop: 4
+    marginTop: 4,
   },
 }));

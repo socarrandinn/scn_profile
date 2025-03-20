@@ -11,12 +11,7 @@ const ProviderTabList = ({ status }: UserTableContainerProps) => {
 
   return (
     <TableProvider id={'user-tab-provider'} filters={userFilters(SPACE_TYPE.PROVIDER)}>
-      <UserTableContainer
-        type={SPACE_TYPE.PROVIDER}
-        status={status}
-        columns={userProviderColumns}
-        space={id}
-      />
+      <UserTableContainer type={SPACE_TYPE.PROVIDER} status={status} columns={userProviderColumns} space={id} />
     </TableProvider>
   );
 };

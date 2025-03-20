@@ -11,7 +11,7 @@ import { useParams } from 'react-router';
 export type UserInvitationTableContainerProps = ChildrenProps & {
   type: SPACE_TYPE;
   columns: Array<HeadCell<IUserInvite>>;
-}
+};
 
 const UserInvitationTableContainer = ({ type, columns, ...props }: UserInvitationTableContainerProps) => {
   const { id } = useParams();
@@ -20,14 +20,7 @@ const UserInvitationTableContainer = ({ type, columns, ...props }: UserInvitatio
   return (
     <Box>
       <UserListToolbar {...props} />
-      <Table
-        columns={columns}
-        data={data?.data}
-        total={data?.total}
-        isLoading={isLoading}
-        error={error}
-        select
-      />
+      <Table columns={columns} data={data?.data} total={data?.total} isLoading={isLoading} error={error} select />
     </Box>
   );
 };

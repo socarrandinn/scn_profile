@@ -3,7 +3,7 @@ import { Paper, Typography, styled } from '@mui/material';
 export const PaperContent = styled(Paper)(({ theme }) => ({
   padding: '16px 24px',
   [theme.breakpoints.down('sm')]: {
-    padding: 16
+    padding: 16,
   },
 }));
 

@@ -13,9 +13,11 @@ const DistributionCenterProductsList = () => {
 
   const filters = useMemo(() => {
     const distributionCenterFiltersWithoutPrice = distributionCenterProductsFilters.filter(
-      (filter) => filter?.key !== 'price' && filter?.key !== 'cost'
+      (filter) => filter?.key !== 'price' && filter?.key !== 'cost',
     );
-    return !hasPermission(PRODUCT_PERMISSIONS.PRODUCT_PRICE) ? distributionCenterFiltersWithoutPrice : distributionCenterProductsFilters
+    return !hasPermission(PRODUCT_PERMISSIONS.PRODUCT_PRICE)
+      ? distributionCenterFiltersWithoutPrice
+      : distributionCenterProductsFilters;
   }, [hasPermission]);
 
   return (

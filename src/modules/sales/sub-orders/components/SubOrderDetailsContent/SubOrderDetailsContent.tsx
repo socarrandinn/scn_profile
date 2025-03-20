@@ -11,10 +11,7 @@ const SubOrderDetailsContent = () => {
 
   return (
     <Suspense fallback={<ContentLoader />}>
-      <RouteLoader
-        routes={subOrderRouters}
-        notfoundRedirect={`${SUB_ORDER_ROUTE.DETAIL(order?._id as string)}`}
-      />
+      <RouteLoader routes={subOrderRouters} notfoundRedirect={`${SUB_ORDER_ROUTE.DETAIL(order?._id as string)}`} />
     </Suspense>
   );
 };

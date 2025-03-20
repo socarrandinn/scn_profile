@@ -38,14 +38,7 @@ export const ProductStoreListToolbarContainer = () => {
   return (
     <>
       <ProviderStockListToolbar warehouseId={warehouseId} />
-      <Table
-        columns={columns}
-        data={data?.data}
-        total={data?.total}
-        isLoading={isLoading}
-        error={error}
-        select
-      />
+      <Table columns={columns} data={data?.data} total={data?.total} isLoading={isLoading} error={error} select />
     </>
   );
 };

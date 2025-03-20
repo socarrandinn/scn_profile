@@ -25,14 +25,18 @@ const ProductDiscountForm = ({ error, control, isLoading, onSubmit, discountType
             <FormTextField fullWidth required name='name' label={t('fields.name')} />
           </Grid>
           <Grid item xs={4} sm={2} md={3}>
-            <FormLabel label={t('fields.enabled')}/>
+            <FormLabel label={t('fields.enabled')} />
             <FormSwitchField name='enabled' label={t('enabledTypes.ACTIVE')} />
           </Grid>
           <Grid item xs={12}>
             <ProductDiscountSection discountType={discountType} />
           </Grid>
           <Grid item xs={12}>
-            <ProductDiscountProductPicker name='products' label={t('fields.products')} placeholder={t('fields.products')} />
+            <ProductDiscountProductPicker
+              name='products'
+              label={t('fields.products')}
+              placeholder={t('fields.products')}
+            />
           </Grid>
         </Grid>
       </Form>

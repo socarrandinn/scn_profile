@@ -8,23 +8,19 @@ import { Typography } from '@mui/material';
 
 type ContactPreviewProps = {
   contacts: IContactInfo | undefined;
-}
+};
 
 const ContactPreview = ({ contacts }: ContactPreviewProps) => {
   const { t } = useTranslation('common');
   return (
-      <div>
-        <Typography variant={'h3'} > {t('contacts')}</Typography>
-          <SubSectionTitle>{t('emails')}</SubSectionTitle>
-          {
-              contacts ? (<ContactsEmail contacts={contacts } />) : (<></>)
-          }
-          <SubSectionTitle>{t('phones')}</SubSectionTitle>
-          {
-              contacts ? (<ContactsPhones contacts={contacts } />) : (<></>)
-          }
-      </div>
+    <div>
+      <Typography variant={'h3'}> {t('contacts')}</Typography>
+      <SubSectionTitle>{t('emails')}</SubSectionTitle>
+      {contacts ? <ContactsEmail contacts={contacts} /> : <></>}
+      <SubSectionTitle>{t('phones')}</SubSectionTitle>
+      {contacts ? <ContactsPhones contacts={contacts} /> : <></>}
+    </div>
   );
-}
+};
 
 export default memo(ContactPreview);

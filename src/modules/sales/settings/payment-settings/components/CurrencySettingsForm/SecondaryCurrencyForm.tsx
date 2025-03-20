@@ -1,7 +1,7 @@
 import { IconButton, LoadingButton, useDFLForm } from '@dfl/mui-react-common';
 import { FormHelperText, Grid, Typography } from '@mui/material';
 import { memo } from 'react';
-import { CURRENCY_RATE_MODE, } from '../../constants';
+import { CURRENCY_RATE_MODE } from '../../constants';
 import { LegendToggleTwoTone } from '@mui/icons-material';
 import { useTranslation } from 'react-i18next';
 import { FormCurrencyRate } from '../FormCurrencyRate';
@@ -21,10 +21,10 @@ const SecondaryCurrencyForm = ({ secondaryCurrencies }: Props) => {
         <Typography sx={{ mt: 1 }}>{t('secondaryRate')}</Typography>
       </Grid>
 
-      <Grid item xs={12} md={12} container spacing={2} alignItems="stretch">
+      <Grid item xs={12} md={12} container spacing={2} alignItems='stretch'>
         {secondaryCurrencies?.map((currencyConfig: ICurrencyConfig) => {
           const currencyIndex = watch?.('currencies')?.findIndex(
-            (c: ICurrencyConfig) => c?.currency === currencyConfig?.currency
+            (c: ICurrencyConfig) => c?.currency === currencyConfig?.currency,
           );
           const messageError = formState?.errors?.currencies?.[currencyIndex]?.exchangeRate?.message;
 

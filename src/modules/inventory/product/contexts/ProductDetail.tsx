@@ -89,7 +89,8 @@ const ProductDetailProvider = (props: ProductContextProps) => {
         onOneToggle,
         state,
         allOpen,
-      }} {...props}
+      }}
+      {...props}
     />
   );
 };

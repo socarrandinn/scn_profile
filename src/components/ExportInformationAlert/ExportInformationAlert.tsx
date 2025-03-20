@@ -47,10 +47,7 @@ const ExportInformationAlert = ({
 }: ExportInformationAlertProps) => {
   const { t } = useTranslation('common');
   const { isLogisticProvider } = useActorSecurity();
-  const {
-    data: exportHide,
-    storeData,
-  } = useLocalStorage('__export_confirmation_hide__', false);
+  const { data: exportHide, storeData } = useLocalStorage('__export_confirmation_hide__', false);
   const [notShowMore, setShowMore] = useState(exportHide);
 
   const handleChange = (e: any) => {
@@ -84,13 +81,13 @@ const ExportInformationAlert = ({
       fullWidth
       open={isOpen}
       onClose={onClose}
-      aria-labelledby="alert-dialog-title"
-      aria-describedby="alert-dialog-description"
+      aria-labelledby='alert-dialog-title'
+      aria-describedby='alert-dialog-description'
     >
       <DialogTitle>
         <IconButton
           tooltip={t('close')}
-          aria-label="close"
+          aria-label='close'
           onClick={onClose}
           sx={{
             position: 'absolute',

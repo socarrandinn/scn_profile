@@ -14,10 +14,17 @@ const initValues: IConciliationAdjustmentCauses = {
   description: '',
 };
 
-const useConciliationAdjustmentCausesCreateForm = (onClose: () => void, defaultValues: IConciliationAdjustmentCauses = initValues) => {
+const useConciliationAdjustmentCausesCreateForm = (
+  onClose: () => void,
+  defaultValues: IConciliationAdjustmentCauses = initValues,
+) => {
   const { t } = useTranslation('conciliationAdjustmentCauses');
   const queryClient = useQueryClient();
-  const { control, handleSubmit, reset: resetForm } = useForm({
+  const {
+    control,
+    handleSubmit,
+    reset: resetForm,
+  } = useForm({
     resolver: yupResolver(conciliationAdjustmentCausesSchema),
     defaultValues,
   });
@@ -26,8 +33,16 @@ const useConciliationAdjustmentCausesCreateForm = (onClose: () => void, defaultV
     if (defaultValues) resetForm(defaultValues);
   }, [defaultValues, resetForm]);
 
-  const { mutate, reset: resetMutation, error, isLoading, isSuccess, data } = useMutation(
-    (conciliationAdjustmentCauses: IConciliationAdjustmentCauses) => ConciliationAdjustmentCausesService.saveOrUpdate(conciliationAdjustmentCauses),
+  const {
+    mutate,
+    reset: resetMutation,
+    error,
+    isLoading,
+    isSuccess,
+    data,
+  } = useMutation(
+    (conciliationAdjustmentCauses: IConciliationAdjustmentCauses) =>
+      ConciliationAdjustmentCausesService.saveOrUpdate(conciliationAdjustmentCauses),
     {
       onSuccess: (data, values) => {
         queryClient.invalidateQueries([CONCILIATION_ADJUSTMENT_CAUSES_LIST_KEY]);
@@ -39,13 +54,10 @@ const useConciliationAdjustmentCausesCreateForm = (onClose: () => void, defaultV
     },
   );
 
-  const reset = useCallback(
-    () => {
-      resetForm()
-      resetMutation()
-    },
-    [resetForm, resetMutation],
-  )
+  const reset = useCallback(() => {
+    resetForm();
+    resetMutation();
+  }, [resetForm, resetMutation]);
 
   return {
     control,

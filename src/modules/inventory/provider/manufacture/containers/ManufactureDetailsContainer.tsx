@@ -10,7 +10,7 @@ const ManufactureDetailsContainer = () => {
     <PageLayout>
       <ManufactureDetailProvider>
         <ProviderManufactureHeaderDetails />
-        <Suspense fallback={<PageLoader size="page" />}>
+        <Suspense fallback={<PageLoader size='page' />}>
           <ManufactureDetailContent />
         </Suspense>
       </ManufactureDetailProvider>

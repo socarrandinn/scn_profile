@@ -23,7 +23,10 @@ const DistributionCentersDetailContactUpdateContainer = ({
   onClose,
 }: DistributionCentersDetailContactUpdateContainerProps) => {
   const { t } = useTranslation('common');
-  const { control, onSubmit, isLoading, error, reset, formState } = useDistributionCentersContactCreateForm(onClose, initValue);
+  const { control, onSubmit, isLoading, error, reset, formState } = useDistributionCentersContactCreateForm(
+    onClose,
+    initValue,
+  );
 
   const handleClose = useCallback(() => {
     onClose?.();
@@ -35,12 +38,19 @@ const DistributionCentersDetailContactUpdateContainer = ({
       {dataError && <HandlerError error={dataError} errors={SIGNUP_ERRORS} />}
       {!dataError && (
         <ConditionContainer active={!loadingInitData} alternative={<DistributionCentersGeneralContactFormSkeleton />}>
-          <DistributionCentersGeneralContactForm error={error} isLoading={isLoading} control={control} onSubmit={onSubmit} />
+          <DistributionCentersGeneralContactForm
+            error={error}
+            isLoading={isLoading}
+            control={control}
+            onSubmit={onSubmit}
+          />
         </ConditionContainer>
       )}
 
       <Stack mt={{ xs: 1, md: 3 }} gap={1} justifyContent={'end'} direction={'row'}>
-        <Button variant='grey' onClick={handleClose}>{t('common:cancel')}</Button>
+        <Button variant='grey' onClick={handleClose}>
+          {t('common:cancel')}
+        </Button>
         <LoadingButton
           variant='contained'
           type={'submit'}

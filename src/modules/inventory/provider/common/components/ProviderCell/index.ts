@@ -1,1 +1,1 @@
-export { default as ProviderCell } from './ProviderCell'
+export { default as ProviderCell } from './ProviderCell';

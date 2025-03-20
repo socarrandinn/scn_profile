@@ -8,7 +8,7 @@ import { USERS_LIST_KEY } from 'modules/security/users/constants/queries';
 import { useParams } from 'react-router';
 import { PROVIDER_TYPE_ENUM } from 'modules/inventory/provider/common/constants';
 
-export type ProviderProps = { provider?: string; providerType?: PROVIDER_TYPE_ENUM }
+export type ProviderProps = { provider?: string; providerType?: PROVIDER_TYPE_ENUM };
 
 const AddUser = ({ provider, providerType }: ProviderProps) => {
   const { isOpen, onClose, onOpen } = useToggle(false);

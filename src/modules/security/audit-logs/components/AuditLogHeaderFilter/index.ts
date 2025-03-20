@@ -1,1 +1,1 @@
-export { default as AuditLogHeaderFilter } from './AuditLogHeaderFilter'
+export { default as AuditLogHeaderFilter } from './AuditLogHeaderFilter';

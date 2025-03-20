@@ -11,29 +11,29 @@ import {
 import { useCallback, useEffect } from 'react';
 import { deliveryGlobalSchema } from '../schemas/home-delivery.schema';
 import { yupResolver } from '@hookform/resolvers/yup';
-import { IDelivery } from 'modules/sales/settings/common/interfaces'
+import { IDelivery } from 'modules/sales/settings/common/interfaces';
 import { useDistributionCenterDetail } from 'modules/inventory/distribution-centers/context/DistributioncentersContext';
 
 const initValues: IDelivery = {
   price: 0,
   weightPrice: {
     price: 0,
-    value: 0
+    value: 0,
   },
   hasExpress: false,
   expressPrice: 0,
   expressTime: {
     from: 0,
-    to: 1
+    to: 1,
   },
   volumePrice: {
     price: 0,
-    value: 0
+    value: 0,
   },
   time: {
     from: 0,
-    to: 1
-  }
+    to: 1,
+  },
 };
 
 const useHomeDeliveryCreateGlobalForm = (defaultValues: IDelivery = initValues, onClose?: () => void) => {
@@ -41,7 +41,14 @@ const useHomeDeliveryCreateGlobalForm = (defaultValues: IDelivery = initValues, 
   const { distributionCenterId } = useDistributionCenterDetail();
   const queryClient = useQueryClient();
 
-  const { control, handleSubmit, reset: resetForm, setValue, watch, formState } = useForm({
+  const {
+    control,
+    handleSubmit,
+    reset: resetForm,
+    setValue,
+    watch,
+    formState,
+  } = useForm({
     resolver: yupResolver(deliveryGlobalSchema),
     defaultValues,
   });
@@ -50,10 +57,17 @@ const useHomeDeliveryCreateGlobalForm = (defaultValues: IDelivery = initValues, 
     if (defaultValues) resetForm(defaultValues);
   }, [defaultValues, resetForm]);
 
-  const { mutate, error, isLoading, isSuccess, data, reset: resetMutation } = useMutation(
+  const {
+    mutate,
+    error,
+    isLoading,
+    isSuccess,
+    data,
+    reset: resetMutation,
+  } = useMutation(
     (homeDelivery: IDelivery) => {
       delete homeDelivery?.enabled;
-      return HomeDeliveryPlacesService.createGlobal(homeDelivery, distributionCenterId)
+      return HomeDeliveryPlacesService.createGlobal(homeDelivery, distributionCenterId);
     },
     {
       onSuccess: (data, values) => {
@@ -69,9 +83,9 @@ const useHomeDeliveryCreateGlobalForm = (defaultValues: IDelivery = initValues, 
   );
 
   const reset = useCallback(() => {
-    resetForm()
-    resetMutation()
-  }, [resetForm, resetMutation])
+    resetForm();
+    resetMutation();
+  }, [resetForm, resetMutation]);
 
   return {
     control,

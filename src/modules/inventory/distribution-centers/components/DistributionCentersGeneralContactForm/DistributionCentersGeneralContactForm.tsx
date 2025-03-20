@@ -12,7 +12,12 @@ type DistributionCentersGeneralContactFormProps = {
   onSubmit: FormEventHandler | undefined;
 };
 
-const DistributionCentersGeneralContactForm = ({ error, control, isLoading, onSubmit }: DistributionCentersGeneralContactFormProps) => {
+const DistributionCentersGeneralContactForm = ({
+  error,
+  control,
+  isLoading,
+  onSubmit,
+}: DistributionCentersGeneralContactFormProps) => {
   const { t } = useTranslation('provider');
   return (
     <div>

@@ -4,7 +4,7 @@ import { ConfirmAction } from 'components/ConfirmAction';
 import { memo } from 'react';
 import { useUpdatePaymentMethodStatus } from '../../hooks/useUpdatePaymentMethodStatus';
 
-const PaymentMethodActiveCheckbox = ({ id, value }: { id: string, value: boolean }) => {
+const PaymentMethodActiveCheckbox = ({ id, value }: { id: string; value: boolean }) => {
   const { mutate, isLoading } = useUpdatePaymentMethodStatus(id, value);
   const { isOpen, onClose, onOpen } = useToggle();
   const isChecked = value !== undefined ? value : false;
@@ -12,14 +12,7 @@ const PaymentMethodActiveCheckbox = ({ id, value }: { id: string, value: boolean
   return (
     <>
       <FormControlLabel
-        control={
-          <Checkbox
-            onChange={onOpen}
-            checked={isChecked}
-            name={'enabled'}
-            disabled={isLoading}
-          />
-        }
+        control={<Checkbox onChange={onOpen} checked={isChecked} name={'enabled'} disabled={isLoading} />}
         label={undefined}
       />
       <ConfirmAction onClose={onClose} open={isOpen} onConfirm={mutate} />

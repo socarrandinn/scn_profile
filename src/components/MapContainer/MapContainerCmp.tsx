@@ -34,15 +34,15 @@ L.Icon.Default.mergeOptions({
 // ];
 
 type MapContainerProps = ChildrenProps & {
-  controlPosition?: ControlPosition,
-  scalePosition?: ControlPosition,
-  style?: any,
-  sx?: any,
-  zoom?: number,
-  minZoom?: number,
-  maxZoom?: number,
-  isLoading?: boolean,
-  centerPosition?: any,
+  controlPosition?: ControlPosition;
+  scalePosition?: ControlPosition;
+  style?: any;
+  sx?: any;
+  zoom?: number;
+  minZoom?: number;
+  maxZoom?: number;
+  isLoading?: boolean;
+  centerPosition?: any;
 };
 
 const MapContainerCmp = ({
@@ -57,30 +57,34 @@ const MapContainerCmp = ({
   const centerCoordinates = useMemo(() => [defaultLatitude, defaultLongitude] as LatLngExpression, []);
 
   if (isLoading) {
-    return <div id="map-id" className="flex w-full h-full justify-center items-center">
-      <CircularProgress sx={{ color: 'black' }} />
-    </div>;
+    return (
+      <div id='map-id' className='flex w-full h-full justify-center items-center'>
+        <CircularProgress sx={{ color: 'black' }} />
+      </div>
+    );
   }
 
-  return <Box id="map-id" className="flex-grow h-full" sx={sx}>
-    <MapContainer
-      id="general-map-global"
-      style={{ height: '100%', zIndex: 1, background: '#151414' }}
-      center={centerPosition || centerCoordinates}
-      zoom={7}
-      maxZoom={25}
-      scrollWheelZoom={true}
-      {...rest}
-    >
-      <TileLayer
-        attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-        url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-      />
-      <Box className={'h-full'} sx={{ pl: '40px', pr: '40px' }}>
-        {children}
-      </Box>
-    </MapContainer>
-  </Box>;
+  return (
+    <Box id='map-id' className='flex-grow h-full' sx={sx}>
+      <MapContainer
+        id='general-map-global'
+        style={{ height: '100%', zIndex: 1, background: '#151414' }}
+        center={centerPosition || centerCoordinates}
+        zoom={7}
+        maxZoom={25}
+        scrollWheelZoom={true}
+        {...rest}
+      >
+        <TileLayer
+          attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+          url='https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png'
+        />
+        <Box className={'h-full'} sx={{ pl: '40px', pr: '40px' }}>
+          {children}
+        </Box>
+      </MapContainer>
+    </Box>
+  );
 };
 
 export default memo(MapContainerCmp);

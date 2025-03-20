@@ -10,17 +10,17 @@ type LogisticContextValue = {
   isLoading: boolean;
   error?: any;
   logisticId?: string;
-  onAllToggle?: () => void,
-  onOneClose?: (st: string) => void,
-  onOneOpen?: (st: string) => void,
-  onOneToggle?: (st: string) => void,
-  state?: Record<string, boolean>
-  allOpen?: boolean
+  onAllToggle?: () => void;
+  onOneClose?: (st: string) => void;
+  onOneOpen?: (st: string) => void;
+  onOneToggle?: (st: string) => void;
+  state?: Record<string, boolean>;
+  allOpen?: boolean;
 };
 
 // default value of the context
 const defaultValue: LogisticContextValue = {
-  isLoading: true
+  isLoading: true,
 };
 
 // create context

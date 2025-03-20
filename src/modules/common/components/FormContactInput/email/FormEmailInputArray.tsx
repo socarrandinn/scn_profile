@@ -51,8 +51,8 @@ function FormEmailInputArray ({ name, label, required }: FormEmailInputArrayProp
               observer={observer.current}
             />
           ))}
-          {hasError && <FormHelperText sx={{ color: 'red' }} >{t('errors:atLeast1')}</FormHelperText>}
-          {selectedMainError && <FormHelperText sx={{ color: 'red' }} >{t('errors:mainEmailAddress')}</FormHelperText>}
+          {hasError && <FormHelperText sx={{ color: 'red' }}>{t('errors:atLeast1')}</FormHelperText>}
+          {selectedMainError && <FormHelperText sx={{ color: 'red' }}>{t('errors:mainEmailAddress')}</FormHelperText>}
           {!(disabled || readOnly) ? (
             <div>
               <Button

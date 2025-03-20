@@ -4,7 +4,7 @@ import { IImageMedia } from 'modules/common/interfaces';
 
 class ProviderProductsUploadService extends UploadService<ISupplier> {
   uploadImage = (ProveProductsId: string, file: File | undefined): Promise<IImageMedia> => {
-    return this.upload(`/${ProveProductsId}/image`, file)
+    return this.upload(`/${ProveProductsId}/image`, file);
   };
 }
 

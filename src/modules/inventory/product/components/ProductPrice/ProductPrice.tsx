@@ -47,13 +47,7 @@ const ProductPrice = () => {
     <FormPaper
       nm
       title={t('section.prices.information')}
-      actions={
-        <FormPaperAction
-          onToggle={handleToggle}
-          open={open}
-          permissions={PRODUCT_PERMISSIONS.PRODUCT_WRITE}
-        />
-      }
+      actions={<FormPaperAction onToggle={handleToggle} open={open} permissions={PRODUCT_PERMISSIONS.PRODUCT_WRITE} />}
     >
       <PriceDetailContent product={product}>
         <BasicTableDoubleColumnHeadless

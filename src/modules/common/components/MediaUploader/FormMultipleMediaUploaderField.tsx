@@ -1,8 +1,6 @@
 import { FormFieldControl, FormLabel } from '@dfl/mui-react-common';
 import { FormHelperText } from '@mui/material';
-import {
-  useMultipleUploaderController,
-} from 'modules/common/components/MediaUploader/hooks/useMultipleUploaderController';
+import { useMultipleUploaderController } from 'modules/common/components/MediaUploader/hooks/useMultipleUploaderController';
 import { MultipleMediaUploaderProps } from 'modules/common/components/MediaUploader/interfaces';
 import MultipleMediaUploader from 'modules/common/components/MediaUploader/MultipleMediaUploader';
 
@@ -16,12 +14,11 @@ const MediaUploaderField = ({
   serverPath,
   ...props
 }: MultipleMediaUploaderProps) => {
-  const {
-    uploadError,
-    isLoading,
-    onAcceptFilesHandler,
-    deleteImageHandler,
-  } = useMultipleUploaderController(value, onChange, serverPath);
+  const { uploadError, isLoading, onAcceptFilesHandler, deleteImageHandler } = useMultipleUploaderController(
+    value,
+    onChange,
+    serverPath,
+  );
 
   return (
     <FormLabel label={label} required={required}>

@@ -33,7 +33,9 @@ const useResendConfirmationForm = () => {
     isSuccess,
     data,
     mutate,
-    onSubmit: handleSubmit((values: any) => { mutate(values); }),
+    onSubmit: handleSubmit((values: any) => {
+      mutate(values);
+    }),
   };
 };
 

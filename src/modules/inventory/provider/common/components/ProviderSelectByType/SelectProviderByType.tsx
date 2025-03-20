@@ -45,16 +45,29 @@ const isOptionEqualToValue = (option: ILogistics | any, value: ILogistics | any)
   return optionId === valueId;
 };
 
-const SelectProviderByType = ({ name, multiple, label, helperText, type, setValue, readOnly, disabled, ...props }: SelectLogisticsProps) => {
+const SelectProviderByType = ({
+  name,
+  multiple,
+  label,
+  helperText,
+  type,
+  setValue,
+  readOnly,
+  disabled,
+  ...props
+}: SelectLogisticsProps) => {
   const providerType = useMemo(() => {
-    return PROVIDER_TYPE_MAP[type]
+    return PROVIDER_TYPE_MAP[type];
   }, [type]);
 
   const fetchFunc = useCallback(() => ProviderService.searchProvidersByType(providerType), [providerType]);
 
-  const getOneFunc = useCallback((params?: any) => {
-    return ProviderService.getOneByType(params, providerType)
-  }, [providerType]);
+  const getOneFunc = useCallback(
+    (params?: any) => {
+      return ProviderService.getOneByType(params, providerType);
+    },
+    [providerType],
+  );
 
   return (
     <FormAsyncSelectAutocompleteField

@@ -1,1 +1,1 @@
-export { default as PhoneValue } from './PhoneValue'
+export { default as PhoneValue } from './PhoneValue';

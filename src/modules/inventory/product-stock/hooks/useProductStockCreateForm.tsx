@@ -26,7 +26,14 @@ const useProductStockCreateForm = (onClose: () => void, defaultValues: IStock = 
   const { t } = useTranslation('product');
   const queryClient = useQueryClient();
 
-  const { control, handleSubmit, reset: resetForm, watch, setValue, formState } = useForm({
+  const {
+    control,
+    handleSubmit,
+    reset: resetForm,
+    watch,
+    setValue,
+    formState,
+  } = useForm({
     resolver: yupResolver(stockWarehouseSchema.concat(stockInvoiceFileSchema)),
     defaultValues,
   });
@@ -56,7 +63,14 @@ const useProductStockCreateForm = (onClose: () => void, defaultValues: IStock = 
     if (defaultValues) resetForm(defaultValues);
   }, [defaultValues, resetForm]);
 
-  const { mutate, error, isLoading, isSuccess, data, reset: resetMutation } = useMutation(
+  const {
+    mutate,
+    error,
+    isLoading,
+    isSuccess,
+    data,
+    reset: resetMutation,
+  } = useMutation(
     // @ts-ignore
     (stock: IStock) => StockService.updateStocks({ ...stock, cause: stock?.cause?._id }),
     {

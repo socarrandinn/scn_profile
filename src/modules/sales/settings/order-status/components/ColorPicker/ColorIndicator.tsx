@@ -1,7 +1,7 @@
 import { Box } from '@mui/material';
 
 interface IColorIndicator {
-  color: string
+  color: string;
 }
 
 const ColorIndicator = ({ color }: IColorIndicator) => {
@@ -15,6 +15,6 @@ const ColorIndicator = ({ color }: IColorIndicator) => {
       }}
     />
   );
-}
+};
 
-export default ColorIndicator
+export default ColorIndicator;

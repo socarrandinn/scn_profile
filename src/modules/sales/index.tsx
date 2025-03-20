@@ -30,7 +30,7 @@ const routes = {
   IncidenceList: {
     path: '/incidences/*',
     component: IncidenceModule,
-  }
+  },
 };
 const Module = () => {
   return <RouteLoader routes={routes} notfoundRedirect={'/sales/orders'} memory />;

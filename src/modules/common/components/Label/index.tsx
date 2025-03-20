@@ -23,20 +23,20 @@ export const Label = ({
 }: Props) => {
   if (!value) {
     return (
-            <FlexBox alignItems={'center'}>
-                <em className='w-full'>-</em>
-            </FlexBox>
+      <FlexBox alignItems={'center'}>
+        <em className='w-full'>-</em>
+      </FlexBox>
     );
   }
 
   const IconComponent = icon || PlaceOutlined;
 
   return (
-        <FlexBox alignItems={'center'} gap={1}>
-            {!hideIcon && <IconComponent fontSize={'small'} sx={iconStyle}/>}
-            <div className='w-full'>
-                <LongText lineClamp={lineClamp} maxCharacters={maxCharacters} text={value || ''} sx={textStyle}/>
-            </div>
-        </FlexBox>
+    <FlexBox alignItems={'center'} gap={1}>
+      {!hideIcon && <IconComponent fontSize={'small'} sx={iconStyle} />}
+      <div className='w-full'>
+        <LongText lineClamp={lineClamp} maxCharacters={maxCharacters} text={value || ''} sx={textStyle} />
+      </div>
+    </FlexBox>
   );
 };

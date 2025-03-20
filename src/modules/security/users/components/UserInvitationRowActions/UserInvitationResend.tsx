@@ -23,16 +23,8 @@ const UserInvitationResend = ({ data }: Props) => {
 
   return (
     <>
-      <IconButton
-        onClick={onOpen}
-        tooltip={t('resend')}
-        disabled={data?.status !== USER_INVITE_STATUS.PENDING}
-      >
-        <ResendIcon
-          width={18}
-          height={18}
-          color={data?.status !== USER_INVITE_STATUS.PENDING ? '#bdbdbd' : 'black'}
-        />
+      <IconButton onClick={onOpen} tooltip={t('resend')} disabled={data?.status !== USER_INVITE_STATUS.PENDING}>
+        <ResendIcon width={18} height={18} color={data?.status !== USER_INVITE_STATUS.PENDING ? '#bdbdbd' : 'black'} />
       </IconButton>
       <ConfirmDialog
         isLoading={isLoading}

@@ -24,7 +24,7 @@ const defaultAction: TableHeaderOptions = {
   },
   actions: {
     create: true,
-    createAction: () => { },
+    createAction: () => {},
     createText: 'add',
   },
 };

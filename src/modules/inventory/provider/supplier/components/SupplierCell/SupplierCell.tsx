@@ -10,19 +10,17 @@ type ProviderProdCellProps = {
   name: string;
   avatar?: IImageMedia;
 };
-const SupplierCell = ({
-  ProdProductId,
-  name,
-  avatar
-}: ProviderProdCellProps) => {
-  return (<ReactLink to={`/inventory/settings/suppliers/${ProdProductId}/general`} underline={'hover'}>
-    <FlexBox alignItems={'center'} gap={1}>
-      <AvatarMedia name={name} avatar={avatar} variant={'rounded'} />
-      <Stack>
-        <Typography>{name}</Typography>
-      </Stack>
-    </FlexBox>
-  </ReactLink>);
+const SupplierCell = ({ ProdProductId, name, avatar }: ProviderProdCellProps) => {
+  return (
+    <ReactLink to={`/inventory/settings/suppliers/${ProdProductId}/general`} underline={'hover'}>
+      <FlexBox alignItems={'center'} gap={1}>
+        <AvatarMedia name={name} avatar={avatar} variant={'rounded'} />
+        <Stack>
+          <Typography>{name}</Typography>
+        </Stack>
+      </FlexBox>
+    </ReactLink>
+  );
 };
 
 export default memo(SupplierCell);

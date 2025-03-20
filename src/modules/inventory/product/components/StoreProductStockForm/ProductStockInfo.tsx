@@ -87,7 +87,10 @@ const ProductStockInfo = ({ response }: ProductStockInfoProps) => {
       <Stack>
         {seeCode ? <ProductSuccessStockList items={response?.items || []} /> : undefined}
         {seeOtherError ? (
-          <ProductOtherStoreStockList title={t('warehouseStockModal.productOtherError')} listErrors={otherError || []} />
+          <ProductOtherStoreStockList
+            title={t('warehouseStockModal.productOtherError')}
+            listErrors={otherError || []}
+          />
         ) : undefined}
         {seeLocationError ? (
           <ProductOtherStoreStockList

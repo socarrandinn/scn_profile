@@ -19,7 +19,6 @@ export const subOrderTabViews: TabViews = {
         field: 'status.type',
         value: ORDER_STATUS_TYPE_ENUM.PENDING_REFUNDED,
       },
-
     ],
   },
   PENDING_REFUNDED: {

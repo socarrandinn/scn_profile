@@ -13,7 +13,5 @@ const CellStyle = styled('div')(({ theme }) => ({
   },
 }));
 
-const ManufactureBand = ({ bands }: { bands: any[] }) => (
-    <CellStyle>{renderTagList(bands, 3)}</CellStyle>
-);
-export default memo(ManufactureBand)
+const ManufactureBand = ({ bands }: { bands: any[] }) => <CellStyle>{renderTagList(bands, 3)}</CellStyle>;
+export default memo(ManufactureBand);

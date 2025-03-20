@@ -1,1 +1,1 @@
-export { default as ListItemDetails } from './ListItemDetails'
+export { default as ListItemDetails } from './ListItemDetails';

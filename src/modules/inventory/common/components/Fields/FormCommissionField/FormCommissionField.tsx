@@ -45,7 +45,7 @@ const FromCommissionField = ({ initPriceType, inputProps, name, size, ...props }
         inputMode: 'numeric',
         pattern: '[0-9]*',
         min: 0,
-        step: 0.00,
+        step: 0.0,
         max: maxValue,
         ...inputProps,
       }}

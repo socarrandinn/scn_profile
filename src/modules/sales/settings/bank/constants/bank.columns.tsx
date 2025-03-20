@@ -9,7 +9,7 @@ export const bankNameColumn: HeadCell<IBank> = {
   field: 'name',
   headerName: 'bank:fields.name',
   disablePadding: false,
-  renderCell: (name: string, data?: IBank) => (<EditLink entityId={data?._id as string}>{name}</EditLink>),
+  renderCell: (name: string, data?: IBank) => <EditLink entityId={data?._id as string}>{name}</EditLink>,
 };
 
 export const bankCurrencyColumn: HeadCell<IBank> = {
@@ -52,7 +52,7 @@ export const bankCountryColumn = {
   field: 'address.country',
   headerName: 'common:country',
   renderCell: (country: string) => getCountryByCode(country),
-}
+};
 
 export const bankStateColumn: HeadCell<IBank> = {
   field: 'address.state',
@@ -86,5 +86,5 @@ export const bankColumns: Array<HeadCell<any>> = [
   bankCountryColumn,
   bankStateColumn,
   bankCityColumn,
-  bankActionsColumn
+  bankActionsColumn,
 ];

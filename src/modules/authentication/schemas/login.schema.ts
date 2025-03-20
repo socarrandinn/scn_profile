@@ -39,7 +39,7 @@ export const signUpSchema = Yup.object().shape({
   email: Yup.string().validEmail(),
   // @ts-ignore
   password: Yup.string().required('required').password(),
-  acceptTerms: Yup.boolean().default(false)
+  acceptTerms: Yup.boolean().default(false),
 });
 
 export const resetPasswordSchema = Yup.object().shape({

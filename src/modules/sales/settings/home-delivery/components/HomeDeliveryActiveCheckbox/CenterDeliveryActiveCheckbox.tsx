@@ -10,7 +10,10 @@ type Props = {
 };
 
 const CenterDeliveryActiveCheckbox = ({ settings, isLoading, distributionCenterId }: Props) => {
-  const { mutate, isLoading: loadingMutation } = useShippingCenterStatus(settings?.enabled as boolean, distributionCenterId);
+  const { mutate, isLoading: loadingMutation } = useShippingCenterStatus(
+    settings?.enabled as boolean,
+    distributionCenterId,
+  );
 
   return (
     <DeliveryActiveCheckbox

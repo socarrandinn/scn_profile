@@ -5,7 +5,7 @@ type Props = {
   data: number[];
   serieName?: string;
   isHorizontal?: boolean;
-  colors?: string[]
+  colors?: string[];
 };
 const useSimpleBar = ({ categories, data: series, serieName = 'count', isHorizontal = true, colors }: Props) => {
   const baseOptions = useMemo(

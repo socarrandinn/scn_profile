@@ -19,7 +19,15 @@ const SubtitleEval = ({ subtitle, t }: { subtitle: string | Element | undefined;
   return <>{subtitle}</>;
 };
 
-const ProductHistoryChangeBoardHeader = ({ title, isLoading, subtitle, children, hasFilter, ns, mb }: BoardHeaderProps) => {
+const ProductHistoryChangeBoardHeader = ({
+  title,
+  isLoading,
+  subtitle,
+  children,
+  hasFilter,
+  ns,
+  mb,
+}: BoardHeaderProps) => {
   const { t } = useTranslation(ns || 'conciliation');
 
   return (

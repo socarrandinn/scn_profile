@@ -9,5 +9,5 @@ export const CONCILIATION_ADJUSTMENT_CAUSES_ERRORS = {
   [ERROR_REFS.DUPLICATE_KEY]: {
     title: 'conciliationAdjustmentCauses:errors.duplicatedName',
     description: 'conciliationAdjustmentCauses:errors.duplicatedNameDescription',
-  }
+  },
 };

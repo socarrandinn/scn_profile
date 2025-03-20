@@ -58,14 +58,12 @@ export const TagsSchema = Yup.array().of(
       .when(['type'], {
         is: (type: TAG_TYPE_ENUM) => [TAG_TYPE_ENUM.ARRAY].includes(type),
         then: (schema) =>
-          schema
-            .default([])
-            .test('check-array', 'tags:errors:array:min-1', function (value) {
-              if (isArray(value)) {
-                return value.length > 0;
-              }
-              return true;
-            }),
+          schema.default([]).test('check-array', 'tags:errors:array:min-1', function (value) {
+            if (isArray(value)) {
+              return value.length > 0;
+            }
+            return true;
+          }),
       })
       .when(['type'], {
         is: TAG_TYPE_ENUM.BOOLEAN,

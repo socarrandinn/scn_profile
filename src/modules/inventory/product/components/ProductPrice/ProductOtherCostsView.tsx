@@ -22,7 +22,11 @@ const renderOtherCosts = (data: IOtherCost[], t: TFunction) => {
           </Box>
           <Box className='flex items-center gap-2'>
             <Typography color='text.secondary'>{t('common:cost')}:</Typography>
-            <Typography>{otherCost?.type === PriceType.FIXED && '$'}{otherCost?.value}{otherCost?.type === PriceType.PERCENT && '%'}</Typography>
+            <Typography>
+              {otherCost?.type === PriceType.FIXED && '$'}
+              {otherCost?.value}
+              {otherCost?.type === PriceType.PERCENT && '%'}
+            </Typography>
           </Box>
         </Box>
       ))}

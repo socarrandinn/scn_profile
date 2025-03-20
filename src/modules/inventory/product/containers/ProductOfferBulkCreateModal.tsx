@@ -2,7 +2,10 @@ import { ConditionContainer, DialogForm, HandlerError, LoadingButton } from '@df
 import { Button, DialogActions, DialogContent } from '@mui/material';
 import { mapGetOneErrors } from 'constants/errors';
 import { SIGNUP_ERRORS } from 'modules/authentication/constants/login.errors';
-import { ProductDiscountBulkForm, ProductDiscountBulkFormSkeleton } from 'modules/sales-offer/product-discount/components/ProductDiscountBulkForm';
+import {
+  ProductDiscountBulkForm,
+  ProductDiscountBulkFormSkeleton,
+} from 'modules/sales-offer/product-discount/components/ProductDiscountBulkForm';
 import { ProductDiscountSummary } from 'modules/sales-offer/product-discount/components/ProductDiscountSummary';
 import useProductDiscountBulkCreateForm from 'modules/sales-offer/product-discount/hooks/useProductDiscountBulkCreateForm';
 import { IProductDiscount } from 'modules/sales-offer/product-discount/interfaces';
@@ -66,7 +69,9 @@ const ProductOfferBulkCreateModal = ({
         )}
       </DialogContent>
       <DialogActions>
-        <Button variant='grey' onClick={handleClose}>{t('common:cancel')}</Button>
+        <Button variant='grey' onClick={handleClose}>
+          {t('common:cancel')}
+        </Button>
         <LoadingButton
           variant='contained'
           type={'submit'}

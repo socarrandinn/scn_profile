@@ -37,6 +37,6 @@ export const useAction = ({ open, onClose, time = 5 }: { open: boolean; onClose:
     isData,
     setDataError,
     dataError,
-    cancelCountdown
+    cancelCountdown,
   };
 };

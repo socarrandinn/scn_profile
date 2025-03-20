@@ -1,12 +1,6 @@
 import { memo, useCallback, useEffect } from 'react';
 import { Alert, Button, DialogActions, DialogContent, Grid } from '@mui/material';
-import {
-  ChildrenProps,
-  DialogForm,
-  Form,
-  HandlerError,
-  LoadingButton,
-} from '@dfl/mui-react-common';
+import { ChildrenProps, DialogForm, Form, HandlerError, LoadingButton } from '@dfl/mui-react-common';
 import { useTranslation } from 'react-i18next';
 import { SelectRole } from 'modules/security/roles/components/SelectRole';
 import { USERS_ERRORS } from 'modules/security/users/constants/errors';
@@ -26,7 +20,7 @@ type UserCreateModalProps = ChildrenProps & {
   provider?: string;
   redirect: string;
   rolesType: ROLE_TYPE_ENUM;
-  providerType?: PROVIDER_TYPE_ENUM
+  providerType?: PROVIDER_TYPE_ENUM;
 };
 
 const UserCreateModal = ({
@@ -43,7 +37,11 @@ const UserCreateModal = ({
 }: UserCreateModalProps) => {
   const { t } = useTranslation(['users', 'supplier']);
   const { isOpen: isOpenAlert, onClose: onCloseAlert } = useToggle(true);
-  const { control, onSubmit, isLoading, error, reset, watch, setValue } = useUserCreateForm(validationScheme, onClose, queryKey);
+  const { control, onSubmit, isLoading, error, reset, watch, setValue } = useUserCreateForm(
+    validationScheme,
+    onClose,
+    queryKey,
+  );
 
   const handleClose = useCallback(() => {
     onClose?.();
@@ -63,12 +61,21 @@ const UserCreateModal = ({
     <>
       <DialogForm open={open} title={t('create')} aria-labelledby={'user-creation-title'}>
         <DialogContent>
-          {isOpenAlert &&
-            <Alert icon={false} severity='warning' className={'mb-4'}
-              onClose={onCloseAlert}>{t('help.newUser')}</Alert>}
+          {isOpenAlert && (
+            <Alert icon={false} severity='warning' className={'mb-4'} onClose={onCloseAlert}>
+              {t('help.newUser')}
+            </Alert>
+          )}
           <HandlerError error={error} errors={USERS_ERRORS} />
-          <Form onSubmit={onSubmit} control={control} isLoading={isLoading} size={'small'} id={'user-form'} dark
-            watch={watch}>
+          <Form
+            onSubmit={onSubmit}
+            control={control}
+            isLoading={isLoading}
+            size={'small'}
+            id={'user-form'}
+            dark
+            watch={watch}
+          >
             <Grid container spacing={{ xs: 1, md: 2 }} columns={{ xs: 4, sm: 8, md: 12 }}>
               <UserBasicForm />
               {children}
@@ -86,7 +93,9 @@ const UserCreateModal = ({
           </Form>
         </DialogContent>
         <DialogActions>
-          <Button variant='grey' onClick={handleClose}>{t('common:cancel')}</Button>
+          <Button variant='grey' onClick={handleClose}>
+            {t('common:cancel')}
+          </Button>
           <LoadingButton variant='contained' type={'submit'} loading={isLoading} form='user-form'>
             {t('common:save')}
           </LoadingButton>

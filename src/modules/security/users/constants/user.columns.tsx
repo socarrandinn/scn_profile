@@ -32,7 +32,13 @@ export const userRolesColumn: HeadCell = {
 export const userInviteByColumn: HeadCell = {
   field: 'invitedBy',
   headerName: 'usersInvite:inviteBy',
-  renderCell: (value, user: IUserInvite) => <AvatarNameCell hideImage name={getFullName(user?.invitedBy?.firstName, user?.invitedBy?.lastName)} secondary={user?.invitedBy?.email} />,
+  renderCell: (value, user: IUserInvite) => (
+    <AvatarNameCell
+      hideImage
+      name={getFullName(user?.invitedBy?.firstName, user?.invitedBy?.lastName)}
+      secondary={user?.invitedBy?.email}
+    />
+  ),
 };
 
 export const acceptedAtColumn: HeadCell = {
@@ -95,4 +101,4 @@ export const userInvitationColumns = [
   acceptedAtColumn,
   userStatusColumn,
   userInviteActionsColumn,
-]
+];

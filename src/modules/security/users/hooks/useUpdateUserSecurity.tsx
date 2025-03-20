@@ -5,7 +5,11 @@ import { IUser } from 'modules/security/users/interfaces/IUser';
 import toast from 'react-hot-toast';
 import { useTranslation } from 'react-i18next';
 
-export const useUpdateUserSecurity = (user: IUser | undefined, invalidateQuery: boolean = true, onClose?: () => void) => {
+export const useUpdateUserSecurity = (
+  user: IUser | undefined,
+  invalidateQuery: boolean = true,
+  onClose?: () => void,
+) => {
   const queryClient = useQueryClient();
   const { t } = useTranslation('account');
 

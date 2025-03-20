@@ -13,10 +13,7 @@ const ReportPage = () => {
   const { t } = useTranslation('report');
   return (
     <PageLayout>
-      <ConditionContainer
-        active={hasPermission('REPORT_VIEW_INVENTORY')}
-        alternative={<DashboardNoPermission />}
-      >
+      <ConditionContainer active={hasPermission('REPORT_VIEW_INVENTORY')} alternative={<DashboardNoPermission />}>
         <PagePaperLayout title={t('report.inventory.title')}>
           <SummaryReportInventory />
         </PagePaperLayout>

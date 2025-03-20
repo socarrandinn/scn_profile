@@ -9,5 +9,5 @@ export const PAID_ORDER_ERRORS = {
   [ERROR_REFS.DUPLICATE_KEY]: {
     title: 'paidOrder:errors.duplicatedName',
     description: 'paidOrder:errors.duplicatedNameDescription',
-  }
+  },
 };

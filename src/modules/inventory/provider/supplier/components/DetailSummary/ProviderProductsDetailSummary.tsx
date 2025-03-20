@@ -1,8 +1,7 @@
 import { memo } from 'react';
 import Stack from '@mui/material/Stack';
 import { Divider } from '@mui/material';
-import ProProductsDetailGeneral
-  from 'modules/inventory/provider/supplier/components/DetailsGeneral/SupplierDetail';
+import ProProductsDetailGeneral from 'modules/inventory/provider/supplier/components/DetailsGeneral/SupplierDetail';
 const ProviderProductsDetailSummary = () => {
   return (
     <Stack
@@ -11,9 +10,9 @@ const ProviderProductsDetailSummary = () => {
       spacing={0}
       sx={{ paddingBottom: 1, marginTop: 1 }}
     >
-      <ProProductsDetailGeneral/>
+      <ProProductsDetailGeneral />
     </Stack>
-  )
-}
+  );
+};
 
 export default memo(ProviderProductsDetailSummary);

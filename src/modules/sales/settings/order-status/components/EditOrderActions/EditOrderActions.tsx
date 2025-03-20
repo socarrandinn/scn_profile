@@ -1,4 +1,4 @@
-import { RowActions } from '@dfl/mui-admin-layout'
+import { RowActions } from '@dfl/mui-admin-layout';
 import { useTranslation } from 'react-i18next';
 import ExpandLessIcon from '@mui/icons-material/ExpandLess';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';

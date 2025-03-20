@@ -9,7 +9,7 @@ import {
   LogisticModule,
   SalesOfferModule,
   CmsModule,
-  AccountModule
+  AccountModule,
 } from 'modules';
 import { RouteConfig } from '@dfl/react-security';
 import { EmptyListPage } from 'components/EmptyListPage';

@@ -11,13 +11,7 @@ const StoreAreaListContainer = () => {
   return (
     <Box>
       <StoreAreaListToolbar />
-      <Table
-        columns={storeAreaColumns}
-        data={data?.data}
-        total={data?.total}
-        isLoading={isLoading}
-        error={error}
-      />
+      <Table columns={storeAreaColumns} data={data?.data} total={data?.total} isLoading={isLoading} error={error} />
       <StoreAreaEditModal />
     </Box>
   );

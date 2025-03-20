@@ -9,7 +9,7 @@ const subOrderRouters: RouteConfig = {
   },
   activity: {
     path: '/activity',
-    component: OrderActivitiesInfo
+    component: OrderActivitiesInfo,
   },
 };
 

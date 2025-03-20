@@ -4,7 +4,10 @@ import { ConditionContainer, DialogForm, HandlerError, LoadingButton } from '@df
 import { useTranslation } from 'react-i18next';
 import useManufactureCreateForm from 'modules/inventory/provider/manufacture/hooks/useManufactureCreateForm';
 import { IManufacture } from 'modules/inventory/provider/manufacture/interfaces';
-import { ManufactureForm, ManufactureFormSkeleton } from 'modules/inventory/provider/manufacture/components/ManufactureForm';
+import {
+  ManufactureForm,
+  ManufactureFormSkeleton,
+} from 'modules/inventory/provider/manufacture/components/ManufactureForm';
 
 type ManufactureCreateModalProps = {
   open: boolean;
@@ -47,7 +50,9 @@ const ManufactureCreateModal = ({
         )}
       </DialogContent>
       <DialogActions>
-        <Button variant='grey' onClick={handleClose}>{t('common:cancel')}</Button>
+        <Button variant='grey' onClick={handleClose}>
+          {t('common:cancel')}
+        </Button>
         <LoadingButton
           variant='contained'
           type={'submit'}

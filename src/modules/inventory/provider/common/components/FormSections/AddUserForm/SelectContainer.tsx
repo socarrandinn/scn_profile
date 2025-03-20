@@ -12,10 +12,21 @@ const SelectContainer = () => {
     <>
       <Grid container spacing={{ xs: 1, md: 2 }} columns={{ xs: 4, sm: 8, md: 12 }}>
         <Grid item xs={12}>
-          <SelectRole name='role' multiple={false} label={t('form.role')} placeholder={t('form.selectRole')} type={ROLE_TYPE_ENUM.ROOT} />
+          <SelectRole
+            name='role'
+            multiple={false}
+            label={t('form.role')}
+            placeholder={t('form.selectRole')}
+            type={ROLE_TYPE_ENUM.ROOT}
+          />
         </Grid>
         <Grid item xs={12}>
-          <SelectStore name='warehouse' multiple={false} label={t('form.warehouse')} placeholder={t('form.selectWarehouse')} />
+          <SelectStore
+            name='warehouse'
+            multiple={false}
+            label={t('form.warehouse')}
+            placeholder={t('form.selectWarehouse')}
+          />
         </Grid>
         <Grid item xs={12}>
           <SelectUser name='users' multiple label={t('form.users')} placeholder={t('form.selectUsers')} />

@@ -15,7 +15,10 @@ const initValues: Partial<IDistributionCenters> = {
   description: '',
 };
 
-const useDistributionCentersBasicCreateForm = (onClose: () => void, defaultValues: Partial<IDistributionCenters> = initValues) => {
+const useDistributionCentersBasicCreateForm = (
+  onClose: () => void,
+  defaultValues: Partial<IDistributionCenters> = initValues,
+) => {
   const { t } = useTranslation('provider');
   const queryClient = useQueryClient();
   const { control, handleSubmit, reset, formState } = useForm({
