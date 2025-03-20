@@ -28,9 +28,6 @@ export const subOrderDistributionCenterColumn: HeadCell<IOrder> = {
       link={`/inventory/distribution-centers/${dc?._id as string}/general`}
       name={dc?.name}
       icon={<DistributionCenterIcon fontSize='small' color='primary' />}
-      sx={{
-        justifyContent: 'center',
-      }}
     />
   ),
 };

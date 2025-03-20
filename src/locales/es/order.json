@@ -237,7 +237,8 @@
     "PAID": "Pagadas",
     "PENDING_REFUNDED": "Pendiente a Reembolso",
     "REFUNDED": "Reembolsadas",
-    "CUSTOM": "Personalizada"
+    "CUSTOM": "Personalizada",
+    "DELAYED": "Atrasadas"
   },
   "statusPaid": {
     "paid": "Satisfactorio",

@@ -1,5 +1,5 @@
 import { THEMES } from '@dfl/mui-react-common';
-import { blue, grey, orange, red } from '@mui/material/colors';
+import { grey } from '@mui/material/colors';
 import { colors, createTheme, lighten, Theme } from '@mui/material';
 import { components } from './components';
 
@@ -51,17 +51,15 @@ export const common = createTheme({
         }),
       },
     },
+
     MuiTableRow: {
       styleOverrides: {
         root: ({ theme }: { theme: Theme }) => ({
           '&.row-warning': {
-            background: theme.palette.mode === 'light' ? lighten(theme.palette.warning.light, 0.8) : orange['800'],
+            background: `${theme.palette.warning.main}25`,
           },
           '&.row-error': {
-            background: theme.palette.mode === 'light' ? lighten(theme.palette.error.light, 0.7) : red['800'],
-          },
-          '&.row-success': {
-            background: theme.palette.mode === 'light' ? lighten(theme.palette.error.light, 0.7) : blue['800'],
+            background: `${theme.palette.error.main}25`,
           },
         }),
       },

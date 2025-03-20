@@ -2,67 +2,78 @@ import { Filter } from '@dfl/mui-admin-layout';
 import {
   orderCodeFilter,
   orderDeliverTimeTypeFilter,
-  orderDeliveryMaxTimeFilter,
+  orderDeliveryDueDateFilter,
   // orderDeliveryStatusFilter,
   orderDistributionCenterFilter,
   orderEmailFilter,
   orderHasChargeBackFilter,
-  orderHasPaymentFilter,
   orderInDispatchFilter,
+  orderLogisticFilter,
   // orderLogisticFilter,
   orderMunicipalityFilter,
+  orderOfferFilter,
   // orderOfferFilter,
   orderPaidAtFilter,
   orderProductItemsFilter,
   orderProvinceFilter,
   orderShippingTypeFilter,
   orderStatusFilter,
+  orderTotalItemsFilter,
   // orderTotalItemsFilter,
   orderTotalProductsFilter,
 } from 'modules/sales/common/constants/order-filters';
 
 export const subOrderFilters: Filter[] = [
   orderCodeFilter,
-  orderInDispatchFilter,
+  orderEmailFilter,
+  orderStatusFilter,
+
+  orderDeliveryDueDateFilter,
+  orderShippingTypeFilter,
+  orderDeliverTimeTypeFilter,
+
+  orderOfferFilter,
+  orderTotalProductsFilter,
+  orderPaidAtFilter,
+  orderHasChargeBackFilter,
+
+  // address
   orderProvinceFilter,
   orderMunicipalityFilter,
 
-  orderTotalProductsFilter,
-  orderShippingTypeFilter,
-  orderDeliverTimeTypeFilter,
-  orderDeliveryMaxTimeFilter,
-
+  // providers
   orderDistributionCenterFilter,
-  orderStatusFilter,
-  orderPaidAtFilter,
+  orderLogisticFilter,
 
-  // orderTotalItemsFilter,
-  orderEmailFilter,
-  orderHasPaymentFilter,
-  orderHasChargeBackFilter,
-  // orderOfferFilter,
-  // orderLogisticFilter,
-  // orderDeliveryStatusFilter,
+  orderTotalItemsFilter,
   orderProductItemsFilter,
 
-  // todo
-  /* orderDeliveryTimeRangeFilter,
-  orderdeliveryDueDateFilter,
-  orderChargeBackDateFilter, */
+  // other
+  orderInDispatchFilter,
 ];
 
 export const defaultSubOrderFilterKeys: Filter[] = [
   orderCodeFilter,
-  orderInDispatchFilter,
-  orderProvinceFilter,
-  orderMunicipalityFilter,
-  orderTotalProductsFilter,
-  // shipping
+  orderEmailFilter,
+  orderStatusFilter,
+
+  orderDeliveryDueDateFilter,
   orderShippingTypeFilter,
   orderDeliverTimeTypeFilter,
-  orderDeliveryMaxTimeFilter,
 
-  orderDistributionCenterFilter,
-  orderStatusFilter,
+  // orderOfferFilter,
+  orderTotalProductsFilter,
   orderPaidAtFilter,
+  orderHasChargeBackFilter,
+
+  // address
+  orderProvinceFilter,
+  orderMunicipalityFilter,
+
+  // providers
+  orderDistributionCenterFilter,
+  orderLogisticFilter,
+
+  orderTotalItemsFilter,
+  orderProductItemsFilter,
 ];
