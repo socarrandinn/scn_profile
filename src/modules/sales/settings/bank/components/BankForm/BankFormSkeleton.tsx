@@ -8,10 +8,22 @@ const BankFormSkeleton = () => {
         <Skeleton variant='rectangular' height={35} animation='wave' />
       </Grid>
       <Grid item xs={12}>
-        <Skeleton variant='rectangular' height={100} animation='wave' />
+        <Skeleton variant='rectangular' height={35} animation='wave' />
       </Grid>
       <Grid item xs={12}>
         <Skeleton variant='rectangular' height={100} animation='wave' />
+      </Grid>
+      <Grid item xs={12}>
+        <Skeleton variant='rectangular' height={35} animation='wave' />
+      </Grid>
+      <Grid item xs={12}>
+        <Skeleton variant='rectangular' height={35} animation='wave' />
+      </Grid>
+      <Grid item xs={12}>
+        <Skeleton variant='rectangular' height={35} animation='wave' />
+      </Grid>
+      <Grid item xs={12}>
+        <Skeleton variant='rectangular' height={35} animation='wave' />
       </Grid>
     </Grid>
   );
