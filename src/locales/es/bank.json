@@ -1,0 +1,21 @@
+{
+  "list": "Bancos",
+  "create": "Nuevo banco",
+  "deleteMany": "Debe tener elementos seleccionados para realizar esta operación",
+  "edit": "Editar ...",
+  "successDeleted": "Elemento eliminado satisfactoriamente",
+  "successUpdate": "Elemento actualizado satisfactoriamente",
+  "successCreated": "Elemento creado satisfactoriamente",
+  "fields": {
+    "name": "Nombre",
+    "description": "Descripción",
+    "createdAt": "Fecha de creación",
+    "active": "Activo",
+    "alias": "Alias",
+    "ibanNumber": "Número IBAN",
+    "swiftBIC": "Código SWIFT/BIC",   
+    "branch": "Sucursal",
+    "branchHolder": "Titular",
+    "currency": "Moneda"
+  }
+}

@@ -1,4 +1,5 @@
 import {
+  AccountBalanceOutlined,
   AssessmentOutlined,
   EventBusyOutlined,
   ListAlt,
@@ -26,6 +27,7 @@ import { REPORTS_PERMISSIONS } from 'modules/dashboard/constant/reports.permissi
 import { DispatchIcon } from 'modules/sales/common/components/icons/DispatchIcon';
 import { DISPATCH_PERMISSIONS } from 'modules/sales/dispatch/constants';
 import { PAYMENT_SETTINGS_PERMISSIONS } from 'modules/sales/settings/payment-settings/constants';
+import { BANK_PERMISSIONS } from 'modules/sales/settings/bank/constants';
 
 export const SALES_MENU: IMenu[] = [
   {
@@ -149,6 +151,13 @@ export const SALES_MENU: IMenu[] = [
         partialMatch: true,
         icon: <LocalShippingOutlined fontSize='small' />,
         permissions: [HOME_DELIVERY_PERMISSIONS.HOME_DELIVERY_VIEW],
+      },
+      {
+        title: 'bank:list',
+        path: '/sales/settings/banks',
+        partialMatch: true,
+        icon: <AccountBalanceOutlined fontSize='small' />,
+        permissions: [BANK_PERMISSIONS.BANK_VIEW || PAYMENT_SETTINGS_PERMISSIONS.PAYMENT_SETTINGS_VIEW],
       },
       {
         title: 'paymentSettings:list',
