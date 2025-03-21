@@ -9,6 +9,7 @@ import { BankService } from 'modules/sales/settings/bank/services';
 import { BANKS_LIST_KEY } from 'modules/sales/settings/bank/constants';
 import { useEffect, useCallback } from 'react';
 import { CURRENCY_TYPE_ENUM } from '../../payment-settings/constants';
+import { removeEmptyFields } from 'components/UploadFiles/files.utils';
 
 const initValues: IBank = {
   name: '',
@@ -50,7 +51,10 @@ const useBankCreateForm = (onClose: () => void, defaultValues: IBank = initValue
     isLoading,
     isSuccess,
     data,
-  } = useMutation((bank: IBank) => BankService.saveOrUpdate(bank), {
+  } = useMutation((data: IBank) => {
+    const cleanedData = removeEmptyFields(data);
+    return BankService.saveOrUpdate(cleanedData)
+  }, {
     onSuccess: (data, values) => {
       queryClient.invalidateQueries([BANKS_LIST_KEY]);
       values?._id && queryClient.invalidateQueries([values._id]);
