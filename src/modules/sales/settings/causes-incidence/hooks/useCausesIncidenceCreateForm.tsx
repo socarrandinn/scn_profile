@@ -24,6 +24,8 @@ const initValues: ICausesIncidence = {
       },
     ],
   },
+  requiresResponsible: false,
+  requiresEvidence: false,
 };
 
 const useCausesIncidenceCreateForm = (onClose: () => void, defaultValues: ICausesIncidence = initValues) => {
