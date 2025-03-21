@@ -24,4 +24,6 @@ export const causesIncidenceSchema = Yup.object().shape({
       }),
     otherwise: (scheme) => scheme.transform(() => ({ audience: [{ target: [], template: '' }] })),
   }),
+  requiresResponsible: Yup.boolean(),
+  requiresEvidence: Yup.boolean(),
 });

@@ -12,6 +12,8 @@
     "name": "Name",
     "description": "Description",
     "createdAt": "Creation Date",
+    "requiresResponsible": "Requires responsible",
+    "requiresEvidence": "Requires evidence",
     "isPublic": "Visible in Store",
     "sendNotification": "Send Notifications",
     "notification": {

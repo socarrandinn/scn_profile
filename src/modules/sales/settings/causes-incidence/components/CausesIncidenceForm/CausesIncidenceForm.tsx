@@ -45,13 +45,24 @@ const CausesIncidenceForm = ({ error, control, isLoading, onSubmit }: CausesInci
             />
           </Grid>
 
-          <Grid item xs={12}>
+          <Grid item xs={12} md={6}>
             <FormSwitchField name='isPublic' label={t('fields.isPublic')} />
+          </Grid>
+
+          <Grid item xs={12} md={6}>
             <FormSwitchField name='sendNotification' label={t('fields.sendNotification')} />
           </Grid>
 
           {/* Display on sendNotification */}
           {sendNotification ? <CausesIncidenceAudienceAndTemplateInput control={control} /> : <></>}
+
+          <Grid item xs={12} md={6}>
+            <FormSwitchField name='requiresResponsible' label={t('fields.requiresResponsible')} />
+          </Grid>
+
+          <Grid item xs={12} md={6}>
+            <FormSwitchField name='requiresEvidence' label={t('fields.requiresEvidence')} />
+          </Grid>
         </Grid>
       </Form>
     </div>
