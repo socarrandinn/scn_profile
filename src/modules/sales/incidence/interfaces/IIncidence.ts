@@ -1,4 +1,3 @@
-import { ICausesIncidence } from 'modules/sales/settings/causes-incidence/interfaces';
 import { INCIDENCE_STATUS_ENUM } from '../constants/incidence-status';
 import { IFile } from 'components/FileDropZone/interfaces/IFile';
 

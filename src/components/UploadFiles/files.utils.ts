@@ -1,6 +1,6 @@
 import { UploadMediaType } from 'components/UploadFiles/files.services';
 
-export function formatBytes(bytes: number, decimals = 2) {
+export function formatBytes (bytes: number, decimals = 2) {
   if (bytes === 0) return '0 Bytes';
 
   const k = 1024;
@@ -30,7 +30,7 @@ export const validationFile = ({ file, maxFileSize = MAX_FILE_SIZE_BYTES, fileTy
 };
 
 export const removeEmptyFields = (obj: any): any => {
-  return Object.keys(obj).reduce((acc, key) => {
+  return Object.keys(obj).reduce<any>((acc, key) => {
     const value = obj[key];
 
     if (typeof value === 'string' && value.trim() === '') {
@@ -48,5 +48,5 @@ export const removeEmptyFields = (obj: any): any => {
     }
 
     return acc;
-  }, {} as any);
+  }, {});
 };

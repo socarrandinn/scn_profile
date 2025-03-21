@@ -1,5 +1,5 @@
 import { IStatus } from '@dfl/mui-react-common';
-import { BLUE, GRAY, GREEN, RED, WARNING } from 'settings/theme';
+import { BLUE, GREEN, RED, WARNING } from 'settings/theme';
 
 export enum INCIDENCE_STATUS_ENUM {
   OPEN = 'OPEN',

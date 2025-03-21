@@ -1,6 +1,6 @@
 import { THEMES } from '@dfl/mui-react-common';
 import { grey } from '@mui/material/colors';
-import { colors, createTheme, lighten, Theme } from '@mui/material';
+import { createTheme, lighten, Theme } from '@mui/material';
 import { components } from './components';
 
 export const RED = '#F84842';

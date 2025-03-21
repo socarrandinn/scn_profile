@@ -9,7 +9,6 @@ import { IncidenceService } from 'modules/sales/incidence/services';
 import { INCIDENCES_LIST_KEY } from 'modules/sales/incidence/constants';
 import { useEffect, useCallback } from 'react';
 import { INCIDENCE_STATUS_ENUM } from '../constants/incidence-status';
-import { sub } from 'date-fns';
 
 export const emptyIncidence: IIncidence = {
   name: 'incidence',
