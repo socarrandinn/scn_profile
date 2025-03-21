@@ -57,9 +57,6 @@ const BannerCommonForm = ({ name }: Props) => {
           }}
         />
       </Grid>
-      {/*  <Grid item xs={12}>
-        <FormSwitchField name='withText' label={t('fields.withText')} />
-      </Grid> */}
     </>
   );
 };

@@ -13,7 +13,6 @@ const IphoneSwitchField = ({ ...props }: FormSwitchFieldProps) => {
           '& .MuiSwitch-switchBase': {
             padding: '3px',
             top: '-1px',
-            color: '#BABABA',
             '&.Mui-checked': {
               transform: 'translateX(16px)',
               color: '#fff',
@@ -44,7 +43,6 @@ const IphoneSwitchField = ({ ...props }: FormSwitchFieldProps) => {
           flexDirection: 'column',
         },
       }}
-      label={undefined}
     />
   );
 };

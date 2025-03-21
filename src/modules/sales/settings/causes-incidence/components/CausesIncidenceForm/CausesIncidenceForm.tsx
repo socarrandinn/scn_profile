@@ -6,6 +6,8 @@ import { useWatch } from 'react-hook-form';
 import CausesIncidenceAudienceAndTemplateInput from '../CausesIncidenceAudienceAndTemplateInput/CausesIncidenceAudienceAndTemplateInput';
 import { CausesIncidenceSelect } from '../CausesIncidenceSelect';
 import { CAUSE_INCIDENCE_ERRORS } from '../../constants/causes-incidence.errors';
+import { Edit } from '@mui/icons-material';
+import { FormCustomSwitchField, IphoneSwitchField } from 'modules/common/components/IphoneSwitchField';
 
 type CausesIncidenceFormProps = {
   error: any;
@@ -24,8 +26,8 @@ const CausesIncidenceForm = ({ error, control, isLoading, onSubmit }: CausesInci
   return (
     <div>
       <HandlerError error={error} errors={CAUSE_INCIDENCE_ERRORS} />
-      <Form onSubmit={onSubmit} control={control} isLoading={isLoading} size={'small'} id={'form'} dark>
-        <Grid container spacing={{ xs: 1, md: 2 }} columns={{ xs: 4, sm: 8, md: 12 }}>
+      <Form onSubmit={onSubmit} control={control} isLoading={isLoading} size={'small'} id={'form'}>
+        <Grid container spacing={{ xs: 1, md: 2 }} columns={{ xs: 4, sm: 8, md: 12 }} sx={{ pt: 2 }}>
           <Grid item xs={12}>
             <FormTextField fullWidth autoFocus required name='name' label={t('fields.name')} />
           </Grid>
@@ -45,27 +47,30 @@ const CausesIncidenceForm = ({ error, control, isLoading, onSubmit }: CausesInci
             />
           </Grid>
 
-          <Grid item xs={12} md={6}>
-            <FormSwitchField name='isPublic' label={t('fields.isPublic')} />
+          <Grid item xs={12} md={6} >
+            <FormCustomSwitchField name='isPublic' label={t('fields.isPublic')} />
           </Grid>
 
           <Grid item xs={12} md={6}>
-            <FormSwitchField name='sendNotification' label={t('fields.sendNotification')} />
+            <FormCustomSwitchField name='requiresEvidence' label={t('fields.requiresEvidence')} />
           </Grid>
 
+          <Grid item xs={12} md={6} >
+            <FormCustomSwitchField name='sendNotification' label={t('fields.sendNotification')} />
+          </Grid>
+
+          <Grid item xs={12} md={6}>
+            <FormCustomSwitchField name='requiresResponsible' label={t('fields.requiresResponsible')} />
+          </Grid>
           {/* Display on sendNotification */}
-          {sendNotification ? <CausesIncidenceAudienceAndTemplateInput control={control} /> : <></>}
-
-          <Grid item xs={12} md={6}>
-            <FormSwitchField name='requiresResponsible' label={t('fields.requiresResponsible')} />
-          </Grid>
-
-          <Grid item xs={12} md={6}>
-            <FormSwitchField name='requiresEvidence' label={t('fields.requiresEvidence')} />
-          </Grid>
+          {sendNotification &&
+            < Grid item xs={12}>
+              <CausesIncidenceAudienceAndTemplateInput control={control} />
+            </Grid>
+          }
         </Grid>
       </Form>
-    </div>
+    </div >
   );
 };
 

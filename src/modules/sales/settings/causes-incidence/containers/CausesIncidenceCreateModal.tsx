@@ -39,6 +39,7 @@ const CausesIncidenceCreateModal = ({
       open={open}
       isLoading={loadingInitData}
       title={t(title)}
+      sx={{ '.MuiDialogTitle-root': { paddingBottom: 0 } }}
       aria-labelledby={'causesIncidence-creation-title'}
     >
       <DialogContent>
