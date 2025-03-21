@@ -2,8 +2,8 @@ import { memo } from 'react';
 import { ChildrenProps, IconButton } from '@dfl/mui-react-common';
 import { useTranslation } from 'react-i18next';
 import { Button } from '@mui/material';
-import { EditIcon } from 'components/icons/EditIcon';
 import { PermissionCheck } from '@dfl/react-security';
+import { Edit } from '@mui/icons-material';
 
 type Props = ChildrenProps & {
   open: boolean;
@@ -22,7 +22,7 @@ const FormPaperAction = ({ onToggle, open, permissions }: Props) => {
         </Button>
       ) : (
         <IconButton color='primary' tooltip={t('common:updateInfo')} onClick={onToggle}>
-          <EditIcon sx={{ fontSize: '17.586px' }} />
+          <Edit sx={{ fontSize: '17.586px' }} />
         </IconButton>
       )}
     </PermissionCheck>
