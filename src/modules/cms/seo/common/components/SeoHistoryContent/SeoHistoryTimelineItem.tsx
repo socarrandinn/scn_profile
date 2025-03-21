@@ -21,6 +21,7 @@ const SeoHistoryTimelineItem = ({ auditLog, index, onClose }: SeoHistoryTimeline
   const { _id, user, updatedAt, event } = auditLog;
   const { checkEntity } = useAuditLogEntityContext();
   const fullName = useMemo(() => `${user?.firstName} ${user?.lastName}`, [user]);
+  const isActive = useMemo(() => checkEntity === _id, [checkEntity, _id]);
 
   const handleEdit = useParamsLink({ entity: _id });
 
@@ -43,7 +44,12 @@ const SeoHistoryTimelineItem = ({ auditLog, index, onClose }: SeoHistoryTimeline
         <TimelineConnector sx={{ backgroundColor: 'primary.main' }} />
       </TimelineSeparator>
       <TimelineContent padding={1}>
-        <TimelineContentPaper active={checkEntity === _id} onClick={onEdit}>
+        <TimelineContentPaper
+          onClick={onEdit}
+          sx={{
+            border: (theme) => (isActive ? `2px solid ${theme.palette.primary.main}` : '2px solid transparent'),
+          }}
+        >
           <Stack flexDirection={{ xs: 'column', md: 'row' }} justifyContent={'space-between'} flexWrap={'wrap'}>
             <Typography mr={1} fontSize={15} fontWeight={600}>
               {fullName}

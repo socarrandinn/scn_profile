@@ -23,8 +23,10 @@ const HistoryChangeSummaryTraceTable = ({ changes }: HistoryChangeSummaryTraceTa
         <TableContainer component={Box} mt={1}>
           <Table>
             <TableHead>
-              <TableCell>{t('summary.value')}</TableCell>
-              <TableCell width={'25%'}>{t('translate.status.amount')}</TableCell>
+              <TableRow>
+                <TableCell>{t('summary.value')}</TableCell>
+                <TableCell width={'25%'}>{t('translate.status.amount')}</TableCell>
+              </TableRow>
             </TableHead>
             <TableBody>
               <TableRow>
@@ -42,8 +44,10 @@ const HistoryChangeSummaryTraceTable = ({ changes }: HistoryChangeSummaryTraceTa
         <TableContainer component={Box} mt={1}>
           <Table sx={{ minWidth: 800, width: '100%' }}>
             <TableHead>
-              <TableCell>{t('summary.nameKey')}</TableCell>
-              <TableCell width={'50%'}>{t('summary.value')}</TableCell>
+              <TableRow>
+                <TableCell>{t('summary.nameKey')}</TableCell>
+                <TableCell width={'50%'}>{t('summary.value')}</TableCell>
+              </TableRow>
             </TableHead>
             <TableBody>
               {Object.keys(rowObj)?.map((key: string) => (
