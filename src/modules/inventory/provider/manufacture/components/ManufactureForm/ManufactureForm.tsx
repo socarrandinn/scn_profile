@@ -5,6 +5,7 @@ import { useTranslation } from 'react-i18next';
 import { FormUploadImage } from 'modules/common/components/UploadImage';
 import FactoryIcon from '@mui/icons-material/Factory';
 import { ProductKeywordsInput } from 'modules/inventory/product/components/ProductKeywordsInput';
+import { FormCustomSwitchField } from 'modules/common/components/IphoneSwitchField';
 
 type ManufactureFormProps = {
   error: any;
@@ -44,8 +45,8 @@ const ManufactureForm = ({ error, control, isLoading, onSubmit, withImage = true
             <ProductKeywordsInput size='small' name='brand' label={t('fields.band')} helperText="'Nike', 'Adidas'" />
           </Grid>
 
-          <Grid item xs={12}>
-            <FormSwitchField name='state' label={t('fields.state')} />
+          <Grid item xs={12} md={2}>
+            <FormCustomSwitchField name='state' label={t('fields.state')} />
           </Grid>
         </Grid>
       </Form>
