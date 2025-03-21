@@ -20,7 +20,6 @@ const SaleOfferSummary = () => {
         // @ts-ignore
         icon={OfferCartIcon}
         colorIcon={GREEN}
-        sx={{ maxWidth: 300, width: '100%' }}
       />
       <CounterBox
         title={t('report.offer.summary.customers')}

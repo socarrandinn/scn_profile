@@ -1,4 +1,3 @@
-import { IProduct } from 'modules/inventory/common/interfaces';
 import { IOffer, IRuleAmountCategory, IRuleOffer } from './IOffer';
 import { OPERATOR_RULE_OFFER_TYPE, PERIOD_RULE_OFFER_TYPE } from './offer.type.enum';
 import { ILocationMunicipality, ILocationProvince } from '@dfl/location';
@@ -12,7 +11,7 @@ export interface ICommonOffer {
   rulesProducts: IProductRuleOffer | undefined;
   // rulesCategories: ICategoryRuleOffer[] | undefined;
   rulesAmountsCategory: IRuleAmountCategory | undefined;
-  productToInclude: IProduct;
+  // productToInclude: IProduct;
   quantityToInclude: number;
 
   section: IRuleSection;

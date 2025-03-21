@@ -22,8 +22,6 @@ const ProductTags = () => {
 
   const { requiredTagList } = useMapperTagsList();
 
-  console.log(requiredTagList(product?.tags?.product as unknown as Record<string, ISummaryTags>), 'ss');
-
   return (
     <>
       <FormPaper

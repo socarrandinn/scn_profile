@@ -9,7 +9,7 @@ type Props = {
   onSubmit: FormEventHandler | undefined;
   children: any;
   formId?: string;
-  setValue: any;
+  setValue?: any;
 };
 
 const OfferEditForm = ({ error, control, isLoading, onSubmit, children, formId, setValue }: Props) => {

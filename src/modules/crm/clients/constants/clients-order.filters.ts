@@ -1,7 +1,6 @@
 import { Filter } from '@dfl/mui-admin-layout';
 import {
   orderCodeFilter,
-  orderDeliverTimeTypeFilter,
   orderHasChargeBackFilter,
   orderHasPaymentFilter,
   orderMunicipalityFilter,
@@ -10,7 +9,6 @@ import {
   orderPaidAtFilter,
   orderProductItemsFilter,
   orderProvinceFilter,
-  orderShippingTypeFilter,
   orderStatusFilter,
   orderTotalAmountFilter,
   orderTotalItemsFilter,
@@ -36,9 +34,6 @@ export const clientOrderFilters: Filter[] = [
   paymentMethodFilter,
   orderTotalItemsFilter,
   orderProductItemsFilter,
-
-  orderShippingTypeFilter,
-  orderDeliverTimeTypeFilter,
 ];
 
 export const defaultClientOrderFilterKeys: Filter[] = [

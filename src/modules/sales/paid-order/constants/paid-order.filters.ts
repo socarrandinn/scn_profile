@@ -3,7 +3,6 @@ import {
   orderCodeFilter,
   orderEmailFilter,
   orderStatusFilter,
-  orderDeliverTimeTypeFilter,
   // orderDeliveryStatusFilter,
   orderHasPaymentFilter,
   orderMunicipalityFilter,
@@ -11,7 +10,6 @@ import {
   orderPaidAtFilter,
   orderProductItemsFilter,
   orderProvinceFilter,
-  orderShippingTypeFilter,
   orderTotalAmountFilter,
   orderTotalItemsFilter,
   orderTotalProductsFilter,
@@ -38,10 +36,7 @@ export const paidOrderFilters: Filter[] = [
   paymentGatewayFilter,
   paymentMethodFilter,
   orderTotalItemsFilter,
-  orderProductItemsFilter,
-
-  orderShippingTypeFilter,
-  orderDeliverTimeTypeFilter,
+  orderProductItemsFilter
 ];
 
 export const defaultPaidOrderFilterKeys: Filter[] = [

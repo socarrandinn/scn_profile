@@ -6,19 +6,14 @@ import { FlexBox } from '@dfl/mui-react-common';
 
 type Props = {
   title: string;
-  onClose?: VoidFunction;
 };
 
-const OfferTitle = ({ title, onClose }: Props) => {
+const OfferTitle = ({ title }: Props) => {
   const navigate = useNavigate();
 
   const handleClose = useCallback(() => {
-    if (!onClose) {
-      navigate(-1);
-      return;
-    }
-    onClose?.();
-  }, [navigate, onClose]);
+    navigate(-1);
+  }, [navigate]);
 
   return (
     <FlexBox justifyItems={'center'} alignItems={'center'} mb={3} columnGap={2}>

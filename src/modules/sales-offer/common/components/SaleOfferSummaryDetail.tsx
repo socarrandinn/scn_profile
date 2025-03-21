@@ -1,20 +1,46 @@
-import { IconButton, LongText } from '@dfl/mui-react-common';
-import { Edit, LocalOfferOutlined } from '@mui/icons-material';
-import { Avatar, Box, Stack } from '@mui/material';
+import { LongText } from '@dfl/mui-react-common';
+import { LocalOfferOutlined } from '@mui/icons-material';
+import { Avatar, Stack } from '@mui/material';
 import OFFER_IMAGES from 'assets/images/offers';
-import { PaperTabView } from 'modules/common/components/TabsWithSections/PaperTabView';
+import { FormPaper } from 'modules/common/components/FormPaper';
+import { FormPaperAction } from 'modules/common/components/FormPaperAction';
+import OfferMessageEditContainer from 'modules/sales-offer/offer/containers/sections/OfferMessageEditContainer';
 import { useOfferContext } from 'modules/sales-offer/offer/contexts/OfferContext';
+import { useCallback, useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 
 type Props = {
   showEdit?: boolean;
 };
 const SaleOfferSummaryDetail = ({ showEdit }: Props) => {
-  const { offer } = useOfferContext();
-  const { t } = useTranslation();
+  const { offer, onOneToggle, state, onOneClose } = useOfferContext();
+  const { t } = useTranslation('offerOrder');
+  // status edit
+  const open = useMemo(() => state?.form_message || false, [state]);
+  const handleRuleToggle = useCallback(() => onOneToggle?.('form_message'), [onOneToggle]);
+  const handleClose = useCallback(() => onOneClose?.('form_message'), [onOneClose]);
+
+  if (open) {
+    return (
+      <FormPaper
+        title={t('sections.description.title')}
+        actions={<FormPaperAction onToggle={handleRuleToggle} open={open} disabled={!showEdit} />}
+      >
+        <OfferMessageEditContainer onClose={handleClose} />
+      </FormPaper>
+    );
+  }
+
   return (
-    <PaperTabView>
-      <Stack flexDirection={{ xs: 'column', sm: 'row' }} gap={2} sx={{ position: 'relative' }}>
+    <FormPaper
+      title={t('sections.description.title')}
+      actions={<FormPaperAction onToggle={handleRuleToggle} open={open} disabled={!showEdit} />}
+    >
+      <Stack
+        flexDirection={{ xs: 'column', sm: 'row' }}
+        gap={2}
+        sx={{ position: 'relative', p: 2, backgroundColor: 'background.default', borderRadius: 1 }}
+      >
         <Avatar
           src={OFFER_IMAGES.start}
           variant='square'
@@ -26,15 +52,8 @@ const SaleOfferSummaryDetail = ({ showEdit }: Props) => {
           <LongText lineClamp={2} fontWeight={600} text={offer?.description} />
           <LongText lineClamp={3} text={offer?.promotionText} />
         </Stack>
-        {showEdit && (
-          <Box sx={{ mt: -1 }}>
-            <IconButton size='small' tooltip={t('edit')} color='primary'>
-              <Edit fontSize='small' />
-            </IconButton>
-          </Box>
-        )}
       </Stack>
-    </PaperTabView>
+    </FormPaper>
   );
 };
 

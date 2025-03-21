@@ -8,6 +8,8 @@
   "successDeleted": "Oferta eliminada satisfactoriamente",
   "successDeletedMany": "Ofertas eliminadas satisfactoriamente",
   "successUpdate": "Oferta actualizada satisfactoriamente",
+  "successMessageUpdate": "Personalizar mensaje de oferta actualizado satisfactoriamente",
+  "successGeneralUpdate": "Datos generales actualizado satisfactoriamente",
   "successCreated": "Oferta creada satisfactoriamente",
   "name": "Nombre",
   "regulation": "Las reglas a continuación definen si una orden aplica o no a una oferta determinada",
@@ -262,8 +264,7 @@
       "integer": "Uso es un número entero"
     },
     "quantity_orders": {
-      "positive": "Cantidad es un número positivo",
-      "integer": "Cantidad es un número entero"
+      "min": "Debe adicionar al menos una regla de cantidad de órdenes"
     },
     "array": {
       "product": {

@@ -11,6 +11,7 @@ const sx = {
   margin: '24px auto 0',
   width: '100%',
   maxWidth: '1000px',
+  mb: 4,
 };
 
 const CenterPageLayout1000 = ({ children, top }: CenterPageLayout1000Props) => {

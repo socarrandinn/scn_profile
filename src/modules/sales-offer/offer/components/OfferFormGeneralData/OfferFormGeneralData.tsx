@@ -8,17 +8,7 @@ const OfferFormGeneralData = () => {
   const { t } = useTranslation('offerOrder');
 
   return (
-    <Grid
-      container
-      spacing={{
-        xs: 1,
-        md: 2,
-      }}
-      rowSpacing={{
-        xs: 2,
-        md: 3,
-      }}
-    >
+    <Grid container spacing={{ xs: 1, md: 2 }} rowSpacing={{ xs: 2, md: 3 }} columns={{ xs: 4, sm: 8, md: 12 }}>
       <Grid item xs={12} md={6}>
         <FormTextField label={t('offerOrder:sections:name')} placeholder={t('offerOrder:sections:name')} name='name' />
       </Grid>

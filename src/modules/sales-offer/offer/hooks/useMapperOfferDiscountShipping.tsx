@@ -4,7 +4,7 @@ import { IAddressRuleOffer, IExtendOffer } from '../interfaces/IExtendOffer';
 import { IRuleOffer } from '../interfaces';
 
 export const useMapperOfferDiscountShipping = () => {
-  const onProcessRules = (offer: IExtendOffer) => {
+  const onProcessRules = (offer: Partial<IExtendOffer>) => {
     const sections = offer?.section;
     const ruleProduct = sections?.product ? offer.rulesProducts : {};
     const ruleAmount = sections?.amount ? offer.rulesAmounts : {};

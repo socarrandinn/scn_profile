@@ -1,11 +1,13 @@
-import { FC, memo } from 'react';
-import { Box, BoxProps, Typography } from '@mui/material';
+import { FC, memo, useMemo } from 'react';
+import { Box, Paper, Typography } from '@mui/material';
 import { useTranslation } from 'react-i18next';
 import InfoIcon from '@mui/icons-material/Info';
 import { FlexBox } from '@dfl/mui-react-common';
 
-type Props = BoxProps & {
+type Props = {
   description?: string;
+  isPaper?: boolean;
+  mb: number;
 };
 
 const titleSx = {
@@ -14,21 +16,25 @@ const titleSx = {
   marginBottom: '4px',
 };
 
-const Rule: FC<Props> = ({
-  description = 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut',
-  ...props
-}: Props) => {
+const Rule: FC<Props> = ({ description = 'Lorem ipsum dolor', isPaper = false, mb = 3 }: Props) => {
   const { t } = useTranslation('offerOrder');
 
-  return (
-    <Box {...props}>
-      <Typography sx={titleSx}>{t('rule')}</Typography>
-      <FlexBox alignItems={'center'} gap={1}>
-        <InfoIcon color='primary'/>
-        {description}
-      </FlexBox>
-    </Box>
+  const content = useMemo(
+    () => (
+      <>
+        <Typography sx={titleSx}>{t('rule')}</Typography>
+        <FlexBox alignItems={'center'} gap={1}>
+          <InfoIcon color='primary' />
+          {description}
+        </FlexBox>
+      </>
+    ),
+    [description, t],
   );
+
+  if (isPaper) return <Paper sx={{ marginBottom: mb, padding: { xs: 1, md: 2 } }}>{content}</Paper>;
+
+  return <Box sx={{ marginBottom: mb }}>{content}</Box>;
 };
 
 export default memo(Rule);

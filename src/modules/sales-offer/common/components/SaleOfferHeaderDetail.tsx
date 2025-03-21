@@ -1,6 +1,6 @@
-import { Image } from '@mui/icons-material';
-import { Avatar, Box, Paper, Skeleton, Stack, Typography } from '@mui/material';
-import { memo, useMemo } from 'react';
+import { Close, Edit, Image } from '@mui/icons-material';
+import { Avatar, Box, Button, Paper, Skeleton, Stack, Typography } from '@mui/material';
+import { memo, useCallback, useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import OFFER_IMAGES from 'assets/images/offers';
@@ -10,6 +10,9 @@ import { DISCOUNT_TYPE } from '../../product-discount/constants';
 import { ProductDiscountStatusCell } from 'modules/sales-offer/product-discount/components/ProductDiscountStatusCell';
 
 import { getOfferOrderStatus } from 'modules/sales-offer/offer/components/OfferStatus/OfferStatus';
+import { OFFER_PERMISSIONS } from 'modules/sales-offer/offer/constants';
+import { PermissionCheck } from '@dfl/react-security';
+import { OFFER_STATUS } from '../constants/offer.enum';
 
 const SaleOfferHeaderDetail = () => {
   const { offer, isLoading } = useOfferContext();
@@ -71,6 +74,10 @@ const SaleOfferHeaderDetail = () => {
                   <Stack flexDirection={'row'} gap={1} alignItems={'center'}>
                     {/*   todo changes status */}
                     <ProductDiscountStatusCell value={status ?? ''} />
+
+                    <PermissionCheck permissions={OFFER_PERMISSIONS.OFFER_WRITE}>
+                      <EditButton />
+                    </PermissionCheck>
                   </Stack>
                 </>
               )}
@@ -95,3 +102,28 @@ const SaleOfferHeaderDetail = () => {
 };
 
 export default memo(SaleOfferHeaderDetail);
+
+const EditButton = () => {
+  const { t } = useTranslation('common');
+  const { onOneToggle, onOneClose, state, offer } = useOfferContext();
+  const open = useMemo(() => state?.form_general || false, [state]);
+  const handleGeneralToggle = useCallback(() => onOneToggle?.('form_general'), [onOneToggle]);
+  const handleRuleClose = useCallback(() => onOneClose?.('form_rules'), [onOneClose]);
+
+  const status = useMemo(() => getOfferOrderStatus(offer?.fromDate, offer?.toDate), [offer?.fromDate, offer?.toDate]);
+  const showEdit = useMemo(() => status !== OFFER_STATUS.FINISHED, [status]); // todo
+
+  return (
+    <Button
+      disabled={!showEdit}
+      variant='outlined'
+      startIcon={open ? <Close /> : <Edit />}
+      onClick={() => {
+        handleGeneralToggle();
+        handleRuleClose();
+      }}
+    >
+      {open ? t('close') : t('edit')}
+    </Button>
+  );
+};

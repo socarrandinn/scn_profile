@@ -1,102 +1,70 @@
-import { memo, useCallback } from 'react';
+import { memo } from 'react';
 import { Grid, Stack, Button, Divider, Alert } from '@mui/material';
 import { useTranslation } from 'react-i18next';
 import AddOutlinedIcon from '@mui/icons-material/AddOutlined';
-import { useFieldArray, UseFormWatch, UseFormSetError, UseFormResetField } from 'react-hook-form';
-import { isEmpty } from 'lodash';
+import { useFieldArray } from 'react-hook-form';
 import { FromAsyncSelectProductOffer } from '../FromAsyncSelectProduct';
-import { FormTextField } from '@dfl/mui-react-common';
+import { Form, FormTextField } from '@dfl/mui-react-common';
 import OfferProductToIncludeList from './OfferProductToIncludeList';
+import useProductIncludeForm from 'modules/sales-offer/common/hooks/useProductIncludeForm';
 
 type OfferProductToIncludeFormRuleProps = {
   control: any;
-  watch: UseFormWatch<any>;
-  setError: UseFormSetError<any>;
-  resetField: UseFormResetField<any>;
   errors: any;
-  clearErrors: any;
+  name: string;
 };
 
-const OfferProductToIncludeFormRule = ({
-  control,
-  watch,
-  resetField,
-  setError,
-  errors,
-  clearErrors,
-}: OfferProductToIncludeFormRuleProps) => {
+const OfferProductToIncludeFormRule = ({ control: mainControl, errors, name }: OfferProductToIncludeFormRuleProps) => {
   const { t } = useTranslation('offerOrder');
-  const name = 'includeProducts';
-  const { fields, append, remove: removeRule } = useFieldArray({ control, name });
+  const { fields, append: appendProduct, remove: removeRule } = useFieldArray({ control: mainControl, name });
 
-  const addProductToInclude = useCallback(() => {
-    const product = watch('productToInclude');
-    const quantity = watch('quantityToInclude');
-
-    if (isEmpty(product)) {
-      setError('productToInclude', { type: 'required', message: 'offerOrder:error:productToInclude:product' });
-    } else {
-      resetField('productToInclude', { defaultValue: product });
-    }
-
-    if (isEmpty(quantity)) {
-      setError('quantityToInclude', { type: 'required', message: 'offerOrder:error:productToInclude:quantity' });
-    } else {
-      resetField('quantityToInclude', { defaultValue: quantity });
-    }
-
-    if (!isEmpty(product) && !isEmpty(quantity) && isEmpty(errors)) {
-      append({
-        product: watch('productToInclude')?._id,
-        quantity: watch('quantityToInclude'),
-      });
-      resetField('productToInclude', { defaultValue: null });
-      resetField('quantityToInclude', { defaultValue: 0 });
-      clearErrors();
-    }
-  }, [watch, errors, setError, resetField, append, clearErrors]);
+  const { control, onSubmit } = useProductIncludeForm(appendProduct);
 
   return (
-    <Stack gap={2}>
-      <Grid
-        container
-        spacing={{
-          xs: 1,
-          md: 2,
-        }}
-      >
-        <Grid item xs={12} md={5}>
-          <FromAsyncSelectProductOffer
-            placeholder={t('sections.productToInclude.product')}
-            disabled={false}
-            name={'productToInclude'}
-            label={t('sections.productToInclude.product')}
-          />
-        </Grid>
-        <Grid item xs={12} md={5}>
-          <FormTextField name={'quantityToInclude'} label={t('sections.productToInclude.quantity')} type='number' />
-        </Grid>
+    <Form control={control} size={'small'} id={'product-include-form'}>
+      <Stack gap={2}>
+        <Grid
+          container
+          spacing={{
+            xs: 1,
+            md: 2,
+          }}
+          columns={{ xs: 4, sm: 8, md: 12 }}
+        >
+          <Grid item xs={12} md={5}>
+            <FromAsyncSelectProductOffer
+              placeholder={t('sections.productToInclude.product')}
+              disabled={false}
+              name={'product'}
+              label={t('sections.productToInclude.product')}
+            />
+          </Grid>
+          <Grid item xs={12} md={4}>
+            <FormTextField name={'quantity'} label={t('sections.productToInclude.quantity')} type='number' />
+          </Grid>
 
-        <Grid item xs={12} md={2}>
-          <Button
-            onClick={addProductToInclude}
-            startIcon={<AddOutlinedIcon fontSize='inherit' />}
-            variant='contained'
-            sx={{
-              marginRight: 'auto',
-            }}
-          >
-            {t('sections.address.action')}
-          </Button>
+          <Grid item xs={12} md={3}>
+            <Button
+              form='product-include-form'
+              onClick={onSubmit}
+              startIcon={<AddOutlinedIcon fontSize='inherit' />}
+              variant='contained'
+              sx={{
+                marginRight: 'auto',
+              }}
+            >
+              {t('sections.address.action')}
+            </Button>
+          </Grid>
         </Grid>
-      </Grid>
-      <Divider />
-      {errors?.includeProducts?.type === 'min' ? (
-        <Alert severity='error'>{t(errors?.includeProducts?.message)}</Alert>
-      ) : (
-        <OfferProductToIncludeList fields={fields} removeRule={removeRule} />
-      )}
-    </Stack>
+        <Divider />
+        {errors?.includeProducts?.type === 'min' ? (
+          <Alert severity='error'>{t(errors?.includeProducts?.message)}</Alert>
+        ) : (
+          <OfferProductToIncludeList fields={fields} removeRule={removeRule} />
+        )}
+      </Stack>
+    </Form>
   );
 };
 

@@ -1,4 +1,4 @@
-import { memo, useMemo, useState } from 'react';
+import { memo, useMemo } from 'react';
 import { IOrder } from '../../interfaces/IOrder';
 import { Box, Button, ClickAwayListener, Divider, Stack, Typography, useMediaQuery, useTheme } from '@mui/material';
 import { ORDER_STATUS_TYPE_ENUM } from 'modules/sales/settings/order-status/constants';
@@ -18,53 +18,44 @@ const SubOrderStatusCell = ({ value }: Props) => {
   const { isOpen, onOpen, onClose } = useToggle(false);
   const theme = useTheme();
   const isResp = useMediaQuery(theme.breakpoints.down('sm'));
-  const [disableFocus, setDisableFocus] = useState(true);
 
-  const totalComplete = useMemo(() => {
+  const { label, isComplete } = useMemo(() => {
     let total = 0;
     value?.forEach((item) => {
       if (item?.status?.type === ORDER_STATUS_TYPE_ENUM.COMPLETED) total += 1;
     });
 
-    return `${total}/${value?.length}`;
+    return {
+      label: `${total}/${value?.length}`,
+      isComplete: value?.length === total,
+    };
   }, [value]);
-
-  const handleClickAway = () => {
-    setDisableFocus(false);
-  };
-  const handleOpen = () => {
-    onOpen();
-    setDisableFocus(true);
-  };
 
   if (value?.length === 0) return <div>-</div>;
 
-  // return <Chip label={totalComplete} sx={{ borderRadius: 1 }} />;
-
   return (
-    <ClickAwayListener onClickAway={handleClickAway} mouseEvent='onMouseDown' touchEvent='onTouchStart'>
+    <ClickAwayListener onClickAway={onClose} mouseEvent='onMouseDown' touchEvent='onTouchStart'>
       <Box>
         <CustomTooltip
-          PopperProps={{
-            disablePortal: true,
-          }}
           placement={isResp ? 'bottom' : 'bottom-start'}
           arrow
-          onClose={onClose}
           open={isOpen}
-          disableHoverListener
-          disableTouchListener
-          disableFocusListener={disableFocus}
           title={<SubOrderList subOrders={value} />}
         >
           <Button
             startIcon={<SubOrderIcon fontSize='inherit' />}
             variant='contained'
             size={'small'}
-            onClick={handleOpen}
-            sx={{ minWidth: 45, height: '100%', position: 'relative', textAlign: 'left' }}
+            onClick={onOpen}
+            sx={{
+              minWidth: 45,
+              height: '100%',
+              position: 'relative',
+              textAlign: 'left',
+              backgroundColor: isComplete ? 'primary.main' : '#5EC91277',
+            }}
           >
-            {totalComplete}
+            {label}
           </Button>
         </CustomTooltip>
       </Box>

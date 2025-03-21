@@ -1,9 +1,7 @@
 import { memo } from 'react';
 import { DISCOUNT_VALUE_TYPE, OFFER_TYPE } from '../../interfaces/offer.type.enum';
 import OfferProductToIncludeFormRule from '../OfferProductToInclude/OfferProductToIncludeFormRule';
-
 import { DiscountType } from '../DiscountType';
-import { UseFormResetField, UseFormSetError, UseFormWatch } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
 import { PanelSection } from '../PanelSection';
 import OfferTwoForOneFrom from '../OfferTwoForOne/OfferTwoForOneFrom';
@@ -13,30 +11,16 @@ type Props = {
   handleDiscountValueType: (env: any) => void;
 
   control: any;
-  watch: UseFormWatch<any>;
-  setError: UseFormSetError<any>;
-  resetField: UseFormResetField<any>;
   errors: any;
-  clearErrors: any;
 };
 
-const OfferTypeSection = ({
-  type,
-  discountValueType,
-  control,
-  setError,
-  resetField,
-  clearErrors,
-  watch,
-  errors,
-  handleDiscountValueType,
-}: Props) => {
+const OfferTypeSection = ({ type, discountValueType, handleDiscountValueType, control, errors }: Props) => {
   const { t } = useTranslation('offerOrder');
 
   if (type === OFFER_TYPE.INCLUDE_PRODUCT) {
     return (
       <PanelSection title={t('productToInclude')} titleMb={3}>
-        <OfferProductToIncludeFormRule {...{ setError, resetField, clearErrors, watch, control, errors }} />
+        <OfferProductToIncludeFormRule {...{ control, errors, name: 'includeProducts' }} />
       </PanelSection>
     );
   }

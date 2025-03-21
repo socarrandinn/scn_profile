@@ -13,9 +13,9 @@ type Props = {
 const RuleCategoryPrice = ({ rule, title, items }: Props) => {
   const { t } = useTranslation('offerOrder');
 
-  /* const getName = (_id: string) => {
+  const getName = (_id: string) => {
     return items?.find((c) => c?._id === _id)?.name || _id;
-  }; */
+  };
 
   if (!rule) return null;
 
@@ -31,15 +31,17 @@ const RuleCategoryPrice = ({ rule, title, items }: Props) => {
             </Typography>
           </StackContent>
         </StackSection>
-        <StackSection flexDirection={'column'}>
-          <HeaderTypography color={'white'}>{t('details.category')}</HeaderTypography>
-          {/*  <StackContent flexDirection={'row'} gap={1} flexWrap={'wrap'}>
-            {rule?.value?.category?.map((cat) => (
-              <Chip size='small' key={cat} label={getName(cat)} />
-            ))}
-          </StackContent> */}
-        </StackSection>
       </StackContainer>
+      {rule?.value?.map((cat: any) => (
+        <StackContainer key={cat?.category} flexDirection={'row'} gap={1}>
+          <HeaderTypography color={'white'}>{getName(cat?.category)}</HeaderTypography>
+          <StackContent sx={{ justifyContent: 'center', padding: 1 }}>
+            <Typography>
+              {t(`operator.${cat?.operator as string}`)} {cat?.amount}
+            </Typography>
+          </StackContent>
+        </StackContainer>
+      ))}
     </RuleLayout>
   );
 };
