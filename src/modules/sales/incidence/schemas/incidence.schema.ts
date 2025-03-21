@@ -20,13 +20,12 @@ export const incidenceSchema = Yup.object().shape({
   responsible: Yup.string().when('cause', {
     is: (cause: ICausesIncidence) => cause?.requiresResponsible,
     then: (schema) => schema.required('required'),
-    otherwise: (schema) => schema.strip(),
+    otherwise: (schema) => schema,
   }),
-
   evidence: Yup.array().when('cause', {
     is: (cause: ICausesIncidence) => cause?.requiresEvidence,
     then: (schema) =>
       schema.min(1, 'required').transform((values) => values?.map((file: IFile) => mapperFile(file)) || []),
-    otherwise: (schema) => schema.strip(),
+    otherwise: (schema) => schema.transform((values) => values?.map((file: IFile) => mapperFile(file)) || []),
   }),
 });

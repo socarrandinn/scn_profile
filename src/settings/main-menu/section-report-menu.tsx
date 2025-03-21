@@ -85,7 +85,7 @@ export const SECTION_REPORTS_MENU: Record<ROOT_MENU_WITHOUT_REPORTS, IMenu[]> = 
 
         {
           title: 'main_menu.admin.section.sales.issues',
-          path: '/reports/sales/issues',
+          path: '/reports/sales/incidences',
           partialMatch: true,
           icon: <OrderIssuesIcon fontSize='small' />,
           permissions: [WAREHOUSE_PERMISSIONS.WAREHOUSE_VIEW],

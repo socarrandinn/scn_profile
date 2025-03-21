@@ -18,8 +18,14 @@
     "description": "Description",
     "createdAt": "Created date",
     "active": "Active",
+    "incidence": "Incidence",
     "status": "Status",
-    "responsible": "Responsible"
+    "responsible": "Responsible",
+    "code": "Code",
+    "cause": "Cause",
+    "orderCode": "Order code",
+    "assignedTo": "Assigned to",
+    "createdBy": "Created by"
   },
   "status": {
     "OPEN": "To be done",

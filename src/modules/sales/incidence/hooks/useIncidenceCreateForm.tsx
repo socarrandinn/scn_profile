@@ -8,14 +8,16 @@ import { IIncidence } from 'modules/sales/incidence/interfaces';
 import { IncidenceService } from 'modules/sales/incidence/services';
 import { INCIDENCES_LIST_KEY } from 'modules/sales/incidence/constants';
 import { useEffect, useCallback } from 'react';
-import { INCIDENCE_STATUS } from '../constants/incidence-status';
+import { INCIDENCE_STATUS_ENUM } from '../constants/incidence-status';
+import { sub } from 'date-fns';
 
 export const emptyIncidence: IIncidence = {
-  name: '',
+  name: 'incidence',
   description: '',
   cause: { _id: '', name: '' },
   orderReference: '',
-  status: INCIDENCE_STATUS.OPEN,
+  responsible: '',
+  status: INCIDENCE_STATUS_ENUM.OPEN,
 };
 
 const useIncidenceCreateForm = (onClose: () => void, defaultValues: IIncidence = emptyIncidence) => {
@@ -47,7 +49,7 @@ const useIncidenceCreateForm = (onClose: () => void, defaultValues: IIncidence =
     data,
   } = useMutation(
     (incidence: IIncidence) => {
-      return IncidenceService.saveOrUpdate(incidence);
+      return IncidenceService.saveOrUpdate({ ...incidence, cause: incidence?.cause?._id, subCause: incidence?.subCause?._id });
     },
     {
       onSuccess: (data, values) => {

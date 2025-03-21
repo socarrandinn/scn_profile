@@ -6,7 +6,8 @@ import { components } from './components';
 export const RED = '#F84842';
 export const GREEN = '#65BE46';
 export const GRAY = '#646D82';
-export const WARNING = colors.deepOrange['500'];
+export const BLUE = '#37AEFF';
+export const WARNING = '#FDA20A';
 
 declare module '@mui/material/styles' {
   interface Palette {
