@@ -9,7 +9,6 @@ type Props = {
 };
 
 const OfferTwoForOneFrom = ({ control, errors, name }: Props) => {
-  console.log(errors, 'ssssss');
   return (
     <Stack gap={3}>
       <OfferTwoForOneFromRule control={control} errors={errors} name={name} />

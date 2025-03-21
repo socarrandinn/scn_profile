@@ -9,19 +9,20 @@ type Props = ChildrenProps & {
   open: boolean;
   onToggle: () => void;
   permissions?: string | string[];
+  disabled?: boolean;
 };
 
-const FormPaperAction = ({ onToggle, open, permissions }: Props) => {
+const FormPaperAction = ({ onToggle, open, permissions, disabled }: Props) => {
   const { t } = useTranslation('common');
 
   return (
     <PermissionCheck permissions={permissions as string}>
       {open ? (
-        <Button color='primary' onClick={onToggle}>
+        <Button color='primary' onClick={onToggle} disabled={disabled}>
           {t('common:close')}
         </Button>
       ) : (
-        <IconButton color='primary' tooltip={t('common:updateInfo')} onClick={onToggle}>
+        <IconButton disabled={disabled} color='primary' tooltip={t('common:updateInfo')} onClick={onToggle}>
           <Edit sx={{ fontSize: '17.586px' }} />
         </IconButton>
       )}

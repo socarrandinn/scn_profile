@@ -21,8 +21,7 @@ export const useFindOfferItem = (offer: any) => {
 
   const categoryIds = useMemo(() => {
     const categoryPriceRule = getRule(RULE_OFFER_FACT_TYPE.CATEGORY_PRICE);
-    const categoryRule = getRule(RULE_OFFER_FACT_TYPE.CATEGORY);
-    return [...(categoryPriceRule?.value?.category || []), ...(categoryRule?.value?.map((i: any) => i?.product) || [])];
+    return categoryPriceRule?.value?.map((i: any) => i?.category) || [];
   }, [getRule]);
 
   const productIds = useMemo(() => {

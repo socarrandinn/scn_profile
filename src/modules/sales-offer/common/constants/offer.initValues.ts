@@ -1,5 +1,4 @@
 import { ILocationMunicipality, ILocationProvince } from '@dfl/location';
-import { IProduct } from 'modules/inventory/common/interfaces';
 import { IOffer, IValueAddressRuleOffer } from 'modules/sales-offer/offer/interfaces';
 import { IClientOffer, ICommonOffer } from 'modules/sales-offer/offer/interfaces/IExtendOffer';
 import {
@@ -30,8 +29,6 @@ export const initOffer: IOffer = {
 };
 
 export const initRuleCommonOffer: ICommonOffer = {
-  // eslint-disable-next-line @typescript-eslint/consistent-type-assertions
-  productToInclude: {} as IProduct,
   rulesAmounts: {
     operator: OPERATOR_RULE_OFFER_TYPE.GREATER_THAN,
     fact: RULE_OFFER_FACT_TYPE.AMOUNT,

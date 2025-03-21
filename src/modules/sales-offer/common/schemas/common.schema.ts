@@ -12,3 +12,8 @@ export const offerTypeTwoForOneSchema = Yup.object().shape({
     .required('required')
     .transform((p) => p?._id || p),
 });
+
+export const offerProductIncludeSchema = Yup.object().shape({
+  product: Yup.string().required('required').transform((p) => p?._id || p),
+  quantity: Yup.number().positive('positiveNumber').integer('integerNumber').required('required'),
+});

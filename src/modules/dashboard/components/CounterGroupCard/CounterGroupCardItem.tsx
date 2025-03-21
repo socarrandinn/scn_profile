@@ -39,7 +39,12 @@ const CounterGroupCardItem = ({
         {loading ? (
           <Skeleton variant='circular' width={32} height={32} />
         ) : colorIcon ? (
-          <CustomIcon colorIcon={colorIcon}>
+          <CustomIcon
+            sx={{
+              border: (theme) => `2px solid ${colorIcon || theme.palette.primary.main}`,
+              backgroundColor: colorIcon,
+            }}
+          >
             <Icon fontSize={small ? 'small' : undefined} />{' '}
           </CustomIcon>
         ) : (

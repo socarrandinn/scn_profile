@@ -6,6 +6,7 @@ import {
   ListItem,
   ListItemAvatar,
   ListItemText,
+  Stack,
   styled,
   Tooltip,
   Typography,
@@ -33,6 +34,7 @@ export const ListItemCustom = styled(ListItem)(() => ({
   '& .MuiListItemText-root': {
     flex: 'none',
   },
+  flexWrap: 'wrap',
 }));
 
 type Props = {
@@ -63,31 +65,33 @@ const OfferTwoForOneFromItem = ({ removeRule, index, rule }: Props) => {
         </Tooltip>
       }
     >
-      <ListItemText
-        primary={<Typography sx={{ fontWeight: 600, width: 80 }}>{t(`twoForOneOperator.${rule?.type}`)}</Typography>}
-      />
-      <ListItemAvatar>
-        <ProductMedia
-          variant='rounded'
-          alt={buyProduct?.name}
-          src={getFullUrl(buyProduct?.media?.[0]?.thumb as string)}
-        >
-          <ShoppingBagOutlinedIcon />
-        </ProductMedia>
-      </ListItemAvatar>
-      <ListItemText
-        sx={{
-          width: 140,
-        }}
-        primary={<LongText fontWeight={600} lineClamp={1} maxCharacters={20} text={buyProduct?.name} />}
-        secondary={<TransTypography message='offerOrder:product' values={{ count: rule?.buyValue }} />}
-      />
+      <Stack flexDirection={'row'} alignItems={'center'}>
+        <ListItemText
+          primary={<Typography sx={{ fontWeight: 600, width: 80 }}>{t(`twoForOneOperator.${rule?.type}`)}</Typography>}
+        />
+        <ListItemAvatar>
+          <ProductMedia
+            variant='rounded'
+            alt={buyProduct?.name}
+            src={getFullUrl(buyProduct?.media?.[0]?.thumb as string)}
+          >
+            <ShoppingBagOutlinedIcon />
+          </ProductMedia>
+        </ListItemAvatar>
+        <ListItemText
+          sx={{
+            width: 100,
+          }}
+          primary={<LongText fontWeight={600} lineClamp={1} maxCharacters={20} text={buyProduct?.name} />}
+          secondary={<TransTypography message='offerOrder:product' values={{ count: rule?.buyValue }} />}
+        />
+      </Stack>
 
       <Divider
         flexItem
         orientation='horizontal'
         sx={{
-          width: 150,
+          width: 100,
           m: 'auto',
           fontWeight: 600,
           ':before, :after': {
@@ -98,24 +102,26 @@ const OfferTwoForOneFromItem = ({ removeRule, index, rule }: Props) => {
         {t('sections.twoForOne.recibe')}
       </Divider>
 
-      {/* get product */}
-      <ListItemAvatar>
-        <ProductMedia
-          variant='rounded'
-          alt={getProduct?.name}
-          src={getFullUrl(getProduct?.media?.[0]?.thumb as string)}
-        >
-          <ShoppingBagOutlinedIcon />
-        </ProductMedia>
-      </ListItemAvatar>
-      <ListItemText
-        sx={{
-          width: 140,
-          mr: 2,
-        }}
-        primary={<LongText fontWeight={600} lineClamp={1} maxCharacters={20} text={getProduct?.name} />}
-        secondary={<TransTypography message='offerOrder:product' values={{ count: rule?.getValue }} />}
-      />
+      <Stack flexDirection={'row'} alignItems={'center'}>
+        {/* get product */}
+        <ListItemAvatar>
+          <ProductMedia
+            variant='rounded'
+            alt={getProduct?.name}
+            src={getFullUrl(getProduct?.media?.[0]?.thumb as string)}
+          >
+            <ShoppingBagOutlinedIcon />
+          </ProductMedia>
+        </ListItemAvatar>
+        <ListItemText
+          sx={{
+            width: 100,
+            mr: 2,
+          }}
+          primary={<LongText fontWeight={600} lineClamp={1} maxCharacters={20} text={getProduct?.name} />}
+          secondary={<TransTypography message='offerOrder:product' values={{ count: rule?.getValue }} />}
+        />
+      </Stack>
     </ListItemCustom>
   );
 };

@@ -2,29 +2,28 @@ import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import toast from 'react-hot-toast';
 import { useTranslation } from 'react-i18next';
-import { useCallback, useEffect } from 'react';
+import { useEffect } from 'react';
 import { IOffer } from '../interfaces/IOffer';
 import { IExtendOffer } from '../interfaces/IExtendOffer';
-import { OFFER_TYPE } from '../interfaces/offer.type.enum';
 import { findMunicipalitiesByStates } from '@dfl/location';
-import { useNavigate } from 'react-router-dom';
 import { useMutation, useQueryClient } from '@tanstack/react-query';
-import { offerSchema } from '../schemas/offer.schema';
+import { offerRuleEditSchema } from '../schemas/offer.schema';
 import { useMapperOfferDiscountShipping } from './useMapperOfferDiscountShipping';
 import { OfferOrderService } from '../services';
 import { OFFERS_LIST_KEY } from '../constants';
-import { initOffer, initRuleClient, initRuleCommonOffer } from 'modules/sales-offer/common/constants/offer.initValues';
 import { scrollToFirstError } from 'utils/error-utils';
+import { COUPON_LIST_KEY } from 'modules/sales-offer/coupon/constants/coupon.queries';
 
-export const initOfferValues: IExtendOffer = {
-  ...initOffer,
-  ...initRuleCommonOffer,
-  ...initRuleClient,
+type IOfferRules = Partial<IExtendOffer>;
+type Props = {
+  defaultValues: IOfferRules;
+  onClose?: VoidFunction;
+  service?: any;
 };
 
-const useOfferCreateForm = (defaultValues: IExtendOffer = initOfferValues, onClose?: VoidFunction) => {
-  const { onProcessRules, onMapperValue } = useMapperOfferDiscountShipping();
-  const navigate = useNavigate();
+const useOfferRuleEditForm = ({ defaultValues, onClose, service = OfferOrderService }: Props) => {
+  const { onProcessRules } = useMapperOfferDiscountShipping();
+
   const { t } = useTranslation('offerOrder');
   const queryClient = useQueryClient();
 
@@ -39,19 +38,9 @@ const useOfferCreateForm = (defaultValues: IExtendOffer = initOfferValues, onClo
     formState: { errors },
     clearErrors,
   } = useForm({
-    resolver: yupResolver(offerSchema),
+    resolver: yupResolver(offerRuleEditSchema),
     defaultValues,
   });
-
-  const handleDiscountValueType = useCallback(
-    (env: any) => {
-      const TYPE = env.target.value;
-      if (TYPE) {
-        setValue('discountValue.type', TYPE);
-      }
-    },
-    [setValue],
-  );
 
   useEffect(() => {
     // @ts-ignore
@@ -59,15 +48,13 @@ const useOfferCreateForm = (defaultValues: IExtendOffer = initOfferValues, onClo
   }, [defaultValues, reset]);
 
   const { mutate, error, isLoading, isSuccess, data } = useMutation(
-    (payload: IOffer) => OfferOrderService.saveOrUpdate(payload),
+    (payload: IOffer) => service.saveOrUpdate(payload),
     {
       onSuccess: (data: IOffer, values: IOffer) => {
         queryClient.invalidateQueries([OFFERS_LIST_KEY]);
+        queryClient.invalidateQueries([COUPON_LIST_KEY]);
         values?._id && queryClient.invalidateQueries([values?._id]);
-        toast.success(t(values?._id ? 'successUpdate' : 'successCreated'));
-        if (!onClose) {
-          navigate('/sales/offers/settings/offer_orders');
-        }
+        toast.success(t('successRulesUpdate'));
         onClose?.();
         reset();
       },
@@ -87,9 +74,7 @@ const useOfferCreateForm = (defaultValues: IExtendOffer = initOfferValues, onClo
     resetField,
     errors,
     clearErrors,
-    type: watch('type'),
-    discountValueType: watch('discountValue.type'),
-    handleDiscountValueType,
+
     state: watch('rulesAddress.state'),
     municipality: findMunicipalitiesByStates(watch('rulesAddress.state')?.state),
     sections: watch('section'),
@@ -100,8 +85,6 @@ const useOfferCreateForm = (defaultValues: IExtendOffer = initOfferValues, onClo
 
         const newRule = {
           ...values,
-          includeProducts: values?.type === OFFER_TYPE.INCLUDE_PRODUCT ? values?.includeProducts : [],
-          discountValue: onMapperValue(values?.discountValue, values?.type),
           rules,
         };
         mutate(newRule as unknown as IOffer);
@@ -109,9 +92,9 @@ const useOfferCreateForm = (defaultValues: IExtendOffer = initOfferValues, onClo
 
       // get scroll to first error
       (errors) => {
-        scrollToFirstError(errors, 'offer-form');
+        scrollToFirstError(errors, 'offer-rules-form');
       },
     ),
   };
 };
-export default useOfferCreateForm;
+export default useOfferRuleEditForm;

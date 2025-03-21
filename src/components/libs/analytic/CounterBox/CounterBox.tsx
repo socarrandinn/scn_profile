@@ -56,11 +56,9 @@ const bgStyle = (variant: 'outlined' | 'contented' | undefined, color: COLOR | u
   return bgOutlinedStyle(color, palette);
 };
 
-const CustomIcon = styled(Box)<{ colorIcon: string }>(({ theme, colorIcon }) => ({
+const CustomIcon = styled(Box)(({ theme }) => ({
   display: 'flex',
-  border: `2px solid ${colorIcon || theme.palette.primary.main}`,
   borderRadius: '50%',
-  backgroundColor: colorIcon,
   color: theme.palette.background.paper,
   padding: 2,
   width: 42,
@@ -121,7 +119,12 @@ const CounterBox = ({
         {loading ? (
           <Skeleton variant='circular' width={32} height={32} />
         ) : colorIcon ? (
-          <CustomIcon colorIcon={colorIcon}>
+          <CustomIcon
+            sx={{
+              border: (theme) => `2px solid ${colorIcon || theme.palette.primary.main}`,
+              backgroundColor: colorIcon,
+            }}
+          >
             <Icon fontSize={small ? 'small' : undefined} />{' '}
           </CustomIcon>
         ) : (

@@ -1,7 +1,6 @@
 import { memo } from 'react';
 import { UseFormWatch } from 'react-hook-form';
 import OfferCategoryFromRule from './OfferCategoryFromRule';
-import { Stack } from '@mui/material';
 
 type OfferCategoryFromProps = {
   section: boolean;
@@ -15,9 +14,7 @@ type OfferCategoryFromProps = {
 
 const OfferCategoryFrom = ({ control, section, errors, clearErrors, ...props }: OfferCategoryFromProps) => {
   return (
-    <Stack gap={3}>
-      <OfferCategoryFromRule control={control} errors={errors} clearErrors={clearErrors} section={section} {...props} />
-    </Stack>
+    <OfferCategoryFromRule control={control} errors={errors} clearErrors={clearErrors} section={section} {...props} />
   );
 };
 

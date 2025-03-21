@@ -14,11 +14,9 @@ export const ItemHeaderContent = styled(Stack)(({ theme }) => ({
 
 export const ItemCurrencyContent = styled(Stack)(({ theme }) => ({}));
 
-export const CustomIcon = styled(Box)<{ colorIcon: string }>(({ theme, colorIcon }) => ({
+export const CustomIcon = styled(Box)(({ theme }) => ({
   display: 'flex',
-  border: `2px solid ${colorIcon || theme.palette.primary.main}`,
   borderRadius: '50%',
-  backgroundColor: colorIcon,
   color: theme.palette.background.paper,
   padding: 2,
 }));

@@ -77,7 +77,7 @@ const OfferCommonRulesContainer = ({ sections, ...props }: Props) => {
           titleMb={3}
           switchName={'section.quantityOrder'}
         >
-          <OfferQuantityOrderForm control={props?.control} section={sections?.quantityOrder} />
+          <OfferQuantityOrderForm control={props?.control} section={sections?.quantityOrder} errors={props?.errors} />
         </PanelEnableSection>
       </OfferGroupSection>
 
