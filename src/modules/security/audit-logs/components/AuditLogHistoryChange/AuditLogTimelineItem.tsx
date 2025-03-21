@@ -20,6 +20,8 @@ const AuditLogTimelineItem = ({ entity, index }: AuditLogTimelineItemProps) => {
   const fullName = useMemo(() => user && `${user?.firstName} ${user?.lastName}`, [user]);
   const handleEdit = useParamsLink({ entity: _id });
 
+  const isActive = useMemo(() => checkEntity === _id, [checkEntity, _id]);
+
   useEffect(() => {
     if (checkEntity === null && index === 0) {
       handleEdit?.();
@@ -34,7 +36,12 @@ const AuditLogTimelineItem = ({ entity, index }: AuditLogTimelineItemProps) => {
         <TimelineConnector sx={{ backgroundColor: 'primary.main' }} />
       </TimelineSeparator>
       <TimelineContent padding={1}>
-        <TimelineContentPaper active={checkEntity === _id} onClick={handleEdit}>
+        <TimelineContentPaper
+          onClick={handleEdit}
+          sx={{
+            border: (theme) => (isActive ? `2px solid ${theme.palette.primary.main}` : '2px solid transparent'),
+          }}
+        >
           <Stack flexDirection={{ xs: 'column', md: 'row' }} justifyContent={'space-between'} flexWrap={'wrap'}>
             <Typography mr={1} fontSize={15} fontWeight={600}>
               {fullName || '-'}

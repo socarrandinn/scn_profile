@@ -8,8 +8,8 @@ const AuditLogHistoryChangeSkeleton = () => {
     <Timeline>
       {Array(5)
         .fill('')
-        .map((sk) => (
-          <TimelineItem key={sk}>
+        .map((_, index) => (
+          <TimelineItem key={index}>
             <TimelineSeparator>
               <TimelineDot variant='filled' color='primary' />
               <TimelineConnector sx={{ backgroundColor: 'primary.main' }} />

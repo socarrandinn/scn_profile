@@ -24,8 +24,8 @@ const ReconciliationAdjustmentActions = ({ rowId, record }: ReconciliationAdjust
       <ConditionContainer
         active={!record?.conciliation}
         alternative={
-          <IconButton color='secondary' aria-label='details'>
-            <MonetizationOnOutlinedIcon onClick={handleDetails} />
+          <IconButton color='secondary' aria-label='details' onClick={handleDetails}>
+            <MonetizationOnOutlinedIcon />
           </IconButton>
         }
       >

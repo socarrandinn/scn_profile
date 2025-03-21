@@ -13,7 +13,7 @@ export const Timeline = styled(MuiTimeline)(() => ({
 
 export const TimelineItem = styled(MuiTimelineItem)(() => ({}));
 
-export const TimelineContentPaper = styled(Paper)<{ active: boolean }>(({ theme, active }) => ({
+export const TimelineContentPaper = styled(Paper)(({ theme }) => ({
   padding: '8px 8px 8px 12px',
   borderRadius: 6,
   border: `2px solid ${theme.palette.background.paper}`,
@@ -21,12 +21,7 @@ export const TimelineContentPaper = styled(Paper)<{ active: boolean }>(({ theme,
     border: `2px solid ${theme.palette.primary.main}`,
     cursor: 'pointer',
   },
-  ...(active && { border: `2px solid ${theme.palette.primary.main}` }),
 }));
-
-Timeline.defaultProps = {
-  position: 'right',
-};
 
 export const sxFormPaper: PaperProps = {
   sx: {
