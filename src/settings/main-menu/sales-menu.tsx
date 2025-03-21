@@ -60,7 +60,7 @@ export const SALES_MENU: IMenu[] = [
 
       {
         title: 'main_menu.admin.section.sales.issues',
-        path: '/sales/issues',
+        path: '/sales/incidences',
         partialMatch: true,
         icon: <OrderIssuesIcon fontSize='small' />,
         permissions: [WAREHOUSE_PERMISSIONS.WAREHOUSE_VIEW],
@@ -111,7 +111,7 @@ export const SALES_MENU: IMenu[] = [
 
       {
         title: 'main_menu.admin.section.sales.issues',
-        path: '/reports/sales/issues',
+        path: '/reports/sales/incidences',
         partialMatch: true,
         icon: <AssessmentOutlined fontSize='small' />,
         permissions: [WAREHOUSE_PERMISSIONS.WAREHOUSE_VIEW],

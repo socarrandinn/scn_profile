@@ -19,7 +19,12 @@
     "createdAt": "Fecha de creación",
     "active": "Activo",
     "status": "Estado",
-    "responsible": "Responsable"
+    "code": "Código",
+    "responsible": "Responsable",
+    "cause": "Causa",
+    "orderCode": "Código de la Orden",
+    "assignedTo": "Asignado a",
+    "createdBy": "Creado por"
   },
   "status": {
     "OPEN": "Por hacer",

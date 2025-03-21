@@ -8,6 +8,7 @@ import IncidenceEditModal from 'modules/sales/incidence/containers/IncidenceEdit
 
 const IncidenceListContainer = () => {
   const { isLoading, error, data } = useFindIncidences();
+
   return (
     <Box>
       <IncidenceListToolbar />

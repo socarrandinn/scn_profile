@@ -3,17 +3,40 @@ import { EditLink, HeadCell } from '@dfl/mui-admin-layout';
 import { IIncidence } from 'modules/sales/incidence/interfaces';
 import { createdATColumn } from 'modules/common/constants/common.columns';
 import { INCIDENCE_PERMISSIONS } from 'modules/sales/incidence/constants/incidence.permissions';
+import { IncidenceStatusPicker } from '../components/IncidenceStatusPicker';
+import { INCIDENCE_STATUS_ENUM } from './incidence-status';
 
-export const incidenceNameColumn: HeadCell<IIncidence> = {
+export const incidenceCodeColumn: HeadCell<IIncidence> = {
   field: 'name',
   headerName: 'incidence:fields.name',
   disablePadding: false,
   renderCell: (name: string, data?: IIncidence) => <EditLink entityId={data?._id as string}>{name}</EditLink>,
 };
 
-export const incidenceDescriptionColumn: HeadCell<IIncidence> = {
-  field: 'description',
-  headerName: 'incidence:fields.description',
+export const incidenceCauseColumn: HeadCell<IIncidence> = {
+  field: 'cause.name',
+  headerName: 'incidence:fields.cause',
+};
+
+export const incidenceOrderCodeColumn: HeadCell<IIncidence> = {
+  field: 'orderReference',
+  headerName: 'incidence:fields.orderCode',
+};
+
+export const incidenceAssignedToColumn: HeadCell<IIncidence> = {
+  field: 'assignedTo',
+  headerName: 'incidence:fields.assignedTo',
+};
+
+export const incidenceCreatedByColumn: HeadCell<IIncidence> = {
+  field: 'createdBy',
+  headerName: 'incidence:fields.createdBy',
+};
+
+export const incidenceStatusColumn: HeadCell<IIncidence> = {
+  field: 'status',
+  headerName: 'incidence:fields.orderCode',
+  renderCell: (value: INCIDENCE_STATUS_ENUM, data?: IIncidence) => <IncidenceStatusPicker rowId={data?._id as string} value={value} />,
 };
 
 export const incidenceActionsColumn: HeadCell<IIncidence> = {
@@ -27,8 +50,12 @@ export const incidenceActionsColumn: HeadCell<IIncidence> = {
 };
 
 export const incidenceColumns: Array<HeadCell<any>> = [
-  incidenceNameColumn,
-  incidenceDescriptionColumn,
+  incidenceCodeColumn,
+  incidenceCauseColumn,
+  incidenceOrderCodeColumn,
+  incidenceStatusColumn,
+  incidenceAssignedToColumn,
+  incidenceCreatedByColumn,
   createdATColumn,
   incidenceActionsColumn,
 ];

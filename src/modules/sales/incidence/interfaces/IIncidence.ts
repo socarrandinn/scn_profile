@@ -1,4 +1,6 @@
-import { INCIDENCE_STATUS } from '../constants/incidence-status';
+import { ICausesIncidence } from 'modules/sales/settings/causes-incidence/interfaces';
+import { INCIDENCE_STATUS_ENUM } from '../constants/incidence-status';
+import { IFile } from 'components/FileDropZone/interfaces/IFile';
 
 export interface IIncidence {
   _id?: string;
@@ -7,6 +9,7 @@ export interface IIncidence {
   orderReference?: string;
   cause?: any;
   subCause?: any;
-  status: INCIDENCE_STATUS;
+  status: INCIDENCE_STATUS_ENUM;
   responsible?: string;
+  evidence?: IFile;
 }
