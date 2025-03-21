@@ -4,7 +4,7 @@ import { IFile } from 'components/FileDropZone/interfaces/IFile';
 
 export interface IIncidence {
   _id?: string;
-  name: string;
+  name?: string;
   description: string;
   orderReference?: string;
   cause?: any;

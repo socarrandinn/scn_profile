@@ -12,10 +12,11 @@ import { INCIDENCE_STATUS_ENUM } from '../constants/incidence-status';
 import { sub } from 'date-fns';
 
 export const emptyIncidence: IIncidence = {
-  name: '',
+  name: 'incidence',
   description: '',
   cause: { _id: '', name: '' },
   orderReference: '',
+  responsible: '',
   status: INCIDENCE_STATUS_ENUM.OPEN,
 };
 

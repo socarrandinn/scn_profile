@@ -45,7 +45,7 @@ const IncidenceForm = () => {
         </div>
       </Grid>
       <Grid item xs={12}>
-        <SelectUser name='responsive' label={t('assignTo')} multiple={false} />
+        <SelectUser name='responsible' label={t('assignTo')} multiple={false} />
       </Grid>
       <Grid item xs={12}>
         <FileDropZone

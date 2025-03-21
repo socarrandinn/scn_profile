@@ -5,10 +5,11 @@ import { createdATColumn } from 'modules/common/constants/common.columns';
 import { INCIDENCE_PERMISSIONS } from 'modules/sales/incidence/constants/incidence.permissions';
 import { IncidenceStatusPicker } from '../components/IncidenceStatusPicker';
 import { INCIDENCE_STATUS_ENUM } from './incidence-status';
+import { ReactLink } from '@dfl/react-security';
 
 export const incidenceCodeColumn: HeadCell<IIncidence> = {
-  field: 'name',
-  headerName: 'incidence:fields.name',
+  field: 'code',
+  headerName: 'incidence:fields.code',
   disablePadding: false,
   renderCell: (name: string, data?: IIncidence) => <EditLink entityId={data?._id as string}>{name}</EditLink>,
 };
@@ -19,8 +20,11 @@ export const incidenceCauseColumn: HeadCell<IIncidence> = {
 };
 
 export const incidenceOrderCodeColumn: HeadCell<IIncidence> = {
-  field: 'orderReference',
+  field: 'orderReference.code',
   headerName: 'incidence:fields.orderCode',
+  renderCell: (value: string, data?: IIncidence) => (
+    <ReactLink to={`/sales/orders/${data?._id as string}/general`}>{value}</ReactLink>
+  ),
 };
 
 export const incidenceAssignedToColumn: HeadCell<IIncidence> = {
@@ -35,7 +39,7 @@ export const incidenceCreatedByColumn: HeadCell<IIncidence> = {
 
 export const incidenceStatusColumn: HeadCell<IIncidence> = {
   field: 'status',
-  headerName: 'incidence:fields.orderCode',
+  headerName: 'incidence:fields.status',
   renderCell: (value: INCIDENCE_STATUS_ENUM, data?: IIncidence) => <IncidenceStatusPicker rowId={data?._id as string} value={value} />,
 };
 

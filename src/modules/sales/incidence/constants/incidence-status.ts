@@ -1,5 +1,5 @@
 import { IStatus } from '@dfl/mui-react-common';
-import { GRAY, GREEN, RED, WARNING } from 'settings/theme';
+import { BLUE, GRAY, GREEN, RED, WARNING } from 'settings/theme';
 
 export enum INCIDENCE_STATUS_ENUM {
   OPEN = 'OPEN',
@@ -10,7 +10,7 @@ export enum INCIDENCE_STATUS_ENUM {
 
 export const INCIDENCE_STATUS: IStatus[] = [
   { _id: INCIDENCE_STATUS_ENUM.OPEN, title: 'status.OPEN', color: WARNING },
-  { _id: INCIDENCE_STATUS_ENUM.IN_REVIEW, title: 'status.IN_REVIEW', color: GRAY },
+  { _id: INCIDENCE_STATUS_ENUM.IN_REVIEW, title: 'status.IN_REVIEW', color: BLUE },
   { _id: INCIDENCE_STATUS_ENUM.RESOLVED, title: 'status.RESOLVED', color: GREEN },
   { _id: INCIDENCE_STATUS_ENUM.CLOSED, title: 'status.CLOSED', color: RED },
 ];
