@@ -13,32 +13,6 @@ const FormAddressAutocompleteAddress2Field = ({
   address,
   ...props
 }: FormAddressAutocompleteFieldProps) => {
-  const filters = useMemo(() => {
-    const provinceFilters = new TermFilter({
-      field: 'province.code',
-      value: address?.state ? +address?.state : null,
-      objectId: false,
-      isDate: false,
-    });
-    const municipalityFilters = new TermFilter({
-      field: 'municipality.code',
-      value: address?.city ? +address?.city : null,
-      objectId: false,
-      isDate: false,
-    });
-    const mainStreetFilters = new TermFilter({
-      field: 'mainStreet.code',
-      value: address?.address1 ? +address?.address1 : null,
-      objectId: false,
-      isDate: false,
-    });
-
-    return new OperatorFilter({
-      type: 'AND',
-      filters: [provinceFilters, municipalityFilters, mainStreetFilters],
-    })?.toQuery();
-  }, [address?.address1, address?.city, address?.state]);
-
   return (
     <FormAsyncSelectAutocompleteField
       {...props}
@@ -46,7 +20,14 @@ const FormAddressAutocompleteAddress2Field = ({
       required={required}
       label={label}
       name={name}
-      fetchFunc={(params) => AddressService.searchAddress2({ ...params, filters })}
+      fetchFunc={(params) =>
+        AddressService.searchAddress2({
+          ...params,
+          province: address?.state,
+          municipality: address?.city,
+          mainStreet: address?.address1,
+        })
+      }
       fetchValueFunc={(code) =>
         AddressService.getOneStreet({
           state: address?.state as string,

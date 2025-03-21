@@ -43,8 +43,8 @@ const AddressMapForm = ({
   const [isMarkerUpdatedManually, setIsMarkerUpdatedManually] = useState(false);
 
   useEffect(() => {
-    if (countryCode === 'CU' && !isLoading && cuLocation?.latitud && cuLocation?.longitud && !isMarkerUpdatedManually) {
-      const newMarker: [number, number] = [+cuLocation.latitud, +cuLocation.longitud];
+    if (countryCode === 'CU' && !isLoading && cuLocation?.coordinates?.[0] && cuLocation?.coordinates?.[1] && !isMarkerUpdatedManually) {
+      const newMarker: [number, number] = [+cuLocation?.coordinates?.[1], +cuLocation?.coordinates?.[0]];
 
       // Update only if the coordinates are different
       if (marker[0] !== newMarker[0] || marker[1] !== newMarker[1]) {
@@ -53,42 +53,24 @@ const AddressMapForm = ({
         setIsMarkerUpdatedManually(false); // Restablecer el estado manual
       }
     }
-  }, [
-    coordinates,
-    countryCode,
-    cuLocation?.latitud,
-    cuLocation?.longitud,
-    setValue,
-    isLoading,
-    isMarkerUpdatedManually,
-    marker,
-  ]);
+  }, [countryCode, cuLocation?.coordinates, isLoading, isMarkerUpdatedManually, marker, setValue]);
 
   useEffect(() => {
-    if (updateMarker && cuPoi?.data?.length > 0 && !isLoadingCuPoi) {
+    if (updateMarker && cuPoi > 0 && !isLoadingCuPoi) {
       if (cuPoi?.data?.mainStreet?.code) {
-        setValue?.('address.address1', cuPoi?.data?.mainStreet?.code);
+        setValue?.('address.address1', cuPoi?.address1);
       }
       if (cuPoi?.data?.street?.code) {
-        setValue?.('address.address2', cuPoi?.data?.street?.code);
+        setValue?.('address.address2', cuPoi?.address2);
       }
       if (cuPoi?.data?.municipality?.code) {
-        setValue?.('address.city', cuPoi?.data?.municipality?.code);
+        setValue?.('address.city', cuPoi?.city);
       }
       if (cuPoi?.data?.province?.code) {
-        setValue?.('address.state', cuPoi?.data?.province?.code);
+        setValue?.('address.state', cuPoi?.state);
       }
     }
-  }, [
-    cuPoi?.data?.length,
-    cuPoi?.data?.mainStreet?.code,
-    cuPoi?.data?.municipality?.code,
-    cuPoi?.data?.province?.code,
-    cuPoi?.data?.street?.code,
-    isLoadingCuPoi,
-    setValue,
-    updateMarker,
-  ]);
+  }, [cuPoi, isLoadingCuPoi, setValue, updateMarker]);
 
   useEffect(() => {
     if (cuPoi?.data?.length > 0) {

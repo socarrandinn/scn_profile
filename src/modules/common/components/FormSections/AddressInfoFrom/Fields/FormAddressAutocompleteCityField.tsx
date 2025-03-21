@@ -19,7 +19,7 @@ const FormAddressAutocompleteCityField = ({
       label={label}
       name={name}
       fetchFunc={() => AddressService.searchCity(address?.state as string)}
-      fetchValueFunc={AddressService.getOneCity}
+      fetchValueFunc={city => AddressService.getOneCity(address?.state || '', city)}
       loadValue
       queryKey={`${ADDRESS_CITY_LIST_KEY}-${address?.state as string}`}
       key={`${ADDRESS_CITY_LIST_KEY}-${address?.state as string}`}
