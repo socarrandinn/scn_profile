@@ -1,9 +1,8 @@
-import { memo, useMemo } from 'react';
+import { memo } from 'react';
 import { FormAsyncSelectAutocompleteField } from '@dfl/mui-react-common';
 import { AddressService } from 'modules/common/service';
 import { ADDRESS_ADDRESS2_LIST_KEY } from 'modules/common/constants/address.queries';
 import { FormAddressAutocompleteFieldProps, isOptionEqualToValue, renderLabel, renderOption } from './common';
-import { OperatorFilter, TermFilter } from '@dofleini/query-builder';
 
 const FormAddressAutocompleteAddress2Field = ({
   name,
