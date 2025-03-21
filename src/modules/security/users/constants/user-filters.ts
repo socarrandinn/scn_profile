@@ -7,6 +7,8 @@ import { USER_INVITE_STATUS, USER_STATUS } from './user-status.enum';
 import { SPACE_TYPE, SPACE_TYPES_MAP } from './space-types.constants';
 import { ROLES_LIST_KEY } from 'modules/security/roles/constants/queries';
 import { transformWhitObjectId } from 'modules/common/constants/object-id';
+import { UserAdminService } from '../services';
+import { USERS_CLEAN_LIST_KEY } from './queries';
 
 export const userStatusFilter: Filter = {
   filter: 'users:status',
@@ -64,6 +66,18 @@ export const acceptedATFilter: Filter = {
   key: 'acceptedAt',
   field: 'acceptedAt',
 };
+
+export const userAdminFilter = (field?: string, nameField?: string): Filter => ({
+  filter: nameField || 'common:user',
+  translate: true,
+  type: FilterType.DYNAMIC_LIST,
+  key: 'logistic',
+  labelKey: 'name',
+  field: field || 'user._id',
+  fetchFunc: UserAdminService.searchClean,
+  fetchOption: { size: 10 },
+  queryKey: USERS_CLEAN_LIST_KEY,
+});
 
 export const userFilters = (type: SPACE_TYPE) => [
   phoneFilter,

@@ -18,6 +18,7 @@
     "description": "Description",
     "createdAt": "Created date",
     "active": "Active",
+    "incidence": "Incidence",
     "status": "Status",
     "responsible": "Responsible",
     "code": "Code",

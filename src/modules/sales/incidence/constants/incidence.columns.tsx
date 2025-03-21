@@ -9,7 +9,7 @@ import { ReactLink } from '@dfl/react-security';
 
 export const incidenceCodeColumn: HeadCell<IIncidence> = {
   field: 'code',
-  headerName: 'incidence:fields.code',
+  headerName: 'incidence:fields.incidence',
   disablePadding: false,
   renderCell: (name: string, data?: IIncidence) => <EditLink entityId={data?._id as string}>{name}</EditLink>,
 };

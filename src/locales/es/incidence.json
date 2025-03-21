@@ -22,6 +22,7 @@
     "code": "Código",
     "responsible": "Responsable",
     "cause": "Causa",
+    "incidence": "Incidencia",
     "orderCode": "Código de la Orden",
     "assignedTo": "Asignado a",
     "createdBy": "Creado por"
