@@ -16,16 +16,16 @@ const useFindCuLocation = ({ address }: Props) => {
   const data = useMemo(() => {
     return {
       // @ts-ignore
-      address1: address?.address1?.code,
+      address1: address?.address1?.code?.toString() || address?.address1?.toString(),
       // @ts-ignore
-      address2: address?.address2?.code,
+      address2: address?.address2?.code?.toString() || address?.address2?.toString(),
       // @ts-ignore
-      city: address?.city?.code,
+      city: address?.city?.code?.toString() || address?.city?.toString(),
       // @ts-ignore
-      state: address?.state?.code,
+      state: address?.state?.code?.toString() || address?.state?.toString(),
     };
     // @ts-ignore
-  }, [address?.address1?.code, address?.address2?.code, address?.city?.code, address?.state?.code]);
+  }, [address?.address1, address?.address2, address?.city, address?.state]);
 
   return useQuery({
     queryKey: ['findCuLocation', data],

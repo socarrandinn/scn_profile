@@ -2,10 +2,10 @@ import { FormTextField, HandlerError } from '@dfl/mui-react-common';
 import { Grid } from '@mui/material';
 import { ERRORS } from 'constants/errors';
 import {
+  FormAddressAutocompleteAddress1Field,
   FormAddressAutocompleteAddress2Field,
   FormAddressAutocompleteCityField,
   FormAddressAutocompleteStateField,
-  FormAddressAutocompleteAddress1Field,
 } from 'modules/common/components/FormSections/AddressInfoFrom/Fields';
 
 import { memo } from 'react';

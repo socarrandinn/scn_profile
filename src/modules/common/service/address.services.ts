@@ -26,45 +26,41 @@ class AddressService extends EntityApiService<IAddress> {
     return Promise.reject(new Error('You must need a state code'));
   };
 
-  searchAddress1 = (params: any): Promise<SearchResponseType<any>> => {
+  searchAddress1 = (params: {
+    province: string;
+    municipality: string;
+    size: number;
+    search?: string;
+  }): Promise<SearchResponseType<any>> => {
     return this.handleSearchResponse(
-      ApiClientService.post(this.getPath('/main-streets/search'), params, addConfig({})),
+      ApiClientService.get(
+        this.getPath(
+          `/provinces/${params?.province}/municipalities/${params?.municipality}/streets?q=${params?.search || ''}`,
+        ),
+        addConfig({}),
+      ),
       params?.size || 10,
     );
   };
 
-  searchAddress2 = (params: any): Promise<SearchResponseType<any>> => {
+  searchAddress2 = (params: {
+    province: string;
+    municipality: string;
+    mainStreet: string;
+    size: number;
+    search?: string;
+  }): Promise<SearchResponseType<any>> => {
     return this.handleSearchResponse(
-      ApiClientService.post(this.getPath('/streets/search'), params, addConfig({})),
+      ApiClientService.get(
+        this.getPath(
+          `/provinces/${params?.province}/municipalities/${params?.municipality}/streets/${
+            params?.mainStreet
+          }/between-streets?q=${params?.search || ''}`,
+        ),
+        addConfig({}),
+      ),
       params?.size || 10,
     );
-  };
-
-  getAddress1 = (address: Pick<IAddress, 'state' | 'city'>): Promise<SearchResponseType<any>> => {
-    if (address?.city && address?.state) {
-      return this.handleSearchResponse(
-        ApiClientService.get(
-          this.getPath(`/provinces/${address?.state}/municipalities/${address?.city}`),
-          addConfig({}),
-        ),
-        10,
-      );
-    }
-    return Promise.reject(new Error('You must need a country, state and city code'));
-  };
-
-  getAddress2 = (address: Pick<IAddress, 'state' | 'city' | 'address1'>): Promise<SearchResponseType<any>> => {
-    if (address?.city && address?.address1 && address?.state) {
-      const { state, city, address1 } = address;
-      return this.handleSearchResponse(
-        ApiClientService.get(
-          this.getPath(`/provinces/${state}/municipalities/${city}/main-street/${address1}`),
-          addConfig({}),
-        ),
-        10,
-      );
-    }
-    return Promise.reject(new Error('You must need a country, state, city and address1 code'));
   };
 
   /* get one state */
@@ -73,9 +69,11 @@ class AddressService extends EntityApiService<IAddress> {
   };
 
   /* get one state */
-  getOneCity = (code: string): Promise<any> => {
-    if (code) {
-      return this.handleResponse(ApiClientService.get(this.getPath(`/municipalities/${code}`), addConfig({})));
+  getOneCity = (state: string, code: string): Promise<any> => {
+    if (state && code) {
+      return this.handleResponse(
+        ApiClientService.get(this.getPath(`/provinces/${state}/municipalities/${code}`), addConfig({})),
+      );
     }
     return Promise.reject(new Error('You must need a code'));
   };
@@ -85,7 +83,7 @@ class AddressService extends EntityApiService<IAddress> {
     if (address) {
       return this.handleResponse(
         ApiClientService.get(
-          this.getPath(`/main-streets/${address?.state}/${address?.city}/${address?.address1} `),
+          this.getPath(`/provinces/${address?.state}/municipalities/${address?.city}/streets/${address?.address1}`),
           addConfig({}),
         ),
       );
@@ -99,7 +97,7 @@ class AddressService extends EntityApiService<IAddress> {
       return this.handleResponse(
         ApiClientService.get(
           this.getPath(
-            `/streets/${address?.state}/${address?.city}/${address?.address1}/${address?.address2 as string}`,
+            `/provinces/${address?.state}/municipalities/${address?.city}/streets/${address?.address1}/between-streets/${address?.address2 || ''}`,
           ),
           addConfig({}),
         ),
@@ -114,9 +112,7 @@ class AddressService extends EntityApiService<IAddress> {
       return this.handleResponse(
         ApiClientService.get(
           this.getPath(
-            `/locations/provinces/${address?.state}/municipalities/${address?.city}/main-street/${
-              address?.address1
-            }/streets/${address?.address2 || ''}`,
+            `/addresses/point/${address?.state + address?.city + address?.address1 + (address?.address2 || '')}`,
           ),
           addConfig({}),
         ),
@@ -128,7 +124,7 @@ class AddressService extends EntityApiService<IAddress> {
   getCuPoi = (lng: number, lat: number): Promise<any> => {
     if (lng && lat) {
       return this.handleResponse(
-        ApiClientService.get(this.getPath(`/locations?long=${lng}&lat=${lat}`), addConfig({})),
+        ApiClientService.get(this.getPath(`/addresses/point/reverse/${lng}/${lat}`), addConfig({})),
       );
     }
     return Promise.reject(new Error('You must need a longitude and latitude'));
