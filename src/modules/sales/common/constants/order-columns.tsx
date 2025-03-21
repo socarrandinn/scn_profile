@@ -14,6 +14,7 @@ import {
 import { OrderPaymentMethod } from '../components/OrderPaymentMethod';
 import { FormattedAddressCell } from 'components/AddressCell';
 import SubOrderStatusCell from '../components/SubOrderStatusCell/SubOrderStatusCell';
+import { preOrderCodeColumn } from 'modules/sales/pre-order/constants';
 
 const orderLocationColumn: HeadCell<IOrder> = {
   field: 'shipping',
@@ -136,7 +137,7 @@ export const paidOrderColumns: Array<HeadCell<any>> = [
 ];
 
 export const preOrderColumns: Array<HeadCell<any>> = [
-  paidOrderCodeColumn,
+  preOrderCodeColumn,
   orderLocationColumn,
   orderStatusColumn,
   orderTotalProductColumns,
