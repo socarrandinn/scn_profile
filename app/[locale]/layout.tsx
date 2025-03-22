@@ -1,7 +1,6 @@
 import "../css/globals.css";
 import type { Metadata } from "next";
-import localFont from "next/font/local";
-import DataFlowBackground from "@/components/utils/CyberBackground";
+import localFont from "next/font/local"; 
 import Section from "@/components/containers/section";
 import { ThemeProvider } from "@/components/theme-provider";
 import NextTopLoader from 'nextjs-toploader';  
@@ -67,7 +66,7 @@ export default function RootLayout({
           <Section>
             {children}
           </Section>
-          <DataFlowBackground />
+         
         </ThemeProvider>
       </body>
     </html>

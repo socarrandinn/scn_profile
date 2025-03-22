@@ -10,7 +10,7 @@ type Props={
   title: string
   className?: string
 }
-const ExperienceHeader = ({icon, title, className}:Props) => {
+const SectionHeader = ({icon, title, className}:Props) => {
 
   return (
     <div className={cn('flex flex-row items-center gap-4 fade-line-bottom pb-4', className)}>
@@ -24,4 +24,4 @@ const ExperienceHeader = ({icon, title, className}:Props) => {
   )
 }
 
-export default ExperienceHeader
+export default SectionHeader

@@ -3,7 +3,38 @@
   "section": {
     "experience": "Experiencia Laboral",
     "education": "Educación",
-    "skills": "Habilidades"
+    "skills": "Habilidades",
+    "quote":"Cita"
   },
-  "experience": {}
+  "skills": {
+    "code": "Codificación",
+    "knowledge": "Conocimiento",
+    "frontend": "Frontend",
+    "backend": "Backend",
+    "mobile": "Frontend Móvil",
+    "languages": "Lenguaje"
+  },
+  "knowledge": [
+    "Alojamiento de sitios web",
+    "Optimización SEO",
+    "Diseño responsivo",
+    "HTML, CSS3, Typescript",
+    "Sitios web estáticos y dinámicos",
+    "Arquitectura limpia",
+    "Optimización de rendimiento",
+    "Micro Front-ends",
+    "Renderizado del lado del servidor",
+    "Micro-servicios",
+    "Control de versiones (Git)"
+  ],
+  "language": [
+    {
+      "name": "Español",
+      "level": 10
+    },
+    {
+      "name": "Inglés",
+      "level": 4
+    }
+  ]
 }
