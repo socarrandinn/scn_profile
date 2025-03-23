@@ -23,9 +23,9 @@ const AboutMe = () => {
       </section>
 
       <section className='mt-4 md:mt-8'>
-        <PageHeader variant='compuse' title={'resumen:section.quote'} className='fade-line-bottom' />
+        <PageHeader variant='compuse' title='resumen:section.quote' className='fade-line-bottom' />
         <CardContent>
-          <QuoteContent autor='Ryan Adlard' rol='Frontend Developer' image='/images/resumen/quote-avatar.webp' quote='Gravida tempor dictumst scelerisque ad volutpat porta sem maximus litora massa nisi natoque lobortis' />
+          <QuoteContent autor='Miguel Ángel Durán' rol='resumen:quote.rol' image='/images/resumen/midudev.webp' quote='resumen:quote.quote' />
         </CardContent>
       </section>
     </PageContainer>

@@ -2,10 +2,6 @@
    @apply fixed top-0 left-0 w-full h-full pointer-events-none z-[9999];
  }
 
- .cursor-main {
-   @apply fixed w-4 h-4 rounded-full bg-primary mix-blend-screen pointer-events-none;
- }
-
  .cursor-trail {
-   @apply fixed w-[40px] h-[40px] rounded-full bg-transparent border-2 border-primary mix-blend-screen pointer-events-none;
+   @apply fixed w-12 h-12 rounded-full bg-transparent border-2 border-primary mix-blend-screen pointer-events-none;
  }

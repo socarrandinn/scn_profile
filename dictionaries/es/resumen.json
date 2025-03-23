@@ -4,14 +4,12 @@
     "experience": "Experiencia Laboral",
     "education": "Educación",
     "skills": "Habilidades",
-    "quote":"Cita"
+    "quote": "Cita"
   },
   "skills": {
     "code": "Codificación",
     "knowledge": "Conocimiento",
-    "frontend": "Frontend",
-    "backend": "Backend",
-    "mobile": "Frontend Móvil",
+    "tools": "Herramientas",
     "languages": "Lenguaje"
   },
   "knowledge": [
@@ -27,6 +25,24 @@
     "Micro-servicios",
     "Control de versiones (Git)"
   ],
+  "types": {
+    "All": "Todos",
+    "Backend": "Backend",
+    "Frontend": "Frontend",
+    "Database": "Base de datos",
+    "Mobile": "Móvil",
+    "Tool": "Herramienta",
+    "Language": "Lenguaje",
+    "Library": "Librería",
+    "Framework": "Framework",
+    "Software": "Software",
+    "Other": "Otro",
+    "Ai": "Inteligencia artificial"
+  },
+  "quote": {
+    "quote": "No te preocupes por aprender todos los frameworks, preocúpate por entender bien JavaScript.",
+    "rol":"Programación JavaScript y Desarrollo Web. Reconocido Google Developer Expert, Microsoft MVP y GitHub Star"
+  },
   "language": [
     {
       "name": "Español",
