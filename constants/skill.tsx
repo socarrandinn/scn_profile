@@ -1,5 +1,6 @@
 import AstroIcon from "@/components/icons/services/astro-icon";
 import ChatGPTIcon from "@/components/icons/services/chat-gpt-icon";
+import ClaudeAI from "@/components/icons/services/claude-ai-icon";
 import DeepSeekIcon from "@/components/icons/services/deppseek-icon";
 import DockerIcon from "@/components/icons/services/docker-icon";
 import DrizzleORMIcon from "@/components/icons/services/drizzle-orm-icon";
@@ -94,8 +95,9 @@ export const tools: SkillProps[] = [
   { name: "Photoshop", percentage: 50, icon: <PhotoshopIcon />, type: ToolType.Software },
   { name: "Obsidian", percentage: 50, icon: <ObsidianIcon />, type: ToolType.Software },
   { name: "Docker", percentage: 50, icon: <DockerIcon />, type: ToolType.Software },
-  { name: "DeepSeek", percentage: 50, icon: <DeepSeekIcon />, type: ToolType.Ai },
-  { name: "ChatGPT", percentage: 50, icon: <ChatGPTIcon />, type: ToolType.Ai },
+  { name: "DeepSeek", percentage: 90, icon: <DeepSeekIcon />, type: ToolType.Ai },
+  { name: "ClaudeAi", percentage: 90, icon: <ClaudeAI />, type: ToolType.Ai },
+  { name: "ChatGPT", percentage: 90, icon: <ChatGPTIcon />, type: ToolType.Ai },
   { name: "Git", percentage: 50, icon: <GitIcon />, type: ToolType.Software },
   { name: "GitLab", percentage: 50, icon: <GitLabIcon />, type: ToolType.Software },
   { name: "GitHub", percentage: 50, icon: <GithubIcon />, type: ToolType.Software },
