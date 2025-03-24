@@ -96,7 +96,6 @@ const useOfferRuleEditForm = ({ defaultValues, onClose, isCoupon }: Props) => {
           rules,
         };
 
-        console.log(onParseOffer(newRule as IExtendOffer));
         mutate(onParseOffer(newRule as IExtendOffer));
       },
 

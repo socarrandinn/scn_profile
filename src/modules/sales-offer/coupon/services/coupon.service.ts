@@ -4,7 +4,7 @@ import { IOffer } from 'modules/sales-offer/offer/interfaces';
 class CouponOrderService extends EntityApiService<IOffer> {
   generalInfo = (payload: Partial<IOffer>) => {
     const { _id, ...rest } = payload;
-    console.log(rest)
+
     if (_id) {
       return ApiClientService.patch(this.getPath(`/${_id}/general-info`), rest);
     }
