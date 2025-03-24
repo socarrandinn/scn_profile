@@ -52,6 +52,7 @@ const OfferRuleEditContainer = ({ onClose }: Props) => {
     );
 
     _offerRules = {
+      _id: offer._id,
       ...offer.rulesClientUsage,
       ...offer.section,
       rulesClientUsage,

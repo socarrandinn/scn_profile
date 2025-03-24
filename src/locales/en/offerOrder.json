@@ -10,6 +10,7 @@
   "successUpdate": "Offer successfully updated",
   "successMessageUpdate": "Offer message successfully customized",
   "successGeneralUpdate": "General data successfully updated",
+  "successRulesUpdate": "Rules successfully updated",
   "successCreated": "Offer successfully created",
   "name": "Name",
   "regulation": "The rules below define whether an order qualifies for a specific offer",

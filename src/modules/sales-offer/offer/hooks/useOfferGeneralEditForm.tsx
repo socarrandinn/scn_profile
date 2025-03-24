@@ -11,16 +11,17 @@ import { OfferOrderService } from '../services';
 import { OFFERS_LIST_KEY } from '../constants';
 import { scrollToFirstError } from 'utils/error-utils';
 import { COUPON_LIST_KEY } from 'modules/sales-offer/coupon/constants/coupon.queries';
+import { CouponOrderService } from 'modules/sales-offer/coupon/services';
 
 type IOfferRules = Partial<IExtendOffer>;
 
 type Props = {
   defaultValues: IOfferRules;
   onClose?: VoidFunction;
-  service?: any;
+  isCoupon?: boolean;
 };
 
-const useOfferGeneralEditForm = ({ defaultValues, onClose, service = OfferOrderService }: Props) => {
+const useOfferGeneralEditForm = ({ defaultValues, onClose, isCoupon }: Props) => {
   const { t } = useTranslation('offerOrder');
   const queryClient = useQueryClient();
 
@@ -55,7 +56,14 @@ const useOfferGeneralEditForm = ({ defaultValues, onClose, service = OfferOrderS
   }, [defaultValues, reset]);
 
   const { mutate, error, isLoading, isSuccess, data } = useMutation(
-    (payload: IOffer) => service.saveOrUpdate(payload),
+    // @ts-ignore
+    (payload: IOffer) => {
+      if (isCoupon) {
+        return CouponOrderService.generalInfo(payload);
+      }
+      return OfferOrderService.generalInfo(payload);
+    },
+
     {
       onSuccess: (data: IOffer, values: IOffer) => {
         queryClient.invalidateQueries([OFFERS_LIST_KEY]);
@@ -87,10 +95,7 @@ const useOfferGeneralEditForm = ({ defaultValues, onClose, service = OfferOrderS
     // @ts-ignore
     onSubmit: handleSubmit(
       (values) => {
-        const newRule = {
-          values,
-        };
-        mutate(newRule as unknown as IOffer);
+        mutate(values as unknown as IOffer);
       },
 
       // get scroll to first error

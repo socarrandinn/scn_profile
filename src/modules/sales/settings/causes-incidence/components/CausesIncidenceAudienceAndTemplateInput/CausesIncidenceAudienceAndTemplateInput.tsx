@@ -72,6 +72,7 @@ const CausesIncidenceAudienceAndTemplateInput = ({ control }: ICausesIncidenceAu
                   key={field.id}
                   fields={selectedTarget}
                   index={index}
+                  required
                 />
 
                 <FormTextField

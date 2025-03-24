@@ -1,7 +1,7 @@
 import { Box, Chip, FormControl, MenuItem } from '@mui/material';
 import { Controller } from 'react-hook-form';
 import { INCIDENCE_AUDIENCE_TARGET } from '../../interfaces';
-import { useEffect, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { FormSelectField } from '@dfl/mui-react-common';
 
@@ -10,9 +10,10 @@ type Props = {
   fields: any;
   index: number;
   control: any;
+  required?: boolean;
 };
 
-const CausesIncidenceAudienceTargetSelect = ({ control, name, fields, index }: Props) => {
+const CausesIncidenceAudienceTargetSelect = ({ control, name, fields, index, required = false }: Props) => {
   const [availableOptions, setAvailableOptions] = useState<string[]>([]);
   const { t } = useTranslation('causesIncidence');
 
@@ -23,6 +24,11 @@ const CausesIncidenceAudienceTargetSelect = ({ control, name, fields, index }: P
 
   const renderLabel = (option: string) => t(`fields.target.${option}`);
 
+  const _label = useMemo(
+    () => (required ? t('notification.audience') + '*' : t('notification.audience')),
+    [required, t],
+  );
+
   return (
     <FormControl fullWidth>
       <Controller
@@ -32,8 +38,9 @@ const CausesIncidenceAudienceTargetSelect = ({ control, name, fields, index }: P
           return (
             <FormSelectField
               size='small'
+              required={required}
               name={name}
-              label={t('notification.audience')}
+              label={_label}
               multiple
               onChange={(event) => {
                 field.onChange(event.target.value);

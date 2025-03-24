@@ -11,7 +11,6 @@ import { pick } from 'lodash';
 import OfferEditForm from '../../components/OfferForm/OfferEditForm';
 import { OFFER_TYPE } from '../../interfaces/offer.type.enum';
 import { Box } from '@mui/material';
-import { CouponOrderService } from 'modules/sales-offer/coupon/services';
 
 type Props = {
   onClose: () => void;
@@ -22,6 +21,7 @@ const OfferGeneralEditContainer = ({ onClose }: Props) => {
   const _initVale = useMemo(
     () =>
       pick(offer, [
+        '_id',
         'name',
         'always',
         'type',
@@ -33,16 +33,9 @@ const OfferGeneralEditContainer = ({ onClose }: Props) => {
       ]),
     [offer],
   );
-  const {
-    error,
-    isLoading,
-    control,
-    onSubmit,
-    errors,
-    type,
-    discountValueType,
-    handleDiscountValueType,
-  } = useOfferGeneralEditForm({ defaultValues: _initVale, onClose, service: isCoupon && CouponOrderService });
+
+  const { error, isLoading, control, onSubmit, errors, type, discountValueType, handleDiscountValueType } =
+    useOfferGeneralEditForm({ defaultValues: _initVale, onClose, isCoupon });
   return (
     <Box sx={{ mt: 2 }}>
       <OfferEditForm

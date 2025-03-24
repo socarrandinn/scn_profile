@@ -1,0 +1,15 @@
+{
+  "list": "Pagos por acuerdo",
+  "create": "Crear nuevo pagos por acuerdo",
+  "deleteMany": "Debe tener pagos por acuerdo seleccionados para realizar esta operación",
+  "edit": "Editar Pagos por acuerdo",
+  "successDeleted": "Pagos por acuerdo eliminado satisfactoriamente",
+  "successUpdate": "Pagos por acuerdo actualizado satisfactoriamente",
+  "successCreated": "Pagos por acuerdo creado satisfactoriamente",
+  "fields": {
+    "name": "Nombre",
+    "description": "Descripción",
+    "createdAt": "Fecha de creación",
+    "active": "Activo"
+  }
+}

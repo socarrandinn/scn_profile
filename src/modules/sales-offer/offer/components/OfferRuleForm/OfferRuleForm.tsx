@@ -9,12 +9,12 @@ import { Stack } from '@mui/material';
 import { useOfferContext } from '../../contexts/OfferContext';
 import { useCallback } from 'react';
 import OfferFormActions from '../OfferFormAction/OfferFormActions';
-import { CouponOrderService } from 'modules/sales-offer/coupon/services';
 
 type Props = {
   offer: IClientOffer & ICommonOffer;
   onClose: () => void;
 };
+
 const OfferRuleForm = ({ offer, onClose }: Props) => {
   const { t } = useTranslation('offerOrder');
   const { isCoupon } = useOfferContext();
@@ -34,7 +34,7 @@ const OfferRuleForm = ({ offer, onClose }: Props) => {
     state,
     municipality,
     setError,
-  } = useOfferRuleEditForm({ defaultValues: offer, onClose, service: isCoupon && CouponOrderService });
+  } = useOfferRuleEditForm({ defaultValues: offer, onClose, isCoupon });
 
   const someRule = Object.values(sections ?? {})?.some(Boolean);
   return (

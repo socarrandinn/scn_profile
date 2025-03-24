@@ -27,10 +27,11 @@
           "offers": "Offers",
           "paid-orders": "Paid Orders",
           "pre-orders": "Pre-orders",
-          "conciliations":"Conciliations",
-          "conciliation":"Conciliation",
-          "reconciliation-adjustment":"Reconciliation Adjustment",
-          "dispatches":"Dispatches"
+          "conciliations": "Conciliations",
+          "conciliation": "Conciliation",
+          "reconciliation-adjustment": "Reconciliation Adjustment",
+          "dispatches": "Dispatches",
+          "payment-agreements": "Payment Agreements"
         },
         "clients": {
           "title": "Management",
@@ -71,8 +72,8 @@
         },
         "cms": {
           "title": "Content",
-          "seo": "SEO Optimization", 
-          "collection": "Collections", 
+          "seo": "SEO Optimization",
+          "collection": "Collections",
           "resources": "Resources"
         }
       }

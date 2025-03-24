@@ -14,15 +14,16 @@ import { OFFERS_LIST_KEY } from '../constants';
 import { scrollToFirstError } from 'utils/error-utils';
 import { COUPON_LIST_KEY } from 'modules/sales-offer/coupon/constants/coupon.queries';
 import { onParseOffer } from '../constants/offer.utils';
+import { CouponOrderService } from 'modules/sales-offer/coupon/services';
 
 type IOfferRules = Partial<IExtendOffer>;
 type Props = {
   defaultValues: IOfferRules;
   onClose?: VoidFunction;
-  service?: any;
+  isCoupon?: boolean;
 };
 
-const useOfferRuleEditForm = ({ defaultValues, onClose, service = OfferOrderService }: Props) => {
+const useOfferRuleEditForm = ({ defaultValues, onClose, isCoupon }: Props) => {
   const { onProcessRules } = useMapperOfferDiscountShipping();
 
   const { t } = useTranslation('offerOrder');
@@ -49,7 +50,13 @@ const useOfferRuleEditForm = ({ defaultValues, onClose, service = OfferOrderServ
   }, [defaultValues, reset]);
 
   const { mutate, error, isLoading, isSuccess, data } = useMutation(
-    (payload: IOffer) => service.saveOrUpdate(payload),
+    // @ts-ignore
+    (payload: IOffer) => {
+      if (isCoupon) {
+        return CouponOrderService.rules(payload);
+      }
+      return OfferOrderService.rules(payload);
+    },
     {
       onSuccess: (data: IOffer, values: IOffer) => {
         queryClient.invalidateQueries([OFFERS_LIST_KEY]);
@@ -88,6 +95,8 @@ const useOfferRuleEditForm = ({ defaultValues, onClose, service = OfferOrderServ
           ...values,
           rules,
         };
+
+        console.log(onParseOffer(newRule as IExtendOffer));
         mutate(onParseOffer(newRule as IExtendOffer));
       },
 
