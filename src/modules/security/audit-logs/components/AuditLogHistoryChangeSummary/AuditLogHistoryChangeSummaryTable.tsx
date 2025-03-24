@@ -32,7 +32,9 @@ const JsonViewContent = ({ value }: { value: object }) => {
         overflow: 'hidden',
       }}
     >
+      {/*   <Scrollbars autoHeight autoHeightMax={500}> */}
       <JsonView value={value} style={nordTheme} />
+      {/*    </Scrollbars> */}
     </Box>
   );
 };
