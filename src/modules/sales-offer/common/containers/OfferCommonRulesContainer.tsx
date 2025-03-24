@@ -10,6 +10,7 @@ import { OfferAmountFrom } from '../../offer/components/OfferAmountFrom';
 import { OfferCategoryFrom } from 'modules/sales-offer/offer/components/OfferCategoryFrom';
 import OfferGroupSection from '../OfferGroupSection/OfferGroupSection';
 import { useMemo } from 'react';
+import { getGroupRulLabel } from '../constants/offer.utils';
 
 type Props = {
   sections: IRuleSection;
@@ -21,18 +22,47 @@ type Props = {
   clearErrors: any;
   setValue: any;
 };
+
 const OfferCommonRulesContainer = ({ sections, ...props }: Props) => {
   const { t } = useTranslation('offerOrder');
 
-  const someAmountChild = useMemo(() => [sections.amountCategory, sections.amount].some(Boolean), [sections]);
-  const someQuantityChild = useMemo(() => [sections.usage, sections.quantityOrder].some(Boolean), [sections]);
-  const someProductChild = useMemo(() => [sections.product].some(Boolean), [sections]);
-  const someAddressChild = useMemo(() => [sections.address].some(Boolean), [sections]);
+  const some = useMemo(() => {
+    return {
+      someAmountChild: {
+        isActive: [sections.amountCategory, sections.amount].some(Boolean),
+        label: getGroupRulLabel([sections.amountCategory, sections.amount], t),
+      },
+      someQuantityChild: {
+        isActive: [sections.usage, sections.quantityOrder].some(Boolean),
+        label: getGroupRulLabel([sections.usage, sections.quantityOrder], t),
+      },
+      someProductChild: {
+        isActive: [sections.product].some(Boolean),
+        label: getGroupRulLabel([sections.product], t),
+      },
+      someAddressChild: {
+        isActive: [sections.address].some(Boolean),
+        label: getGroupRulLabel([sections.address], t),
+      },
+    };
+  }, [
+    sections.address,
+    sections.amount,
+    sections.amountCategory,
+    sections.product,
+    sections.quantityOrder,
+    sections.usage,
+    t,
+  ]);
 
   return (
     <>
       {/* group section amount */}
-      <OfferGroupSection title={t('sectionGroup.amount')} someChild={someAmountChild}>
+      <OfferGroupSection
+        title={t('sectionGroup.amount')}
+        someChild={some.someAmountChild.isActive}
+        chip={{ label: some.someAmountChild.label }}
+      >
         {/* section amount  */}
         <PanelEnableSection
           title={t('sections.amount.title')}
@@ -57,7 +87,11 @@ const OfferCommonRulesContainer = ({ sections, ...props }: Props) => {
       </OfferGroupSection>
 
       {/* group section quantity */}
-      <OfferGroupSection title={t('sectionGroup.quantity')} someChild={someQuantityChild}>
+      <OfferGroupSection
+        title={t('sectionGroup.quantity')}
+        someChild={some.someQuantityChild.isActive}
+        chip={{ label: some.someQuantityChild.label }}
+      >
         {/* section usage  */}
         <PanelEnableSection
           title={t('sections.usage.title')}
@@ -82,7 +116,11 @@ const OfferCommonRulesContainer = ({ sections, ...props }: Props) => {
       </OfferGroupSection>
 
       {/* group section product */}
-      <OfferGroupSection title={t('sectionGroup.product')} someChild={someProductChild}>
+      <OfferGroupSection
+        title={t('sectionGroup.product')}
+        someChild={some.someProductChild.isActive}
+        chip={{ label: some.someProductChild.label }}
+      >
         {/* section product */}
         <PanelEnableSection
           title={t('sections.product.title')}
@@ -96,7 +134,11 @@ const OfferCommonRulesContainer = ({ sections, ...props }: Props) => {
       </OfferGroupSection>
 
       {/* group section product */}
-      <OfferGroupSection title={t('sectionGroup.address')} someChild={someAddressChild}>
+      <OfferGroupSection
+        title={t('sectionGroup.address')}
+        someChild={some.someAddressChild.isActive}
+        chip={{ label: some.someAddressChild.label }}
+      >
         {/* section address */}
         <PanelEnableSection
           title={t('sections.address.title')}

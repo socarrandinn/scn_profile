@@ -63,6 +63,7 @@
   },
   "couponInfo": "Cupón {{name}}: con un descuento de {{amount}}.",
   "rule": "Reglamentación",
+  "_rule": "Regla",
   "sections": {
     "twoForOne": {
       "count": "Cantidad",

@@ -9,6 +9,7 @@ import OfferClientSpecificClientListForm from '../ClientRules/OfferClientSpecifi
 import { OfferClientUsageFrom } from 'modules/sales-offer/offer/components/OfferClientUsage';
 import OfferGroupSection from '../OfferGroupSection/OfferGroupSection';
 import { useMemo } from 'react';
+import { getGroupRulLabel } from '../constants/offer.utils';
 
 type Props = {
   sections: IRuleSection;
@@ -22,20 +23,37 @@ type Props = {
 const OfferClientRulesContainer = ({ sections, ...props }: Props) => {
   const { t } = useTranslation('offerOrder');
 
-  const someChild = useMemo(
-    () =>
-      [
-        sections.orderCountByTime,
-        sections.amountSpentByTime,
-        sections.longevity,
-        sections.specificClientList,
-        sections.clientUsage,
-      ].some(Boolean),
-    [sections],
-  );
+  const some = useMemo(() => {
+    const clientSections = [
+      sections.orderCountByTime,
+      sections.amountSpentByTime,
+      sections.longevity,
+      sections.specificClientList,
+      sections.clientUsage,
+    ];
+    return {
+      clientChild: {
+        isActive: clientSections.some(Boolean),
+        label: getGroupRulLabel(clientSections, t),
+      },
+    };
+  }, [
+    sections.amountSpentByTime,
+    sections.clientUsage,
+    sections.longevity,
+    sections.orderCountByTime,
+    sections.specificClientList,
+    t,
+  ]);
 
   return (
-    <OfferGroupSection title={t('sectionGroup.client')} someChild={someChild}>
+    <OfferGroupSection
+      title={t('sectionGroup.client')}
+      someChild={some.clientChild.isActive}
+      chip={{
+        label: some.clientChild.label,
+      }}
+    >
       {/* section amount client usage  */}
       <PanelEnableSection
         title={t('sections.clientUsage.title')}

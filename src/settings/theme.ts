@@ -57,10 +57,10 @@ export const common = createTheme({
       styleOverrides: {
         root: ({ theme }: { theme: Theme }) => ({
           '&.row-warning': {
-            background: `${theme.palette.warning.main}25`,
+            background: `${theme.palette.warning.main}30`,
           },
           '&.row-error': {
-            background: `${theme.palette.error.main}25`,
+            background: `${theme.palette.error.main}30`,
           },
         }),
       },

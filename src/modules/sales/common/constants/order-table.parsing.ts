@@ -9,8 +9,9 @@ const parser = (order: IOrder & { dflRowClass: string }) => {
   const deliveryDueDateParsed = deliveryDueDate ? parseISO(deliveryDueDate) : null;
 
   if (!deliveryDueDateParsed) return order;
+
   if (isAfter(now, deliveryDueDateParsed)) order.dflRowClass = 'row-error';
-  if (isAfter(now, subDays(deliveryDueDateParsed, 2))) order.dflRowClass = 'row-warning';
+  else if (isAfter(now, subDays(deliveryDueDateParsed, 2))) order.dflRowClass = 'row-warning';
 
   return order;
 };

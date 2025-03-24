@@ -9,7 +9,7 @@ import {
   IconButtonProps,
   IconButton,
   Stack,
-  Switch,
+  Chip,
 } from '@mui/material';
 
 import { useState } from 'react';
@@ -19,10 +19,13 @@ import { ChildrenProps } from '@dfl/mui-react-common';
 type Props = {
   title: string;
   someChild?: boolean;
+  chip: {
+    label: string;
+  };
 };
 
-const OfferGroupSection = ({ title, someChild, children }: Props & ChildrenProps) => {
-  const [expanded, setExpanded] = useState(false);
+const OfferGroupSection = ({ title, someChild = false, children, chip }: Props & ChildrenProps) => {
+  const [expanded, setExpanded] = useState(someChild);
 
   const handleExpandClick = () => {
     setExpanded(!expanded);
@@ -39,30 +42,21 @@ const OfferGroupSection = ({ title, someChild, children }: Props & ChildrenProps
               <Typography lineHeight={1} fontSize={20} fontWeight='bold'>
                 {title}
               </Typography>
-              <Switch
-                edge='end'
-                onClick={(event) => {
-                  event.stopPropagation();
-                }}
-                checked={someChild}
-                color='primary'
-                inputProps={{
-                  'aria-labelledby': 'switch-list-label-child',
-                }}
-                className='pointer-events-none'
-              />
 
-              <ExpandMore
-                sx={{
-                  backgroundColor: 'background.default',
-                }}
-                size='small'
-                expand={expanded}
-                aria-expanded={expanded}
-                aria-label='show more'
-              >
-                <ExpandMoreIcon />
-              </ExpandMore>
+              <Stack flexDirection={'row'} gap={2} alignItems={'center'}>
+                <Chip color='primary' size='small' sx={{ borderRadius: 4 }} label={chip.label} />
+                <ExpandMore
+                  sx={{
+                    backgroundColor: 'background.default',
+                  }}
+                  size='small'
+                  expand={expanded}
+                  aria-expanded={expanded}
+                  aria-label='show more'
+                >
+                  <ExpandMoreIcon />
+                </ExpandMore>
+              </Stack>
             </Stack>
           }
         />
