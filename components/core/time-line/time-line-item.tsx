@@ -4,6 +4,7 @@ import { ITimeLine } from '@/definitions/resumen';
 import { ChevronRight } from 'lucide-react';
 import React from 'react';
 import TimeLineDot from './time-line-dot';
+import DateValue from '../values/date-value';
 
 const TimeLineItem = ({
   dateRange,
@@ -11,7 +12,6 @@ const TimeLineItem = ({
   companyName,
   description,
   buttonText = 'RECOMMENDATION',
-  icon,
   className = '',
   isButtonVisible = true,
   isFirst
@@ -22,12 +22,16 @@ const TimeLineItem = ({
       <TimeLineDot isFirst={isFirst} />
 
       <div className="flex flex-col md:flex-row md:items-center md:justify-between -mt-0.5">
-        <div className="flex flex-col flex-1 gap-2 justify-start">
-          <Badge className='text-primary' variant={'outline'}> {dateRange}</Badge>
-          <div>
-            <h3 className="text-color-secondary text-xl font-semibold mb-1">{jobTitle}</h3>
-            <p className="text-color text-sm mb-2">{companyName}</p>
-            <p className="text-color mb-2 text-sm">{description}</p>
+        <div className="flex flex-col flex-1 gap-4 justify-start">
+          <Badge className='text-primary' variant={'outline'}>
+            <DateValue value={dateRange?.from} format='MM-yyyy' /> - <DateValue value={dateRange?.to} format='MM-yyyy' />
+          </Badge>
+          <div className='flex flex-col gap-2'>
+            <h3 className="text-color-secondary text-lg font-semibold ">{jobTitle}</h3>
+            <Badge variant={'outline'} className='py-0.5 px-2 rounded-sm'>
+              {companyName}
+            </Badge>
+            <p className="text-color text-sm">{description}</p>
           </div>
 
           {isButtonVisible && (
@@ -38,10 +42,6 @@ const TimeLineItem = ({
               </span>
             </Button>
           )}
-        </div>
-
-        <div className="mt-4 md:mt-0 md:ml-6 opacity-30 hover:opacity-100 transition-opacity duration-300">
-          {icon}
         </div>
       </div>
     </div>

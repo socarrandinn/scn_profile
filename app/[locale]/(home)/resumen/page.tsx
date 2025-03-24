@@ -6,9 +6,7 @@ import SkillsContent from '@/components/sections/skills/skills-content'
 import { CardContent } from '@/components/ui/card'
 import PageHeader from '@/components/ui/page-header'
 
-
 const AboutMe = () => {
-
   return (
     <PageContainer title={'resumen:title'} >
       <CardContent>

@@ -1,5 +1,5 @@
 'use client'
-import PageContainer from '@/components/containers/page-container' 
+import PageContainer from '@/components/containers/page-container'
 import TransTypography from '@/components/core/trans-typography'
 import PlansContainer from '@/components/sections/payment-plans/payment-plan-container'
 import ServiceContainer from '@/components/sections/service/service-container'
@@ -18,7 +18,7 @@ const AboutMe = () => {
       <CardContent>
         <section className='flex flex-col w-full gap-2'>
           <h1 className='font-bold'>{t('aboutMe.hello')}</h1>
-          <p className='font-normal text-justify leading-7'>{t('aboutMe.description')}</p>
+          <p className='font-normal text-justify leading-7'>{t('aboutMe.description', { name: 'Silvio O. Carrandi Noa', years: 5 })}</p>
           <div className='grid grid-cols-1 md:grid-cols-2 gap-1 mt-2'>
             <AboutMeItem title='about-me:aboutMe.summary.age' value={age} />
             <AboutMeItem title='about-me:aboutMe.summary.residence' value={t('common:country')} />

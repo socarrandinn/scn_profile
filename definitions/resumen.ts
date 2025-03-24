@@ -1,13 +1,14 @@
-import { ReactNode } from "react";
+
 
 export interface ITimeLine{
-  dateRange: string;
+  dateRange: {
+    from: string,
+    to:string
+  };
   jobTitle: string;
   companyName: string;
   description: string;
-  buttonText?: string;
-  icon?: ReactNode;
-  iconColor?: string;
+  buttonText?: string; 
   className?: string;
   isButtonVisible?: boolean;
   isFirst?: boolean
