@@ -13,6 +13,7 @@ import { OfferOrderService } from '../services';
 import { OFFERS_LIST_KEY } from '../constants';
 import { scrollToFirstError } from 'utils/error-utils';
 import { COUPON_LIST_KEY } from 'modules/sales-offer/coupon/constants/coupon.queries';
+import { onParseOffer } from '../constants/offer.utils';
 
 type IOfferRules = Partial<IExtendOffer>;
 type Props = {
@@ -87,7 +88,7 @@ const useOfferRuleEditForm = ({ defaultValues, onClose, service = OfferOrderServ
           ...values,
           rules,
         };
-        mutate(newRule as unknown as IOffer);
+        mutate(onParseOffer(newRule as IExtendOffer));
       },
 
       // get scroll to first error

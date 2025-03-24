@@ -63,12 +63,7 @@ export const initRuleCommonOffer: ICommonOffer = {
   rulesAmountsCategory: {
     operator: OPERATOR_RULE_OFFER_TYPE.ALL,
     fact: RULE_OFFER_FACT_TYPE.CATEGORY_PRICE,
-    value: [],
-
-    // only by validation
-    amount_item: 0,
-    operator_item: OPERATOR_RULE_OFFER_TYPE.EQUAL,
-    category_item: null,
+    value: []
   },
 
   // sections
@@ -87,8 +82,6 @@ export const initRuleCommonOffer: ICommonOffer = {
     specificClientList: false,
     clientUsage: false,
   },
-
-  quantityToInclude: 0,
 };
 
 export const initRuleClient: IClientOffer = {

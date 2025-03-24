@@ -9,10 +9,7 @@ export interface ICommonOffer {
   rulesQuantityOrders: IRuleOffer[] | undefined;
   rulesAddress: IAddressRuleOffer | undefined;
   rulesProducts: IProductRuleOffer | undefined;
-  // rulesCategories: ICategoryRuleOffer[] | undefined;
   rulesAmountsCategory: IRuleAmountCategory | undefined;
-  // productToInclude: IProduct;
-  quantityToInclude: number;
 
   section: IRuleSection;
 }

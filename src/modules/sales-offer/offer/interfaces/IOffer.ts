@@ -44,11 +44,12 @@ export interface IRuleAmountCategory {
   fact: RULE_OFFER_FACT_TYPE.CATEGORY_PRICE;
   value: [];
   operator: OPERATOR_RULE_OFFER_TYPE;
+}
 
-  // others only validate
-  category_item: string | null;
-  operator_item: OPERATOR_RULE_OFFER_TYPE;
-  amount_item: number;
+export interface IRuleAmountCategoryItem {
+  category: string | null;
+  operator: OPERATOR_RULE_OFFER_TYPE;
+  amount: number;
 }
 
 export interface IValueOffer {
