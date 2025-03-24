@@ -28,7 +28,6 @@ export const distributionCentersSchema = Yup.object()
     description,
     visible: Yup.boolean().required('required'),
     logistic,
-    locations: Yup.array().required('warehouse:deliveryRequired').min(1, 'warehouse:deliveryRequired'),
     contacts: ContactInfoSchema,
     address: AddressInfoSchemaWithLocation,
   })
