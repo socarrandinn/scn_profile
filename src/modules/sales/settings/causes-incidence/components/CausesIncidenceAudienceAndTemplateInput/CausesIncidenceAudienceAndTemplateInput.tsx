@@ -1,4 +1,4 @@
-import { Box, Divider, Grid, Paper, Stack, Typography } from '@mui/material';
+import { Box, Grid, Stack, Typography } from '@mui/material';
 import { useTranslation } from 'react-i18next';
 import DeleteAudienceButton from './DeleteAudienceButton';
 import { ICausesIncidence } from '../../interfaces';
@@ -28,18 +28,43 @@ const CausesIncidenceAudienceAndTemplateInput = ({ control }: ICausesIncidenceAu
   const selectedAll = getAudienceTarget(selectedTarget)?.length === 4;
 
   return (
-    <Paper sx={{ padding: 2, width: '100%', mt: 1 }}>
+    <Stack sx={{ mt: 2 }}>
+      <Box
+        sx={{
+          mb: 2,
+        }}
+      >
+        <Typography variant='h2'>{t('sendNotification.title')}</Typography>
+        <Typography fontWeight={300}>{t('sendNotification.subtitle')}</Typography>
+      </Box>
       <Grid item xs={12}>
-        <Stack gap={{ xs: 1, md: 2 }} divider={<Divider flexItem />}>
+        <Stack gap={{ xs: 1, md: 3 }}>
           {fields?.map((field, index) => {
             return (
               <Stack key={field.id} gap={{ xs: 1 }}>
-                <Typography
-                  variant='h6'
-                  className='MuiTypography-root MuiTypography-subtitle2 css-ati914-MuiTypography-root'
-                >
-                  {t('fields.notification.target')} {index + 1}
-                </Typography>
+                <Stack flexDirection={'row'} justifyContent={'space-between'} alignItems={'center'}>
+                  <Typography
+                    variant='h2'
+                    fontWeight={'semibold'}
+                    className='MuiTypography-root MuiTypography-subtitle2 css-ati914-MuiTypography-root'
+                  >
+                    {t('fields.notification.target')} {index + 1}
+                  </Typography>
+
+                  <Stack flexDirection={'row'} gap={1} alignItems={'center'}>
+                    <AddNewAudienceButton
+                      append={append}
+                      disabled={selectedAll}
+                      hidden={!(index === fields?.length - 1)}
+                    />
+                    <DeleteAudienceButton
+                      handleClick={() => {
+                        remove(index);
+                      }}
+                      disabled={fields?.length === 1}
+                    />
+                  </Stack>
+                </Stack>
 
                 <CausesIncidenceAudienceTargetSelect
                   name={`notification.audience.${index}.target`}
@@ -54,27 +79,12 @@ const CausesIncidenceAudienceAndTemplateInput = ({ control }: ICausesIncidenceAu
                   name={`notification.audience.${index}.template`}
                   required
                 />
-
-                {fields.length > 1 && (
-                  <DeleteAudienceButton
-                    handleClick={() => {
-                      remove(index);
-                    }}
-                  />
-                )}
               </Stack>
             );
           })}
         </Stack>
-        <Box
-          sx={{
-            mt: { xs: 1, md: 2 },
-          }}
-        >
-          <AddNewAudienceButton append={append} disabled={selectedAll} />
-        </Box>
       </Grid>
-    </Paper>
+    </Stack>
   );
 };
 

@@ -8,7 +8,7 @@
   "successCreated": "Causa de Incidencia creado satisfactoriamente",
   "notParentCauses": "Sin causas padre",
   "fields": {
-    "parent": "Causas padre",
+    "parent": "Causas de incidencias",
     "name": "Nombre",
     "description": "Descripción",
     "createdAt": "Fecha de creación",
@@ -20,7 +20,7 @@
       "title": "Notificaciones",
       "target": "Audiencia objetivo",
       "audience": "Destinatarios",
-      "template": "Plantilla"
+      "template": "Mensaje"
     },
     "target": {
       "CLIENT": "Cliente",
@@ -28,6 +28,10 @@
       "SUPPORT": "Soporte",
       "LOGISTICS": "Logística"
     }
+  },
+  "sendNotification":{
+    "title":"Enviar notificación de incidencia",
+    "subtitle":"Seleccione a quien desea informar de la incidencia realizada"
   },
   "cause": {
     "title": "Tipo de Incidencias",

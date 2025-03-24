@@ -3,23 +3,25 @@
   "summary": {
     "title": "Change Summary",
     "value": "Value",
-    "nameKey": "Name"
+    "nameKey": "Name",
+    "type": "Type"
   },
   "event": {
     "title": "Event",
-    "CREATE": "Created",
     "UPDATE_ENABLED": "Enabled",
+    "UPDATE_SETTINGS": "Updated",
+    "CREATE": "Created",
     "CREATE_ROLE_PROVIDER": "Created",
     "UPDATE": "Updated",
     "UPDATE_PRICE": "Price Updated",
-    "SECURITY": "Security",
-    "INVITE": "Invite user",
     "RESTORE": "Restored",
     "REMOVE": "Deleted",
     "DELETED": "Deleted",
-    "REMOVE_MANY": "Multiple Deleted",
+    "REMOVE_MANY": "Multiple Deletions",
     "UPLOAD_FILE": "Upload File",
     "VISIBILITY": "Visibility",
+    "SECURITY": "Security",
+    "INVITE": "User Invited",
     "UPDATE_SHIPPING_INFO": "Shipping Information Updated",
     "UPDATE_SHIPPING_TIME": "Estimated Delivery Time Updated",
     "UPDATE_SCORE": "Product Priority Updated",
@@ -33,33 +35,39 @@
     "UPDATE_LOGISTIC": "Logistics Updated",
     "UPDATE_WAREHOUSE": "Updated",
     "UPDATE_TAGS": "Tags Updated",
-    "UPDATE_FEATURE": "Feature Updated",
+    "UPDATE_FEATURE": "Attributes Updated",
     "UPDATE_ROLE_PROVIDER": "Provider Role Updated",
     "UPDATE_PERMISSIONS": "Permissions Updated",
     "ADD_USER_ROLE_PROVIDER": "Added to Users",
+    "ADD_WAREHOUSE": "Added to Warehouse",
+    "REMOVE_WAREHOUSE": "Warehouse Deleted",
     "SEARCH": "SEARCH",
     "UPDATE_USER": "User Updated",
-    "ADD_WAREHOUSE": "Add to warehouse",
-    "REMOVE_WAREHOUSE": "Warehouse removed",
     "DELETE_USER": "User Deleted",
-    "UPDATE_SETTINGS": "Updated",
     "UPDATE_VISIBILITY": "Visibility Updated",
-    "UPDATE_PRICE_DETAILS": "Price Details Updated"
+    "UPDATE_PRICE_DETAILS": "Price Details Updated",
+    "EDIT_SHIPPING": "Shipping Settings Updated",
+    "ADD_ELEMENT": "Element Added",
+    "REMOVE_ELEMENT": "Element Deleted",
+    "UPDATE_GENERAL_INFO": "General Information Updated",
+    "UPDATE_CUSTOM_MESSAGE": "Custom Message Updated",
+    "PASSWORD_RESET": "Password Reset",
+    "UPDATE_STATUS": "Status Updated",
+    "VALIDATE": "Validated"
   },
   "module": {
     "title": "Modules",
     "PRODUCT": "Product",
-    "CURRENCY": "Currency settings",
-    "ROLE_ADMIN": "Admin Role",
+    "CURRENCY": "Currency Settings",
+    "ROLE_ADMIN": "Administrator Role",
+    "ROLE_PUBLIC": "Public Role",
     "SUPPLIER": "Product Supplier",
-    "SEO_ROBOT_MODULE": "SEO: Robot txt",
+    "SEO_ROBOT_MODULE": "SEO: Robot.txt",
     "SEO_STATIC_PAGES_MODULE": "SEO: Static Site Maps",
     "ROLE": "Role",
-    "ROLE_PUBLIC": "Public role",
     "WAREHOUSE": "Warehouse",
     "DISTRIBUTION_CENTER": "Distribution Center",
     "CATEGORY": "Category",
-    "USER_MODULE": "Users",
     "LOGISTIC-PROVIDER": "Logistic Provider",
     "STOCK_REDUCTION_CAUSE": "Inventory Reduction Causes",
     "WAREHOUSE_AREA": "Warehouse Areas",
@@ -70,11 +78,18 @@
     "REVIEWS": "Reviews",
     "USER_INVITE": "Invited Users",
     "PRODUCT_OFFER": "Product Offers",
-    "MANUFACTURE": "Manufacture",
-    "WAREHOUSE_SUPPLIER": "Warehouse / Supplier",
+    "MANUFACTURE": "Manufacturer",
+    "WAREHOUSE_SUPPLIER": "Warehouse / Product Supplier",
     "TESTIMONY": "Testimony",
+    "USER_MODULE": "Users",
     "COLLECTIONS": "Collections",
-    "ADDRESS_BOOK": "Address Book"
+    "ADDRESS_BOOK": "Address Book",
+    "ORDER": "Order",
+    "CAUSES_INCIDENCE": "Incident Causes",
+    "SHIPPING_HOME": "Home Deliveries",
+    "BANNERS": "Banners",
+    "INCIDENCE": "Incidents",
+    "BANK": "Banks"
   },
   "device": {
     "title": "Device",
@@ -99,375 +114,13 @@
     "hash": "Identification String",
     "ip": "IP Address",
     "client_type": {
-      "browser": "Browser",
-      "library": "Library"
+      "library": "Library",
+      "browser": "Browser"
     },
     "device_type": {
       "desktop": "Computer",
       "smartphone": "Smartphone"
     }
-  },
-  "translate": {
-    "features": "Features",
-    "state": "State",
-    "count": "Count",	
-    "security": {
-      "roles": "Roles"
-    },
-    "inviteType": "Invite type",
-    "endDate": "End date",
-    "startDate": "Start date",
-    "discountType": "Discount type",
-    "enabled": "Enabled",
-    "discount": "Discount",
-    "filters": {
-      "type": "Filter / <b>Type</b>",
-      "field": "Filter / <b>Field</b>",
-      "value": "Value"
-    },
-    "priceConfig": {
-      "type": "Price config / Type",
-      "value": "Price config / Value"
-    },
-    "comment": "Comment",
-    "personName": "Name",
-    "title": "Title",
-    "ids": "List of ids",
-    "users": "Supplier Role / <b>Users</b>",
-    "entity": "Entity",
-    "warehouse": "Warehouse",
-    "fromDate": "Offers / <b>Activation Date</b>",
-    "toDate": "Offers / <b>End Date</b>",
-    "includeProducts": "Offers / <b>Included Products</b>",
-    "promotionText": {
-      "es": "Offers / <b>Promotion Message (ES)</b>",
-      "en": "Offer / <b>Promotion Message (EN)</b>"
-    },
-    "lastName": "Last Name",
-    "firstName": "First Name",
-    "roles": "Roles",
-    "email": "Email",
-    "note": {
-      "es": "Offers / <b>Note (ES)</b>",
-      "en": "Deals / <b>Note (EN)</b>"
-    },
-    "discountValue": {
-      "type": "Deals / <b>Type</b>",
-      "value": "Deals / <b>Quantity</b>"
-    },
-    "always": "Deals / <b>Multiple Offers</b>",
-    "categorySlugPath": "Category Slug",
-    "color": "Color",
-    "data": {
-      "es": "Data (ES)",
-      "en": "Data (EN)"
-    },
-    "locations": {
-      "es": "Distribution Zones (ES)",
-      "en": "Distribution Zones (EN)"
-    },
-    "logistic": {
-      "es": "Logistics Provider (ES)",
-      "en": "Logistics Provider (EN)"
-    },
-    "handlingCost": "Handling Cost",
-    "seo": {
-      "image": {
-        "en": "Image",
-        "width": "SEO / Image / <b>Width</b>",
-        "height": "SEO / Image / <b>Height</b>",
-        "url": "SEO / Image / <b>URL</b>",
-        "sizes": "SEO / Image / <b>Size</b>",
-        "thumb": "SEO / Image / <b>THUMB</b>"
-      },
-      "name": {
-        "es": "SEO / <b>Name<b> (ES)",
-        "en": "SEO / <b>Name<b> (EN)"
-      },
-      "description": {
-        "es": "SEO / <b>Description<b> (ES)",
-        "en": "SEO / <b>Description<b> (EN)"
-      }
-    },
-    "image": {
-      "en": "Image",
-      "width": "SEO / Image / <b>Width</b>",
-      "height": "SEO / Image / <b>Height</b>",
-      "url": "SEO / Image / <b>URL</b>",
-      "sizes": "SEO / Image / <b>Size</b>",
-      "thumb": "SEO / Image / <b>THUMB</b>"
-    },
-    "provider": "Supplier",
-    "providers": {
-      "es": "Suppliers",
-      "manufacturer": "Suppliers / <b>Manufacturer</b>",
-      "supplier": "Suppliers / <b>Product Supplier</b>"
-    },
-    "manufacturer": "Manufacturer",
-    "supplier": "Product Supplier",
-    "shippingInfo": {
-      "es": "Shipping Information",
-      "weight": "Shipping Info / <b>Weight</b>",
-      "height": "Shipping Info / <b>Size Info / <b>Height</b>",
-      "length": "Shipping Info / <b>Size Info / <b>Length</b>",
-      "width": "Shipping Info / <b>Size Info / <b>Width</b>",
-      "size": {
-        "height": "Shipping Settings / Shipping Info / <b>Size Info / Size / <b>Height</b>",
-        "length": "Shipping Settings / Shipping Info / <b>Size Info / Size / <b>Length</b>",
-        "width": "Shipping Settings / Shipping Info / <b>Size Info / Size / <b>Width</b>"
-      },
-      "rules": {
-        "via": "Shipping Settings / Shipping Info / <b>Zones ( Allowed | Denied)</b>"
-      },
-      "province": "Shipping Settings / Shipping Information / <b>Province</b>",
-      "municipality": "Shipping Settings / Shipping Information / <b>Municipality</b>",
-      "fragile": "Shipping Settings / Shipping Information / <b>Fragile Product</b>",
-      "needRefrigeration": "Shipping Settings / Shipping Information / <b>Needs Refrigeration</b>"
-    },
-    "priceDetails": {
-      "en": "Price Details",
-      "distribution": {
-        "warehouses": "Price Details / Price / <b>Warehouses</b>",
-        "cost": "Price Details / Price / <b>Cost Price</b>",
-        "otherCost": "Price Details / Price / <b>Additional Cost</b>",
-        "logistic": "Price Details / Price / <b>Logistics Commission</b>",
-        "commercial": "Price Details / Price / <b>Trade Margin</b>",
-        "shipping": "Price Details / Price / <b>Shipping Commission</b>",
-        "offer": "Price Details / Price / <b>Offer</b>",
-        "platform": "Price Details / Price / <b>Platform</b>",
-        "totalCost": "Price Details / Distribution / <b>Total Cost</b>",
-        "total": "Price Details / Distribution / <b>Total</b>"
-      },
-      "values": {
-        "cost": "Price Details / Price / <b>Cost Price</b>",
-        "otherCost": "Price Details / Price / <b>Additional Cost</b>",
-        "logistic": "Price Details / Price / <b>Logistics Commission</b>",
-        "commercial": "Price Details / Price / <b>Trade Margin</b>",
-        "shipping": "Price Details / Price / <b>Shipping Commission</b>",
-        "offer": "Price Details / Price / <b>Offer</b>",
-        "platform": "Price Details / Price / <b>Platform</b>",
-        "totalCost": "Price Details / Distribution / <b>Total Cost</b>",
-        "total": "Price Details / Distribution / <b>Total</b>"
-      }
-    },
-    "shippingSettings": {
-      "en": "Shipping Settings",
-      "freeShipping": "Shipping Settings / <b>Free Shipping </b>",
-      "deliveryRules": {
-        "en": "Delivery Rules",
-        "policy": "Delivery Rules / <b>Allowed Zones</b>",
-        "regions": "Delivery Rules / <b>Regions</b>"
-      },
-      "shippingInfo": {
-        "weight": "Shipping Settings / Shipping Information / <b>Weight</b>",
-        "height": "Shipping Settings / Shipping Information / <b>Size Information / <b>Height</b>",
-        "length": "Shipping Settings / Shipping Information / <b>Size Information / <b>Length</b>",
-        "width": "Shipping Settings / Shipping Info / <b>Size Info / <b>Width</b>",
-        "fragile": "Shipping Settings / Shipping Info / <b>Fragile Product</b>",
-        "needRefrigeration": "Shipping Settings / Shipping Info / <b>Needs Refrigeration</b>"
-      },
-      "estimatedTime": {
-        "from": "Shipping Settings / Estimated Delivery Time / <b>Minimum in minutes</b>",
-        "to": "Shipping Settings / Estimated Delivery Time / <b>Maximum in minutes<b>"
-      }
-    },
-    "deliveryRules": {
-      "es": "Delivery Rules",
-      "policy": "Rules / Delivery Rules / <b>Allowed Zones</b>",
-      "regions": "Rules / Delivery Rules / <b>Regions</b>"
-    },
-    "needCi": {
-      "en": "Rules / <b>Customer ID is required</b>"
-    },
-    "keywords": {
-      "en": "Tags"
-    },
-    "media": {
-      "en": "Media"
-    },
-    "from": "Estimated Delivery Time / <b>Minimum in minutes</b>",
-    "to": "Estimated Delivery Time / <b>Maximum in minutes<b>",
-    "limitByAge": {
-      "en": "+21"
-    },
-    "freeShipping": {
-      "en": "Free Shipping"
-    },
-    "visibleLogistic": {
-      "en": "Visibility"
-    },
-    "limitByOrder": {
-      "en": "Rules / <b>Only on custom orders</b>"
-    },
-    "owner": {
-      "en": "Owner"
-    },
-    "active": {
-      "en": "Active"
-    },
-    "commission": {
-      "en": "Commission (%)"
-    },
-    "brand": {
-      "en": "Brand"
-    },
-    "reimbursement": {
-      "en": "Refund"
-    },
-    "tags": {
-      "en": "Tags (EN)",
-      "product": {
-        "en": "Product tags (EN)"
-      },
-      "supplier": {
-        "en": "Product supplier tags (EN)"
-      }
-    },
-    "codeChange": "Code Change",
-    "productProvider": "Product Provider",
-    "visible": "Visibility",
-    "likeNew": "Like New",
-    "code": "Code",
-    "name": {
-      "es": "Name (ES)",
-      "en": "Name (EN)"
-    },
-    "description": {
-      "es": "Description (ES)",
-      "en": "Description (EN)"
-    },
-    "url": {
-      "en": "URL"
-    },
-    "slug": {
-      "en": "Slug"
-    },
-    "price": "Price",
-    "lastPrice": "Last Price",
-    "costPrice": "Cost Price",
-    "finalPrice": "Final Price",
-    "offer": {
-      "startDate": "<b>Offer</b> / Date available from",
-      "expiration": "<b>Offer</b> / Date available until",
-      "discount": "<b>Offer</b> / Discount",
-      "discountType": "<b>Offer</b> / Discount Type",
-      "enabled": "<b>Offer</b> / Product on sale",
-      "es": "Offer"
-    },
-    "rules": {
-      "needCi": "<b>Rule</b> / Customer ID required",
-      "limitByAge": "<b>Rule</b> / +18",
-      "limitByOrder": "<b>Rule</b> / Limit product per order",
-      "freeShipping": "<b>Rule</b> / Shipping Free",
-      "en": "Rules",
-      "deliveryRules": {
-        "en": "Delivery Rules",
-        "policy": "Rules / Delivery Rules / <b>Allowed Zones</b>",
-        "regions": "Rules / Delivery Rules / <b>Regions</b>"
-      }
-    },
-    "shipping": {
-      "free": "<b>Shipping</b> / Free Shipping",
-      "weight": "<b>Shipping</b> / Weight (Kg)",
-      "width": "<b>Shipping</b> / Size Information (Width)",
-      "length": "<b>Shipping</b> / Size Information (Length)",
-      "height": "<b>Shipping</b> / Size Information (Height)",
-      "rules": {}
-    },
-    "priceDistribution": {
-      "providers": {
-        "carrier": "<b>Shipping Commission</b> | Driver",
-        "product": {
-          "commission": "<b>Product Supplier</b> | Commission"
-        }
-      },
-      "commercial": "<b>Shipping Commission</b> | Commercial",
-      "price": "<b>Shipping Commission</b> | Price"
-    },
-    "details": "Trace History",
-    "summary": "Summary of Changes",
-    "emptyList": "No Changes",
-    "change": {
-      "title": "Changes Made",
-      "before": "Before",
-      "after": "After"
-    },
-    "user": {
-      "email": "<b>User</b> | Email"
-    },
-    "order": "Priority",
-    "date": "Date",
-    "category": {
-      "es": "Category",
-      "name": {
-        "es": "Category"
-      },
-      "description": {
-        "start": "Category Description",
-        "es": "Category Description",
-        "en": "Category Description (EN)"
-      }
-    },
-    "status": {
-      "productProvider": "Supplier Change",
-      "prices": "Price Change",
-      "offer": "Offer Change",
-      "productUpdate": "Product Updated",
-      "active": "Status: Active",
-      "inactive": "Status: Inactive",
-      "reimbursementTitle": "Reimbursement",
-      "inventory": "Inventory",
-      "amount": "Quantity"
-    },
-    "parent": "Parent Category",
-    "createdAt": "Creation Date",
-    "updatedAt": "Update Date",
-    "score": "Score",
-    "referenceCode": "Reference Code",
-    "barcode": "Barcode",
-    "codeProductProvider": "Product Supplier Code",
-    "codeLogisticProvider": "Logistics Supplier Code",
-    "productPerUnit": "Product Per Unit",
-    "contacts": {
-      "es": "Contacts",
-      "mainPhone": "Main Phone",
-      "mainEmail": "Main Email",
-      "phones": "Phones",
-      "emails": "Emails"
-    },
-    "address": {
-      "es": "Address",
-      "zipCode": "Address / <b>Postal Code </b>",
-      "state": "Address / <b>Province </b>",
-      "city": "Address / <b>Municipality </b>",
-      "number": "Address / <b>Number </b>",
-      "street": "Address / <b>Street </b>",
-      "country": "Address / <b>Country </b>",
-      "notes": "Address / <b>Notes </b>",
-      "location": {
-        "type": "Address / Location / <b>Type </b>",
-        "coordinates": "Address / Location / <b>Coordinates </b>"
-      }
-    },
-    "avatar": {
-      "en": "Avatar",
-      "width": "Avatar / <b>Width</b>",
-      "height": "Avatar / <b>Height</b>",
-      "url": "Avatar / <b>URL</b>",
-      "thumb": "Avatar / <b>Thumb</b>",
-      "sizes": "Avatar / <b>Sizes</b>"
-    },
-    "province": "Province",
-    "municipality": "Municipality",
-    "icon": "Role / <b>Icon</>",
-    "permissions": "Role / <b>Permissions</>",
-    "isAdmin": "Role / <b>isAdmin</>",
-    "isAdminSpace": "Role / <b>isAdminSpace</>",
-    "isDefaultRole": "Role / <b>isDefaultRole</>",
-    "isSystemRole": "Role / <b>isSystemRole</>",
-    "isSpaceOwner": "Role / <b>isSpaceOwner</>",
-    "isPublicRole": "Role / <b>isPublicRole</>",
-    "type": "Role / <b>Type</>"
   },
   "copy-to-ip": "Copy IP",
   "copy-success": "IP copied to clipboard"

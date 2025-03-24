@@ -33,6 +33,7 @@ const CausesIncidenceAudienceTargetSelect = ({ control, name, fields, index }: P
             <FormSelectField
               size='small'
               name={name}
+              label={t('notification.audience')}
               multiple
               onChange={(event) => {
                 field.onChange(event.target.value);
