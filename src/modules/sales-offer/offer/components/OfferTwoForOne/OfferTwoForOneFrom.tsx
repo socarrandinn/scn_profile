@@ -1,5 +1,4 @@
 import { memo } from 'react';
-import { Stack } from '@mui/material';
 import OfferTwoForOneFromRule from './OfferTwoForOneFromRule';
 
 type Props = {
@@ -9,11 +8,7 @@ type Props = {
 };
 
 const OfferTwoForOneFrom = ({ control, errors, name }: Props) => {
-  return (
-    <Stack gap={3}>
-      <OfferTwoForOneFromRule control={control} errors={errors} name={name} />
-    </Stack>
-  );
+  return <OfferTwoForOneFromRule control={control} errors={errors} name={name} />;
 };
 
 export default memo(OfferTwoForOneFrom);

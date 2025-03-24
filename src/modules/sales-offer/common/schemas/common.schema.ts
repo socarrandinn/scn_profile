@@ -14,6 +14,16 @@ export const offerTypeTwoForOneSchema = Yup.object().shape({
 });
 
 export const offerProductIncludeSchema = Yup.object().shape({
-  product: Yup.string().required('required').transform((p) => p?._id || p),
+  product: Yup.string()
+    .required('required')
+    .transform((p) => p?._id || p),
   quantity: Yup.number().positive('positiveNumber').integer('integerNumber').required('required'),
+});
+
+export const offerAmountCategoryItemSchema = Yup.object().shape({
+  category: Yup.string()
+    .required('required')
+    .transform((p) => p?._id || p),
+  amount: Yup.number().required('required').positive('positiveNumber').integer('integerNumber'),
+  operator: Yup.string().required('required'),
 });

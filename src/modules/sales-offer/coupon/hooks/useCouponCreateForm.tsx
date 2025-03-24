@@ -16,6 +16,7 @@ import { CouponOrderService } from '../services';
 import { COUPON_LIST_KEY } from '../constants/coupon.queries';
 import { initOffer, initRuleClient, initRuleCommonOffer } from 'modules/sales-offer/common/constants/offer.initValues';
 import { scrollToFirstError } from 'utils/error-utils';
+import { onParseOffer } from 'modules/sales-offer/offer/constants/offer.utils';
 
 export const initOfferValues: IExtendOffer = {
   ...initOffer,
@@ -107,7 +108,7 @@ const useCouponCreateForm = (defaultValues: IExtendOffer = initOfferValues, onCl
           rules,
         };
 
-        mutate(newRule as unknown as IOffer);
+        mutate(onParseOffer(newRule as IExtendOffer));
       },
       // get scroll to first error
       (errors) => {

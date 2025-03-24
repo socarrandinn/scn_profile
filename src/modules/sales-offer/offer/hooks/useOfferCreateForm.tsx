@@ -15,6 +15,7 @@ import { OfferOrderService } from '../services';
 import { OFFERS_LIST_KEY } from '../constants';
 import { initOffer, initRuleClient, initRuleCommonOffer } from 'modules/sales-offer/common/constants/offer.initValues';
 import { scrollToFirstError } from 'utils/error-utils';
+import { onParseOffer } from '../constants/offer.utils';
 
 export const initOfferValues: IExtendOffer = {
   ...initOffer,
@@ -104,7 +105,7 @@ const useOfferCreateForm = (defaultValues: IExtendOffer = initOfferValues, onClo
           discountValue: onMapperValue(values?.discountValue, values?.type),
           rules,
         };
-        mutate(newRule as unknown as IOffer);
+        mutate(onParseOffer(newRule as IExtendOffer));
       },
 
       // get scroll to first error

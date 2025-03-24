@@ -45,7 +45,14 @@
     "UPDATE_USER": "Usuario Actualizado",
     "DELETE_USER": "Usuario Eliminado",
     "UPDATE_VISIBILITY": "Visibilidad actualizada",
-    "UPDATE_PRICE_DETAILS": "Detalles de precio actualizados"
+    "UPDATE_PRICE_DETAILS": "Detalles de precio actualizados",
+    "EDIT_SHIPPING": "Configuración de envío Actualizado",
+    "ADD_ELEMENT": "Elemento Agregado",
+    "REMOVE_ELEMENT": "Elemento Eliminado",
+    "UPDATE_GENERAL_INFO": "Información General Actualizada",
+    "UPDATE_CUSTOM_MESSAGE": "Mensaje Personalizado Actualizado",
+    "PASSWORD_RESET": "Restablecer Contraseña",
+    "UPDATE_STATUS": "Estado Actualizado"
   },
   "module": {
     "title": "Módulos",
@@ -75,7 +82,13 @@
     "TESTIMONY": "Testimonio",
     "USER_MODULE": "Usuarios",
     "COLLECTIONS": "Colecciones",
-    "ADDRESS_BOOK": "Libreta de Direcciones"
+    "ADDRESS_BOOK": "Libreta de Direcciones",
+    "ORDER": "Orden",
+    "CAUSES_INCIDENCE": "Causas de incidencias",
+    "SHIPPING_HOME": "Envíos a domicilio",
+    "BANNERS": "Banners",
+    "INCIDENCE": "Incidencias",
+    "BANK": "Bancos"
   },
   "device": {
     "title": "Dispositivo",
@@ -109,6 +122,68 @@
     }
   },
   "translate": {
+    "alias": "Alias",
+    "ibanNumber": "IBAN Number",
+    "swiftBIC": "Swift Code",
+    "branch": "Branch",
+    "branchHolder": "Holder",
+    "currency": "Moneda",
+    "global": "Es global",
+    "storeRegions": "Regiones de Tienda",
+    "shopRegions": "Regiones de Tienda",
+    "position": "Posición",
+    "contentType": "Tipo de Colección",
+    "twoForOneOffers": "Ofertas de 2x1",
+    "cause": "Causa",
+    "evidence": "Evidencia",
+    "responsible": "Responsable",
+    "orderReference": "Referencia de Orden",
+    "section": {
+      "product": "Regla de producto",
+      "amount": "Regla de monto",
+      "amountCategory": "Regla de monto por categoría",
+      "usage": "Regla de uso",
+      "quantityOrder": "Regla de cantidad de orden",
+      "address": "Regla de dirección",
+      "orderCountByTime": "Regla Cliente / <b>Cantidad de órdenes en un intervalo de tiempo</b>",
+      "amountSpentByTime": "Regla Cliente / <b>Monto total gastado en un intervalo de tiempo</b>",
+      "specificClientList": "Regla Cliente / <b>Lista específica de clientes elegibles</b>",
+      "longevity": "Regla Cliente / <b>Antigüedad del cliente en la plataforma</b>",
+      "clientUsage": "Regla Cliente / <b>Cantidad de usos por cliente</b>"
+    },
+    "rulesQuantityOrders": "Regla de cantidad de orden",
+    "verified":"Verificado",
+    "hasChildCauses":"Tiene Causas Hijas",
+    "edited":"Editado",
+    "rulesOrderCountByTime": {
+      "fact": "Regla Cliente / <b>Facturación</b>",
+      "value": "Regla Cliente / <b>Valor</b>",
+      "operator": "Regla Cliente / <b>Operador</b>"
+    },
+    "person": {
+      "firstName": "Nombre",
+      "lastName": "Apellido",
+      "email": "Correo electrónico",
+      "phone": "Teléfono"
+    },
+    "invitedBy":{
+      "fullName":"Nombre completo",
+      "email":"Correo electrónico"
+    },
+    "rulesAmountSpentByTime": {
+      "fact": "Regla Cliente / <b>Facturación</b>",
+      "value": "Regla Cliente / <b>Valor</b>",
+      "operator": "Regla Cliente / <b>Operador</b>"
+    },
+    "rulesAddress": {
+      "fact": "Regala de dirección / <b>Facturación</b>",
+      "value": "Regala de dirección / <b>Valor</b>",
+      "operator": "Regala de dirección / <b>Operador</b>"
+    },
+    "elements": "Elementos",
+    "operation": "Operación",
+    "size": "Tamaño",
+    "page": "Página",
     "methodType": "Método de pago",
     "settings": {
       "minAmount": "Monto mínimo",
@@ -127,7 +202,7 @@
     "startDate": "Fecha inicial",
     "discountType": "Tipo de descuento",
     "discount": "Descuento",
-    "count": "Cantidad",	
+    "count": "Cantidad",
     "security": {
       "roles": "Roles"
     },
@@ -152,6 +227,15 @@
       "es": "Ofertas / <b>Mensaje de promoción (ES)</b>",
       "en": "Offer / <b>Mensaje de promoción (EN)</b>"
     },
+    "isPublic": "Público",
+    "sendNotification": "Notificar",
+    "requiresResponsible": "Requerir responsable",
+    "requiresEvidence": "Requiere evidencia",
+    "notification": {
+      "enabled": "Notificación activa",
+      "audience": "Audiencias"
+    },
+    "isMultiple": "Ofertas múltiples",
     "lastName": "Apellidos",
     "firstName": "Nombre",
     "roles": "Roles",
@@ -212,6 +296,9 @@
       "manufacturer": "Proveedores / <b>Fabricante</b>",
       "supplier": "Proveedores / <b>Proveedor de Productos</b> "
     },
+    "password": "Contraseña",
+    "confirm": "Confirmar Contraseña",
+    "requiredChangePassword": "Requerir cambio de contraseña",
     "manufacturer": "Fabricante",
     "supplier": "Proveedor de productos",
     "shippingInfo": {
@@ -422,6 +509,7 @@
       }
     },
     "status": {
+      "es": "Estado",
       "productProvider": "Cambio proveedor",
       "prices": "Cambio precio",
       "offer": "Cambio oferta",
@@ -448,11 +536,16 @@
       "phones": "Teléfonos",
       "emails": "Correos"
     },
+    "shopSlug": "Slug de la tienda",
     "address": {
       "es": "Dirección",
       "zipCode": "Dirección / <b>Código Postal </b>",
       "state": "Dirección / <b>Provincia </b>",
       "city": "Dirección / <b>Municipio </b>",
+      "formattedAddress": "Dirección / <b>Dirección formateada</b>",
+      "address2": "Dirección / <b>Dirección 2</b>",
+      "address1": "Dirección / <b>Dirección 1 </b>",
+      "houseNumber": "Dirección / <b>Número </b>",
       "number": "Dirección / <b>Número </b>",
       "street": "Dirección / <b>Calle </b>",
       "country": "Dirección / <b>País </b>",
@@ -460,6 +553,13 @@
       "location": {
         "type": "Dirección / Localización / <b>Tipo </b>",
         "coordinates": "Dirección / Localización / <b>Coordenadas </b>"
+      },
+      "geoCode": {
+        "es": "Dirección / <b>GeoCode</b>",
+        "display_name": "Dirección / GeoCode / <b>Display Name</b>",
+        "address": "Dirección / GeoCode / <b>Dirección</b>",
+        "lat": "Dirección / GeoCode / <b>Latitud</b>",
+        "lon": "Dirección / GeoCode / <b>Longitud</b>"
       }
     },
     "avatar": {

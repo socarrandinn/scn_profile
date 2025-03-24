@@ -1,7 +1,7 @@
 import { isEmpty } from 'lodash';
-import { OFFER_TYPE } from '../interfaces/offer.type.enum';
+import { DISCOUNT_VALUE_TYPE, OFFER_TYPE } from '../interfaces/offer.type.enum';
 import { IAddressRuleOffer, IExtendOffer } from '../interfaces/IExtendOffer';
-import { IRuleOffer } from '../interfaces';
+import { IRuleOffer, IValueOffer } from '../interfaces';
 
 export const useMapperOfferDiscountShipping = () => {
   const onProcessRules = (offer: Partial<IExtendOffer>) => {
@@ -61,17 +61,16 @@ export const useMapperOfferDiscountShipping = () => {
   };
 
   // mapper valueDiscount
-  const onMapperValue = (valueDiscount: any, typeOffer: OFFER_TYPE) => {
-    const { value, type } = valueDiscount;
-    if (typeOffer === OFFER_TYPE.INCLUDE_PRODUCT) {
+  const onMapperValue = (valueDiscount: IValueOffer, typeOffer: OFFER_TYPE) => {
+    if ([OFFER_TYPE.INCLUDE_PRODUCT, OFFER_TYPE.TWO_FOR_ONE].includes(typeOffer)) {
       return {
-        type,
+        type: DISCOUNT_VALUE_TYPE.FIXED,
         value: Number(0),
       };
     }
     return {
-      type,
-      value: Number(value),
+      type: valueDiscount?.type,
+      value: Number(valueDiscount?.value),
     };
   };
 
