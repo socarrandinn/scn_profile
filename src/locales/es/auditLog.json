@@ -52,7 +52,8 @@
     "UPDATE_GENERAL_INFO": "Información General Actualizada",
     "UPDATE_CUSTOM_MESSAGE": "Mensaje Personalizado Actualizado",
     "PASSWORD_RESET": "Restablecer Contraseña",
-    "UPDATE_STATUS": "Estado Actualizado"
+    "UPDATE_STATUS": "Estado Actualizado",
+    "VALIDATE": "Validada"
   },
   "module": {
     "title": "Módulos",
@@ -152,9 +153,9 @@
       "clientUsage": "Regla Cliente / <b>Cantidad de usos por cliente</b>"
     },
     "rulesQuantityOrders": "Regla de cantidad de orden",
-    "verified":"Verificado",
-    "hasChildCauses":"Tiene Causas Hijas",
-    "edited":"Editado",
+    "verified": "Verificado",
+    "hasChildCauses": "Tiene Causas Hijas",
+    "edited": "Editado",
     "rulesOrderCountByTime": {
       "fact": "Regla Cliente / <b>Facturación</b>",
       "value": "Regla Cliente / <b>Valor</b>",
@@ -166,9 +167,9 @@
       "email": "Correo electrónico",
       "phone": "Teléfono"
     },
-    "invitedBy":{
-      "fullName":"Nombre completo",
-      "email":"Correo electrónico"
+    "invitedBy": {
+      "fullName": "Nombre completo",
+      "email": "Correo electrónico"
     },
     "rulesAmountSpentByTime": {
       "fact": "Regla Cliente / <b>Facturación</b>",

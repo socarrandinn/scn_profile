@@ -109,6 +109,9 @@ export enum AUDIT_LOG_EVENT_ENUM {
 
   PASSWORD_RESET = 'PASSWORD_RESET',
   UPDATE_STATUS = 'UPDATE_STATUS',
+
+  // orden
+  VALIDATE = 'VALIDATE',
 }
 
 export const AUDIT_LOG_EVENT_COLOR: { [key in AUDIT_LOG_EVENT_ENUM]: string } = {
@@ -161,4 +164,7 @@ export const AUDIT_LOG_EVENT_COLOR: { [key in AUDIT_LOG_EVENT_ENUM]: string } = 
 
   // incidence
   [AUDIT_LOG_EVENT_ENUM.UPDATE_STATUS]: 'success.main',
+
+  // orden
+  [AUDIT_LOG_EVENT_ENUM.VALIDATE]: 'error.main',
 };
