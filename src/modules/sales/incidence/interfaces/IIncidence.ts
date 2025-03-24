@@ -8,6 +8,7 @@ export interface IIncidence {
   description: string;
   orderReference?: string;
   cause?: any;
+  code?: string;
   subCause?: any;
   status: INCIDENCE_STATUS_ENUM;
   responsible?: any;

@@ -25,6 +25,9 @@ const IncidenceStatusPicker = ({ value, rowId, button, readOnly }: Props) => {
         '.MuiButton-root': {
           borderRadius: button ? '5px !important' : '30px',
         },
+        '.MuiChip-root': {
+          padding: '15px 15px',
+        },
         button: {
           minWidth: 110,
           minHeight: button ? 36 : 'auto',

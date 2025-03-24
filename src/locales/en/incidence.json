@@ -22,6 +22,7 @@
     "status": "Status",
     "responsible": "Responsible",
     "code": "Code",
+    "subCause": "Child incidence",
     "cause": "Cause",
     "orderCode": "Order code",
     "assignedTo": "Assigned to",

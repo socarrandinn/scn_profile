@@ -122,6 +122,10 @@ export const common = createTheme({
       fontSize: 18,
       fontWeight: 500,
     },
+    h4: {
+      fontSize: 16,
+      fontWeight: 500,
+    },
     body1: {
       fontSize: 14,
     },

@@ -20,6 +20,7 @@
     "active": "Activo",
     "status": "Estado",
     "code": "Código",
+    "subCause": "Subincidencia",
     "responsible": "Responsable",
     "cause": "Causa",
     "incidence": "Incidencia",
