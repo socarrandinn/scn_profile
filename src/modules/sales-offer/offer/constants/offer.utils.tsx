@@ -15,5 +15,6 @@ export const onParseOffer = (offer: IExtendOffer): IOffer => {
     'rulesLongevity',
     'rulesSpecificClientList',
     'rulesClientUsage',
+    'section'
   ]);
 };

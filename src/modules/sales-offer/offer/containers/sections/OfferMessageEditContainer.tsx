@@ -5,7 +5,6 @@ import { pick } from 'lodash';
 import OfferEditForm from '../../components/OfferForm/OfferEditForm';
 import { OfferDescriptionForm } from '../../components/OfferDescriptionForm';
 import OfferFormActions from '../../components/OfferFormAction/OfferFormActions';
-import { CouponOrderService } from 'modules/sales-offer/coupon/services';
 
 type Props = {
   onClose: () => void;
@@ -13,11 +12,11 @@ type Props = {
 
 const OfferMessageEditContainer = ({ onClose }: Props) => {
   const { offer, isCoupon } = useOfferContext();
-  const _initData = useMemo(() => pick(offer, ['description', 'promotionText', 'note', 'code']), [offer]);
+  const _initData = useMemo(() => pick(offer, ['_id', 'description', 'promotionText', 'note', 'code']), [offer]);
   const { control, error, isLoading, onSubmit } = useOfferMessageEditForm({
     defaultValues: _initData,
     onClose,
-    service: isCoupon && CouponOrderService,
+    isCoupon,
   });
   return (
     <OfferEditForm

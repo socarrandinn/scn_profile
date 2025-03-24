@@ -10,6 +10,7 @@
   "successUpdate": "Oferta actualizada satisfactoriamente",
   "successMessageUpdate": "Personalizar mensaje de oferta actualizado satisfactoriamente",
   "successGeneralUpdate": "Datos generales actualizado satisfactoriamente",
+  "successRulesUpdate": "Reglas actualizado satisfactoriamente",
   "successCreated": "Oferta creada satisfactoriamente",
   "name": "Nombre",
   "regulation": "Las reglas a continuación definen si una orden aplica o no a una oferta determinada",
