@@ -7,7 +7,7 @@ const DeliveryDisabled = () => {
 
   return (
     <div className='flex flex-col items-center justify-center mb-24 mt-5 relative'>
-      <DeliveryDisabledIcon className='w-80 h-60 sm:w-[600px] sm:h-[400px]' />
+      <DeliveryDisabledIcon className='w-80 h-60' />
       <Box
         sx={{
           position: 'absolute',
