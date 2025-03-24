@@ -13,7 +13,7 @@ Yup.addMethod(Yup.string, 'iban', function (message) {
 });
 
 export const bankSchema = Yup.object().shape({
-  name: Yup.string().required('required').min(2, 'min-2').max(255, 'max-255'),
+  name: Yup.string().trim().required('required').min(2, 'min-2').max(255, 'max-255'),
   description: Yup.string().max(255, 'max-255'),
   currency: Yup.string().required('required').oneOf(LIST_CURRENCIES),
   accountNumberIban: Yup.string(),
