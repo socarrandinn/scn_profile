@@ -1,16 +1,34 @@
-import { Button } from '@mui/material';
+import { IconButton } from '@dfl/mui-react-common';
+import DeleteIcon from 'components/icons/DeleteIcon';
 import { useTranslation } from 'react-i18next';
 
 interface IDeleteAudienceButton {
   handleClick: () => void;
+  disabled?: boolean;
 }
 
-const DeleteAudienceButton = ({ handleClick }: IDeleteAudienceButton) => {
+const DeleteAudienceButton = ({ handleClick, disabled = false }: IDeleteAudienceButton) => {
   const { t } = useTranslation('orderStatus');
   return (
-    <Button variant='outlined' fullWidth color='error' size='small' onClick={handleClick}>
-      {t('fields.notification.deleteAudienceButton')}
-    </Button>
+    <IconButton
+      tooltip={t('fields.notification.deleteAudienceButton')}
+      color='error'
+      size='small'
+      onClick={handleClick}
+      disabled={disabled}
+      sx={{
+        bgcolor: 'error.main',
+        color: 'common.white',
+        ':hover': {
+          bgcolor: 'error.dark',
+        },
+        ':disabled': {
+          bgcolor: 'background.default',
+        },
+      }}
+    >
+      <DeleteIcon fontSize='small' />
+    </IconButton>
   );
 };
 

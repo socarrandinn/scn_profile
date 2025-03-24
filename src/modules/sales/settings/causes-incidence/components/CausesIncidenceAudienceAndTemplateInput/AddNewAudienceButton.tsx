@@ -1,31 +1,41 @@
-import { Button, Grid } from '@mui/material';
 import { UseFieldArrayAppend } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
 import { ICausesIncidence } from '../../interfaces';
 import { Add } from '@mui/icons-material';
+import { IconButton } from '@dfl/mui-react-common';
 
 interface IAddNewAudienceButton {
   append: UseFieldArrayAppend<ICausesIncidence, 'notification.audience'>;
   disabled: boolean;
+  hidden?: boolean;
 }
 
-const AddNewAudienceButton = ({ append, disabled }: IAddNewAudienceButton) => {
+const AddNewAudienceButton = ({ append, disabled = false, hidden = false }: IAddNewAudienceButton) => {
   const { t } = useTranslation('orderStatus');
 
   return (
-    <Grid item xs={12} sx={{ marginBottom: '2rem' }}>
-      <Button
-        fullWidth
-        onClick={() => {
-          append({ target: [], template: '' });
-        }}
-        disabled={disabled}
-        variant='outlined'
-        startIcon={<Add />}
-      >
-        {t('fields.notification.addAudienceButton')}
-      </Button>
-    </Grid>
+    <IconButton
+      onClick={() => {
+        append({ target: [], template: '' });
+      }}
+      disabled={disabled}
+      hidden={hidden}
+      tooltip={t('fields.notification.addAudienceButton')}
+      size='small'
+      sx={{
+        bgcolor: 'primary.main',
+        color: 'common.white',
+        ':hover': {
+          bgcolor: 'primary.dark',
+        },
+        ':disabled': {
+          bgcolor: 'background.default',
+        },
+        display: hidden ? 'none' : 'stack',
+      }}
+    >
+      <Add fontSize='small' />
+    </IconButton>
   );
 };
 
