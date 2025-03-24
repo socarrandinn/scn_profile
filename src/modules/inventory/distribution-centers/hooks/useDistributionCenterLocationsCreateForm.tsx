@@ -12,7 +12,6 @@ import { WarehouseLocation } from 'modules/inventory/warehouse/interfaces/IWareh
 
 const initValues: Partial<IDistributionCenters> = {
   _id: '',
-  locations: [],
 };
 
 const useDistributionCenterLocationsCreateForm = (
@@ -56,13 +55,7 @@ const useDistributionCenterLocationsCreateForm = (
     values: formState.errors,
     onSubmit: handleSubmit((values) => {
       const transformedLocations: WarehouseLocation[] = [];
-      const country = values.locations && values.locations[0]?.country;
-      const states = values.locations?.flatMap((location) => location.state);
 
-      if (country && states) {
-        // @ts-ignore
-        transformedLocations.push({ country, states });
-      }
       const newValues = { _id: values._id, locations: transformedLocations };
       mutate(newValues);
     }),

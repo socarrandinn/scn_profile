@@ -26,7 +26,6 @@ export const initValues: IDistributionCenters = {
   },
   logistic: null,
   space: null,
-  locations: undefined,
   visible: true,
   name: '',
   description: '',
@@ -45,6 +44,7 @@ const useDistributionCentersCreateForm = (
     reset: resetForm,
     watch,
     setValue,
+    formState,
     clearErrors,
   } = useForm({
     resolver: yupResolver(distributionCentersSchema),
@@ -107,23 +107,12 @@ const useDistributionCentersCreateForm = (
     isLoading,
     isSuccess,
     data,
+    formState,
     reset,
     commissionType,
     clearErrors,
     onSubmit: handleSubmit(
       (values) => {
-        const transformedLocations: WarehouseLocation[] = [];
-
-        const country = values.locations && values.locations[0]?.country;
-        const states = values.locations?.flatMap((location) => location.state);
-
-        if (country && states) {
-          // @ts-ignore
-          transformedLocations.push({ country, states });
-        }
-
-        values.locations = transformedLocations;
-
         mutate(values);
       },
       // get scroll to first error

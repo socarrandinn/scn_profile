@@ -13,7 +13,6 @@ export interface IDistributionCenters {
   handlingCost: IAmountConfig;
   logistic: any | null;
   address: IAddress;
-  locations: WarehouseLocation[] | undefined;
 }
 
 export interface IAddWarehouses {
