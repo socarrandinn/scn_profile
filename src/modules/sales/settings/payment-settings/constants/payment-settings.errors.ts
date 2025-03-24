@@ -11,3 +11,13 @@ export const PAYMENT_SETTINGS_ERRORS = {
     description: 'paymentSettings:errors.duplicatedNameDescription',
   },
 };
+
+export const ERRORS = {
+  PRIMARY_CURRENCY_NOT_ENABLED: 'PRIMARY_CURRENCY_NOT_ENABLED',
+};
+
+export const CURRENCY_ERRORS = {
+  [ERRORS.PRIMARY_CURRENCY_NOT_ENABLED]: {
+    description: 'errors:primaryCurrencyDisabled',
+  },
+};

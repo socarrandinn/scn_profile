@@ -11,6 +11,7 @@
   "generalErrorMessage": "No hemos podido realizar esta acción",
   "invalid-url": "Url inválida",
   "invalidCi": "Debe ser un CI válido",
+  "primaryCurrencyDisabled": "La moneda primaria no se encuentra habilitada",
   "invalidValue-number": "Por favor, introduzca un número",
   "invalidValue": "Por favor, introduzca un valor válido",
   "isNotEmpty": "Debe contener otros caracteres.",

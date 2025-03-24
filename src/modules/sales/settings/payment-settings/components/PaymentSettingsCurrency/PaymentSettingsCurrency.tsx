@@ -6,7 +6,7 @@ import { CurrencySettingsForm } from '../CurrencySettingsForm';
 import { GeneralActions } from 'layouts/portals';
 import useCurrencySettingsCreateForm from '../../hooks/useCurrencySettingsCreateForm';
 import { usePaymentSettings } from '../../contexts/PaymentSettingsDetail';
-import { CURRENCY_RATE_MODE, CURRENCY_TYPE_ENUM } from '../../constants';
+import { CURRENCY_ERRORS, CURRENCY_RATE_MODE, CURRENCY_TYPE_ENUM } from '../../constants';
 import { ICurrencySettings } from '../../interfaces';
 
 const PaymentSettingsCurrency = () => {
@@ -57,7 +57,9 @@ const PaymentSettingsCurrency = () => {
         formState={formState}
         watch={watch}
       >
-        <HandlerError error={error} />
+        <div className='mt-2'>
+          <HandlerError error={error} errors={CURRENCY_ERRORS} />
+        </div>
         <CurrencySettingsForm setValue={setValue} />
       </Form>
     </PagePaperLayout>

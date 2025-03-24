@@ -10,6 +10,7 @@
   "duplicatedProvince": "The province has already been added. If you want to configure specific municipalities, edit the existing configuration",
   "duplicatedCity": "The municipality has already been added. You can edit the existing configuration if you wish",
   "endDateGreaterThanStartDate": "End date must be after start date",
+  "primaryCurrencyDisabled": "The primary currency is not enabled",
   "generalError": "Error",
   "generalErrorMessage": "We were unable to perform this action",
   "invalid-url": "Invalid URL",
