@@ -6,6 +6,7 @@
     "needsRefrigeration": "Necesita refrigeración",
     "isFragile": "Es frágil"
   },
+  "orderIncidence": "Orden con incidencia",
   "waitingForValidate": "La suborden se generará una vez validada",
   "Suborders": "Suborden",
   "totalProducts": "Total de Productos",
