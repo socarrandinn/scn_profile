@@ -1,14 +1,14 @@
 import { useTranslation } from 'react-i18next';
-import { ReactComponent as LocationIcon } from 'assets/images/no-data/empty-locations.svg';
 import { Typography } from '@mui/material';
 import { memo, ReactNode } from 'react';
+import { EmptyLocationIcon } from 'components/icons/EmptyLocationIcon';
 
 const EmptyLocations = ({ button }: { button: ReactNode }) => {
   const { t } = useTranslation('homeDelivery');
 
   return (
     <div className='flex flex-col items-center justify-center mb-5 relative'>
-      <LocationIcon className='w-[344px] h-[244px] sm:w-[564px] sm:h-[364px]' />
+      <EmptyLocationIcon className='w-[344px] h-[244px] sm:w-[564px] sm:h-[364px]' />
       <Typography variant='h1' sx={{ mt: 1, textAlign: 'center' }}>
         {t('emptyLocations.title')}
       </Typography>

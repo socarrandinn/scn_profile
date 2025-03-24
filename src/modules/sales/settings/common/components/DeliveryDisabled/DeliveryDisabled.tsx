@@ -11,7 +11,7 @@ const DeliveryDisabled = () => {
       <Box
         sx={{
           position: 'absolute',
-          bottom: { xs: '-25px', sm: '-10px' },
+          bottom: { xs: '-75px', sm: '-96px' },
           left: '50%',
           transform: 'translateX(-50%)',
           textAlign: 'center',
