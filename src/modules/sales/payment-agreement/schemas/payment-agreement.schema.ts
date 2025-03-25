@@ -10,4 +10,11 @@ export const paymentAgreementSchema = Yup.object().shape({
   shippingCost: Yup.number().positive('positiveNumber').required('required'),
   estimatedShippingCost: Yup.number().default(0),
   sendDate: Yup.date().required('required'),
+  filters: Yup.object(),
+});
+
+export const updatePaymentAgreementSchema = Yup.object().shape({
+  dispatch: Yup.string()
+    .required('required')
+    .transform((d) => d?._id || d),
 });

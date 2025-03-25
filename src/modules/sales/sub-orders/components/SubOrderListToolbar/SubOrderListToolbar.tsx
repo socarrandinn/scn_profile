@@ -7,8 +7,13 @@ import { TableHeaderOptions } from 'components/libs/table/toolbar/TableHeaderOpt
 import { getDefaultFilterKeys } from 'utils/custom-filters';
 import { defaultSubOrderFilterKeys } from '../../constants/sub-order.filters';
 import { PermissionCheck } from '@dfl/react-security';
-import { DispatchOptionsSelector } from 'modules/sales/dispatch/components/DispatchDropDown';
 import { DISPATCH_PERMISSIONS } from 'modules/sales/dispatch/constants';
+import { PAYMENT_AGREEMENT_PERMISSIONS } from 'modules/sales/payment-agreement/constants';
+
+import {
+  DispatchOptionsSelector,
+  PaymentAgreementOptionsSelector,
+} from 'modules/sales/common/components/SubOrderDropDown';
 
 const useToolbarSetting = () => {
   const settings = useMemo<TableHeaderOptions>(() => {
@@ -44,6 +49,9 @@ const SubOrderListToolbar = (props: Props) => {
         <TableToolbarActions settings={settings} />
       </TableToolbar>
       <GeneralActions>
+        <PermissionCheck permissions={[PAYMENT_AGREEMENT_PERMISSIONS.PAYMENT_AGREEMENT_WRITE]} atLessOne>
+          <PaymentAgreementOptionsSelector total={props?.total} filters={props?.filters} selectedItems={selected} />
+        </PermissionCheck>
         <PermissionCheck permissions={[DISPATCH_PERMISSIONS.DISPATCH_WRITE]} atLessOne>
           <DispatchOptionsSelector total={props?.total} filters={props?.filters} selectedItems={selected} />
         </PermissionCheck>

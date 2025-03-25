@@ -99,9 +99,9 @@ const orderInvoiceTotal: HeadCell<IOrder> = {
   permissions: [ORDER_PERMISSIONS.VIEW_PAYMENT_INFO],
 };
 
-export const orderDeliveryMaxTimeColumn: HeadCell<IOrder> = {
-  field: 'shipping.deliveryMaxTime',
-  headerName: 'order:deliveryMaxTime',
+export const orderDeliveryDueDateColumn: HeadCell<IOrder> = {
+  field: 'shipping.deliveryDueDate',
+  headerName: 'order:shipping.deliveryDueDate',
   type: CellType.DATE,
   align: CellAlign.CENTER,
   format: 'dd/MM/yyyy | hh:mm',
@@ -133,7 +133,7 @@ export const paidOrderColumns: Array<HeadCell<any>> = [
   orderGatewayColumn,
   orderPaymentMethodColumn,
   orderSubOrderColumn,
-  orderPaymentDateColumn
+  orderPaymentDateColumn,
 ];
 
 export const preOrderColumns: Array<HeadCell<any>> = [
@@ -144,6 +144,7 @@ export const preOrderColumns: Array<HeadCell<any>> = [
   orderInvoiceTotal,
   orderGatewayColumn,
   orderPaymentMethodColumn,
+  orderCreateAtColumn,
 ];
 
 export const subOrderColumns: Array<HeadCell<any>> = [
@@ -153,7 +154,7 @@ export const subOrderColumns: Array<HeadCell<any>> = [
   orderShippingTypeColumn,
   orderDeliveryTimeTypeColumn,
   orderTotalProductColumns,
-  orderDeliveryMaxTimeColumn,
+  orderDeliveryDueDateColumn,
   subOrderDistributionCenterColumn,
   orderCreateAtColumn,
 ];

@@ -17,7 +17,14 @@ const PaymentAgreementForm = ({ error, control, isLoading, onSubmit }: PaymentAg
   return (
     <div>
       <HandlerError error={error} />
-      <Form onSubmit={onSubmit} control={control} isLoading={isLoading} size={'small'} id={'form'} dark>
+      <Form
+        onSubmit={onSubmit}
+        control={control}
+        isLoading={isLoading}
+        size={'small'}
+        id={'payment-agreement-form'}
+        dark
+      >
         <Grid container spacing={{ xs: 1, md: 2 }} columns={{ xs: 4, sm: 8, md: 12 }}>
           <Grid item xs={12} md={6}>
             <FormTextField fullWidth autoFocus required name='name' label={t('fields.name')} />
@@ -47,6 +54,7 @@ const PaymentAgreementForm = ({ error, control, isLoading, onSubmit }: PaymentAg
             <FormTextField
               type='number'
               name='estimatedShippingCost'
+              readOnly
               label={t('fields.estimatedShippingCost')}
               InputProps={{
                 startAdornment: <AttachMoneyOutlined fontSize={'small'} />,

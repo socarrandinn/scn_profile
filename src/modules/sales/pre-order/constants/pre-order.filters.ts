@@ -1,4 +1,5 @@
 import { Filter } from '@dfl/mui-admin-layout';
+import { createdATFilter } from 'modules/common/constants';
 import {
   orderCodeFilter,
   orderDeliverTimeTypeFilter,
@@ -36,6 +37,7 @@ export const preOrderFilters: Filter[] = [
   // orderLogisticFilter,
   // orderDeliveryStatusFilter,
   orderProductItemsFilter,
+  createdATFilter,
 ];
 
 export const defaultPreOrderFilterKeys: Filter[] = [

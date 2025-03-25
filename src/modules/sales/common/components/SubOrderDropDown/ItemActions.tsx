@@ -35,12 +35,12 @@ const ItemActions = ({ add, onClose, selectedCount, selectedAction, allCount, al
     <List>
       <ListItem disablePadding>
         <ListItemButton onClick={handleSelectedAction} disabled={selectedCount <= 0}>
-          <ListItemText primary={t(`dispatch.menus.${key}.selected`, { count: selectedCount })} />
+          <ListItemText primary={t(`dropdown.menus.${key}.selected`, { count: selectedCount })} />
         </ListItemButton>
       </ListItem>
       <ListItem disablePadding>
         <ListItemButton onClick={handleAllAction}>
-          <ListItemText primary={t(`dispatch.menus.${key}.all`, { count: allCount })} />
+          <ListItemText primary={t(`dropdown.menus.${key}.all`, { count: allCount })} />
         </ListItemButton>
       </ListItem>
     </List>

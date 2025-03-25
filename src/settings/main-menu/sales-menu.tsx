@@ -58,7 +58,13 @@ export const SALES_MENU: IMenu[] = [
         icon: <DispatchIcon fontSize='small' />,
         permissions: [DISPATCH_PERMISSIONS.DISPATCH_VIEW],
       },
-
+      {
+        title: 'main_menu.admin.section.sales.payment-agreements',
+        path: '/sales/payment-agreements',
+        partialMatch: true,
+        icon: <HandshakeOutlined fontSize='small' />,
+        permissions: [ORDER_PERMISSIONS.ORDER_VIEW],
+      },
       {
         title: 'main_menu.admin.section.sales.issues',
         path: '/sales/incidences',
@@ -85,13 +91,6 @@ export const SALES_MENU: IMenu[] = [
         path: '/sales/pre-orders',
         partialMatch: true,
         icon: <NotPaidOrderIcon fontSize='small' />,
-        permissions: [ORDER_PERMISSIONS.ORDER_VIEW],
-      },
-      {
-        title: 'main_menu.admin.section.sales.payment-agreements',
-        path: '/sales/payment-agreements',
-        partialMatch: true,
-        icon: <HandshakeOutlined fontSize='small' />,
         permissions: [ORDER_PERMISSIONS.ORDER_VIEW],
       },
     ],

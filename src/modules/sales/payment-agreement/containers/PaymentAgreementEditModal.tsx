@@ -1,19 +1,19 @@
 import { memo, useCallback } from 'react';
-import PaymentAgreementCreateModal from 'modules/sales/payment-agreement/containers/PaymentAgreementCreateModal';
 import { useSearchParams } from 'react-router-dom';
-import { useFindOnePaymentAgreement } from 'modules/sales/payment-agreement/hooks/useFindOnePaymentAgreement';
+import { useFindOnePaymentAgreement } from '../hooks/useFindOnePaymentAgreement';
+import PaymentAgreementCreateModal from './PaymentAgreementCreateModal';
 
 const PaymentAgreementEditModal = () => {
   const [searchParams, setSearchParams] = useSearchParams();
-  
+
   const entityId = searchParams.get('edit');
-  
+
   const { isLoading, data, error } = useFindOnePaymentAgreement(entityId);
-  
+
   const handleCloseEdit = useCallback(() => {
-    entityId && searchParams.delete('edit')
+    entityId && searchParams.delete('edit');
     setSearchParams(searchParams);
-  }, [searchParams, setSearchParams]);
+  }, [entityId, searchParams, setSearchParams]);
 
   return (
     <PaymentAgreementCreateModal
