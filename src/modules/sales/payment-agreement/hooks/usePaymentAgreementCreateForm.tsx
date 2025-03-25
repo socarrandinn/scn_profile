@@ -11,13 +11,20 @@ import { useEffect, useCallback } from 'react';
 
 const initValues: IPaymentAgreement = {
   name: '',
-  description: '',
+  driver: '',
+  shippingCost: 0,
+  estimatedShippingCost: 0,
+  sendDate: new Date(),
 };
 
 const usePaymentAgreementCreateForm = (onClose: () => void, defaultValues: IPaymentAgreement = initValues) => {
   const { t } = useTranslation('paymentAgreement');
   const queryClient = useQueryClient();
-  const { control, handleSubmit, reset: resetForm } = useForm({
+  const {
+    control,
+    handleSubmit,
+    reset: resetForm,
+  } = useForm({
     resolver: yupResolver(paymentAgreementSchema),
     defaultValues,
   });
@@ -26,27 +33,27 @@ const usePaymentAgreementCreateForm = (onClose: () => void, defaultValues: IPaym
     if (defaultValues) resetForm(defaultValues);
   }, [defaultValues, resetForm]);
 
-  const { mutate, reset: resetMutation, error, isLoading, isSuccess, data } = useMutation(
-    (paymentAgreement: IPaymentAgreement) => PaymentAgreementService.saveOrUpdate(paymentAgreement),
-    {
-      onSuccess: (data, values) => {
-        queryClient.invalidateQueries([PAYMENT_AGREEMENTS_LIST_KEY]);
-        values?._id && queryClient.invalidateQueries([values._id]);
-        toast.success(t(values?._id ? 'successUpdate' : 'successCreated'));
-        onClose?.();
-        resetForm();
-      },
+  const {
+    mutate,
+    reset: resetMutation,
+    error,
+    isLoading,
+    isSuccess,
+    data,
+  } = useMutation((paymentAgreement: IPaymentAgreement) => PaymentAgreementService.saveOrUpdate(paymentAgreement), {
+    onSuccess: (data, values) => {
+      queryClient.invalidateQueries([PAYMENT_AGREEMENTS_LIST_KEY]);
+      values?._id && queryClient.invalidateQueries([values._id]);
+      toast.success(t(values?._id ? 'successUpdate' : 'successCreated'));
+      onClose?.();
+      resetForm();
     },
-  );
+  });
 
-  const reset = useCallback(
-    () => {
-      resetForm()
-      resetMutation()
-    },
-    [resetForm, resetMutation],
-  )
-  
+  const reset = useCallback(() => {
+    resetForm();
+    resetMutation();
+  }, [resetForm, resetMutation]);
 
   return {
     control,

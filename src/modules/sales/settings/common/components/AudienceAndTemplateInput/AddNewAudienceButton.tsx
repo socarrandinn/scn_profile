@@ -1,11 +1,10 @@
-import { UseFieldArrayAppend } from 'react-hook-form';
+import { FieldValues, UseFieldArrayAppend } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
-import { ICausesIncidence } from '../../interfaces';
 import { Add } from '@mui/icons-material';
 import { IconButton } from '@dfl/mui-react-common';
 
 interface IAddNewAudienceButton {
-  append: UseFieldArrayAppend<ICausesIncidence, 'notification.audience'>;
+  append: UseFieldArrayAppend<FieldValues, string>;
   disabled: boolean;
   hidden?: boolean;
 }

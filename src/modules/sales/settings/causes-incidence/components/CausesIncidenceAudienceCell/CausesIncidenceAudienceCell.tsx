@@ -2,7 +2,7 @@ import { useTranslation } from 'react-i18next';
 import { ICausesIncidence } from '../../interfaces';
 import { useMemo } from 'react';
 import { TagList } from '@dfl/mui-react-common';
-import { getAudienceTarget } from '../../constants/causes-incidence.utils';
+import { getAudienceTarget } from '../../../common/constants/common.utils';
 
 type Props = {
   value: ICausesIncidence['notification']['audience'] | [];

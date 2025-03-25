@@ -17,7 +17,9 @@ export const causesIncidenceSchema = Yup.object().shape({
       theme.shape({
         audience: Yup.array().of(
           Yup.object().shape({
-            target: Yup.array().of(Yup.string().oneOf(Object.keys(INCIDENCE_AUDIENCE_TARGET))),
+            target: Yup.array()
+              .of(Yup.string().oneOf(Object.keys(INCIDENCE_AUDIENCE_TARGET)))
+              .min(1, 'min-1'),
             template: Yup.string().required('required'),
           }),
         ),

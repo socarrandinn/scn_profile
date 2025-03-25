@@ -3,11 +3,13 @@ import { Form, FormTextField, HandlerError } from '@dfl/mui-react-common';
 import { Grid } from '@mui/material';
 import { useTranslation } from 'react-i18next';
 import { useWatch } from 'react-hook-form';
-import CausesIncidenceAudienceAndTemplateInput from '../CausesIncidenceAudienceAndTemplateInput/CausesIncidenceAudienceAndTemplateInput';
+
 import { CausesIncidenceSelect } from '../CausesIncidenceSelect';
 import { CAUSE_INCIDENCE_ERRORS } from '../../constants/causes-incidence.errors';
 
 import { FormCustomSwitchField } from 'modules/common/components/IphoneSwitchField';
+import AudienceAndTemplateInput from 'modules/sales/settings/common/components/AudienceAndTemplateInput/AudienceAndTemplateInput';
+import { INCIDENCE_AUDIENCE_TARGET } from '../../interfaces';
 
 type CausesIncidenceFormProps = {
   error: any;
@@ -65,7 +67,11 @@ const CausesIncidenceForm = ({ error, control, isLoading, onSubmit }: CausesInci
           {/* Display on sendNotification */}
           {sendNotification && (
             <Grid item xs={12}>
-              <CausesIncidenceAudienceAndTemplateInput control={control} />
+              <AudienceAndTemplateInput
+                control={control}
+                name='notification.audience'
+                options={Object.keys(INCIDENCE_AUDIENCE_TARGET)}
+              />
             </Grid>
           )}
         </Grid>

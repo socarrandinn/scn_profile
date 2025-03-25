@@ -20,14 +20,9 @@ export const PRE_ORDER_VIEWS: TabViews = {
   [ORDER_STATUS_TYPE_ENUM.PENDING_PAYMENT]: {
     title: `tabsFilter.${ORDER_STATUS_TYPE_ENUM.PENDING_PAYMENT}`,
     filters: {
-      type: 'OR',
-      filters: [
-        {
-          type: 'TERM',
-          field: 'status.type',
-          value: ORDER_STATUS_TYPE_ENUM.PENDING_PAYMENT,
-        },
-      ],
+      type: 'TERM',
+      field: 'status.type',
+      value: ORDER_STATUS_TYPE_ENUM.PENDING_PAYMENT,
     },
     params: {
       payedDate: 'LAST-THIRTY-DAYS',
@@ -37,14 +32,9 @@ export const PRE_ORDER_VIEWS: TabViews = {
   [ORDER_STATUS_TYPE_ENUM.CANCELED]: {
     title: `tabsFilter.${ORDER_STATUS_TYPE_ENUM.CANCELED}`,
     filters: {
-      type: 'OR',
-      filters: [
-        {
-          type: 'TERM',
-          field: 'status.type',
-          value: ORDER_STATUS_TYPE_ENUM.CANCELED,
-        },
-      ],
+      type: 'TERM',
+      field: 'status.type',
+      value: ORDER_STATUS_TYPE_ENUM.CANCELED,
     },
     params: {
       payedDate: 'LAST-THIRTY-DAYS',
@@ -61,97 +51,62 @@ export const SUB_ORDER_VIEWS: TabViews = {
   [ORDER_STATUS_TYPE_ENUM.PAID]: {
     title: `tabsFilter.${ORDER_STATUS_TYPE_ENUM.PAID}`,
     filters: {
-      type: 'OR',
-      filters: [
-        {
-          type: 'TERM',
-          field: 'status.type',
-          value: ORDER_STATUS_TYPE_ENUM.PAID,
-        },
-      ],
+      type: 'TERM',
+      field: 'status.type',
+      value: ORDER_STATUS_TYPE_ENUM.PAID,
     },
   },
 
   [ORDER_STATUS_TYPE_ENUM.VALIDATED]: {
     title: `tabsFilter.${ORDER_STATUS_TYPE_ENUM.VALIDATED}`,
     filters: {
-      type: 'OR',
-      filters: [
-        {
-          type: 'TERM',
-          field: 'status.type',
-          value: ORDER_STATUS_TYPE_ENUM.VALIDATED,
-        },
-      ],
+      type: 'TERM',
+      field: 'status.type',
+      value: ORDER_STATUS_TYPE_ENUM.VALIDATED,
     },
   },
 
   [ORDER_STATUS_TYPE_ENUM.CANCELED]: {
     title: `tabsFilter.${ORDER_STATUS_TYPE_ENUM.CANCELED}`,
     filters: {
-      type: 'OR',
-      filters: [
-        {
-          type: 'TERM',
-          field: 'status.type',
-          value: ORDER_STATUS_TYPE_ENUM.CANCELED,
-        },
-      ],
+      type: 'TERM',
+      field: 'status.type',
+      value: ORDER_STATUS_TYPE_ENUM.CANCELED,
     },
   },
 
   [ORDER_STATUS_TYPE_ENUM.PENDING_REFUNDED]: {
     title: `tabsFilter.${ORDER_STATUS_TYPE_ENUM.PENDING_REFUNDED}`,
     filters: {
-      type: 'OR',
-      filters: [
-        {
-          type: 'TERM',
-          field: 'status.type',
-          value: ORDER_STATUS_TYPE_ENUM.PENDING_REFUNDED,
-        },
-      ],
+      type: 'TERM',
+      field: 'status.type',
+      value: ORDER_STATUS_TYPE_ENUM.PENDING_REFUNDED,
     },
   },
 
   [ORDER_STATUS_TYPE_ENUM.REFUNDED]: {
     title: `tabsFilter.${ORDER_STATUS_TYPE_ENUM.REFUNDED}`,
     filters: {
-      type: 'OR',
-      filters: [
-        {
-          type: 'TERM',
-          field: 'status.type',
-          value: ORDER_STATUS_TYPE_ENUM.REFUNDED,
-        },
-      ],
+      type: 'TERM',
+      field: 'status.type',
+      value: ORDER_STATUS_TYPE_ENUM.REFUNDED,
     },
   },
 
   [ORDER_STATUS_TYPE_ENUM.ERROR]: {
     title: `tabsFilter.${ORDER_STATUS_TYPE_ENUM.ERROR}`,
     filters: {
-      type: 'OR',
-      filters: [
-        {
-          type: 'TERM',
-          field: 'status.type',
-          value: ORDER_STATUS_TYPE_ENUM.ERROR,
-        },
-      ],
+      type: 'TERM',
+      field: 'status.type',
+      value: ORDER_STATUS_TYPE_ENUM.ERROR,
     },
   },
   DELAYED: {
     title: 'tabsFilter.DELAYED',
     filters: {
-      type: 'OR',
-      filters: [
-        {
-          type: 'TERM',
-          field: 'shipping.deliveryDueDate',
-          value: { $lte: new Date() },
-        },
-      ],
+      type: 'TERM',
+      field: 'shipping.deliveryDueDate',
+      value: { $lte: new Date() },
     },
   },
 };

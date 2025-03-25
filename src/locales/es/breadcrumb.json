@@ -93,5 +93,6 @@
   "paid-orders": "Ordenes Pagadas",
   "sub-orders": "Subórdenes",
   "reconciliation-adjustment": "Ajustes de conciliaciones",
-  "dispatches": "Despachos"
+  "dispatches": "Despachos",
+  "payment-agreements": "Pagos por acuerdo"
 }

@@ -1,6 +1,6 @@
 import * as Yup from 'yup';
 import '@dfl/yup-validations';
-import { ORDER_STATUS_TYPE_ENUM, ORDER_STATUS_VALIDATE_TYPE } from '../constants';
+import { AUDIENCE_TARGET, ORDER_STATUS_TYPE_ENUM, ORDER_STATUS_VALIDATE_TYPE } from '../constants';
 
 export const orderStatusSchema = Yup.object().shape({
   title: Yup.string().required('required').min(4, 'min-4').max(255, 'max-255'),
@@ -17,17 +17,18 @@ export const orderStatusSchema = Yup.object().shape({
 
   notification: Yup.object({
     enabled: Yup.boolean(),
-    audience: Yup.array()
-      .when('enabled', {
-        is: true,
-        then: (schema) =>
-          schema.of(
-            Yup.object({
-              target: Yup.array().of(Yup.string()).required('required').min(1, 'min-1-item'),
-              template: Yup.string().required('required').min(2, 'min-2').max(255, 'max-255'),
-            }),
-          ),
-      })
-      .required('required'),
+    audience: Yup.array().when('enabled', {
+      is: true,
+      then: (schema) =>
+        schema.of(
+          Yup.object().shape({
+            target: Yup.array()
+              .of(Yup.string().oneOf(Object.keys(AUDIENCE_TARGET)))
+              .min(1, 'min-1'),
+            template: Yup.string().required('required'),
+          }),
+        ),
+      otherwise: (scheme) => scheme.transform(() => []),
+    }),
   }),
 });

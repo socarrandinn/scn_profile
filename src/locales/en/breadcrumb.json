@@ -89,5 +89,6 @@
   "pre-orders": "Ordenes sin pago",
   "paid-orders": "Ordenes Pagadas",
   "reconciliation-adjustment": "Reconciliations adjustment",
-  "dispatches": "Dispatches"
+  "dispatches": "Dispatches",
+  "payment-agreements": "Payment Agreements"
 }

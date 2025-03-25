@@ -21,12 +21,6 @@
       "target": "Target Audience",
       "audience": "Recipients",
       "template": "Message"
-    },
-    "target": {
-      "CLIENT": "Client",
-      "RECEIVER": "Recipient",
-      "SUPPORT": "Support",
-      "LOGISTICS": "Logistics"
     }
   },
   "sendNotification": {

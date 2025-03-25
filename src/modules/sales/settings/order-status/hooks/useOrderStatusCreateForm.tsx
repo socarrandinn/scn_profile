@@ -17,20 +17,24 @@ const useOrderStatusCreateForm = (onClose: () => void, defaultValues: IOrderStat
 
   const queryClient = useQueryClient();
 
-  const { control, handleSubmit, reset, setValue } = useForm({
+  const {
+    control,
+    handleSubmit,
+    reset,
+    setValue,
+    formState: { errors },
+  } = useForm({
     mode: 'onChange',
     resolver: yupResolver(orderStatusSchema),
     defaultValues,
   });
+  console.log(errors);
 
   // If default values was provided, initialize the form values with this values
   useEffect(() => {
     // @ts-ignore
     if (defaultValues) {
       reset(defaultValues);
-      if (defaultValues.notification.enabled) {
-        setValue('notification.audience', defaultValues?.notification?.audience || []);
-      }
     }
   }, [defaultValues, reset, setValue]);
 

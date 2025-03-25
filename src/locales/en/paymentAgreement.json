@@ -1,15 +1,27 @@
 {
-  "list": "List title",
-  "create": "Create new ...",
-  "deleteMany": "You must have items selected to do this operation",
-  "edit": "Edit ...",
-  "successDeleted": "Item successfully deleted",
-  "successUpdate": "Item successfully updated",
-  "successCreated": "Item successfully created",
+  "list": "Agreement Payments",
+  "create": "Create New Agreement Payment",
+  "deleteMany": "You must select agreement payments to perform this operation",
+  "edit": "Edit Agreement Payment",
+  "successDeleted": "Agreement payment successfully deleted",
+  "successUpdate": "Agreement payment successfully updated",
+  "successCreated": "Agreement payment successfully created",
   "fields": {
     "name": "Name",
-    "description": "Description",
-    "createdAt": "Created date",
-    "active": "Active"
+    "createdAt": "Creation Date",
+    "active": "Active",
+    "driver": "Driver",
+    "quantityOrders": "Number of Orders",
+    "sendDate": "Shipping Date",
+    "shippingCost": "Shipping Cost",
+    "estimatedShippingCost": "Estimated Shipping Cost",
+    "status": "Status"
+  },
+  "status": {
+    "title": "Status",
+    "all": "All",
+    "COMPLETED": "Completed",
+    "PENDING": "Pending",
+    "DELIVERY_PARTIAL": "Partial Delivery"
   }
 }

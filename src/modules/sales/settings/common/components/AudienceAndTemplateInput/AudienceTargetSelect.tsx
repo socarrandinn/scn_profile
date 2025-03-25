@@ -1,6 +1,5 @@
 import { Box, Chip, FormControl, MenuItem } from '@mui/material';
 import { Controller } from 'react-hook-form';
-import { INCIDENCE_AUDIENCE_TARGET } from '../../interfaces';
 import { useEffect, useMemo, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { FormSelectField } from '@dfl/mui-react-common';
@@ -11,21 +10,22 @@ type Props = {
   index: number;
   control: any;
   required?: boolean;
+  options?: string[];
 };
 
-const CausesIncidenceAudienceTargetSelect = ({ control, name, fields, index, required = false }: Props) => {
+const AudienceTargetSelect = ({ control, name, fields, index, required = false, options = [] }: Props) => {
+  const { t } = useTranslation('common');
   const [availableOptions, setAvailableOptions] = useState<string[]>([]);
-  const { t } = useTranslation('causesIncidence');
 
   useEffect(() => {
     const selectedTargets = fields.flatMap((a: any, i: number) => (i === index ? [] : a.target));
-    setAvailableOptions(Object.keys(INCIDENCE_AUDIENCE_TARGET).filter((option) => !selectedTargets.includes(option)));
-  }, [fields, index]);
+    setAvailableOptions(options?.filter((option) => !selectedTargets.includes(option)));
+  }, [fields, index, options]);
 
-  const renderLabel = (option: string) => t(`fields.target.${option}`);
+  const renderLabel = (option: string) => t(`audience.target.${option}`);
 
   const _label = useMemo(
-    () => (required ? t('notification.audience') + '*' : t('notification.audience')),
+    () => (required ? t('audience.title') + '*' : t('audience.title')),
     [required, t],
   );
 
@@ -53,7 +53,7 @@ const CausesIncidenceAudienceTargetSelect = ({ control, name, fields, index, req
                       <Chip
                         sx={{ zIndex: 10, pointerEvents: 'auto' }}
                         key={value}
-                        label={t(`fields.target.${value}`)}
+                        label={t(`audience.target.${value}`)}
                         onMouseDown={(e) => {
                           e.stopPropagation();
                         }}
@@ -83,4 +83,4 @@ const CausesIncidenceAudienceTargetSelect = ({ control, name, fields, index, req
   );
 };
 
-export default CausesIncidenceAudienceTargetSelect;
+export default AudienceTargetSelect;

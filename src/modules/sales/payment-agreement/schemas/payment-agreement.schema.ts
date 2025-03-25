@@ -3,5 +3,11 @@ import '@dfl/yup-validations';
 
 export const paymentAgreementSchema = Yup.object().shape({
   name: Yup.string().required('required').min(4, 'min-4').max(255, 'max-255'),
-  description: Yup.string().required('required').min(4, 'min-4'),
+  driver: Yup.string()
+    .required('required')
+    .transform((d) => d?._id || d),
+
+  shippingCost: Yup.number().positive('positiveNumber').required('required'),
+  estimatedShippingCost: Yup.number().default(0),
+  sendDate: Yup.date().required('required'),
 });

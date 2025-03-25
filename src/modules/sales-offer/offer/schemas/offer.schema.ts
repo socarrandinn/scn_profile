@@ -27,7 +27,7 @@ export const offerClientRulesSchema = Yup.object().shape({
           .integer('offerOrder:error:clientUsage:integer')
           .positive('offerOrder:error:clientUsage:positive')
           .required('required'),
-        operator: Yup.string().default(OPERATOR_RULE_OFFER_TYPE.LESS_THAN).required('required').nullable(),
+        operator: Yup.string().required('required').nullable(),
       }),
     otherwise: (schema) => schema.strip(),
   }),
@@ -38,7 +38,7 @@ export const offerClientRulesSchema = Yup.object().shape({
     then: (schema) =>
       schema.shape({
         fact: Yup.string().default(RULE_OFFER_FACT_TYPE.ORDER_COUNT_BY_TIME),
-        operator: Yup.string().default(OPERATOR_RULE_OFFER_TYPE.EQUAL).required('required').nullable(),
+        operator: Yup.string().required('required').nullable(),
         value: Yup.object().shape({
           amount: Yup.number()
             .positive('offerOrder:error.orderCountByTime.positive')
@@ -54,7 +54,7 @@ export const offerClientRulesSchema = Yup.object().shape({
     then: (schema) =>
       schema.shape({
         fact: Yup.string().default(RULE_OFFER_FACT_TYPE.ORDER_COUNT_BY_TIME),
-        operator: Yup.string().default(OPERATOR_RULE_OFFER_TYPE.EQUAL).required('required').nullable(),
+        operator: Yup.string().required('required').nullable(),
         value: Yup.object().shape({
           amount: Yup.number().positive('offerOrder:error.amountSpentByTime.positive').required('required'),
           interval: Yup.string().oneOf(Object.keys(PERIOD_RULE_OFFER_TYPE)).required('required'),
@@ -69,11 +69,7 @@ export const offerClientRulesSchema = Yup.object().shape({
     then: (schema) =>
       schema.shape({
         fact: Yup.string().default(RULE_OFFER_FACT_TYPE.ORDER_COUNT_BY_TIME),
-        operator: Yup.string()
-          .oneOf(Object.keys(OPERATOR_RULE_OFFER_TYPE))
-          .default(OPERATOR_RULE_OFFER_TYPE.EQUAL)
-          .required('required')
-          .nullable(),
+        operator: Yup.string().oneOf(Object.keys(OPERATOR_RULE_OFFER_TYPE)).required('required').nullable(),
         value: Yup.object().shape({
           amount: Yup.number()
             .positive('offerOrder:error.longevity.positive')
@@ -91,11 +87,7 @@ export const offerClientRulesSchema = Yup.object().shape({
     then: (schema) =>
       schema.shape({
         fact: Yup.string().default(RULE_OFFER_FACT_TYPE.ORDER_COUNT_BY_TIME),
-        operator: Yup.string()
-          .oneOf(Object.keys(OPERATOR_RULE_OFFER_TYPE))
-          .default(OPERATOR_RULE_OFFER_TYPE.EQUAL)
-          .required('required')
-          .nullable(),
+        operator: Yup.string().oneOf(Object.keys(OPERATOR_RULE_OFFER_TYPE)).required('required').nullable(),
         value: Yup.array()
           .min(1, 'offerOrder:error.specificClientList.min-1')
           .required('offerOrder:error.specificClientList.min-1')
@@ -121,7 +113,7 @@ export const offerCommonRulesSchema = Yup.object().shape({
       schema.shape({
         fact: Yup.string().default(RULE_OFFER_FACT_TYPE.AMOUNT),
         value: Yup.number().positive('offerOrder:error:amount:positive').required('required'),
-        operator: Yup.string().default(OPERATOR_RULE_OFFER_TYPE.EQUAL).required('required').nullable(),
+        operator: Yup.string().required('required').nullable(),
       }),
     otherwise: (schema) => schema.strip(),
   }),
@@ -136,7 +128,7 @@ export const offerCommonRulesSchema = Yup.object().shape({
           .integer('offerOrder:error:usage:integer')
           .positive('offerOrder:error:usage:positive')
           .required('required'),
-        operator: Yup.string().default(OPERATOR_RULE_OFFER_TYPE.EQUAL).required('required').nullable(),
+        operator: Yup.string().required('required').nullable(),
       }),
     otherwise: (schema) => schema.strip(),
   }),
@@ -154,7 +146,7 @@ export const offerCommonRulesSchema = Yup.object().shape({
               .integer('integerNumber')
               .typeError('offerOrder:error:quantity_orders:positive')
               .required('required'),
-            operator: Yup.string().default(OPERATOR_RULE_OFFER_TYPE.EQUAL).required('required').nullable(),
+            operator: Yup.string().required('required').nullable(),
           }),
         )
         .min(1, 'offerOrder:error:quantity_orders:min'),
@@ -178,7 +170,7 @@ export const offerCommonRulesSchema = Yup.object().shape({
           )
           .required('required')
           .min(1, 'offerOrder:error:address:min'),
-        operator: Yup.string().default(OPERATOR_RULE_OFFER_TYPE.AT_LEAST_ONE).required('required'),
+        operator: Yup.string().required('required'),
       }),
   }),
 
@@ -196,12 +188,12 @@ export const offerCommonRulesSchema = Yup.object().shape({
                 .positive('offerOrder:error:quantity:positive')
                 .integer('offerOrder:error:quantity:integer')
                 .required('required'),
-              operator: Yup.string().default(OPERATOR_RULE_OFFER_TYPE.EQUAL).required('required'),
+              operator: Yup.string().required('required'),
             }),
           )
           .required('required')
           .min(1, 'offerOrder:error:array:category:required'),
-        operator: Yup.string().default(OPERATOR_RULE_OFFER_TYPE.EQUAL).required('required'),
+        operator: Yup.string().required('required'),
       }),
     otherwise: (schema) => schema.strip(),
   }),
@@ -220,12 +212,12 @@ export const offerCommonRulesSchema = Yup.object().shape({
                 .positive('offerOrder:error:quantity:positive')
                 .integer('offerOrder:error:quantity:integer')
                 .required('required'),
-              operator: Yup.string().default(OPERATOR_RULE_OFFER_TYPE.EQUAL).required('required'),
+              operator: Yup.string().required('required'),
             }),
           )
           .required('required')
           .min(1, 'offerOrder:error:array:product:required'),
-        operator: Yup.string().default(OPERATOR_RULE_OFFER_TYPE.ALL).required('required'),
+        operator: Yup.string().required('required'),
       }),
     otherwise: (schema) => schema.strip(),
   }),
