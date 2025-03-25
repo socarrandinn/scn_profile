@@ -8,7 +8,7 @@ const IncidenceEditModal = () => {
 
   const entityId = searchParams.get('edit');
 
-  const { isLoading, data, error } = useFindOneIncidence(entityId);
+  const { isLoading, data, error } = useFindOneIncidence(entityId as string);
 
   const handleCloseEdit = useCallback(() => {
     entityId && searchParams.delete('edit');
