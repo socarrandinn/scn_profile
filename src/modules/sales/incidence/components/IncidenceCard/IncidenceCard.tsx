@@ -10,7 +10,7 @@ import { IncidenceStatusPicker } from '../IncidenceStatusPicker';
 import { InfoIcon } from 'components/icons/InfoIcon';
 import { AvatarMedia } from 'components/AvatarMedia';
 
-const IncidenceCard = ({ data }: { data: IIncidence }) => {
+const IncidenceCard = ({ data, route }: { data: IIncidence, route: string }) => {
   const { t } = useTranslation('order');
 
   return (
@@ -27,8 +27,8 @@ const IncidenceCard = ({ data }: { data: IIncidence }) => {
       <CardContent sx={{ padding: '12px 20px' }}>
         <Typography variant='h2'>{data?.name}</Typography>
         <FlexBox sx={{ mt: 0.5, mb: 1 }} alignItems={'center'} gap={2}>
-          <ReactLink to={`/sales/orders/${data?._id as string}/general`} color={'#F94A44'} fontWeight={500}>
-            {data?.code || 'INC15236236'}
+          <ReactLink to={`/sales/${route}/${data?._id as string}/general`} color={'#F94A44'} fontWeight={500}>
+            {data?.code}
           </ReactLink>
           <Typography>{format(new Date(data?.createdAt || ''), 'MM/dd/yyyy hh:mm a')}</Typography>
         </FlexBox>
@@ -45,10 +45,10 @@ const IncidenceCard = ({ data }: { data: IIncidence }) => {
           </FlexBox>
         </FlexBox>
 
-        <FlexBox sx={{ background: '#EDEEF0', my: 2, p: '10px', position: 'relative', borderRadius: '10px' }} gap={1}>
+        <FlexBox sx={{ background: '#EDEEF0', my: 2, p: '10px', position: 'relative', }} gap={1}>
           <InfoOutlined color='error' />
           <div className='max-w-[82%]'>
-            <Typography sx={{ fontSize: '15px', fontWeight: 500 }}>{data?.cause?.name}</Typography>
+            <Typography sx={{ fontSize: '15px', fontWeight: 500 }}>{data?.description}</Typography>
             {data?.subCause?.name &&
               <Typography sx={{ fontSize: '15px' }}>({t('incidence:fields.subCause')}) {data?.subCause?.name}</Typography>
             }
@@ -56,14 +56,14 @@ const IncidenceCard = ({ data }: { data: IIncidence }) => {
           <InfoIcon sx={{ position: 'absolute', bottom: '-4px', right: 0, width: 50, height: 50 }} fill={'#F94A44'} />
         </FlexBox>
 
-        {!data?.responsible?.fullName &&
+        {data?.responsible?.fullName &&
           <FlexBox justifyContent={'space-between'} alignItems={'center'}>
             <Typography variant={'h4'}>{t('incidence:fields.assignedTo')}</Typography>
             <Stack flexDirection={'row'} alignItems={'center'} gap={1} sx={{ background: '#E9EBEF', borderRadius: '16px', pr: 2 }}>
               <AvatarMedia name={data?.responsible?.fullName} avatar={data?.responsible?.avatar} sx={{ width: 32, height: 32, }}>
                 <Person />
               </AvatarMedia>
-              <LongText lineClamp={1} text={data?.responsible?.fullName || 'Erick Fernandez'} />
+              <LongText lineClamp={1} text={data?.responsible?.fullName} />
             </Stack>
           </FlexBox>
         }

@@ -4,17 +4,17 @@ import { useFindIncidences } from '../hooks/useFindIncidences';
 import { IIncidence } from '../interfaces';
 import { Grid } from '@mui/material';
 
-const IncidenceOrderContainer = () => {
+const IncidenceOrderContainer = ({ route }: { route: string }) => {
   const { id } = useParams();
-  const { data } = useFindIncidences(id);
+  const { data, isLoading } = useFindIncidences(id);
 
-  if (!data?.data) return <></>;
+  if (isLoading || !data?.data) return <></>;
 
   return (
     <Grid container rowSpacing={2} mb={2}>
       {data?.data?.map((incidence: IIncidence) =>
         <Grid item xs={12} key={incidence?._id}>
-          <IncidenceCard data={incidence} />
+          <IncidenceCard data={incidence} route={route} />
         </Grid>
       )}
     </Grid>
