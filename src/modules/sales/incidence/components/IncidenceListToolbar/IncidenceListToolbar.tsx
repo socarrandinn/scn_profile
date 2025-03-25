@@ -1,11 +1,7 @@
 import { memo, useMemo } from 'react';
 import { Stack } from '@mui/material';
 import { useToggle } from '@dfl/hook-utils';
-import { TableToolbar, TableToolbarActions, TablaHeaderOptions, AddButton } from '@dfl/mui-admin-layout';
-import IncidenceCreateModal from 'modules/sales/incidence/containers/IncidenceCreateModal';
-import { INCIDENCE_PERMISSIONS } from 'modules/sales/incidence/constants/incidence.permissions';
-import { GeneralActions } from 'layouts/portals';
-import { PermissionCheck } from '@dfl/react-security';
+import { TableToolbar, TableToolbarActions, TablaHeaderOptions } from '@dfl/mui-admin-layout';
 
 const useToolbarSetting = () => {
   const { isOpen, onClose, onOpen } = useToggle(false);
@@ -27,19 +23,13 @@ const useToolbarSetting = () => {
 };
 
 const IncidenceListToolbar = () => {
-  const { isOpen, settings, onClose, onOpen } = useToolbarSetting();
+  const { settings } = useToolbarSetting();
 
   return (
     <>
       <TableToolbar selectActions={<Stack direction={'row'} spacing={1}></Stack>}>
         <TableToolbarActions settings={settings} />
       </TableToolbar>
-      <GeneralActions>
-        <PermissionCheck permissions={INCIDENCE_PERMISSIONS.INCIDENCE_WRITE}>
-          <AddButton action={onOpen} />
-        </PermissionCheck>
-      </GeneralActions>
-      <IncidenceCreateModal open={isOpen} onClose={onClose} />
     </>
   );
 };
