@@ -9,10 +9,9 @@ import { ExpressDeliveryGlobalForm } from 'modules/sales/settings/home-delivery/
 
 type Props = {
   global: IDelivery;
-  data?: IDelivery;
 };
 
-const ExpressLocationForm = ({ global, data }: Props) => {
+const ExpressLocationForm = ({ global }: Props) => {
   const { t } = useTranslation('homeDelivery');
   const { watch, setValue } = useDFLForm();
   const selectedCost = watch?.('customPrice');
@@ -29,7 +28,7 @@ const ExpressLocationForm = ({ global, data }: Props) => {
 
   return (
     <>
-      {selectedCost === COST_TYPE.BASE && global?.hasExpress && (data || global) && (
+      {selectedCost === COST_TYPE.BASE && global?.hasExpress && (global) && (
         <>
           <SwitchField
             label={t(global?.hasExpress ? 'expressDelivery:expressEnabled' : 'expressDelivery:expressDisabled')}
@@ -38,7 +37,7 @@ const ExpressLocationForm = ({ global, data }: Props) => {
           <Box
             sx={{ '.MuiTable-root': { minWidth: '553px' }, mt: 1, display: 'flex', gap: 3, flexDirection: 'column' }}
           >
-            <Table columns={shippingExpressColumns} data={[data || global]} total={1} hidePagination />
+            <Table columns={shippingExpressColumns} data={[global]} total={1} hidePagination />
           </Box>
         </>
       )}

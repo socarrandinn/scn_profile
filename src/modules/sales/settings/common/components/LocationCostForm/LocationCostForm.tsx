@@ -10,12 +10,11 @@ import { ShippingTimeForm } from '../ShippingTimeForm';
 import { COST_TYPE, costTypeEnumValues, shippingColumns } from '../../constants';
 
 type Props = {
-  data?: IDelivery;
   global: IDelivery;
   name: string;
 };
 
-const LocationCostForm = ({ global, data, name }: Props) => {
+const LocationCostForm = ({ global, name }: Props) => {
   const { t } = useTranslation('homeDelivery');
   const { watch, formState, setValue } = useDFLForm();
   const selectedCost = watch?.('customPrice');
@@ -47,9 +46,9 @@ const LocationCostForm = ({ global, data, name }: Props) => {
           <FormHelperText error>{t(`errors:${formState?.errors?.[name]?.message as string}`)}</FormHelperText>
         )}
       </FormRadioGroupField>
-      {selectedCost === COST_TYPE.BASE && (data || global) ? (
+      {selectedCost === COST_TYPE.BASE && global ? (
         <Box sx={{ '.MuiTable-root': { minWidth: '553px' }, mt: 1, display: 'flex', gap: 3, flexDirection: 'column' }}>
-          <Table columns={shippingColumns?.slice(1)} data={[data || global]} total={1} hidePagination />
+          <Table columns={shippingColumns?.slice(1)} data={[global]} total={1} hidePagination />
         </Box>
       ) : (
         <Box sx={{ mt: 1 }}>

@@ -39,10 +39,10 @@ const DeliveryCreateDestinationForm = ({ state, settings, type }: DeliveryCreate
         </Grid>
       )}
       <Grid item xs={12} marginBottom={1}>
-        <LocationCostForm name={'customPrice'} global={settings} data={data?.data?.[0]} />
+        <LocationCostForm name={'customPrice'} global={value ? data?.data?.[0] : settings} />
       </Grid>
       <Grid item xs={12} marginBottom={1}>
-        <ExpressLocationForm global={settings} data={data?.data?.[0]} />
+        <ExpressLocationForm global={value ? data?.data?.[0] : settings} />
       </Grid>
     </Grid>
   );

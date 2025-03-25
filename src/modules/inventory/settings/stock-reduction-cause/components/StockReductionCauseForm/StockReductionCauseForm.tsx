@@ -1,7 +1,8 @@
 import { FormEventHandler, memo } from 'react';
-import { Form, FormSwitchField, FormTextField, HandlerError } from '@dfl/mui-react-common';
+import { Form, FormTextField, HandlerError } from '@dfl/mui-react-common';
 import { Grid } from '@mui/material';
 import { useTranslation } from 'react-i18next';
+import { FormCustomSwitchField } from 'modules/common/components/IphoneSwitchField';
 
 type StockReductionCauseFormProps = {
   error: any;
@@ -25,10 +26,10 @@ const StockReductionCauseForm = ({ error, control, isLoading, onSubmit }: StockR
             <FormTextField fullWidth multiline minRows={3} name='description' label={t('fields.description')} />
           </Grid>
           <Grid item xs={12} md={6}>
-            <FormSwitchField name='requiresResponsible' label={t('fields.requiresResponsible')} />
+            <FormCustomSwitchField name='requiresResponsible' label={t('fields.requiresResponsible')} />
           </Grid>
           <Grid item xs={12} md={6}>
-            <FormSwitchField name='requiresEvidence' label={t('fields.requiresEvidence')} />
+            <FormCustomSwitchField name='requiresEvidence' label={t('fields.requiresEvidence')} />
           </Grid>
         </Grid>
       </Form>

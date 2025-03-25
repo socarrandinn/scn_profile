@@ -1,7 +1,8 @@
 import { memo } from 'react';
 import { Grid } from '@mui/material';
-import { FormSwitchField, Small } from '@dfl/mui-react-common';
+import { Small } from '@dfl/mui-react-common';
 import { useTranslation } from 'react-i18next';
+import { FormCustomSwitchField } from 'modules/common/components/IphoneSwitchField';
 
 const ProductShippingStatus = () => {
   const { t } = useTranslation('product');
@@ -13,13 +14,13 @@ const ProductShippingStatus = () => {
       </Grid>
       <Grid item container spacing={{ xs: 1, md: 2 }}>
         <Grid item xs={12} md={6} lg={4}>
-          <FormSwitchField
+          <FormCustomSwitchField
             name='shippingSettings.shippingInfo.fragile'
             label={t('section.shipping.statusInfo.fragile')}
           />
         </Grid>
         <Grid item xs={12} md={6} lg={4}>
-          <FormSwitchField
+          <FormCustomSwitchField
             name='shippingSettings.shippingInfo.needRefrigeration'
             label={t('section.shipping.statusInfo.needRefrigeration')}
           />
