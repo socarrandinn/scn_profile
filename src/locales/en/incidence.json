@@ -13,6 +13,8 @@
   "successDeleted": "Item successfully deleted",
   "successUpdate": "Item successfully updated",
   "successCreated": "Item successfully created",
+  "assignResponsible": "Asigne a un responsable de esta incidencia",
+  "successAssignResponsible": "Responsible successfully assigned",
   "fields": {
     "name": "Name",
     "description": "Description",

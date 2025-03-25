@@ -9,6 +9,7 @@ import { format, } from 'date-fns';
 import { IncidenceStatusPicker } from '../IncidenceStatusPicker';
 import { InfoIcon } from 'components/icons/InfoIcon';
 import { AvatarMedia } from 'components/AvatarMedia';
+import ResponsibleCell from 'modules/sales/common/components/ResponsibleCell/ResponsibleCell';
 import { useNavigate } from 'react-router';
 import { ErrorStyledBadge } from './styled';
 
@@ -73,15 +74,7 @@ const IncidenceCard = ({ data }: { data: IIncidence }) => {
         </FlexBox>
 
         {data?.responsible?.fullName &&
-          <FlexBox justifyContent={'space-between'} alignItems={'center'}>
-            <Typography variant={'h4'}>{t('incidence:fields.assignedTo')}</Typography>
-            <Stack flexDirection={'row'} alignItems={'center'} gap={1} sx={{ background: '#E9EBEF', borderRadius: '16px', pr: 2 }}>
-              <AvatarMedia name={data?.responsible?.fullName} avatar={data?.responsible?.avatar} sx={{ width: 32, height: 32, }}>
-                <Person />
-              </AvatarMedia>
-              <LongText lineClamp={1} text={data?.responsible?.fullName} />
-            </Stack>
-          </FlexBox>
+          <ResponsibleCell data={data?.responsible} />
         }
       </CardContent>
     </Card>

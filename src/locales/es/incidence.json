@@ -13,6 +13,8 @@
   "successDeleted": "Elemento eliminado satisfactoriamente",
   "successUpdate": "Elemento actualizado satisfactoriamente",
   "successCreated": "Elemento creado satisfactoriamente",
+  "assignResponsible": "Asigne a un responsable de esta incidencia",
+  "successAssignResponsible": "Responsable asignado satisfactoriamente",
   "fields": {
     "name": "Nombre",
     "description": "Descripción",
