@@ -1,11 +1,11 @@
 {
-  "list": "Agreement Payments",
-  "create": "Create New Agreement Payment",
-  "deleteMany": "You must select agreement payments to perform this operation",
-  "edit": "Edit Agreement Payment",
-  "successDeleted": "Agreement payment successfully deleted",
-  "successUpdate": "Agreement payment successfully updated",
-  "successCreated": "Agreement payment successfully created",
+  "list": "Payment Agreements",
+  "create": "Create New Payment Agreement",
+  "deleteMany": "You must have selected a payment agreement to perform this operation",
+  "edit": "Edit Payment Agreements",
+  "successDeleted": "Payment agreement successfully deleted",
+  "successUpdate": "Payment agreement successfully updated",
+  "successCreated": "Payment agreement successfully created",
   "fields": {
     "name": "Name",
     "createdAt": "Creation Date",
@@ -15,7 +15,12 @@
     "sendDate": "Shipping Date",
     "shippingCost": "Shipping Cost",
     "estimatedShippingCost": "Estimated Shipping Cost",
-    "status": "Status"
+    "status": "Status",
+    "verify": {
+      "totalOrders": "Orders",
+      "orderInPaymentAgreement": "Orders in Payment Agreement",
+      "orderCompleted": "Completed Orders"
+    }
   },
   "status": {
     "title": "Status",
@@ -23,5 +28,20 @@
     "COMPLETED": "Completed",
     "PENDING": "Pending",
     "DELIVERY_PARTIAL": "Partial Delivery"
+  },
+  "dropdown": {
+    "action": "Payment Agreement",
+    "menus": {
+      "create": {
+        "title": "Create Payment Agreement",
+        "selected": "Selected ({{ count }})",
+        "all": "All filtered ({{ count }})"
+      },
+      "addTo": {
+        "title": "Add to Payment Agreement",
+        "selected": "Selected ({{ count }})",
+        "all": "All filtered ({{ count }})"
+      }
+    }
   }
 }

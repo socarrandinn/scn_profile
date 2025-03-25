@@ -1,13 +1,15 @@
-import { memo, useCallback } from 'react';
+import { memo, useCallback, useMemo } from 'react';
 import { Button, DialogActions, DialogContent } from '@mui/material';
 import { ConditionContainer, DialogForm, HandlerError, LoadingButton } from '@dfl/mui-react-common';
 import { useTranslation } from 'react-i18next';
-import usePaymentAgreementCreateForm from 'modules/sales/payment-agreement/hooks/usePaymentAgreementCreateForm';
-import { IPaymentAgreement } from 'modules/sales/payment-agreement/interfaces';
-import {
-  PaymentAgreementForm,
-  PaymentAgreementFormSkeleton,
-} from 'modules/sales/payment-agreement/components/PaymentAgreementForm';
+import { useTableSearch } from '@dfl/mui-admin-layout';
+import { mapGetOneErrors, PAYMENT_AGREEMENT_ERRORS } from '../constants';
+import { pick } from 'lodash';
+import { usePaymentAgreementVerify } from '../hooks/usePaymentAgreementVerify';
+import { PaymentAgreementForm, PaymentAgreementFormSkeleton } from '../components/PaymentAgreementForm';
+import { IPaymentAgreement, IPaymentAgreementVerify, PaymentAgreementDTO } from '../interfaces';
+import PaymentAgreementVerifySummary from '../components/PaymentAgreementSummary/PaymentAgreementVerifySummary';
+import usePaymentAgreementCreateForm from '../hooks/usePaymentAgreementCreateForm';
 
 type PaymentAgreementCreateModalProps = {
   open: boolean;
@@ -16,6 +18,7 @@ type PaymentAgreementCreateModalProps = {
   dataError?: any;
   initValue?: IPaymentAgreement;
   onClose: () => void;
+  filters?: any;
 };
 const PaymentAgreementCreateModal = ({
   title = 'create',
@@ -24,9 +27,32 @@ const PaymentAgreementCreateModal = ({
   dataError,
   initValue,
   loadingInitData,
+  filters,
 }: PaymentAgreementCreateModalProps) => {
   const { t } = useTranslation('paymentAgreement');
-  const { control, onSubmit, isLoading, reset, error } = usePaymentAgreementCreateForm(onClose, initValue);
+  const { query } = useTableSearch();
+  const { data, isInitialLoading } = usePaymentAgreementVerify(query, filters, open && !!filters);
+
+  const isValid = useMemo(() => {
+    if (initValue?._id) return false;
+    return data?.isValid;
+  }, [data?.isValid, initValue?._id]);
+
+  const _initValue: PaymentAgreementDTO = useMemo(
+    () =>
+      pick({ ...(initValue as IPaymentAgreement), driver: 'chofer todo', filters }, [
+        '_id',
+        'name',
+        'sendDate',
+        'driver',
+        'shippingCost',
+        'filters',
+      ]),
+    [initValue, filters],
+  );
+
+  const { control, onSubmit, isLoading, reset, error } = usePaymentAgreementCreateForm(onClose, _initValue);
+
   const handleClose = useCallback(() => {
     onClose?.();
     reset();
@@ -38,10 +64,14 @@ const PaymentAgreementCreateModal = ({
       onClose={handleClose}
       isLoading={loadingInitData}
       title={t(title)}
-      aria-labelledby={'paymentAgreement-creation-title'}
+      aria-labelledby={'dispatch-creation-title'}
     >
       <DialogContent>
-        {dataError && <HandlerError error={dataError} />}
+        {(isValid || dataError) && (
+          <HandlerError error={dataError} errors={PAYMENT_AGREEMENT_ERRORS} mapError={mapGetOneErrors} />
+        )}
+
+        <PaymentAgreementVerifySummary data={data as IPaymentAgreementVerify} isLoading={isInitialLoading} />
 
         {!dataError && (
           <ConditionContainer active={!loadingInitData} alternative={<PaymentAgreementFormSkeleton />}>
@@ -54,9 +84,9 @@ const PaymentAgreementCreateModal = ({
         <LoadingButton
           variant='contained'
           type={'submit'}
-          loading={isLoading || loadingInitData}
-          disabled={!!dataError}
-          form='form'
+          loading={isLoading || loadingInitData || isInitialLoading}
+          disabled={!!dataError || isValid}
+          form='payment-agreement-form'
         >
           {t('common:save')}
         </LoadingButton>

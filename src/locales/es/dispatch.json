@@ -40,7 +40,7 @@
   "report": {
     "count": "Órdenes"
   },
-  "dispatch": {
+  "dropdown": {
     "action": "Despacho",
     "menus": {
       "create": {

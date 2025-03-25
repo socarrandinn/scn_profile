@@ -16,7 +16,7 @@ class DispatchService extends EntityApiService<IDispatch> {
   remove = (dispatchId: string, filters: any) => {
     if (dispatchId) {
       return this.handleResponse(
-        ApiClientService.delete(this.getPath(`/${dispatchId}/remove`), {
+        ApiClientService.delete(this.getPath(`/${dispatchId}/remove-suborders`), {
           data: {
             filters,
           },

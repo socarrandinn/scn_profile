@@ -1,13 +1,17 @@
-import { COMMON_ERRORS } from 'modules/common/constants/errors.references';
+import { ErrorType } from '@dfl/mui-react-common';
+import { GET_ONE_ERROR } from 'constants/errors';
 
-export const ERROR_REFS = {
-  ...COMMON_ERRORS,
-  // add new error refs here
+export const ERRORS = {
+  INVALID_PAYMENT_AGREEMENT: 'ID0001',
 };
 
 export const PAYMENT_AGREEMENT_ERRORS = {
-  [ERROR_REFS.DUPLICATE_KEY]: {
-    title: 'paymentAgreement:errors.duplicatedName',
-    description: 'paymentAgreement:errors.duplicatedNameDescription',
-  }
+  [ERRORS.INVALID_PAYMENT_AGREEMENT]: {
+    title: 'errors:title',
+    description: 'paymentAgreement:errors.INVALID_PAYMENT_AGREEMENT',
+  },
+};
+
+export const mapGetOneErrors = (error: any): ErrorType | undefined => {
+  if (error?.statusCode === 400 || error?.statusCode === 404) return GET_ONE_ERROR;
 };

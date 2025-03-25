@@ -1,19 +1,19 @@
 {
-  "list": "Dispatches",
-  "create": "Create new Dispatch",
-  "deleteMany": "You must have selected Dispatches to perform this operation",
-  "edit": "Edit Dispatch",
-  "successDeleted": "Dispatch successfully deleted",
-  "successUpdate": "Dispatch successfully updated",
-  "successCreated": "Dispatch successfully created",
-  "goDispatch": "Go to Dispatch",
+  "list": "Shipments",
+  "create": "Create New Shipment",
+  "update": "Add to Shipment",
+  "deleteMany": "You must select shipments to perform this operation",
+  "edit": "Edit Shipment",
+  "successDeleted": "Shipment successfully deleted",
+  "successUpdate": "Shipment successfully updated",
+  "successCreated": "Shipment successfully created",
+  "goDispatch": "Shipment",
   "fields": {
     "name": "Name",
     "description": "Description",
     "createdAt": "Start Date",
     "updatedAt": "End Date",
     "status": "Status",
-    "orders": "Orders",
     "metrics": {
       "suborderCount": "Number of Orders",
       "totalUniqueProducts": "Total Unique Products",
@@ -23,6 +23,11 @@
       "subordersByRegion": "Involved Provinces",
       "minDate": "Start Date",
       "maxDate": "End Date"
+    },
+    "verify": {
+      "totalOrders": "Orders",
+      "orderInDispatch": "Orders in Shipment",
+      "orderCompleted": "Completed Orders"
     }
   },
   "status": {
@@ -35,7 +40,24 @@
   "report": {
     "count": "Orders"
   },
+  "dropdown": {
+    "action": "Shipment",
+    "menus": {
+      "create": {
+        "title": "Create Shipment",
+        "selected": "Selected ({{ count }})",
+        "all": "All Filtered ({{ count }})"
+      },
+      "addTo": {
+        "title": "Add to Shipment",
+        "selected": "Selected ({{ count }})",
+        "all": "All Filtered ({{ count }})"
+      }
+    }
+  },
+  "inDispatch": "In Shipment",
+  "noDispatch": "No Shipment",
   "errors": {
-    "INVALID_DISPATCH": "The provided dispatch data is incorrect"
+    "INVALID_DISPATCH": "The provided shipment data is incorrect"
   }
 }

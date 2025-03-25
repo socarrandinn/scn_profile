@@ -1,11 +1,11 @@
 {
   "list": "Pagos por acuerdo",
-  "create": "Crear nuevo pagos por acuerdo",
-  "deleteMany": "Debe tener pagos por acuerdo seleccionados para realizar esta operación",
+  "create": "Crear nuevo pago por acuerdo",
+  "deleteMany": "Debe tener pago por acuerdo seleccionados para realizar esta operación",
   "edit": "Editar Pagos por acuerdo",
-  "successDeleted": "Pagos por acuerdo eliminado satisfactoriamente",
-  "successUpdate": "Pagos por acuerdo actualizado satisfactoriamente",
-  "successCreated": "Pagos por acuerdo creado satisfactoriamente",
+  "successDeleted": "Pago por acuerdo eliminado satisfactoriamente",
+  "successUpdate": "Pago por acuerdo actualizado satisfactoriamente",
+  "successCreated": "Pago por acuerdo creado satisfactoriamente",
   "fields": {
     "name": "Nombre",
     "createdAt": "Fecha de creación",
@@ -15,7 +15,12 @@
     "sendDate": "Fecha de envío",
     "shippingCost": "Precio de envío",
     "estimatedShippingCost": "Precio Estimado de envío",
-    "status": "Estado"
+    "status": "Estado",
+    "verify": {
+      "totalOrders": "Órdenes",
+      "orderInPaymentAgreement": "Órdenes en pago por acuerdo",
+      "orderCompleted": "Órdenes completada"
+    }
   },
   "status": {
     "title": "Estado",
@@ -23,5 +28,21 @@
     "COMPLETED": "Completado",
     "PENDING": "Pendiente",
     "DELIVERY_PARTIAL": "Entrega parcial"
+  },
+
+  "dropdown": {
+    "action": "Pago por acuerdo",
+    "menus": {
+      "create": {
+        "title": "Crear Pago por acuerdo",
+        "selected": "Seleccionadas ({{ count }})",
+        "all": "Todas las filtradas ({{ count }})"
+      },
+      "addTo": {
+        "title": "Agregar al Pago por acuerdo",
+        "selected": "Seleccionadas ({{ count }})",
+        "all": "Todas las filtradas ({{ count }})"
+      }
+    }
   }
 }

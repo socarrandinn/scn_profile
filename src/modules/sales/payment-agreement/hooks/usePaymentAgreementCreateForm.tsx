@@ -13,7 +13,6 @@ const initValues: IPaymentAgreement = {
   name: '',
   driver: '',
   shippingCost: 0,
-  estimatedShippingCost: 0,
   sendDate: new Date(),
 };
 

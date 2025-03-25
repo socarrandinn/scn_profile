@@ -3,10 +3,10 @@ import { DropDown } from '@dfl/mui-react-common';
 import { useToggle } from '@dfl/hook-utils';
 import { useTranslation } from 'react-i18next';
 import { FilterFactory, InFilter } from '@dofleini/query-builder';
-import { menuProps } from './styled';
-import DispatchCreateModal from '../../containers/DispatchCreateModal';
-import DispatchUpdateModal from '../../containers/DispatchUpdateModal';
-import { OptionItem } from './OptionItem';
+import { menuProps } from '../styled';
+import { OptionItem } from '../OptionItem';
+import PaymentAgreementUpdateModal from 'modules/sales/payment-agreement/containers/PaymentAgreementUpdateModal';
+import PaymentAgreementCreateModal from 'modules/sales/payment-agreement/containers/PaymentAgreementCreateModal';
 
 type Props = {
   filters: any;
@@ -14,9 +14,9 @@ type Props = {
   total?: number;
 };
 
-const DispatchOptionsSelector = ({ filters, selectedItems, total }: Props) => {
+const PaymentAgreementOptionsSelector = ({ filters, selectedItems, total }: Props) => {
   const { isOpen, onOpen, onClose } = useToggle();
-  const { t } = useTranslation('dispatch');
+  const { t } = useTranslation('paymentAgreement');
 
   const selectedFilter = useMemo(() => {
     if (Array.isArray(selectedItems) && selectedItems.length > 0) {
@@ -57,14 +57,22 @@ const DispatchOptionsSelector = ({ filters, selectedItems, total }: Props) => {
 
   return (
     <>
-      <DispatchCreateModal open={isOpenCreateSelected} onClose={onCloseCreateSelected} filters={selectedFilter} />
-      <DispatchCreateModal open={isOpenCreateAll} onClose={onCloseCreateAll} filters={filters} />
-      <DispatchUpdateModal open={isOpenUpdateSelected} onClose={onCloseUpdateSelected} filters={selectedFilter} />
-      <DispatchUpdateModal open={isOpenUpdateAll} onClose={onCloseUpdateAll} filters={filters} />
+      <PaymentAgreementCreateModal
+        open={isOpenCreateSelected}
+        onClose={onCloseCreateSelected}
+        filters={selectedFilter}
+      />
+      <PaymentAgreementCreateModal open={isOpenCreateAll} onClose={onCloseCreateAll} filters={filters} />
+      <PaymentAgreementUpdateModal
+        open={isOpenUpdateSelected}
+        onClose={onCloseUpdateSelected}
+        filters={selectedFilter}
+      />
+      <PaymentAgreementUpdateModal open={isOpenUpdateAll} onClose={onCloseUpdateAll} filters={filters} />
       <DropDown
         variant={'contained'}
-        label={t('dispatch.action')}
-        id={'dispatch-options'}
+        label={t('dropdown.action')}
+        id={'paymentAgreement-options'}
         buttonProps={{}}
         open={isOpen}
         menuProps={menuProps}
@@ -72,7 +80,7 @@ const DispatchOptionsSelector = ({ filters, selectedItems, total }: Props) => {
         onClose={onClose}
       >
         <OptionItem
-          label={t('dispatch.menus.create.title')}
+          label={t('dropdown.menus.create.title')}
           add={true}
           onClose={onClose}
           selectedCount={selectedItems?.length || 0}
@@ -81,7 +89,7 @@ const DispatchOptionsSelector = ({ filters, selectedItems, total }: Props) => {
           allAction={handleOpenCreateAll}
         />
         <OptionItem
-          label={t('dispatch.menus.addTo.title')}
+          label={t('dropdown.menus.addTo.title')}
           add={false}
           onClose={onClose}
           selectedCount={selectedItems?.length || 0}
@@ -94,4 +102,4 @@ const DispatchOptionsSelector = ({ filters, selectedItems, total }: Props) => {
   );
 };
 
-export default memo(DispatchOptionsSelector);
+export default memo(PaymentAgreementOptionsSelector);
