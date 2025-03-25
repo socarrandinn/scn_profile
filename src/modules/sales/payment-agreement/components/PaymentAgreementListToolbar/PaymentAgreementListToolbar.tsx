@@ -1,22 +1,25 @@
 import { memo, useMemo } from 'react';
 import { Stack } from '@mui/material';
 import { useToggle } from '@dfl/hook-utils';
-import { TableToolbar, TableToolbarActions, TablaHeaderOptions, AddButton } from '@dfl/mui-admin-layout';
+import { TableToolbar } from '@dfl/mui-admin-layout';
 import PaymentAgreementCreateModal from 'modules/sales/payment-agreement/containers/PaymentAgreementCreateModal';
-import { PAYMENT_AGREEMENT_PERMISSIONS } from 'modules/sales/payment-agreement/constants/payment-agreement.permissions';
 import { GeneralActions } from 'layouts/portals';
-import { PermissionCheck } from '@dfl/react-security';
+import { TableHeaderOptions } from 'components/libs/table';
+import TableToolbarActions from 'components/libs/table/toolbar/TableToolbarActions';
 
 const useToolbarSetting = () => {
   const { isOpen, onClose, onOpen } = useToggle(false);
-  const settings = useMemo<TablaHeaderOptions>(() => {
+  const settings = useMemo<TableHeaderOptions>(() => {
     return {
       actions: {
         create: false,
         export: false,
       },
+      filter: {
+        activeMenu: true,
+      },
     };
-  }, [onOpen]);
+  }, []);
 
   return {
     isOpen,
@@ -27,25 +30,16 @@ const useToolbarSetting = () => {
 };
 
 const PaymentAgreementListToolbar = () => {
-  const { isOpen, settings, onClose, onOpen } = useToolbarSetting();
+  const { isOpen, settings, onClose } = useToolbarSetting();
 
   return (
-        <>
-            <TableToolbar
-                selectActions={
-                    <Stack direction={'row'} spacing={1}>
-                    </Stack>
-                }
-            >
-                <TableToolbarActions settings={settings}/>
-            </TableToolbar>
-            <GeneralActions>
-                <PermissionCheck permissions={PAYMENT_AGREEMENT_PERMISSIONS.PAYMENT_AGREEMENT_WRITE}>
-                    <AddButton action={onOpen}/>
-                </PermissionCheck>
-            </GeneralActions>
-            <PaymentAgreementCreateModal open={isOpen} onClose={onClose}/>
-        </>
+    <>
+      <TableToolbar selectActions={<Stack direction={'row'} spacing={1}></Stack>}>
+        <TableToolbarActions settings={settings} />
+      </TableToolbar>
+      <GeneralActions></GeneralActions>
+      <PaymentAgreementCreateModal open={isOpen} onClose={onClose} />
+    </>
   );
 };
 

@@ -333,5 +333,18 @@
   },
   "configTo": "Configuration of",
   "AUTOMATIC": "Automático",
-  "MANUAL": "Manual"
+  "MANUAL": "Manual",
+  "audience": {
+    "title": "Audience",
+    "target": {
+      "CLIENT": "Client",
+      "RECEIVER": "Recipient",
+      "SUPPORT": "Support",
+      "LOGISTICS": "Logistics",
+      "BILLING_CLIENT": "Billing Client",
+      "SHIPPING_CLIENT": "Shipping Client",
+      "ADMIN": "Administrator",
+      "CUSTOM": "Custom"
+    }
+  }
 }

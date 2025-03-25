@@ -1,29 +1,22 @@
 import { Box, Grid, Stack, Typography } from '@mui/material';
 import { useTranslation } from 'react-i18next';
 import DeleteAudienceButton from './DeleteAudienceButton';
-import { ICausesIncidence } from '../../interfaces';
-import CausesIncidenceAudienceTargetSelect from '../CausesIncidenceAudienceTargetSelect/CausesIncidenceAudienceTargetSelect';
 import { FormTextField } from '@dfl/mui-react-common';
 import AddNewAudienceButton from './AddNewAudienceButton';
-import { Control, useFieldArray, useWatch } from 'react-hook-form';
-import { getAudienceTarget } from '../../constants/causes-incidence.utils';
+import { useFieldArray, useWatch } from 'react-hook-form';
+import { getAudienceTarget } from '../../constants/common.utils';
+import AudienceTargetSelect from './AudienceTargetSelect';
 
-interface ICausesIncidenceAudienceAndTemplateInput {
-  control: Control<ICausesIncidence, any>;
+interface IAudienceAndTemplateInput {
+  control: any;
+  name: string;
+  options: string[];
 }
 
-const CausesIncidenceAudienceAndTemplateInput = ({ control }: ICausesIncidenceAudienceAndTemplateInput) => {
+const AudienceAndTemplateInput = ({ control, name = 'notification.audience', options }: IAudienceAndTemplateInput) => {
   const { t } = useTranslation('causesIncidence');
-
-  const { fields, append, remove } = useFieldArray({
-    control,
-    name: 'notification.audience',
-  });
-
-  const selectedTarget = useWatch({
-    control,
-    name: 'notification.audience',
-  });
+  const { fields, append, remove } = useFieldArray({ control, name });
+  const selectedTarget = useWatch({ control, name });
 
   const selectedAll = getAudienceTarget(selectedTarget)?.length === 4;
 
@@ -66,13 +59,14 @@ const CausesIncidenceAudienceAndTemplateInput = ({ control }: ICausesIncidenceAu
                   </Stack>
                 </Stack>
 
-                <CausesIncidenceAudienceTargetSelect
+                <AudienceTargetSelect
                   name={`notification.audience.${index}.target`}
                   control={control}
                   key={field.id}
                   fields={selectedTarget}
                   index={index}
                   required
+                  options={options}
                 />
 
                 <FormTextField
@@ -89,4 +83,4 @@ const CausesIncidenceAudienceAndTemplateInput = ({ control }: ICausesIncidenceAu
   );
 };
 
-export default CausesIncidenceAudienceAndTemplateInput;
+export default AudienceAndTemplateInput;

@@ -335,5 +335,18 @@
   "seeMapDetails": "Ver detalles de ubicación en el mapa",
   "configTo": "Configuración de",
   "AUTOMATIC": "Automático",
-  "MANUAL": "Manual"
+  "MANUAL": "Manual",
+  "audience": {
+    "title": "Audiencia",
+    "target": {
+      "CLIENT": "Cliente",
+      "RECEIVER": "Destinatario",
+      "SUPPORT": "Soporte",
+      "LOGISTICS": "Logística",
+      "BILLING_CLIENT": "Cliente de facturación",
+      "SHIPPING_CLIENT": "Cliente de envío",
+      "ADMIN": "Administrador",
+      "CUSTOM": "Personalizado"
+    }
+  }
 }

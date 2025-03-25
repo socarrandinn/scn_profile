@@ -8,16 +8,28 @@ import { IPaymentAgreement } from 'modules/sales/payment-agreement/interfaces';
 import { PaymentAgreementService } from 'modules/sales/payment-agreement/services';
 import { PAYMENT_AGREEMENTS_LIST_KEY } from 'modules/sales/payment-agreement/constants';
 import { useEffect, useCallback } from 'react';
+import { PAYMENT_AGREEMENT_STATUS_ENUM } from '../constants/payment-agreement.enum';
 
 const initValues: IPaymentAgreement = {
   name: '',
   description: '',
+  status: PAYMENT_AGREEMENT_STATUS_ENUM.COMPLETED,
+  driver: '',
+  estimatedShippingCost: 0,
+  owner: '',
+  quantityOrders: 0,
+  sendDate: new Date(),
+  shippingCost: 0,
 };
 
 const usePaymentAgreementCreateForm = (onClose: () => void, defaultValues: IPaymentAgreement = initValues) => {
   const { t } = useTranslation('paymentAgreement');
   const queryClient = useQueryClient();
-  const { control, handleSubmit, reset: resetForm } = useForm({
+  const {
+    control,
+    handleSubmit,
+    reset: resetForm,
+  } = useForm({
     resolver: yupResolver(paymentAgreementSchema),
     defaultValues,
   });
@@ -26,27 +38,27 @@ const usePaymentAgreementCreateForm = (onClose: () => void, defaultValues: IPaym
     if (defaultValues) resetForm(defaultValues);
   }, [defaultValues, resetForm]);
 
-  const { mutate, reset: resetMutation, error, isLoading, isSuccess, data } = useMutation(
-    (paymentAgreement: IPaymentAgreement) => PaymentAgreementService.saveOrUpdate(paymentAgreement),
-    {
-      onSuccess: (data, values) => {
-        queryClient.invalidateQueries([PAYMENT_AGREEMENTS_LIST_KEY]);
-        values?._id && queryClient.invalidateQueries([values._id]);
-        toast.success(t(values?._id ? 'successUpdate' : 'successCreated'));
-        onClose?.();
-        resetForm();
-      },
+  const {
+    mutate,
+    reset: resetMutation,
+    error,
+    isLoading,
+    isSuccess,
+    data,
+  } = useMutation((paymentAgreement: IPaymentAgreement) => PaymentAgreementService.saveOrUpdate(paymentAgreement), {
+    onSuccess: (data, values) => {
+      queryClient.invalidateQueries([PAYMENT_AGREEMENTS_LIST_KEY]);
+      values?._id && queryClient.invalidateQueries([values._id]);
+      toast.success(t(values?._id ? 'successUpdate' : 'successCreated'));
+      onClose?.();
+      resetForm();
     },
-  );
+  });
 
-  const reset = useCallback(
-    () => {
-      resetForm()
-      resetMutation()
-    },
-    [resetForm, resetMutation],
-  )
-  
+  const reset = useCallback(() => {
+    resetForm();
+    resetMutation();
+  }, [resetForm, resetMutation]);
 
   return {
     control,

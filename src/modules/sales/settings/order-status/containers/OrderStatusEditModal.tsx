@@ -2,6 +2,7 @@ import { memo, useCallback } from 'react';
 import OrderStatusCreateModal from 'modules/sales/settings/order-status/containers/OrderStatusCreateModal';
 import { useSearchParams } from 'react-router-dom';
 import { useFindOneOrderStatus } from 'modules/sales/settings/order-status/hooks/useFindOneOrderStatus';
+import { getNotificationDefault } from '../../common/constants/common.utils';
 
 const OrderStatusEditModal = () => {
   const [searchParams, setSearchParams] = useSearchParams();
@@ -18,7 +19,8 @@ const OrderStatusEditModal = () => {
       title={'edit'}
       open={!!entityId}
       onClose={handleCloseEdit}
-      initValue={data}
+      // @ts-ignore
+      initValue={{ ...data, notification: getNotificationDefault(data?.notification) }}
       loadingInitData={isLoading}
       dataError={error}
       edit
