@@ -4,6 +4,7 @@ import { FormEventHandler, memo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { ProductDiscountTypeForm } from '../ProductDiscountTypeForm';
 import { ProductDiscountValueForm } from '../ProductDiscountValueForm';
+import { FormCustomSwitchField } from 'modules/common/components/IphoneSwitchField';
 
 type ProductDiscountHeaderFormProps = {
   error: any;
@@ -39,7 +40,7 @@ const ProductDiscountHeaderForm = ({
             <FormTextField name='name' label={t('fields.name')} />
           </Grid>
           <Grid item xs={4} sm={2} md={2}>
-            <FormSwitchField name='enabled' label={t('enabledTypes.ACTIVE')} />
+            <FormCustomSwitchField name='enabled' label={t('enabledTypes.ACTIVE')} />
           </Grid>
           <Grid item xs={12} md={4}>
             <ProductDiscountTypeForm hideLabel />

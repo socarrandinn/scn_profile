@@ -1,8 +1,9 @@
-import { Form, FormLabel, FormSwitchField, FormTextField, HandlerError } from '@dfl/mui-react-common';
+import { Form, FormLabel, FormTextField, HandlerError } from '@dfl/mui-react-common';
 import { Grid } from '@mui/material';
 import { FormEventHandler, memo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { ProductDiscountSection } from '../ProductDiscountSection';
+import { FormCustomSwitchField } from 'modules/common/components/IphoneSwitchField';
 
 type ProductDiscountBulkFormProps = {
   error: any;
@@ -32,7 +33,7 @@ const ProductDiscountBulkForm = ({
           </Grid>
           <Grid item xs={4}>
             <FormLabel label={t('fields.enabled')} />
-            <FormSwitchField name='enabled' label={t('enabledTypes.ACTIVE')} />
+            <FormCustomSwitchField name='enabled' label={t('enabledTypes.ACTIVE')} />
           </Grid>
           <Grid item xs={12}>
             <ProductDiscountSection discountType={discountType} />

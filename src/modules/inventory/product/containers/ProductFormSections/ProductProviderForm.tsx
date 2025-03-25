@@ -1,8 +1,8 @@
-import { FormSwitchField } from '@dfl/mui-react-common';
 import { Grid } from '@mui/material';
 import { useTranslation } from 'react-i18next';
 import { SupplierSelect } from 'modules/inventory/provider/supplier/components/SupplierSelect';
 import { ManufactureSelect } from 'modules/inventory/provider/manufacture/components/ManufactureSelect';
+import { FormCustomSwitchField } from 'modules/common/components/IphoneSwitchField';
 
 type ProductProviderFormProps = {
   isEdit?: boolean;
@@ -20,7 +20,7 @@ const ProductProviderForm = ({ isEdit }: ProductProviderFormProps) => {
       </Grid>
       {!isEdit ? (
         <Grid item xs={12} md={12}>
-          <FormSwitchField name='visible' label={t('fields.visibility')} />
+          <FormCustomSwitchField name='visible' label={t('fields.visibility')} />
         </Grid>
       ) : null}
     </Grid>

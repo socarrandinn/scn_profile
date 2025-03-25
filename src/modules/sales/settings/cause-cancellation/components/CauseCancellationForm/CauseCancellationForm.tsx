@@ -1,7 +1,8 @@
 import { FormEventHandler, memo } from 'react';
-import { Form, FormSwitchField, FormTextField, HandlerError } from '@dfl/mui-react-common';
+import { Form, FormTextField, HandlerError } from '@dfl/mui-react-common';
 import { Grid } from '@mui/material';
 import { useTranslation } from 'react-i18next';
+import { FormCustomSwitchField } from 'modules/common/components/IphoneSwitchField';
 
 type CauseCancellationFormProps = {
   error: any;
@@ -25,7 +26,7 @@ const CauseCancellationForm = ({ error, control, isLoading, onSubmit }: CauseCan
             <FormTextField fullWidth multiline minRows={3} name='description' label={t('fields.description')} />
           </Grid>
           <Grid item xs={12}>
-            <FormSwitchField required name='visibility' label={t('fields.visibility')} />
+            <FormCustomSwitchField required name='visibility' label={t('fields.visibility')} />
           </Grid>
         </Grid>
       </Form>

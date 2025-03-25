@@ -1,6 +1,7 @@
 import { memo, ReactNode } from 'react';
 import { Typography, styled, Stack } from '@mui/material';
-import { ChildrenProps, FormSwitchField } from '@dfl/mui-react-common';
+import { ChildrenProps } from '@dfl/mui-react-common';
+import { FormCustomSwitchField } from 'modules/common/components/IphoneSwitchField';
 
 export const Section = styled(Stack)(({ theme }) => ({
   padding: '8px 16px',
@@ -44,7 +45,7 @@ const PanelEnableSection = ({
           </Typography>
           <Stack gap={1} flexDirection={'row'} alignItems={'center'}>
             {chip}
-            <FormSwitchField defaultChecked={checked} name={switchName} label={switchLabel} />
+            <FormCustomSwitchField bg='transparent' defaultChecked={checked} name={switchName} label={switchLabel} />
           </Stack>
         </Stack>
         <Typography

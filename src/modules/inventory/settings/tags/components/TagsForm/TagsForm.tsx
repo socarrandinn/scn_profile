@@ -1,11 +1,12 @@
 import { FormEventHandler, memo } from 'react';
-import { Form, FormLabel, FormSwitchField, FormTextField, HandlerError } from '@dfl/mui-react-common';
+import { Form, FormLabel, FormTextField, HandlerError } from '@dfl/mui-react-common';
 import { Divider, Grid, Typography } from '@mui/material';
 import { useTranslation } from 'react-i18next';
 import { TagsTypeSelect } from '../TagsTypeSelect';
 import { TAG_TYPE_ENUM } from '../../interfaces';
 import { useWatch } from 'react-hook-form';
 import { ProductKeywordsInput } from 'modules/inventory/product/components/ProductKeywordsInput';
+import { FormCustomSwitchField } from 'modules/common/components/IphoneSwitchField';
 
 type TagsFormProps = {
   error: any;
@@ -35,7 +36,7 @@ const TagsForm = ({ error, control, isLoading, onSubmit }: TagsFormProps) => {
                 <ProductKeywordsInput name='values' label={t('fields.arrayValue')} />
               </Grid>
               <Grid item xs={12}>
-                <FormSwitchField name='isMultiValue' label={t('fields.isMultiValue')} />
+                <FormCustomSwitchField name='isMultiValue' label={t('fields.isMultiValue')} />
               </Grid>
             </>
           )}
@@ -45,13 +46,13 @@ const TagsForm = ({ error, control, isLoading, onSubmit }: TagsFormProps) => {
             </FormLabel>
           </Grid>
           <Grid item xs={12}>
-            <FormSwitchField name='rules.product.required' label={t('fields.rules.product')} />
+            <FormCustomSwitchField name='rules.product.required' label={t('fields.rules.product')} />
           </Grid>
           <Grid item xs={12}>
-            <FormSwitchField name='rules.supplier.required' label={t('fields.rules.supplier')} />
+            <FormCustomSwitchField name='rules.supplier.required' label={t('fields.rules.supplier')} />
           </Grid>
           <Grid item xs={12}>
-            <FormSwitchField name='rules.logistic.required' label={t('fields.rules.logistic')} />
+            <FormCustomSwitchField name='rules.logistic.required' label={t('fields.rules.logistic')} />
           </Grid>
         </Grid>
       </Form>

@@ -1,10 +1,11 @@
 import { ISummaryTags, TAG_TYPE_ENUM } from 'modules/inventory/settings/tags/interfaces';
 import { Fragment, memo, useMemo } from 'react';
-import { ChildrenProps, FormDatePickerField, FormSwitchField, FormTextField } from '@dfl/mui-react-common';
+import { ChildrenProps, FormDatePickerField, FormTextField } from '@dfl/mui-react-common';
 import { IconButton, Stack, Tooltip, Typography } from '@mui/material';
 import { useTranslation } from 'react-i18next';
 import DeleteIcon from 'components/icons/DeleteIcon';
 import TagArraySelect from './TagArraySelect/TagArraySelect';
+import { FormCustomSwitchField } from 'modules/common/components/IphoneSwitchField';
 
 type TagsFormTypeProps = {
   tag: ISummaryTags;
@@ -47,7 +48,7 @@ const TagsFormType = ({ tag, name, onRemoveTag, ruleRequired }: TagsFormTypeProp
     case TAG_TYPE_ENUM.BOOLEAN:
       return (
         <TagFormLayout tag={_tag} onRemoveTag={onRemoveTag} isBoolean>
-          <FormSwitchField defaultChecked name={name} label='' sx={{ mr: 0 }} />
+          <FormCustomSwitchField defaultChecked name={name} label='' sx={{ mr: 0 }} />
         </TagFormLayout>
       );
     case TAG_TYPE_ENUM.DATE:

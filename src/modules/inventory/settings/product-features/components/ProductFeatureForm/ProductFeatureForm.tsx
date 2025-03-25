@@ -1,12 +1,13 @@
 import { FormEventHandler, memo } from 'react';
 import { Grid } from '@mui/material';
-import { Form, FormSwitchField, FormTextField, HandlerError } from '@dfl/mui-react-common';
+import { Form, FormTextField, HandlerError } from '@dfl/mui-react-common';
 import { useTranslation } from 'react-i18next';
 import { useWatch } from 'react-hook-form';
 import { ProductKeywordsInput } from 'modules/inventory/product/components/ProductKeywordsInput';
 import { PRODUCT_FEATURE_TYPE_ENUM } from '../../interfaces/IProductFeature';
 import { ProductFeatureTypeSelect } from '../ProductFeatureTypeSelect';
 import { FormColorPickerField } from '../field/FormColorField';
+import { FormCustomSwitchField } from 'modules/common/components/IphoneSwitchField';
 
 type ProductFeatureFormProps = {
   error: any;
@@ -43,7 +44,7 @@ const ProductFeatureForm = ({ error, control, isLoading, onSubmit }: ProductFeat
                 <ProductKeywordsInput name='values' label={t('fields.arrayValue')} />
               </Grid>
               <Grid item xs={12}>
-                <FormSwitchField name='isMultiValue' label={t('fields.isMultiValue')} />
+                <FormCustomSwitchField name='isMultiValue' label={t('fields.isMultiValue')} />
               </Grid>
             </>
           )}
@@ -54,7 +55,7 @@ const ProductFeatureForm = ({ error, control, isLoading, onSubmit }: ProductFeat
                 <FormColorPickerField name='values' label={t('fields.arrayValue')} />
               </Grid>
               <Grid item xs={12}>
-                <FormSwitchField name='isMultiValue' label={t('fields.isMultiValue')} />
+                <FormCustomSwitchField name='isMultiValue' label={t('fields.isMultiValue')} />
               </Grid>
             </>
           )}
