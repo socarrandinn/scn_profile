@@ -10,7 +10,7 @@ import { ProductDiscountEnabledPicker } from '../components/ProductDiscountEnabl
 import { ProductDiscountStatusCell } from '../components/ProductDiscountStatusCell';
 import { IProduct } from 'modules/inventory/common/interfaces';
 import { ProductDiscountCell } from '../components/ProductDiscountCell';
-import { ProductDiscountDateCell } from '../components/ProductDiscountDateCell';
+import { ProgramerDateCell } from '../../common/components/ProgramerDateCell';
 
 export const productDiscountNameColumn: HeadCell<IProductDiscount> = {
   field: 'name',
@@ -62,7 +62,7 @@ export const productDiscountDateColumn: HeadCell<any> = {
   type: CellType.DATE,
   align: CellAlign.CENTER,
   headerName: 'productDiscount:fields.fromToDate',
-  renderCell: (_, data) => <ProductDiscountDateCell data={data} />,
+  renderCell: (_, data) => <ProgramerDateCell fromDate={data?.fromDate} toDate={data?.toDate} />,
 };
 
 export const productDiscountCountColumn: HeadCell<any> = {
