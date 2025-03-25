@@ -1,13 +1,12 @@
 import { memo } from 'react';
-import { IProductDiscount } from '../../interfaces';
 import { AccessTime } from '@mui/icons-material';
 import { DateValue } from '@dfl/mui-react-common';
 import { Chip, Stack } from '@mui/material';
 
-type Props = { data: IProductDiscount };
+type Props = { fromDate: Date | null; toDate: Date | null };
 
-const ProductDiscountDateCell = ({ data }: Props) => {
-  if (!data?.fromDate) return <>-</>;
+const ProgramerDateCell = ({ fromDate, toDate }: Props) => {
+  if (!fromDate) return <>-</>;
 
   return (
     <Chip
@@ -17,12 +16,12 @@ const ProductDiscountDateCell = ({ data }: Props) => {
       sx={{ borderRadius: '4px' }}
       label={
         <Stack alignItems={'center'} divider={<> - </>} sx={{ lineHeight: 1.2 }}>
-          <DateValue value={data?.fromDate} />
-          {data?.toDate && <DateValue value={data?.toDate} />}
+          <DateValue value={fromDate} />
+          {toDate && <DateValue value={toDate} />}
         </Stack>
       }
     />
   );
 };
 
-export default memo(ProductDiscountDateCell);
+export default memo(ProgramerDateCell);

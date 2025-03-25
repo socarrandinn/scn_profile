@@ -5,6 +5,7 @@ import { OFFER_PERMISSIONS } from 'modules/sales-offer/offer/constants/offer.per
 import { OfferNameCell } from '../components/OfferNameCell';
 import { renderOfferTypeChip } from '../components/OfferTypeChip/OfferTypeChip';
 import { renderOfferStatus } from '../components/OfferStatus/OfferStatus';
+import { ProgramerDateCell } from 'modules/sales-offer/common/components/ProgramerDateCell';
 
 export const offerNameColumn: HeadCell<IOffer> = {
   field: 'name',
@@ -27,11 +28,12 @@ export const offerStatusColumn: HeadCell<IOffer> = {
   renderCell: (_, data) => renderOfferStatus(data?.fromDate, data?.toDate),
 };
 
-export const offerFromDateColumn: HeadCell<IOffer> = {
+export const offerFromDateColumn: HeadCell<any> = {
   field: 'fromDate',
-  headerName: 'offerOrder:fields.fromDate',
   type: CellType.DATE,
-  width: 200,
+  align: CellAlign.CENTER,
+  headerName: 'productDiscount:fields.fromToDate',
+  renderCell: (_, data) => <ProgramerDateCell fromDate={data?.fromDate} toDate={data?.toDate} />,
 };
 
 export const offerToDateColumn: HeadCell<IOffer> = {

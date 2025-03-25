@@ -28,6 +28,7 @@ export const driverColumn: HeadCell<IPaymentAgreement> = {
 export const quantityOrdersColumn: HeadCell<IPaymentAgreement> = {
   field: 'quantityOrders',
   headerName: 'paymentAgreement:fields.quantityOrders',
+  type: CellType.NUMBER,
 };
 export const shippingCostColumn: HeadCell<IPaymentAgreement> = {
   field: 'shippingCost',
