@@ -1,14 +1,20 @@
 import { PaymentAgreementRowActions } from 'modules/sales/payment-agreement/components/PaymentAgreementRowActions';
-import { CellType, EditLink, HeadCell } from '@dfl/mui-admin-layout';
+import { CellType, HeadCell } from '@dfl/mui-admin-layout';
 import { IPaymentAgreement } from 'modules/sales/payment-agreement/interfaces';
 import { createdATColumn } from 'modules/common/constants/common.columns';
 import { PAYMENT_AGREEMENT_PERMISSIONS } from 'modules/sales/payment-agreement/constants/payment-agreement.permissions';
+import { ReactLink } from '@dfl/react-security';
+import { PAYMENT_AGREEMENT_ROUTE } from './payment-agreement-route';
 
 export const paymentAgreementNameColumn: HeadCell<IPaymentAgreement> = {
   field: 'name',
-  headerName: 'paymentAgreement:fields.name',
+  headerName: 'dispatch:fields.name',
   disablePadding: false,
-  renderCell: (name: string, data?: IPaymentAgreement) => <EditLink entityId={data?._id as string}>{name}</EditLink>,
+  renderCell: (name: string, data?: IPaymentAgreement) => (
+    <ReactLink to={PAYMENT_AGREEMENT_ROUTE.DETAIL(data?._id as string)} underline='hover'>
+      {name}
+    </ReactLink>
+  ),
 };
 
 export const paymentAgreementDescriptionColumn: HeadCell<IPaymentAgreement> = {

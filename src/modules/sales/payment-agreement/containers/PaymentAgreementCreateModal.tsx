@@ -4,9 +4,10 @@ import { ConditionContainer, DialogForm, HandlerError, LoadingButton } from '@df
 import { useTranslation } from 'react-i18next';
 import usePaymentAgreementCreateForm from 'modules/sales/payment-agreement/hooks/usePaymentAgreementCreateForm';
 import { IPaymentAgreement } from 'modules/sales/payment-agreement/interfaces';
-import { PaymentAgreementForm, PaymentAgreementFormSkeleton } from 'modules/sales/payment-agreement/components/PaymentAgreementForm';
-import { PAYMENT_AGREEMENT_ERRORS } from 'modules/sales/payment-agreement/constants';
-import { mapGetOneErrors } from 'constants/errors';
+import {
+  PaymentAgreementForm,
+  PaymentAgreementFormSkeleton,
+} from 'modules/sales/payment-agreement/components/PaymentAgreementForm';
 
 type PaymentAgreementCreateModalProps = {
   open: boolean;

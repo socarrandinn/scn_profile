@@ -19,7 +19,7 @@ export const shippingCostFilter: Filter = {
 };
 
 export const statusFilter: Filter = {
-  filter: 'paymentAgreement:fields.status',
+  filter: 'paymentAgreement:status.title',
   type: FilterType.FIXED_LIST,
   translate: true,
   key: 'status',
@@ -31,7 +31,7 @@ export const statusFilter: Filter = {
   options: Object.keys(PAYMENT_AGREEMENT_STATUS_ENUM).map((key) => ({
     value: key,
     translate: true,
-    label: `paymentAgreement:status.${key.toLocaleLowerCase()}`,
+    label: `paymentAgreement:status.${key}`,
   })),
 };
 

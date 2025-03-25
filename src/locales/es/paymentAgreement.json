@@ -14,6 +14,7 @@
     "quantityOrders": "Cantidad de órdenes",
     "sendDate": "Fecha de envío",
     "shippingCost": "Precio de envío",
+    "estimatedShippingCost": "Precio Estimado de envío",
     "status": "Estado"
   },
   "status": {

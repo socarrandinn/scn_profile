@@ -8,18 +8,13 @@ import { IPaymentAgreement } from 'modules/sales/payment-agreement/interfaces';
 import { PaymentAgreementService } from 'modules/sales/payment-agreement/services';
 import { PAYMENT_AGREEMENTS_LIST_KEY } from 'modules/sales/payment-agreement/constants';
 import { useEffect, useCallback } from 'react';
-import { PAYMENT_AGREEMENT_STATUS_ENUM } from '../constants/payment-agreement.enum';
 
 const initValues: IPaymentAgreement = {
   name: '',
-  description: '',
-  status: PAYMENT_AGREEMENT_STATUS_ENUM.COMPLETED,
   driver: '',
-  estimatedShippingCost: 0,
-  owner: '',
-  quantityOrders: 0,
-  sendDate: new Date(),
   shippingCost: 0,
+  estimatedShippingCost: 0,
+  sendDate: new Date(),
 };
 
 const usePaymentAgreementCreateForm = (onClose: () => void, defaultValues: IPaymentAgreement = initValues) => {
