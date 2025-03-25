@@ -193,7 +193,7 @@
       "title": "Payment method",
       "CREDIT_CARD": "Credit card",
       "PAYPAL": "Paypal",
-      "TROPIPAY": "Tropipay",
+      "TROPIPAY": "Tropipay balance",
       "TROPIPAY_BALANCE": "Tropipay balance",
       "BANK_TRANSFER": "Bank transfer",
       "INTERNAL_WALLET": "Internal wallet",

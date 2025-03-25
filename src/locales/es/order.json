@@ -193,7 +193,7 @@
       "title": "Método de Pago",
       "CREDIT_CARD": "Tarjeta de crédito",
       "PAYPAL": "Paypal",
-      "TROPIPAY": "Tropipay",
+      "TROPIPAY": "Saldo Tropipay",
       "TROPIPAY_BALANCE": "Saldo de Tropipay",
       "BANK_TRANSFER": "Transferencia bancaria",
       "INTERNAL_WALLET": "Billetera interna",
