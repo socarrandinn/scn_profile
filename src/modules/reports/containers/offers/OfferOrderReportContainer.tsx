@@ -7,12 +7,17 @@ import OfferHistogram from 'modules/reports/components/offers/OfferHistogram';
 import SaleOfferSummary from 'modules/reports/components/offers/SaleOfferSummary';
 import { reportSaleOfferFilters } from 'modules/reports/constants/filters/report-sales-offer-activity.filters';
 import { HeaderFilterContext } from 'modules/reports/contexts/HeaderFilterContext';
+import SaleOfferInactive from 'modules/sales-offer/common/components/SaleOfferInactive';
+import { OFFER_STATUS } from 'modules/sales-offer/common/constants/offer.enum';
 import OfferGeneralEditContainer from 'modules/sales-offer/offer/containers/sections/OfferGeneralEditContainer';
 import OfferRuleEditContainer from 'modules/sales-offer/offer/containers/sections/OfferRuleEditContainer';
 import { useOfferContext } from 'modules/sales-offer/offer/contexts/OfferContext';
 import { useCallback } from 'react';
 
-const OfferOrderReportContainer = () => {
+type Props = {
+  status: Partial<OFFER_STATUS>;
+};
+const OfferOrderReportContainer = ({ status }: Props) => {
   const { hasPermission } = useSecurity();
   const { state, onOneClose } = useOfferContext();
   // status edit
@@ -21,6 +26,10 @@ const OfferOrderReportContainer = () => {
 
   if (state?.form_rules) return <OfferRuleEditContainer onClose={handleRulesClose} />;
   if (state?.form_general) return <OfferGeneralEditContainer onClose={handleGeneralClose} />;
+
+  if (status === OFFER_STATUS.SCHEDULED) {
+    return <SaleOfferInactive />;
+  }
 
   return (
     <PageLayout>
