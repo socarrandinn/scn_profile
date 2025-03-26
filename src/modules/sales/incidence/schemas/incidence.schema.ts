@@ -5,7 +5,6 @@ import { IFile } from 'components/FileDropZone/interfaces/IFile';
 import { mapperFile } from 'utils/file-utils';
 
 export const incidenceSchema = Yup.object().shape({
-  name: Yup.string(),
   description: Yup.string(),
   cause: Yup.object().shape({
     _id: Yup.string().required('required'),

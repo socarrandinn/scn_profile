@@ -17,9 +17,9 @@ const PaidOrderGeneralDetails = () => {
         <OrderShippingInfo isParent />
         <OrderProductsInfo isParent />
       </DetailContent>
-      <DetailSummary ghost width={{ md: 400, lg: 450, xl: 500 }}>
+      <DetailSummary ghost width={{ md: 398, lg: 400, xl: 450 }}>
         <PermissionCheck permissions={[INCIDENCE_PERMISSIONS.INCIDENCE_VIEW]}>
-          <IncidenceOrderContainer route='orders' />
+          <IncidenceOrderContainer />
         </PermissionCheck>
 
         <PermissionCheck permissions={[ORDER_PERMISSIONS.VIEW_PAYMENT_INFO]}>

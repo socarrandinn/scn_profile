@@ -11,6 +11,7 @@ import { subOrderTabs } from '../../constants/sub-order.tabs';
 import { useBreadcrumbName } from '@dfl/mui-admin-layout';
 import OrderHeader from 'modules/sales/common/components/OrderHeader/OrderHeader';
 import { PAID_ORDER_ROUTE } from 'modules/sales/paid-order/constants/paid-order.route';
+import { ORDER_REFERENCE_TYPE } from 'modules/sales/common/constants/order.enum';
 
 const SubOrderHeaderDetails = () => {
   const { order, isLoading, error } = useOrderContext();
@@ -41,7 +42,7 @@ const SubOrderHeaderDetails = () => {
             <DateValue value={order?.createdAt} format={'PPpp'} />
           </Stack>
         }
-        actions={<PaidOrderHeaderActions />}
+        actions={<PaidOrderHeaderActions type={ORDER_REFERENCE_TYPE.SUB_ORDER} />}
       >
         <RouterTab
           tabs={subOrderTabs}

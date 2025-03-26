@@ -19,7 +19,7 @@ const SubOrderGeneralDetails = () => {
       </DetailContent>
       <DetailSummary ghost width={{ md: 400, lg: 450, xl: 500 }}>
         <PermissionCheck permissions={[INCIDENCE_PERMISSIONS.INCIDENCE_VIEW]}>
-          <IncidenceOrderContainer route='sub-orders' />
+          <IncidenceOrderContainer />
         </PermissionCheck>
 
         <OrderDistributionCenterInfo nm />

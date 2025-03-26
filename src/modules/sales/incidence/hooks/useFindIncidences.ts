@@ -10,7 +10,7 @@ import { SearchResponseType } from '@dfl/react-security';
 export const useFindIncidences = (orderReference?: string) => {
   const filters = useMemo(() => {
     if (orderReference) {
-      return new TermFilter({ field: 'orderReference', value: orderReference, objectId: true }).toQuery();
+      return new TermFilter({ field: 'orderReference._id', value: orderReference, objectId: true }).toQuery();
     }
     return null;
   }, [orderReference]);

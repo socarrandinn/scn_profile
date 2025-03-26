@@ -10,6 +10,7 @@ import { Stack } from '@mui/material';
 import { DateValue } from '@dfl/mui-react-common';
 import OrderHeader from 'modules/sales/common/components/OrderHeader/OrderHeader';
 import { useBreadcrumbName } from '@dfl/mui-admin-layout';
+import { ORDER_REFERENCE_TYPE } from 'modules/sales/common/constants/order.enum';
 
 const PaidOrderHeaderDetails = () => {
   const { order, isLoading, error } = useOrderContext();
@@ -28,7 +29,7 @@ const PaidOrderHeaderDetails = () => {
             <DateValue value={order?.createdAt} format={'PPpp'} />
           </Stack>
         }
-        actions={<PaidOrderHeaderActions />}
+        actions={<PaidOrderHeaderActions type={ORDER_REFERENCE_TYPE.ORDER} />}
       >
         <RouterTab
           tabs={paidOrderTabs}
