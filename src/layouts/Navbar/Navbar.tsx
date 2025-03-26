@@ -32,8 +32,7 @@ const Navbar = () => {
   const navbarSx = useMemo(
     () => ({
       ...adminNavbarSx,
-      ...(!open ? { paddingLeft: lgUp ? `${rootWidth}px` : 0 } : { paddingLeft: `${drawerWidth}px` }),
-      '& .MuiBreadcrumbs-ol': { marginLeft: open ? 3 : 0 },
+      ...(!open ? { paddingLeft: lgUp ? `${rootWidth}px` : 0 } : { paddingLeft: lgUp ? `${drawerWidth}px` : 0 }),
     }),
     [drawerWidth, lgUp, open, rootWidth],
   );
