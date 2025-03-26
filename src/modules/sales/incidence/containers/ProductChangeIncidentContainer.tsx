@@ -59,7 +59,9 @@ const ProductChangeIncidentContainer = () => {
 
   return (
     <div>
-      <IncidenceActionsHeader title={'Cambio de producto'} incidenceId='test' action={onOpen} />
+      <PaperContent sx={{ mt: 2, borderRadius: 2 }}>
+        <IncidenceActionsHeader title={'Cambio de producto'} action={onOpen} />
+      </PaperContent>
 
       <ReplacementConfirmation isOpen={isOpen} onClose={onClose} products={products} />
 

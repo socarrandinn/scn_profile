@@ -1,8 +1,8 @@
 import { memo, useMemo } from 'react';
-import { HeaderSummaryTabs } from 'modules/inventory/provider/common/components/HeaderSummaryTabs';
+import { HeaderSummaryTabs } from 'modules/common/components/HeaderSummaryTabs';
 import { RouterTab } from '@dfl/react-security';
 import { IconPreview } from '@dfl/mui-react-common';
-import HeaderSummaryTabsSkeleton from 'modules/inventory/provider/common/components/HeaderSummaryTabs/HeaderSummaryTabsSkeleton';
+import HeaderSummaryTabsSkeleton from 'modules/common/components/HeaderSummaryTabs/HeaderSummaryTabsSkeleton';
 import { useRoleDetail } from '../../contexts';
 import { roleDetailsTabs } from '../../constants/role-tabs.details';
 import { RoleDetailActions } from '../RoleDetailActions';

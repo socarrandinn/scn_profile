@@ -1,6 +1,6 @@
 import { memo } from 'react';
 import { RouterTab } from '@dfl/react-security';
-import HeaderSummaryTabsSkeleton from 'modules/inventory/provider/common/components/HeaderSummaryTabs/HeaderSummaryTabsSkeleton';
+import HeaderSummaryTabsSkeleton from 'modules/common/components/HeaderSummaryTabs/HeaderSummaryTabsSkeleton';
 import { useOrderContext } from 'modules/sales/common/contexts/OrderContext';
 import { PAID_ORDER_ROUTE } from '../../constants/paid-order.route';
 import { paidOrderTabs } from '../../constants/paid-order.tabs';

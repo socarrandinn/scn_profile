@@ -1,8 +1,8 @@
 import { memo } from 'react';
 import { PermissionCheck } from '@dfl/react-security';
-import HeaderSummaryTabsSkeleton from 'modules/inventory/provider/common/components/HeaderSummaryTabs/HeaderSummaryTabsSkeleton';
+import HeaderSummaryTabsSkeleton from 'modules/common/components/HeaderSummaryTabs/HeaderSummaryTabsSkeleton';
 import { useCollectionDetails } from '../../context/CollectionContext';
-import { HeaderSummaryTabs } from 'modules/inventory/provider/common/components/HeaderSummaryTabs';
+import { HeaderSummaryTabs } from 'modules/common/components/HeaderSummaryTabs';
 import { COLLECTION_CONTENT_TYPE, COLLECTION_POSITION } from '../../constants/collection-types';
 import { Stack } from '@mui/material';
 import { COLLECTIONS_PERMISSIONS } from '../../constants';

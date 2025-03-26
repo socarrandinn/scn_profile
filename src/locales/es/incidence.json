@@ -9,7 +9,7 @@
   "report": "Reportar incidencia",
   "initialStatus": "Este es el estado inicial del problema en el momento de la creación",
   "deleteMany": "Debe tener elementos seleccionados para realizar esta operación",
-  "edit": "Editar ...",
+  "edit": "Editar incidencia",
   "successDeleted": "Elemento eliminado satisfactoriamente",
   "successUpdate": "Elemento actualizado satisfactoriamente",
   "successCreated": "Elemento creado satisfactoriamente",

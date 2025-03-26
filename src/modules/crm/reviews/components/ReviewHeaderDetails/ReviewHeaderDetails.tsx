@@ -1,5 +1,5 @@
 import { memo, useMemo } from 'react';
-import { HeaderSummaryTabs } from 'modules/inventory/provider/common/components/HeaderSummaryTabs';
+import { HeaderSummaryTabs } from 'modules/common/components/HeaderSummaryTabs';
 import { useReviewsReportDetailContext } from '../../contexts/ReviewsReportDetail';
 import { REVIEW } from '../../constants/reviews-entities.style';
 import { Box } from '@mui/material';

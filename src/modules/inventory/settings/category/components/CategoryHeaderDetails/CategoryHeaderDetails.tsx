@@ -1,8 +1,8 @@
 import { memo } from 'react';
-import { HeaderSummaryTabs } from 'modules/inventory/provider/common/components/HeaderSummaryTabs';
+import { HeaderSummaryTabs } from 'modules/common/components/HeaderSummaryTabs';
 import { Box } from '@mui/material';
 import { RouterTab } from '@dfl/react-security';
-import HeaderSummaryTabsSkeleton from 'modules/inventory/provider/common/components/HeaderSummaryTabs/HeaderSummaryTabsSkeleton';
+import HeaderSummaryTabsSkeleton from 'modules/common/components/HeaderSummaryTabs/HeaderSummaryTabsSkeleton';
 import { useCategoryDetail } from '../../context/CategoryDetailContext';
 import { categoriesTabs } from '../../constants/tabs.details';
 import CategoryEditButton from '../CategoryActions/CategoryEditButton';

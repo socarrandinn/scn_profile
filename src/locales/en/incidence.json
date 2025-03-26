@@ -9,7 +9,7 @@
   "selectIncidence": "Select the incident according to your problem",
   "initialStatus": "This is the initial status of the issue at the time of creation",
   "deleteMany": "You must have items selected to do this operation",
-  "edit": "Edit ...",
+  "edit": "Edit incidence",
   "successDeleted": "Item successfully deleted",
   "successUpdate": "Item successfully updated",
   "successCreated": "Item successfully created",
