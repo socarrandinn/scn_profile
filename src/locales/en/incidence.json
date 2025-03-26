@@ -5,7 +5,7 @@
   "parentIncidence": "Incident cause",
   "childIncidence": "Incidence sub-cause",
   "assignTo": "Assign to",
-  "report": "Report incidence",	
+  "report": "Report incidence",
   "selectIncidence": "Select the incident according to your problem",
   "initialStatus": "This is the initial status of the issue at the time of creation",
   "deleteMany": "You must have items selected to do this operation",
@@ -38,5 +38,60 @@
   "type": {
     "ORDER": "Order",
     "SUB_ORDER": "Suborder"
-  }
+  },
+  "apply": "Apply",
+  "customCharges": {
+    "title": "Custom charges",
+    "add": "Add custom charge",
+    "remove": "Remove charge",
+    "total": "Total",
+    "modal": {
+      "title": "Others",
+      "field": "Description",
+      "percentage": "Percentage",
+      "fixed": "Fixed",
+      "value": "Value"
+    }
+  },
+  "bills": {
+    "title": "Bills",
+    "add": "Add bills",
+    "remove": "Remove bills",
+    "total": "Total",
+    "modal": {
+      "title": "Others",
+      "field": "Description",
+      "value": "Value"
+    }
+  },
+  "summary": {
+    "products": "Products",
+    "shipping": "Shipping",
+    "discount": "Discount",
+    "customerCharges": "Customer charges",
+    "reimbursements": "Reimbursements",
+    "reimbursementsTotal": "REIMBURSEMENTS TOTAL",
+    "operatingExpenses": "Operating expenses",
+    "shippingExpenses": "Shipping expenses",
+    "total": "TOTAL",
+    "expensesTotal": "EXPENSES TOTAL"
+  },
+  "chooseProductToChange": "Select the product you want to change from the list of products in the order",
+  "actions": {
+    "fields": {
+      "product": "Products",
+      "price": "Price",
+      "quantity": "Quantity",
+      "reimbursement": "Reembolso",
+      "inventory": "Inventario"
+    },
+    "chooseNewProduct": "Select the new product",
+    "automaticReplacementInfo": "Automatically the product you select will replace the previous one",
+    "add": "Add"
+  },
+  "noProductAddedYet": "Don't have changed the product yet!",
+  "noProductAddedYetDescription": "Select the new product that will replace the product received by the client",
+  "areYouSureToReplaceThisProduct": "Are you sure you want to replace this product?",
+  "areYouSureToReplaceThisProductDescription": "Please, verify and confirm the following data to proceed with the replacement in an effective way.",
+  "assignedTo": "Assigned to"
 }
