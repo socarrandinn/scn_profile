@@ -8,17 +8,24 @@ import { IPaymentAgreement } from 'modules/sales/payment-agreement/interfaces';
 import { PaymentAgreementService } from 'modules/sales/payment-agreement/services';
 import { PAYMENT_AGREEMENTS_LIST_KEY } from 'modules/sales/payment-agreement/constants';
 import { useEffect, useCallback } from 'react';
+import { PAYMENT_AGREEMENT_ROUTE } from '../constants/payment-agreement-route';
+import { useNavigate } from 'react-router';
 
-const initValues: IPaymentAgreement = {
+export const initPaymentAgreementValues: IPaymentAgreement = {
   name: '',
-  driver: '',
+  driver: 'chofer todo',
   shippingCost: 0,
   sendDate: new Date(),
+  estimatedShippingCost: 0.0,
 };
 
-const usePaymentAgreementCreateForm = (onClose: () => void, defaultValues: IPaymentAgreement = initValues) => {
+const usePaymentAgreementCreateForm = (
+  onClose: () => void,
+  defaultValues: IPaymentAgreement = initPaymentAgreementValues,
+) => {
   const { t } = useTranslation('paymentAgreement');
   const queryClient = useQueryClient();
+  const navigate = useNavigate();
   const {
     control,
     handleSubmit,
@@ -46,6 +53,7 @@ const usePaymentAgreementCreateForm = (onClose: () => void, defaultValues: IPaym
       toast.success(t(values?._id ? 'successUpdate' : 'successCreated'));
       onClose?.();
       resetForm();
+      navigate(PAYMENT_AGREEMENT_ROUTE.DETAIL(data?._id as string));
     },
   });
 

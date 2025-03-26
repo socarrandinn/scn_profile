@@ -49,14 +49,14 @@ const usePaymentAgreementUpdateForm = (onClose: () => void, defaultValues: IUpda
       }),
     {
       onSuccess: (data, values) => {
-        const dispatch = values?.paymentAgreementId;
+        const paymentAgreementId = values?.paymentAgreementId;
         queryClient.invalidateQueries([PAYMENT_AGREEMENTS_LIST_KEY]);
         queryClient.invalidateQueries([SUB_ORDERS_LIST_KEY]);
-        dispatch && queryClient.invalidateQueries([dispatch]);
-        toast.success(t(dispatch ? 'successUpdate' : 'successCreated'));
+        paymentAgreementId && queryClient.invalidateQueries([paymentAgreementId]);
+        toast.success(t(paymentAgreementId ? 'successUpdate' : 'successCreated'));
         onClose?.();
         reset();
-        navigate(PAYMENT_AGREEMENT_ROUTE.DETAIL(dispatch as string));
+        navigate(PAYMENT_AGREEMENT_ROUTE.DETAIL(paymentAgreementId as string));
       },
     },
   );

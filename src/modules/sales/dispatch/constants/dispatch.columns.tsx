@@ -6,6 +6,7 @@ import { DISPATCH_PERMISSIONS } from 'modules/sales/dispatch/constants/dispatch.
 import DispatchStateListCell from '../components/Cell/DispatchStateListCell';
 import { ReactLink } from '@dfl/react-security';
 import { DISPATCH_ROUTE } from './dispatch-route';
+import DispatchSubOrderRowActions from '../components/DispatchRowActions/DispatchSubOrderRowActions';
 
 export const dispatchNameColumn: HeadCell<IDispatch> = {
   field: 'name',
@@ -59,3 +60,16 @@ export const dispatchColumns: Array<HeadCell<any>> = [
   createdATColumn,
   dispatchActionsColumn,
 ];
+
+export const dispatchSubOrderActionsColumn: HeadCell<IDispatch> = {
+  field: 'actions',
+  sortable: false,
+  width: 100,
+  permissions: DISPATCH_PERMISSIONS.DISPATCH_WRITE,
+  headerName: 'common:actions',
+  disablePadding: true,
+  component: DispatchSubOrderRowActions,
+};
+
+// by details payment agreement suborder list
+export const dispatchSubOrderColumn = (subOrderColumn: any[]) => [...subOrderColumn, dispatchSubOrderActionsColumn];

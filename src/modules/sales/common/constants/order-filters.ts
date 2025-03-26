@@ -482,3 +482,37 @@ export const orderInDispatchFilter: Filter = {
     }
   },
 };
+
+export const orderInPaymentAgreementFilter: Filter = {
+  filter: 'paymentAgreement:inPaymentAgreement',
+  translate: true,
+  type: FilterType.FIXED_LIST,
+  key: 'paymentAgreement',
+  field: 'paymentAgreement',
+  options: [
+    {
+      value: 'IN_PAYMENT_AGREEMENT',
+      translate: true,
+      label: 'paymentAgreement:inPaymentAgreement',
+    },
+    {
+      value: 'NO_PAYMENT_AGREEMENT',
+      translate: true,
+      label: 'paymentAgreement:noPaymentAgreement',
+    },
+  ],
+  transform: (value) => {
+    if (Array.isArray(value)) return new EmptyFilter();
+    switch (value) {
+      case 'IN_PAYMENT_AGREEMENT':
+        return new OperatorFilter({
+          type: 'OR',
+          filters: [new ExistFilter({ field: 'paymentAgreement', value: true })],
+        });
+      case 'NO_PAYMENT_AGREEMENT':
+        return new TermFilter({ field: 'paymentAgreement', value: null, objectId: true });
+      default:
+        return new EmptyFilter();
+    }
+  },
+};

@@ -5,8 +5,10 @@
   "deleteMany": "Debe tener Despachos seleccionados para realizar esta operación",
   "edit": "Editar Despacho",
   "successDeleted": "Despacho eliminado satisfactoriamente",
+  "successSubOrderDeleted": "Suborder de Despacho eliminada satisfactoriamente",
   "successUpdate": "Despacho actualizado satisfactoriamente",
   "successCreated": "Despacho creado satisfactoriamente",
+  "confirmationDeleteSubOrder": "Está acción solamente removerá la orden del despacho, posteriormente podrá agregarla a otro despacho si así lo desea. ¿Está seguro que desea eliminar la orden del despacho?",
   "goDispatch": "Despacho",
   "fields": {
     "name": "Nombre",
@@ -26,7 +28,7 @@
     },
     "verify": {
       "totalOrders": "Órdenes",
-      "orderInDispatch": "Órdenes en despacho",
+      "orderInDispatch": "En despacho",
       "orderCompleted": "Órdenes completada"
     }
   },
@@ -57,7 +59,7 @@
   },
   "inDispatch": "En despacho",
   "noDispatch": "Sin despacho",
-  "errors":{
-    "INVALID_DISPATCH":"Los datos proporcionados para el despacho son incorrectos"
+  "errors": {
+    "INVALID_DISPATCH": "Los datos proporcionados para el despacho son incorrectos"
   }
 }

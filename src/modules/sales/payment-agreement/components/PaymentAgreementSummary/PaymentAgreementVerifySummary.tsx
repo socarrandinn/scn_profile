@@ -16,7 +16,7 @@ const PaymentAgreementVerifySummary = ({ data, isLoading }: Props) => {
 
   if (isLoading) {
     return (
-      <Stack gap={2} flexDirection={{ xs: 'column', md: 'row' }} mb={2}>
+      <Stack gap={{ xs: 1, md: 2 }} flexDirection={{ xs: 'column', md: 'row' }} mb={2}>
         <CounterBoxSkeleton />
         <CounterBoxSkeleton />
         <CounterBoxSkeleton />
@@ -25,7 +25,7 @@ const PaymentAgreementVerifySummary = ({ data, isLoading }: Props) => {
   }
 
   return (
-    <Stack gap={2} flexDirection={{ xs: 'column', md: 'row' }} flexWrap='wrap' mb={2}>
+    <Stack gap={{ xs: 1, md: 2 }} flexDirection={{ xs: 'column', md: 'row' }} flexWrap='wrap' mb={2}>
       <CounterBox
         title={t('fields.verify.orderInPaymentAgreement')}
         value={data?.orderInPaymentAgreement}
@@ -59,9 +59,6 @@ const PaymentAgreementVerifySummary = ({ data, isLoading }: Props) => {
         variant='contented'
         color='primary'
         hidden={!data?.totalOrders}
-        sx={{
-          maxWidth: 150,
-        }}
       />
 
       {data?.subordersByRegion?.map((reg) => (

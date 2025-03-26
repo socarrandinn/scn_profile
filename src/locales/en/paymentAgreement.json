@@ -1,11 +1,14 @@
 {
   "list": "Payment Agreements",
   "create": "Create New Payment Agreement",
-  "deleteMany": "You must have selected a payment agreement to perform this operation",
+  "deleteMany": "You must have selected Payment Agreements to perform this operation",
   "edit": "Edit Payment Agreements",
-  "successDeleted": "Payment agreement successfully deleted",
-  "successUpdate": "Payment agreement successfully updated",
-  "successCreated": "Payment agreement successfully created",
+  "successDeleted": "Payment Agreement successfully deleted",
+  "successUpdate": "Payment Agreement successfully updated",
+  "successCreated": "Payment Agreement successfully created",
+  "successSubOrderDeleted": "Payment Agreement suborder successfully deleted",
+  "confirmationDeleteSubOrder": "This action will only remove the order from the payment agreement. You can add it to another payment agreement later if you wish. Are you sure you want to remove the order from the payment agreement?",
+  "goPaymentAgreement": "Go to Payment Agreement",
   "fields": {
     "name": "Name",
     "createdAt": "Creation Date",
@@ -35,13 +38,15 @@
       "create": {
         "title": "Create Payment Agreement",
         "selected": "Selected ({{ count }})",
-        "all": "All filtered ({{ count }})"
+        "all": "All Filtered ({{ count }})"
       },
       "addTo": {
         "title": "Add to Payment Agreement",
         "selected": "Selected ({{ count }})",
-        "all": "All filtered ({{ count }})"
+        "all": "All Filtered ({{ count }})"
       }
     }
-  }
+  },
+  "inPaymentAgreement": "In Payment Agreement",
+  "noPaymentAgreement": "No Payment Agreement"
 }

@@ -8,11 +8,11 @@ type Props = {
   value: ICausesIncidence['notification']['audience'] | [];
 };
 const CausesIncidenceAudienceCell = ({ value }: Props) => {
-  const { t } = useTranslation('causesIncidence');
+  const { t } = useTranslation('common');
 
   const list = useMemo(() => {
     const targets = getAudienceTarget(value);
-    return targets?.map((target) => t(`fields.target.${target}`));
+    return targets?.map((target) => t(`audience.target.${target}`));
   }, [t, value]);
 
   if (!value) return <>-</>;

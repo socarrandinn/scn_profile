@@ -1,9 +1,10 @@
 import { memo } from 'react';
 import { Table, TabsFilter } from '@dfl/mui-admin-layout';
 import Box from '@mui/material/Box';
-import { subOrderColumns } from 'modules/sales/common/constants/order-columns';
 import { useFindPaymentAgreementSubOrders } from '../hooks/useFindPaymentAgreementSubOrders';
 import { PaymentAgreementSubOrderListToolbar } from '../components/PaymentAgreementSubOrderListToolbar';
+import { paymentAgreementSubOrderColumns } from '../constants';
+import { subOrderColumns } from 'modules/sales/common/constants/order-columns';
 
 const PaymentAgreementSubOrderListContainer = () => {
   const { isLoading, error, data } = useFindPaymentAgreementSubOrders();
@@ -12,7 +13,7 @@ const PaymentAgreementSubOrderListContainer = () => {
       <TabsFilter translation={'order'} defaultView={'all'} />
       <PaymentAgreementSubOrderListToolbar />
       <Table
-        columns={subOrderColumns}
+        columns={paymentAgreementSubOrderColumns(subOrderColumns)}
         data={data?.data}
         total={data?.total}
         isLoading={isLoading}

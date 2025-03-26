@@ -41,7 +41,9 @@ export interface IOrder {
   device: IOrderDevice;
   distributionCenter: IDistributionCenters;
 
+  // Extra info
   dispatch?: string;
+  paymentAgreement?: string;
 }
 
 export interface IOrderDevice {
@@ -96,7 +98,7 @@ export interface IShipping {
   // verification: IValidation;
 
   deliveryTimeRange?: IDeliveryTimeRange;
-  deliveryDueDate?: string
+  deliveryDueDate?: string;
   deliveryStatus?: DELIVERY_STATUS_ENUM;
 
   edited?: boolean;

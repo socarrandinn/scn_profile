@@ -70,9 +70,12 @@ const AudienceAndTemplateInput = ({ control, name = 'notification.audience', opt
                 />
 
                 <FormTextField
-                  placeholder={t('fields.notification.template')}
+                  placeholder={`${t('fields.notification.template')}*`}
                   name={`notification.audience.${index}.template`}
                   required
+                  autoFocus
+                  type='text'
+                  control={control}
                 />
               </Stack>
             );

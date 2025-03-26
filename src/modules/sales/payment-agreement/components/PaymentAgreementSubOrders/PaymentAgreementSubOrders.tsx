@@ -8,7 +8,7 @@ import PaymentAgreementSubOrderListContainer from '../../containers/PaymentAgree
 
 const PaymentAgreementSubOrders = () => {
   const { t } = useTranslation('subOrder');
-  const filters = useMemo(() => subOrderFilters?.filter((filter) => !filter?.field.match(/dispatch | /)), []);
+  const filters = useMemo(() => subOrderFilters?.filter((filter) => !filter?.field.match(/paymentAgreement/)), []);
 
   return (
     <PagePaperLayout title={t('list')} mb={3}>

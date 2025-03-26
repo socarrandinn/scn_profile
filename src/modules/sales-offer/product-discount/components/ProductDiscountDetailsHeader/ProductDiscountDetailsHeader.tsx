@@ -45,6 +45,11 @@ const ProductDiscountDetailsHeader = () => {
             sx={{
               height: 180,
               width: 166,
+              backgroundColor: 'transparent',
+              '& .MuiAvatar-img': {
+                objectFit: 'contain',
+                objectPosition: 'center',
+              },
             }}
           >
             <Image />

@@ -180,6 +180,7 @@
     }
   },
   "operator": {
+    "title": "Operador",
     "EQUAL": "Igual",
     "DISTINCT": "Distinto",
     "LESS_THAN": "Menor que",
@@ -221,10 +222,10 @@
       "additions": "Inclusión de Productos"
     }
   },
-  "quantity": "<bold>Cantidad: </bold>{{quantity}} ",
+  "quantity": "Cantidad",
+  "category": "Categoría",
   "quantityItem": "Cantidad",
   "mount": "Monto",
-  "operator_item_rule": "<bold>Operador: </bold>{{operator}} ",
   "address_state_item_rule": "<bold>Provincia: </bold>{{state}} ",
   "address_municipality_item_rule": "<bold>Municipio: </bold>{{municipality}} ",
   "error": {

@@ -12,9 +12,7 @@ export const orderStatusTitleColumn: HeadCell<IOrderStatus> = {
   headerName: 'orderStatus:fields.title',
   disablePadding: false,
   width: 300,
-  renderCell: (_: string, data: IOrderStatus) => (
-    <ColorWithTitle color={data.color as string} id={data._id || ''} title={data.title} />
-  ),
+  component: ColorWithTitle
 };
 
 export const orderStatusPriorityColumn: HeadCell<IOrderStatus> = {

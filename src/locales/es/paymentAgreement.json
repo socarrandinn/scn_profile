@@ -6,6 +6,9 @@
   "successDeleted": "Pago por acuerdo eliminado satisfactoriamente",
   "successUpdate": "Pago por acuerdo actualizado satisfactoriamente",
   "successCreated": "Pago por acuerdo creado satisfactoriamente",
+  "successSubOrderDeleted": "Suborden de Pago por acuerdo eliminado satisfactoriamente",
+  "confirmationDeleteSubOrder": "Está acción solamente removerá la orden del pago por acuerdo, posteriormente podrá agregarla a otro pago por acuerdo si así lo desea. ¿Está seguro que desea eliminar la orden del pago por acuerdo?",
+  "goPaymentAgreement": "Ir a Pago por acuerdo",
   "fields": {
     "name": "Nombre",
     "createdAt": "Fecha de creación",
@@ -29,7 +32,6 @@
     "PENDING": "Pendiente",
     "DELIVERY_PARTIAL": "Entrega parcial"
   },
-
   "dropdown": {
     "action": "Pago por acuerdo",
     "menus": {
@@ -44,5 +46,7 @@
         "all": "Todas las filtradas ({{ count }})"
       }
     }
-  }
+  },
+  "inPaymentAgreement": "En Pago por acuerdo",
+  "noPaymentAgreement": "Sin Pago por acuerdo"
 }

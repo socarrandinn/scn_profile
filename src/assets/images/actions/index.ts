@@ -1,4 +1,4 @@
-import deleteImage from './delete.webp';
+import deleteImage from './delete.svg';
 import warningImage from './warning.webp';
 
 const ACTION_IMAGES = { deleteImage, warningImage };

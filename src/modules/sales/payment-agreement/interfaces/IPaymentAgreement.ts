@@ -16,7 +16,10 @@ export interface IPaymentAgreement {
   createdAt?: Date;
 }
 
-export type PaymentAgreementDTO = Pick<IPaymentAgreement, 'name' | 'shippingCost' | 'driver' | 'sendDate'> & {
+export type PaymentAgreementDTO = Pick<
+IPaymentAgreement,
+'name' | 'shippingCost' | 'estimatedShippingCost' | 'driver' | 'sendDate'
+> & {
   filters: any;
 };
 
