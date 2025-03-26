@@ -9,7 +9,6 @@ import { PRE_ORDER_VIEWS } from 'modules/sales/common/constants/order-tabs-view.
 
 const PreOrderList = () => {
   const { t } = useTranslation('preOrder');
-  // const { isLoading, data } = useOrderFiltersByOrderStatus(ORDER_TYPE_ENUM.PRE_ORDER);
 
   return (
     <PagePaperLayout title={t('list')} mb={3}>

@@ -28,7 +28,7 @@
     },
     "verify": {
       "totalOrders": "Orders",
-      "orderInDispatch": "Orders in Dispatch",
+      "orderInDispatch": "In Dispatch",
       "orderCompleted": "Completed Orders"
     }
   },

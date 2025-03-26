@@ -56,6 +56,7 @@
   "all": "All",
   "notAudience": "No Audience",
   "errors": {
-    "YOU_CAN_ONLY_HAVE_HIERARCHY_UP_TO_2_LEVELS_DEEP": "You can only have a hierarchy up to 2 levels deep since the parent incident cause is already a child of another incident cause."
+    "YOU_CAN_ONLY_HAVE_HIERARCHY_UP_TO_2_LEVELS_DEEP": "You can only have a hierarchy up to 2 levels deep since the parent incident cause is already a child of another incident cause.",
+    "INCIDENCE_ASSOCIATED": "This cause cannot be deleted because it is associated with an incidence that has a cause or sub-cause."
   }
 }
