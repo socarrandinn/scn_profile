@@ -27,7 +27,7 @@ export const offerClientRulesSchema = Yup.object().shape({
           .integer('offerOrder:error:clientUsage:integer')
           .positive('offerOrder:error:clientUsage:positive')
           .required('required'),
-        operator: Yup.string().required('required').nullable(),
+        operator: Yup.string().default(OPERATOR_RULE_OFFER_TYPE.LESS_THAN).required('required').nullable(),
       }),
     otherwise: (schema) => schema.strip(),
   }),
@@ -113,7 +113,7 @@ export const offerCommonRulesSchema = Yup.object().shape({
       schema.shape({
         fact: Yup.string().default(RULE_OFFER_FACT_TYPE.AMOUNT),
         value: Yup.number().positive('offerOrder:error:amount:positive').required('required'),
-        operator: Yup.string().required('required').nullable(),
+        operator: Yup.string().default(OPERATOR_RULE_OFFER_TYPE.GREATER_THAN).required('required').nullable(),
       }),
     otherwise: (schema) => schema.strip(),
   }),
@@ -128,7 +128,7 @@ export const offerCommonRulesSchema = Yup.object().shape({
           .integer('offerOrder:error:usage:integer')
           .positive('offerOrder:error:usage:positive')
           .required('required'),
-        operator: Yup.string().required('required').nullable(),
+        operator: Yup.string().default(OPERATOR_RULE_OFFER_TYPE.LESS_THAN).required('required').nullable(),
       }),
     otherwise: (schema) => schema.strip(),
   }),
