@@ -2,11 +2,17 @@ import { CellAlign, HeadCell } from '@dfl/mui-admin-layout';
 import AmountCategoryRowAction from 'modules/sales-offer/common/components/Cell/AmountCategoryRowAction';
 import CategoryCell from 'modules/sales-offer/common/components/Cell/CategoryCell';
 import OperatorCell from 'modules/sales-offer/common/components/Cell/OperatorCell';
+import ProductItemCell from 'modules/sales-offer/common/components/Cell/ProductItemCell';
 
 export const categoryNameColumn: HeadCell = {
   field: 'category',
   headerName: 'offerOrder:category',
   component: CategoryCell,
+};
+export const productNameColumn: HeadCell = {
+  field: 'product',
+  headerName: 'offerOrder:productName',
+  component: ProductItemCell,
 };
 
 export const operatorColumnColumn: HeadCell = {
@@ -23,7 +29,14 @@ export const amountColumnColumn: HeadCell = {
   align: CellAlign.CENTER,
 };
 
-export const amountCategoryAction = (remove: any, section: boolean): HeadCell => ({
+export const quantityColumnColumn: HeadCell = {
+  field: 'quantity',
+  headerName: 'offerOrder:quantity',
+  renderCell: (quantity: number) => quantity,
+  align: CellAlign.CENTER,
+};
+
+export const removeItemAction = (remove: any, section: boolean): HeadCell => ({
   field: 'actions',
   sortable: false,
   width: 100,
@@ -47,3 +60,12 @@ export const amountCategoryItemColumns = (action: any) => [
   amountColumnColumn,
   action,
 ];
+
+export const productItemColumns = (action: any) => [
+  productNameColumn,
+  operatorColumnColumn,
+  quantityColumnColumn,
+  action,
+];
+
+export const productIncludeColumns = (action: any) => [productNameColumn, quantityColumnColumn, action];

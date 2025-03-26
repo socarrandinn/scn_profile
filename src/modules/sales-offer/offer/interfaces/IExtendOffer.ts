@@ -8,17 +8,10 @@ export interface ICommonOffer {
   rulesUsages: IRuleOffer | undefined;
   rulesQuantityOrders: IRuleOffer[] | undefined;
   rulesAddress: IAddressRuleOffer | undefined;
-  rulesProducts: IProductRuleOffer | undefined;
+  rulesProducts: IRuleOffer | undefined;
   rulesAmountsCategory: IRuleAmountCategory | undefined;
 
   section: IRuleSection;
-}
-
-export interface IProductRuleOffer extends IRuleOffer {
-  // only by validation
-  product_item: string | null;
-  quantity_item: number;
-  operator_item: OPERATOR_RULE_OFFER_TYPE;
 }
 
 export interface ICategoryRuleOffer extends IRuleOffer {

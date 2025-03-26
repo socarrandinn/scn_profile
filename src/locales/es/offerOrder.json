@@ -19,6 +19,7 @@
   "productToInclude": "Productos a incluir",
   "twoForOneOffer": "De tipo 2x1",
   "listVariant": "Lista de Variante",
+  "productName": "Producto",
   "product": "{{count}} producto",
   "product_plural": "{{count}} productos",
   "type": "Tipo",

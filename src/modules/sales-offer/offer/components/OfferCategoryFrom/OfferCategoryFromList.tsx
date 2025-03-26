@@ -2,7 +2,7 @@ import { memo } from 'react';
 import { isEmpty } from 'lodash';
 import { OfferEmptyItem } from '../OfferEmptyItem';
 import { Table } from '@dfl/mui-admin-layout';
-import { amountCategoryAction, amountCategoryItemColumns } from '../../constants/offer-rules.columns';
+import { removeItemAction, amountCategoryItemColumns } from '../../constants/offer-rules.columns';
 import { Box } from '@mui/material';
 
 type OfferCategoryFromProps = {
@@ -23,7 +23,7 @@ const OfferCategoryFrom = ({ fields, removeRule, section }: OfferCategoryFromPro
       }}
     >
       <Table
-        columns={amountCategoryItemColumns(amountCategoryAction(removeRule, section))}
+        columns={amountCategoryItemColumns(removeItemAction(removeRule, section))}
         data={fields ?? []}
         hidePagination
         total={fields?.length}

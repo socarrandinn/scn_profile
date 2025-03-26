@@ -1,24 +1,19 @@
 import { Button, Grid, Stack, Divider, Alert } from '@mui/material';
-import { memo, useCallback, useEffect, useRef } from 'react';
+import { memo, useEffect, useRef } from 'react';
 import { FromOperatorSelect } from '../../../common/components/Fields/FromOperatorSelect';
 import { FromAsyncSelectProductOffer } from '../FromAsyncSelectProduct';
 import { useTranslation } from 'react-i18next';
-import { FormTextField } from '@dfl/mui-react-common';
+import { Form, FormTextField } from '@dfl/mui-react-common';
 import AddOutlinedIcon from '@mui/icons-material/AddOutlined';
-import { isEmpty } from 'lodash';
 import OfferProductFromList from './OfferProductFromList';
-import { UseFormResetField, UseFormSetError, UseFormWatch, useFieldArray } from 'react-hook-form';
-import { IExtendOffer } from '../../interfaces/IExtendOffer';
+import { useFieldArray } from 'react-hook-form';
 import { OPERATOR_RULE_OFFER_TYPE } from '../../interfaces/offer.type.enum';
-import { IProduct } from 'modules/inventory/common/interfaces';
+import useRuleProductItemForm from 'modules/sales-offer/common/hooks/useRuleProductItemForm';
 
 type OfferProductFromRuleProps = {
   section: boolean;
   control: any;
-  watch: UseFormWatch<IExtendOffer>;
-  setError: UseFormSetError<IExtendOffer>;
-  resetField: UseFormResetField<IExtendOffer>;
-  clearErrors: any;
+  name: string;
   errors: {
     rulesProducts: {
       value: {
@@ -29,18 +24,14 @@ type OfferProductFromRuleProps = {
   };
 };
 
-const OfferProductFromRule = ({
-  section,
-  control,
-  errors,
-  clearErrors,
-  watch,
-  setError,
-  resetField,
-}: OfferProductFromRuleProps) => {
+const OfferProductFromRule = ({ section, control: minControl, errors, name }: OfferProductFromRuleProps) => {
   const { t } = useTranslation('offerOrder');
-  const name = 'rulesProducts';
-  const { fields, append: appendRule, remove: removeRule } = useFieldArray({ control, name: `${name}.value` });
+
+  const {
+    fields,
+    append: appendRule,
+    remove: removeRule,
+  } = useFieldArray({ control: minControl, name: `${name}.value` });
 
   const alertRef = useRef(null);
 
@@ -51,40 +42,7 @@ const OfferProductFromRule = ({
     }
   }, [errors?.rulesProducts?.value?.type]);
 
-  const addProductRule = useCallback(() => {
-    const isProduct = isEmpty(watch(`${name}.product_item`));
-    const isOperator = isEmpty(watch(`${name}.operator_item`));
-    const isQuantity = Number(watch(`${name}.quantity_item`)) <= 0;
-
-    if (isProduct) {
-      setError(`${name}.product_item`, { type: 'validate', message: t('error.product.required') });
-    } else {
-      resetField(`${name}.product_item`, { defaultValue: watch(`${name}.product_item`) });
-    }
-    if (isOperator) {
-      setError(`${name}.operator_item`, { type: 'validate', message: t('error.operator') });
-    } else {
-      resetField(`${name}.operator_item`, { defaultValue: watch(`${name}.operator_item`) });
-    }
-    if (isQuantity) {
-      setError(`${name}.quantity_item`, { type: 'min', message: t('error.quantity.positive') });
-    } else {
-      resetField(`${name}.quantity_item`, { defaultValue: watch(`${name}.quantity_item`) });
-    }
-
-    if (!isOperator && !isQuantity && !isProduct) {
-      appendRule({
-        product: (watch(`${name}.product_item`) as unknown as IProduct)?._id,
-        quantity: Number(watch(`${name}.quantity_item`)),
-        operator: watch(`${name}.operator_item`),
-      });
-      resetField(`${name}.product_item`, { defaultValue: null });
-      resetField(`${name}.quantity_item`, { defaultValue: 0 });
-      resetField(`${name}.operator_item`, { defaultValue: OPERATOR_RULE_OFFER_TYPE.EQUAL });
-
-      clearErrors();
-    }
-  }, [appendRule, t, resetField, setError, watch, clearErrors]);
+  const { control, onSubmit } = useRuleProductItemForm(appendRule);
 
   return (
     <Stack gap={2} sx={{ marginRight: 'auto', width: '100%' }}>
@@ -106,51 +64,51 @@ const OfferProductFromRule = ({
             />
           </Stack>
         </Grid>
-        <Grid item xs={12} md={4}>
-          <FromAsyncSelectProductOffer
-            label={t('common:product')}
-            control={control}
-            placeholder={t('sections.product.select')}
-            disabled={!section}
-            name={`${name}.product_item`}
-          />
-        </Grid>
-        <Grid item xs={12} md={3}>
-          <FromOperatorSelect
-            disabled={!section}
-            tpart='offerOrder:operator'
-            options={[
-              OPERATOR_RULE_OFFER_TYPE.EQUAL,
-              OPERATOR_RULE_OFFER_TYPE.LESS_THAN,
-              OPERATOR_RULE_OFFER_TYPE.GREATER_THAN,
-            ]}
-            name={`${name}.operator_item`}
-            label={t('sections.product.operator')}
-          />
-        </Grid>
-
-        <Grid item xs={12} md={3}>
-          <FormTextField
-            disabled={!section}
-            type='number'
-            label={t('offerOrder:quantityItem')}
-            name={`${name}.quantity_item`}
-          />
-        </Grid>
-        <Grid item xs={12} md={2}>
-          <Button
-            onClick={addProductRule}
-            startIcon={<AddOutlinedIcon fontSize='inherit' />}
-            variant='contained'
-            disabled={!section}
-            sx={{
-              marginLeft: 'auto',
-            }}
-          >
-            {t('sections.product.action')}
-          </Button>
-        </Grid>
       </Grid>
+      <Form control={control} size={'small'} id={'product-item-form'}>
+        <Grid container spacing={{ xs: 1, md: 2 }}>
+          <Grid item xs={12} lg={4}>
+            <FromAsyncSelectProductOffer
+              label={t('common:product')}
+              control={control}
+              placeholder={t('sections.product.select')}
+              disabled={!section}
+              name={'product'}
+            />
+          </Grid>
+          <Grid item xs={12} lg={3}>
+            <FromOperatorSelect
+              disabled={!section}
+              tpart='offerOrder:operator'
+              options={[
+                OPERATOR_RULE_OFFER_TYPE.EQUAL,
+                OPERATOR_RULE_OFFER_TYPE.LESS_THAN,
+                OPERATOR_RULE_OFFER_TYPE.GREATER_THAN,
+              ]}
+              name={'operator'}
+              label={t('sections.product.operator')}
+            />
+          </Grid>
+
+          <Grid item xs={12} lg={2}>
+            <FormTextField disabled={!section} type='number' label={t('offerOrder:quantity')} name={'quantity'} />
+          </Grid>
+          <Grid item xs={12} lg={3}>
+            <Button
+              form='product-item-form'
+              onClick={onSubmit}
+              startIcon={<AddOutlinedIcon fontSize='inherit' />}
+              variant='contained'
+              disabled={!section}
+              sx={{
+                marginLeft: 'auto',
+              }}
+            >
+              {t('sections.product.action')}
+            </Button>
+          </Grid>
+        </Grid>
+      </Form>
       <Divider />
 
       {errors?.rulesProducts?.value?.type === 'min' ? (

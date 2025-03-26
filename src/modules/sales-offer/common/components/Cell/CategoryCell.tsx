@@ -8,7 +8,7 @@ const CategoryCell = ({ value }: Props) => {
   const { data: category } = useFindOneCategory(value);
   return (
     <AvatarNameCell
-      link={`/inventory/products/${value}/general`}
+      link={`/inventory/categories/${value}/general`}
       name={category?.name}
       variant={'rounded'}
       image={category?.image}

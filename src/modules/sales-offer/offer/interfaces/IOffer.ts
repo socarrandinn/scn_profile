@@ -52,6 +52,12 @@ export interface IRuleAmountCategoryItem {
   amount: number;
 }
 
+export interface IRuleProductItem {
+  product: string | null;
+  quantity: number;
+  operator: OPERATOR_RULE_OFFER_TYPE;
+}
+
 export interface IValueOffer {
   type: DISCOUNT_VALUE_TYPE;
   value: number;
