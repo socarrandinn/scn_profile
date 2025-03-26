@@ -1,24 +1,24 @@
-import { CouponCreate, CouponEdit, CouponList } from 'modules/sales-offer/coupon/pages';
+import { CouponCreate, CouponDetail, CouponList } from 'modules/sales-offer/coupon/pages';
 import { RouteConfig } from '@dfl/react-security';
 import { COUPON_PERMISSIONS } from '../constants/coupon.permissions';
 
 const routes: RouteConfig = {
-  OfferList: {
+  CouponList: {
     path: '/',
     permissions: COUPON_PERMISSIONS.COUPON_VIEW,
     component: CouponList,
   },
 
-  OfferCreate: {
+  CouponCreate: {
     path: '/create',
     component: CouponCreate,
     permissions: COUPON_PERMISSIONS.COUPON_VIEW,
   },
 
-  OfferEdit: {
+  CouponDetail: {
     path: '/:id',
     exact: true,
-    component: CouponEdit,
+    component: CouponDetail,
     permissions: COUPON_PERMISSIONS.COUPON_VIEW,
   },
 };

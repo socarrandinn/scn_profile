@@ -6,5 +6,5 @@ export const CouponList = lazy(loadCouponList);
 const loadCouponCreate = () => import('modules/sales-offer/coupon/pages/CouponCreate');
 export const CouponCreate = lazy(loadCouponCreate);
 
-const loadCouponEdit = () => import('modules/sales-offer/coupon/pages/CouponEdit');
-export const CouponEdit = lazy(loadCouponEdit);
+const loadCouponDetail = () => import('modules/sales-offer/coupon/pages/CouponDetail');
+export const CouponDetail = lazy(loadCouponDetail);
