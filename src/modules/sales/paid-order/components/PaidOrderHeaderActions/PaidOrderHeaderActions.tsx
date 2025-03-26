@@ -6,12 +6,14 @@ import { OrderCompleteButton } from 'modules/sales/common/components/OrderComple
 import OrderExportMenu from './actions/OrderExportMenu';
 import { useOrderContext } from 'modules/sales/common/contexts/OrderContext';
 import IncidenceMenu from 'modules/sales/incidence/components/IncidenceMenu/IncidenceMenu';
+import { ORDER_REFERENCE_TYPE } from 'modules/sales/common/constants/order.enum';
 
 type Props = {
   incidenceMenu?: boolean;
+  type?: ORDER_REFERENCE_TYPE;
 };
 
-const PaidOrderHeaderActions = ({ incidenceMenu = true }: Props) => {
+const PaidOrderHeaderActions = ({ incidenceMenu = true, type }: Props) => {
   const { order, orderId } = useOrderContext();
   if (!order) return <></>;
   return (
@@ -19,7 +21,7 @@ const PaidOrderHeaderActions = ({ incidenceMenu = true }: Props) => {
       <PermissionCheck permissions={[ORDER_PERMISSIONS.ORDER_STATUS_WRITE]}>
         <OrderCompleteButton orderId={orderId} status={order?.status} isActionButton code={order?.code} />
         <OrderExportMenu hazExportTicket order={order} />
-        {incidenceMenu && <IncidenceMenu />}
+        {incidenceMenu && <IncidenceMenu type={type as ORDER_REFERENCE_TYPE} />}
       </PermissionCheck>
     </Box>
   );

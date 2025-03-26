@@ -36,7 +36,7 @@ const AvatarNameCell = ({
     () => (
       <Stack flexDirection={'row'} alignItems={'center'} gap={1} {...props}>
         {!hideImage && (
-          <AvatarMedia name={name} avatar={image} variant={variant} sx={{ backgroundColor: 'background.default' }}>
+          <AvatarMedia name={name} avatar={image} variant={variant}>
             {icon || <NoFoodIcon fontSize='small' />}
           </AvatarMedia>
         )}

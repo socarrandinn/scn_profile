@@ -6,7 +6,10 @@ import { OrderPaymentInfo } from 'modules/sales/common/components/OrderDetails/O
 import { OrderProductsInfo } from 'modules/sales/common/components/OrderDetails/OrderProductInfo';
 import { OrderShippingInfo } from 'modules/sales/common/components/OrderDetails/OrderShippingInfo';
 import { ORDER_PERMISSIONS } from 'modules/sales/common/constants/order-permissions';
+import { INCIDENCE_PERMISSIONS } from 'modules/sales/incidence/constants';
+import IncidenceOrderContainer from 'modules/sales/incidence/containers/IncidenceOrderContainer';
 import { memo } from 'react';
+
 const PaidOrderGeneralDetails = () => {
   return (
     <DetailLayout mb={3}>
@@ -14,7 +17,11 @@ const PaidOrderGeneralDetails = () => {
         <OrderShippingInfo isParent />
         <OrderProductsInfo isParent />
       </DetailContent>
-      <DetailSummary ghost width={{ md: 400, lg: 450, xl: 500 }}>
+      <DetailSummary ghost width={{ md: 398, lg: 400, xl: 450 }}>
+        <PermissionCheck permissions={[INCIDENCE_PERMISSIONS.INCIDENCE_VIEW]}>
+          <IncidenceOrderContainer />
+        </PermissionCheck>
+
         <PermissionCheck permissions={[ORDER_PERMISSIONS.VIEW_PAYMENT_INFO]}>
           <OrderInvoiceInfo />
         </PermissionCheck>

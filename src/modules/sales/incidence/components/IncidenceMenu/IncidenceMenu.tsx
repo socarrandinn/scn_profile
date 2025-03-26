@@ -7,8 +7,9 @@ import { useToggle } from '@dfl/hook-utils';
 import IncidenceCreateModal from '../../containers/IncidenceCreateModal';
 import { useOrderContext } from 'modules/sales/common/contexts/OrderContext';
 import { emptyIncidence } from '../../hooks/useIncidenceCreateForm';
+import { ORDER_REFERENCE_TYPE } from 'modules/sales/common/constants/order.enum';
 
-const IncidenceMenu = () => {
+const IncidenceMenu = ({ type }: { type: ORDER_REFERENCE_TYPE }) => {
   const { t } = useTranslation('incidence');
   const { isOpen, onClose, onOpen } = useToggle(false);
   const { orderId } = useOrderContext();
@@ -60,7 +61,7 @@ const IncidenceMenu = () => {
         open={isOpen}
         onClose={onClose}
         title={t('newIncidence')}
-        initValue={{ ...emptyIncidence, orderReference: orderId }}
+        initValue={{ ...emptyIncidence, orderReference: orderId, referenceType: type }}
       />
     </>
   );
