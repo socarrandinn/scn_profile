@@ -6,6 +6,7 @@ import { ResponsibleForm } from '../components/ResponsibleForm';
 import { Form } from '@dfl/mui-react-common';
 import { useForm } from 'react-hook-form';
 import { useIncidenceDetail } from '../context/IncidenceDetailContext';
+import { IIncidence } from '../interfaces';
 
 const IncidenceGeneralContainer = () => {
   const { incidence } = useIncidenceDetail();
@@ -22,7 +23,7 @@ const IncidenceGeneralContainer = () => {
             <IncidenceComments />
           </DetailContent>
           <DetailSummary ghost width={{ md: 320, lg: 320, xl: 400 }}>
-            <ResponsibleForm data={incidence} />
+            <ResponsibleForm data={incidence as IIncidence} />
           </DetailSummary>
         </DetailLayout>
       </Form>

@@ -1,11 +1,12 @@
 import { Typography } from '@mui/material';
 import { FormPaper } from 'modules/common/components/FormPaper';
 import ResponsibleCell from 'modules/sales/common/components/ResponsibleCell/ResponsibleCell';
-import { SelectUser } from 'modules/security/users/components/SelectUser';
 import { memo } from 'react';
 import { useTranslation } from 'react-i18next';
+import IncidenceAssignedSelect from './IncidenceAssignedSelect';
+import { IIncidence } from '../../interfaces';
 
-const ResponsibleForm = ({ data }: { data: any }) => {
+const ResponsibleForm = ({ data }: { data: IIncidence }) => {
   const { t } = useTranslation('incidence');
 
   return (
@@ -16,7 +17,7 @@ const ResponsibleForm = ({ data }: { data: any }) => {
       mbHeader={'8px !important'}
     >
       <Typography variant='body2' sx={{ mb: 1 }}>{t('assignResponsible')}</Typography>
-      <SelectUser name='responsible' multiple={false} size='small' />
+      <IncidenceAssignedSelect data={data?.responsible} incidenceId={data?._id as string} />
 
       {data?.createdBy && <ResponsibleCell data={data?.createdBy} title={'fields.createdBy'} sx={{ mt: 2 }} />}
     </FormPaper>

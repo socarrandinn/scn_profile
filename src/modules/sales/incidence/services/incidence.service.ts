@@ -8,6 +8,18 @@ class IncidenceService extends EntityApiService<IIncidence> {
       status,
     });
   };
+
+  changeAssignation = (incidenceId: string, assignedId: string): any => {
+    return this.handleResponse(
+      ApiClientService.patch(
+        this.getPath(`/${incidenceId}/change-assignation
+`),
+        {
+          assigned: assignedId,
+        },
+      ),
+    );
+  };
 }
 
 export default new IncidenceService('/ms-sales/api/incidence');
