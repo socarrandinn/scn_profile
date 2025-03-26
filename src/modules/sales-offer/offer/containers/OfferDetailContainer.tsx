@@ -6,7 +6,6 @@ import { useOfferContext } from '../contexts/OfferContext';
 import { useCallback, useMemo } from 'react';
 import { getOfferOrderStatus } from '../components/OfferStatus/OfferStatus';
 import { OFFER_STATUS } from 'modules/sales-offer/common/constants/offer.enum';
-import SaleOfferInactive from 'modules/sales-offer/common/components/SaleOfferInactive';
 import RuleContent from 'modules/sales-offer/common/components/RulesDetails/RuleContent';
 import SaleOfferSummaryDetail from 'modules/sales-offer/common/components/SaleOfferSummaryDetail';
 import SaleOfferCouponCode from 'modules/sales-offer/common/components/SaleOfferCouponCode';
@@ -48,21 +47,10 @@ const OfferDetailContainer = () => {
     [offer?.code, showEdit, t, open, handleRuleToggle, handleGeneralClose],
   );
 
-  if (status === OFFER_STATUS.SCHEDULED) {
-    return (
-      <DetailLayout>
-        <DetailContent ghost>
-          <SaleOfferInactive />
-        </DetailContent>
-        {detailSummary}
-      </DetailLayout>
-    );
-  }
-
   return (
     <DetailLayout>
       <DetailContent ghost>
-        <OfferOrderReportContainer />
+        <OfferOrderReportContainer status={status as OFFER_STATUS} />
       </DetailContent>
       {detailSummary}
     </DetailLayout>

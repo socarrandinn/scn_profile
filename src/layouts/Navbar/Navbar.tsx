@@ -39,9 +39,13 @@ const Navbar = () => {
 
   return (
     <AdminNavbar onOpenSidebar={onOpen} sx={navbarSx}>
-      <Box sx={{ flexGrow: 1, display: { xs: 'none', sm: 'block' }, marginLeft: open ? 3 : 1 }}>
+      <Box sx={{ flexGrow: 1, display: { xs: 'none', sm: 'block' }, marginLeft: 1 }}>
         <DynamicBreadcrumbs />
       </Box>
+
+      {/* flex grow in mobile */}
+      <Box sx={{ flexGrow: 1, display: { xs: 'block', sm: 'none' } }} />
+
       {isHome && (
         <Box>
           <SelectViewMap />
@@ -61,21 +65,6 @@ const Navbar = () => {
       <Box data-tour='step-navbar-2'>
         <NotificationTooltipContent />
       </Box>
-      {/* <NotificationsButton */}
-      {/*  tooltipTitle={t('notifications')} */}
-      {/*  handleClick={onOpen} */}
-      {/*  hideBadge={false} */}
-      {/* /> */}
-
-      {/* <NotificationDrawer */}
-      {/*  headerText={t('notifications')} */}
-      {/*  headerActionText={t('deleteAll')} */}
-      {/*  handleActionText={handleActionText} */}
-      {/*  open={isOpen} */}
-      {/*  onClose={onClose} */}
-      {/*  notifications={NotificationsMock} */}
-      {/*  isLoading={false} */}
-      {/* /> */}
 
       <Account />
     </AdminNavbar>

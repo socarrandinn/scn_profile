@@ -60,7 +60,7 @@ const Account = () => {
   }, [hasPermission, t]);
 
   return (
-    <div data-tour='step-navbar-1' className='ml-auto'>
+    <div data-tour='step-navbar-1'>
       <AccountButton logoutText={t('logout')}>{options}</AccountButton>
     </div>
   );
