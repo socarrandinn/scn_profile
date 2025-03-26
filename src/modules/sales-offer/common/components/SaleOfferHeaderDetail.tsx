@@ -18,7 +18,7 @@ const SaleOfferHeaderDetail = () => {
   const { offer, isLoading } = useOfferContext();
   const { t } = useTranslation();
   // todo
-  const status = useMemo(() => getOfferOrderStatus(offer.fromDate, offer.toDate), [offer.fromDate, offer.toDate]);
+  const status = useMemo(() => getOfferOrderStatus(offer?.fromDate, offer?.toDate), [offer?.fromDate, offer?.toDate]);
   return (
     <Paper
       sx={{

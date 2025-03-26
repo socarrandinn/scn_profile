@@ -6,5 +6,5 @@ export const OfferList = lazy(loadOfferList);
 const loadOfferCreate = () => import('modules/sales-offer/offer/pages/OfferCreate');
 export const OfferCreate = lazy(loadOfferCreate);
 
-const loadOfferEdit = () => import('modules/sales-offer/offer/pages/OfferEdit');
-export const OfferEdit = lazy(loadOfferEdit);
+const loadOfferDetails = () => import('modules/sales-offer/offer/pages/OfferDetails');
+export const OfferDetails = lazy(loadOfferDetails);

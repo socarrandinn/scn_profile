@@ -1,7 +1,5 @@
-import SaleOfferHeaderDetail from 'modules/sales-offer/common/components/SaleOfferHeaderDetail';
 import { DetailContent, DetailLayout, DetailSummary } from '@dfl/mui-form-layout';
 import { FormPaper } from 'modules/common/components/FormPaper';
-import { Box } from '@mui/material';
 import { useTranslation } from 'react-i18next';
 import OfferOrderReportContainer from 'modules/reports/containers/offers/OfferOrderReportContainer';
 import { useOfferContext } from '../contexts/OfferContext';
@@ -9,7 +7,7 @@ import { useCallback, useMemo } from 'react';
 import { getOfferOrderStatus } from '../components/OfferStatus/OfferStatus';
 import { OFFER_STATUS } from 'modules/sales-offer/common/constants/offer.enum';
 import SaleOfferInactive from 'modules/sales-offer/common/components/SaleOfferInactive';
-import { ChildrenProps, PageLoader } from '@dfl/mui-react-common';
+import { PageLoader } from '@dfl/mui-react-common';
 import RuleContent from 'modules/sales-offer/common/components/RulesDetails/RuleContent';
 import SaleOfferSummaryDetail from 'modules/sales-offer/common/components/SaleOfferSummaryDetail';
 import SaleOfferCouponCode from 'modules/sales-offer/common/components/SaleOfferCouponCode';
@@ -61,36 +59,23 @@ const OfferDetailContainer = () => {
 
   if (status === OFFER_STATUS.SCHEDULED) {
     return (
-      <ContentLayout>
-        <DetailLayout>
-          <DetailContent ghost>
-            <SaleOfferInactive />
-          </DetailContent>
-          {detailSummary}
-        </DetailLayout>
-      </ContentLayout>
+      <DetailLayout>
+        <DetailContent ghost>
+          <SaleOfferInactive />
+        </DetailContent>
+        {detailSummary}
+      </DetailLayout>
     );
   }
 
   return (
-    <ContentLayout>
-      <DetailLayout>
-        <DetailContent ghost>
-          <OfferOrderReportContainer />
-        </DetailContent>
-        {detailSummary}
-      </DetailLayout>
-    </ContentLayout>
+    <DetailLayout>
+      <DetailContent ghost>
+        <OfferOrderReportContainer />
+      </DetailContent>
+      {detailSummary}
+    </DetailLayout>
   );
 };
 
 export default OfferDetailContainer;
-
-const ContentLayout = ({ children }: ChildrenProps) => {
-  return (
-    <Box mb={3}>
-      <SaleOfferHeaderDetail />
-      {children}
-    </Box>
-  );
-};

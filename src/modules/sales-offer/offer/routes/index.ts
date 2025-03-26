@@ -1,4 +1,4 @@
-import { OfferList, OfferCreate, OfferEdit } from 'modules/sales-offer/offer/pages';
+import { OfferList, OfferCreate, OfferDetails } from 'modules/sales-offer/offer/pages';
 import { RouteConfig } from '@dfl/react-security';
 import { OFFER_PERMISSIONS } from 'modules/sales-offer/offer/constants/offer.permissions';
 
@@ -15,10 +15,10 @@ const routes: RouteConfig = {
     permissions: OFFER_PERMISSIONS.OFFER_VIEW,
   },
 
-  OfferEdit: {
+  OfferDetails: {
     path: '/:id',
     exact: true,
-    component: OfferEdit,
+    component: OfferDetails,
     permissions: OFFER_PERMISSIONS.OFFER_VIEW,
   },
 };
