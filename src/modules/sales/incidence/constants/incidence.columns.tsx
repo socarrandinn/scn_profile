@@ -6,6 +6,7 @@ import { INCIDENCE_PERMISSIONS } from 'modules/sales/incidence/constants/inciden
 import { IncidenceStatusPicker } from '../components/IncidenceStatusPicker';
 import { INCIDENCE_STATUS_ENUM } from './incidence-status';
 import { ReactLink } from '@dfl/react-security';
+import { AvatarNameCell } from 'modules/common/components/AvatarNameCell';
 
 export const incidenceCodeColumn: HeadCell<IIncidence> = {
   field: 'code',
@@ -28,13 +29,27 @@ export const incidenceOrderCodeColumn: HeadCell<IIncidence> = {
 };
 
 export const incidenceAssignedToColumn: HeadCell<IIncidence> = {
-  field: 'assignedTo',
+  field: 'responsible.name',
   headerName: 'incidence:fields.assignedTo',
+  renderCell: (value: string, data?: IIncidence) => (
+    <AvatarNameCell
+      link={`/security/system-users/user/${data?.responsible?._id}/general`}
+      hideImage name={data?.responsible?.fullName}
+      secondary={data?.responsible?.email}
+    />
+  ),
 };
 
 export const incidenceCreatedByColumn: HeadCell<IIncidence> = {
-  field: 'createdBy',
+  field: 'createdBy.fullName',
   headerName: 'incidence:fields.createdBy',
+  renderCell: (value: string, data?: IIncidence) => (
+    <AvatarNameCell
+      link={`/security/system-users/user/${data?.createdBy?._id}/general`}
+      hideImage name={data?.createdBy?.fullName}
+      secondary={data?.createdBy?.email}
+    />
+  ),
 };
 
 export const incidenceStatusColumn: HeadCell<IIncidence> = {

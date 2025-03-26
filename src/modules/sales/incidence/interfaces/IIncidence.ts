@@ -1,3 +1,4 @@
+import { IUser } from 'modules/security/users/interfaces/IUser';
 import { INCIDENCE_STATUS_ENUM } from '../constants/incidence-status';
 import { IFile } from 'components/FileDropZone/interfaces/IFile';
 
@@ -9,6 +10,7 @@ export interface IIncidence {
   cause?: any;
   subCause?: any;
   status: INCIDENCE_STATUS_ENUM;
-  responsible?: string;
+  responsible?: any;
   evidence?: IFile;
+  createdBy?: Partial<IUser>;
 }
