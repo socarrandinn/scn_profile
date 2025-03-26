@@ -44,7 +44,15 @@ const SaleOfferSummaryDetail = ({ showEdit }: Props) => {
         <Avatar
           src={OFFER_IMAGES.start}
           variant='square'
-          sx={{ width: 30, height: 30, backgroundColor: 'transparent' }}
+          sx={{
+            width: 30,
+            height: 30,
+            backgroundColor: 'transparent',
+            '& .MuiAvatar-img': {
+              objectFit: 'contain',
+              objectPosition: 'center',
+            },
+          }}
         >
           <LocalOfferOutlined />
         </Avatar>

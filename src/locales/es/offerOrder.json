@@ -19,6 +19,7 @@
   "productToInclude": "Productos a incluir",
   "twoForOneOffer": "De tipo 2x1",
   "listVariant": "Lista de Variante",
+  "productName": "Producto",
   "product": "{{count}} producto",
   "product_plural": "{{count}} productos",
   "type": "Tipo",
@@ -180,6 +181,7 @@
     }
   },
   "operator": {
+    "title": "Operador",
     "EQUAL": "Igual",
     "DISTINCT": "Distinto",
     "LESS_THAN": "Menor que",
@@ -221,10 +223,10 @@
       "additions": "Inclusión de Productos"
     }
   },
-  "quantity": "<bold>Cantidad: </bold>{{quantity}} ",
+  "quantity": "Cantidad",
+  "category": "Categoría",
   "quantityItem": "Cantidad",
   "mount": "Monto",
-  "operator_item_rule": "<bold>Operador: </bold>{{operator}} ",
   "address_state_item_rule": "<bold>Provincia: </bold>{{state}} ",
   "address_municipality_item_rule": "<bold>Municipio: </bold>{{municipality}} ",
   "error": {

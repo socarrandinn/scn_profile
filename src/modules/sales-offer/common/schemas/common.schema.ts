@@ -27,3 +27,11 @@ export const offerAmountCategoryItemSchema = Yup.object().shape({
   amount: Yup.number().required('required').positive('positiveNumber').integer('integerNumber'),
   operator: Yup.string().required('required'),
 });
+
+export const offerProductItemSchema = Yup.object().shape({
+  product: Yup.string()
+    .required('required')
+    .transform((p) => p?._id || p),
+  quantity: Yup.number().required('required').positive('positiveNumber').integer('integerNumber'),
+  operator: Yup.string().required('required'),
+});

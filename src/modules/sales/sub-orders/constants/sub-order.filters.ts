@@ -8,6 +8,7 @@ import {
   orderEmailFilter,
   orderHasChargeBackFilter,
   orderInDispatchFilter,
+  orderInPaymentAgreementFilter,
   orderLogisticFilter,
   // orderLogisticFilter,
   orderMunicipalityFilter,
@@ -50,6 +51,7 @@ export const subOrderFilters: Filter[] = [
 
   // other
   orderInDispatchFilter,
+  orderInPaymentAgreementFilter
 ];
 
 export const defaultSubOrderFilterKeys: Filter[] = [

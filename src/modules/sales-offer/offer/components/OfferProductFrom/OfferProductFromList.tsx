@@ -1,8 +1,9 @@
-import { Divider, List } from '@mui/material';
+import { Box } from '@mui/material';
 import { memo } from 'react';
-import OfferProductFromItem from './OfferProductFromItem';
 import { isEmpty } from 'lodash';
 import OfferEmptyItem from '../OfferEmptyItem/OfferEmptyItem';
+import { Table } from '@dfl/mui-admin-layout';
+import { productItemColumns, removeItemAction } from '../../constants/offer-rules.columns';
 
 type OfferProductFromProps = {
   fields: any;
@@ -14,20 +15,20 @@ const OfferProductFrom = ({ fields, removeRule, section }: OfferProductFromProps
   if (isEmpty(fields)) return <OfferEmptyItem />;
 
   return (
-    <List sx={{ width: '100%' }}>
-      {fields?.map((ruleProduct: any, index: number) => (
-        <>
-          <OfferProductFromItem
-            key={ruleProduct?.id}
-            removeRule={removeRule}
-            index={index}
-            ruleProduct={ruleProduct}
-            section={section}
-          />
-          <Divider variant='inset' component='li' />
-        </>
-      ))}
-    </List>
+    <Box
+      sx={{
+        '.MuiTable-root': {
+          minWidth: 400,
+        },
+      }}
+    >
+      <Table
+        columns={productItemColumns(removeItemAction(removeRule, section))}
+        data={fields ?? []}
+        hidePagination
+        total={fields?.length}
+      />
+    </Box>
   );
 };
 

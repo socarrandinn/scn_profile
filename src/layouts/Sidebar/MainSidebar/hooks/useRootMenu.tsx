@@ -14,9 +14,7 @@ export const useRootMenu = ({ rootMenu, hasPermission }: Props) => {
 };
 
 export const useMediaQueryMenu = () => {
-  const lgUp = useMediaQuery((theme: Theme) => theme.breakpoints.up('lg'), {
-    noSsr: true,
-  });
+  const lgUp = useMediaQuery((theme: Theme) => theme.breakpoints.up('lg'));
 
   return { lgUp };
 };

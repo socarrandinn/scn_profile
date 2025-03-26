@@ -1,13 +1,15 @@
 {
-  "list": "Shipments",
-  "create": "Create New Shipment",
-  "update": "Add to Shipment",
-  "deleteMany": "You must select shipments to perform this operation",
-  "edit": "Edit Shipment",
-  "successDeleted": "Shipment successfully deleted",
-  "successUpdate": "Shipment successfully updated",
-  "successCreated": "Shipment successfully created",
-  "goDispatch": "Shipment",
+  "list": "Dispatches",
+  "create": "Create New Dispatch",
+  "update": "Add to Dispatch",
+  "deleteMany": "You must have selected Dispatches to perform this operation",
+  "edit": "Edit Dispatch",
+  "successDeleted": "Dispatch successfully deleted",
+  "successSubOrderDeleted": "Dispatch suborder successfully deleted",
+  "successUpdate": "Dispatch successfully updated",
+  "successCreated": "Dispatch successfully created",
+  "confirmationDeleteSubOrder": "This action will only remove the order from the dispatch. You can add it to another dispatch later if you wish. Are you sure you want to remove the order from the dispatch?",
+  "goDispatch": "Dispatch",
   "fields": {
     "name": "Name",
     "description": "Description",
@@ -26,7 +28,7 @@
     },
     "verify": {
       "totalOrders": "Orders",
-      "orderInDispatch": "Orders in Shipment",
+      "orderInDispatch": "Orders in Dispatch",
       "orderCompleted": "Completed Orders"
     }
   },
@@ -41,23 +43,23 @@
     "count": "Orders"
   },
   "dropdown": {
-    "action": "Shipment",
+    "action": "Dispatch",
     "menus": {
       "create": {
-        "title": "Create Shipment",
+        "title": "Create Dispatch",
         "selected": "Selected ({{ count }})",
         "all": "All Filtered ({{ count }})"
       },
       "addTo": {
-        "title": "Add to Shipment",
+        "title": "Add to Dispatch",
         "selected": "Selected ({{ count }})",
         "all": "All Filtered ({{ count }})"
       }
     }
   },
-  "inDispatch": "In Shipment",
-  "noDispatch": "No Shipment",
+  "inDispatch": "In Dispatch",
+  "noDispatch": "No Dispatch",
   "errors": {
-    "INVALID_DISPATCH": "The provided shipment data is incorrect"
+    "INVALID_DISPATCH": "The provided data for the dispatch is incorrect"
   }
 }

@@ -18,10 +18,9 @@ class PaymentAgreementService extends EntityApiService<IPaymentAgreement> {
   remove = (paymentAgreementId: string, filters: any) => {
     if (paymentAgreementId) {
       return this.handleResponse(
-        ApiClientService.delete(this.getPath(`/${paymentAgreementId}/remove-suborders`), {
-          data: {
-            filters,
-          },
+        ApiClientService.post(this.getPath('/remove-suborders'), {
+          paymentId: paymentAgreementId,
+          filters,
         }),
       );
     }

@@ -19,17 +19,15 @@ type OrderHistoryProps = {
   activities: IStatusHistory[];
   owner: IUser;
   order: IOrder | undefined;
-  createdAt: string;
   format?: string;
 };
 
-const OrderHistory = ({ activities, owner, createdAt, order, format = 'dd-MM-yyyy' }: OrderHistoryProps) => {
+const OrderHistory = ({ activities, owner, order, format = 'dd-MM-yyyy' }: OrderHistoryProps) => {
   return (
     <Timeline position='right'>
       {activities?.map((item, index) => (
         <TimeItem item={item} key={index} owner={owner} order={order} format={format} />
       ))}
-      {/* <CreateOrderTime createAt={createdAt} owner={owner} format={format} /> */}
     </Timeline>
   );
 };

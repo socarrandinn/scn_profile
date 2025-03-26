@@ -38,7 +38,7 @@ export const TimelineDot = styled(MuiTimelineDot)(() => ({
   // }
 }));
 
-const TimeItem = ({ item, owner, order, format = 'dd-MM-yyyy' }: TimeItemProps) => {
+const TimeItem = ({ item, owner, order, format = 'dd-MM-yyyy | hh:mm' }: TimeItemProps) => {
   const { t } = useTranslation('order');
 
   if ((item.system || !item.user) && item?.status?.type === ORDER_STATUS_TYPE_ENUM.CANCELED) {

@@ -1,9 +1,9 @@
 import { Fragment, memo } from 'react';
-import empty from '../../../../../assets/images/collection/collection-banner-empty.webp';
 import { Avatar, Stack, Typography } from '@mui/material';
 import { Image } from '@mui/icons-material';
 import { useTranslation } from 'react-i18next';
 import { COLLECTION_BANNER_TYPE } from '../../constants/collection-types';
+import COLLECTION_IMAGES from 'assets/images/collection';
 
 const subtitle = {
   [COLLECTION_BANNER_TYPE.MULTI_BANNER]: 'emptyCollection.subtitleMultiBanner',
@@ -32,8 +32,11 @@ const CollectionEmpty = ({ bannerType }: Props) => {
           sx={{
             width: '229px',
             height: '162px',
+            img: {
+              objectFit: 'contain',
+            },
           }}
-          src={empty}
+          src={COLLECTION_IMAGES.bannerEmpty}
         >
           <Image />
         </Avatar>

@@ -9,7 +9,7 @@ import { usePaymentAgreementVerify } from '../hooks/usePaymentAgreementVerify';
 import { PaymentAgreementForm, PaymentAgreementFormSkeleton } from '../components/PaymentAgreementForm';
 import { IPaymentAgreement, IPaymentAgreementVerify, PaymentAgreementDTO } from '../interfaces';
 import PaymentAgreementVerifySummary from '../components/PaymentAgreementSummary/PaymentAgreementVerifySummary';
-import usePaymentAgreementCreateForm from '../hooks/usePaymentAgreementCreateForm';
+import usePaymentAgreementCreateForm, { initPaymentAgreementValues } from '../hooks/usePaymentAgreementCreateForm';
 
 type PaymentAgreementCreateModalProps = {
   open: boolean;
@@ -40,14 +40,14 @@ const PaymentAgreementCreateModal = ({
 
   const _initValue: PaymentAgreementDTO = useMemo(
     () =>
-      pick({ ...(initValue as IPaymentAgreement), driver: 'chofer todo', filters }, [
-        '_id',
-        'name',
-        'sendDate',
-        'driver',
-        'shippingCost',
-        'filters',
-      ]),
+      pick(
+        {
+          ...initPaymentAgreementValues,
+          ...(initValue as IPaymentAgreement),
+          filters,
+        },
+        ['_id', 'name', 'sendDate', 'driver', 'shippingCost', 'estimatedShippingCost', 'filters'],
+      ),
     [initValue, filters],
   );
 

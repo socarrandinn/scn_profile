@@ -1,16 +1,19 @@
 import { EditLink } from '@dfl/mui-admin-layout';
 import { FlexBox } from '@dfl/mui-react-common';
-import { Box } from '@mui/material';
+import { Box, Chip } from '@mui/material';
+import { IOrderStatus } from '../../interfaces';
+import { useTranslation } from 'react-i18next';
 
 interface IColorWithTitle {
-  color: string;
-  id: string;
-  title: string;
+  value: string;
+  record: IOrderStatus;
+  rowId: string;
 }
 
-const ColorWithTitle = ({ color, id, title }: IColorWithTitle) => {
+const ColorWithTitle = ({ record, rowId, value }: IColorWithTitle) => {
+  const { t } = useTranslation('orderStatus');
   return (
-    <FlexBox flexDirection='row' alignItems='center'>
+    <FlexBox flexDirection='row' alignItems='center' gap={1}>
       <Box
         sx={{
           width: '1.3rem',
@@ -18,11 +21,18 @@ const ColorWithTitle = ({ color, id, title }: IColorWithTitle) => {
           minWidth: '1.3rem',
           minHeight: '1.3rem',
           borderRadius: '50%',
-          backgroundColor: color,
-          marginRight: '1rem',
+          backgroundColor: record.color,
         }}
       />
-      <EditLink entityId={id}>{title}</EditLink>
+      <EditLink entityId={rowId}>{value}</EditLink>
+      {record?.validationType && (
+        <Chip
+          sx={{ borderColor: record.color, borderRadius: 0.5 }}
+          size='small'
+          variant='outlined'
+          label={t(`validationType.${record.validationType as string}`)}
+        />
+      )}
     </FlexBox>
   );
 };

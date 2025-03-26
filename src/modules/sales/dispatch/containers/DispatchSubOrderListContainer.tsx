@@ -4,6 +4,7 @@ import Box from '@mui/material/Box';
 import { subOrderColumns } from 'modules/sales/common/constants/order-columns';
 import { useFindDispatchSubOrders } from 'modules/sales/sub-orders/hooks/useFindSubOrders';
 import { DispatchSubOrderListToolbar } from '../components/DispatchSubOrderListToolbar';
+import { dispatchSubOrderColumn } from '../constants';
 
 const DispatchSubOrderListContainer = () => {
   const { isLoading, error, data } = useFindDispatchSubOrders();
@@ -12,7 +13,7 @@ const DispatchSubOrderListContainer = () => {
       <TabsFilter translation={'order'} defaultView={'all'} />
       <DispatchSubOrderListToolbar />
       <Table
-        columns={subOrderColumns}
+        columns={dispatchSubOrderColumn(subOrderColumns)}
         data={data?.data}
         total={data?.total}
         isLoading={isLoading}

@@ -64,8 +64,8 @@ const OfferCategoryFromRule = ({ section, control: mainControl, name, errors }: 
       </Grid>
 
       <Form control={control} size={'small'} id={'amount-category-item-form'}>
-        <Grid container spacing={{ xs: 1, md: 2 }}>
-          <Grid item xs={12} md={4}>
+        <Grid container spacing={{ xs: 1, md: 2 }} sx={{ display: 'flex', flexWrap: 'wrap' }}>
+          <Grid item xs={12} lg={4}>
             <FromAsyncSelectCategory
               label={t('common:category')}
               placeholder={t('sections.category.select')}
@@ -73,7 +73,7 @@ const OfferCategoryFromRule = ({ section, control: mainControl, name, errors }: 
               name={'category'}
             />
           </Grid>
-          <Grid item xs={12} md={3}>
+          <Grid item xs={12} lg={3}>
             <FromOperatorSelect
               disabled={!section}
               tpart='offerOrder:operator'
@@ -86,15 +86,10 @@ const OfferCategoryFromRule = ({ section, control: mainControl, name, errors }: 
               label={t('sections.category.operator')}
             />
           </Grid>
-          <Grid item xs={12} md={3}>
-            <FormTextField
-              disabled={!section}
-              type='number'
-              label={t('offerOrder:quantityItem')}
-              name={'amount'}
-            />
+          <Grid item xs={12} lg={3}>
+            <FormTextField disabled={!section} type='number' label={t('offerOrder:quantityItem')} name={'amount'} />
           </Grid>
-          <Grid item xs={12} md={2}>
+          <Grid item xs={12} lg={2}>
             <Button
               form='amount-category-item-form'
               onClick={onSubmit}
