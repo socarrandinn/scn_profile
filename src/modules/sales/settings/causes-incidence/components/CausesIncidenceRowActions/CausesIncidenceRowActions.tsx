@@ -1,9 +1,10 @@
-import { memo } from 'react';
+import { memo, useCallback } from 'react';
 import { Stack } from '@mui/material';
 import { useToggle } from '@dfl/hook-utils';
 import { useParamsLink } from '@dfl/react-security';
 import { useDeleteCausesIncidence } from 'modules/sales/settings/causes-incidence/hooks/useDeleteCausesIncidence';
 import { DeleteRowAction, EditRowActions } from '@dfl/mui-admin-layout';
+import { CAUSE_INCIDENCE_ERRORS } from '../../constants/causes-incidence.errors';
 
 type UserStatusProps = {
   rowId: string;
@@ -12,7 +13,13 @@ type UserStatusProps = {
 const CausesIncidenceRowActions = ({ rowId }: UserStatusProps) => {
   const { isOpen, onClose, onOpen } = useToggle();
   const handleEdit = useParamsLink({ edit: rowId });
-  const { mutate, isLoading, error } = useDeleteCausesIncidence(rowId, onClose);
+  const { mutate, isLoading, error, reset } = useDeleteCausesIncidence(rowId, onClose);
+
+  const handleClose = useCallback(() => {
+    onClose?.();
+    reset();
+  }, [onClose, reset]);
+
   return (
     <>
       <Stack direction='row' spacing={1}>
@@ -20,10 +27,11 @@ const CausesIncidenceRowActions = ({ rowId }: UserStatusProps) => {
         <DeleteRowAction
           isOpen={isOpen}
           onOpen={onOpen}
-          onClose={onClose}
+          onClose={handleClose}
           error={error}
           isLoading={isLoading}
           onDelete={mutate}
+          errors={CAUSE_INCIDENCE_ERRORS}
         />
       </Stack>
     </>

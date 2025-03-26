@@ -8,12 +8,9 @@ import { defaultPaidOrderFilterKeys } from '../../constants';
 import { getDefaultFilterKeys } from 'utils/custom-filters';
 import { ORDER_PERMISSIONS } from 'modules/sales/common/constants/order-permissions';
 import { PermissionCheck } from '@dfl/react-security';
-
 import { usePaidOrderValidateBulk } from '../../hooks/usePaidOrderValidateBulk';
 import { ConfirmBulkButton } from 'components/Actions/ConfirmBulkAction';
 import { useTranslation } from 'react-i18next';
-import { useSearchParams } from 'react-router-dom';
-import { ORDER_STATUS_TYPE_ENUM } from 'modules/sales/settings/order-status/constants';
 
 const useToolbarSetting = (defaultFilters?: any) => {
   const settings = useMemo<TableHeaderOptions>(() => {
@@ -44,9 +41,6 @@ const PaidOrderListToolbar = ({ defaultFilters }: Props) => {
   const { selected } = useTableSelection();
   const disabledBulk = useMemo(() => selected?.length > 10, [selected]);
 
-  const [searchParams] = useSearchParams();
-  const showValidateBulk = [searchParams.get('fview'), searchParams.get('status')].includes(ORDER_STATUS_TYPE_ENUM.PAID);
-
   const { mutateAsync: onValidate, isLoading, error, reset } = usePaidOrderValidateBulk();
 
   return (
@@ -55,20 +49,18 @@ const PaidOrderListToolbar = ({ defaultFilters }: Props) => {
         selectActions={
           <Stack direction={'row'} spacing={1}>
             <PermissionCheck permissions={ORDER_PERMISSIONS.ORDER_VALIDATE}>
-              {showValidateBulk && (
-                <ConfirmBulkButton
-                  isLoading={isLoading}
-                  reset={reset}
-                  onDelete={onValidate}
-                  disabled={disabledBulk}
-                  error={error}
-                  confirmation={{
-                    title: t('paidOrder:confirmation.title'),
-                    description: t('paidOrder:confirmation.selected', { count: selected?.length }),
-                    confirm: t('paidOrder:confirmation.confirm'),
-                  }}
-                />
-              )}
+              <ConfirmBulkButton
+                isLoading={isLoading}
+                reset={reset}
+                onDelete={onValidate}
+                disabled={disabledBulk}
+                error={error}
+                confirmation={{
+                  title: t('paidOrder:confirmation.title'),
+                  description: t('paidOrder:confirmation.selected', { count: selected?.length }),
+                  confirm: t('paidOrder:confirmation.confirm'),
+                }}
+              />
             </PermissionCheck>
           </Stack>
         }

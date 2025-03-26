@@ -56,6 +56,7 @@
   "all": "Todos",
   "notAudience": "Sin audiencia",
   "errors": {
-    "YOU_CAN_ONLY_HAVE_HIERARCHY_UP_TO_2_LEVELS_DEEP": "Solo puedes tener una jerarquía de hasta 2 niveles, ya que la causa de incidencia padre es hija de otra causa de incidencia."
+    "YOU_CAN_ONLY_HAVE_HIERARCHY_UP_TO_2_LEVELS_DEEP": "Solo puedes tener una jerarquía de hasta 2 niveles, ya que la causa de incidencia padre es hija de otra causa de incidencia.",
+    "INCIDENCE_ASSOCIATED":"No se puede eliminar esta causa porque está asociada a una incidencia que tiene una causa o subcausa."
   }
 }
