@@ -7,7 +7,6 @@ import { useCallback, useMemo } from 'react';
 import { getOfferOrderStatus } from '../components/OfferStatus/OfferStatus';
 import { OFFER_STATUS } from 'modules/sales-offer/common/constants/offer.enum';
 import SaleOfferInactive from 'modules/sales-offer/common/components/SaleOfferInactive';
-import { PageLoader } from '@dfl/mui-react-common';
 import RuleContent from 'modules/sales-offer/common/components/RulesDetails/RuleContent';
 import SaleOfferSummaryDetail from 'modules/sales-offer/common/components/SaleOfferSummaryDetail';
 import SaleOfferCouponCode from 'modules/sales-offer/common/components/SaleOfferCouponCode';
@@ -15,7 +14,7 @@ import { FormPaperAction } from 'modules/common/components/FormPaperAction';
 
 const OfferDetailContainer = () => {
   const { t } = useTranslation('common');
-  const { offer, isLoading, onOneToggle, onOneClose, state } = useOfferContext();
+  const { offer, onOneToggle, onOneClose, state } = useOfferContext();
   const status = useMemo(() => getOfferOrderStatus(offer?.fromDate, offer?.toDate), [offer?.fromDate, offer?.toDate]);
   const showEdit = useMemo(() => status !== OFFER_STATUS.FINISHED, [status]); // todo
 
@@ -48,14 +47,6 @@ const OfferDetailContainer = () => {
     ),
     [offer?.code, showEdit, t, open, handleRuleToggle, handleGeneralClose],
   );
-
-  if (isLoading) {
-    return (
-      <FormPaper>
-        <PageLoader size={'page'} />
-      </FormPaper>
-    );
-  }
 
   if (status === OFFER_STATUS.SCHEDULED) {
     return (
