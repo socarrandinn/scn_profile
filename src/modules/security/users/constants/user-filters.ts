@@ -67,13 +67,13 @@ export const acceptedATFilter: Filter = {
   field: 'acceptedAt',
 };
 
-export const userAdminFilter = (field?: string, nameField?: string): Filter => ({
-  filter: nameField || 'common:user',
+export const userAdminFilter = (field?: string, nameField?: string, key?: string): Filter => ({
+  filter: nameField ?? 'common:user',
   translate: true,
   type: FilterType.DYNAMIC_LIST,
-  key: 'logistic',
-  labelKey: 'name',
-  field: field || 'user._id',
+  key: key ?? 'user',
+  labelKey: 'fullName',
+  field: field ?? 'user._id',
   fetchFunc: UserAdminService.searchClean,
   fetchOption: { size: 10 },
   queryKey: USERS_CLEAN_LIST_KEY,

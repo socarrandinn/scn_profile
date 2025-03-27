@@ -29,7 +29,7 @@ const IncidenceStatusPicker = ({ value, rowId, button, readOnly }: Props) => {
           padding: '15px 15px',
         },
         button: {
-          minWidth: 110,
+          minWidth: 115,
           minHeight: button ? 36 : 'auto',
           alignItems: 'center',
           justifyContent: 'space-around',

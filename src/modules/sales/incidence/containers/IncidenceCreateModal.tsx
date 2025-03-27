@@ -5,6 +5,7 @@ import { useTranslation } from 'react-i18next';
 import useIncidenceCreateForm from 'modules/sales/incidence/hooks/useIncidenceCreateForm';
 import { IIncidence } from 'modules/sales/incidence/interfaces';
 import { IncidenceForm, IncidenceFormSkeleton } from 'modules/sales/incidence/components/IncidenceForm';
+import { INCIDENCE_ERRORS } from '../constants';
 
 type IncidenceCreateModalProps = {
   open: boolean;
@@ -48,7 +49,7 @@ const IncidenceCreateModal = ({
         {!dataError && (
           <ConditionContainer active={!loadingInitData} alternative={<IncidenceFormSkeleton />}>
             <Divider sx={{ mb: 2 }} />
-            <HandlerError error={error} />
+            <HandlerError error={error} errors={INCIDENCE_ERRORS} />
             <Form
               onSubmit={onSubmit}
               control={control}

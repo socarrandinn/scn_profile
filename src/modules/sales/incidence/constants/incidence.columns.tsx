@@ -7,6 +7,8 @@ import { IncidenceStatusPicker } from '../components/IncidenceStatusPicker';
 import { INCIDENCE_STATUS_ENUM } from './incidence-status';
 import { ReactLink } from '@dfl/react-security';
 import { AvatarNameCell } from 'modules/common/components/AvatarNameCell';
+import { ORDER_REFERENCE_TYPE } from 'modules/sales/common/constants/order.enum';
+import { Person } from '@mui/icons-material';
 
 export const incidenceCodeColumn: HeadCell<IIncidence> = {
   field: 'code',
@@ -23,9 +25,15 @@ export const incidenceCauseColumn: HeadCell<IIncidence> = {
 export const incidenceOrderCodeColumn: HeadCell<IIncidence> = {
   field: 'orderReference.code',
   headerName: 'incidence:fields.orderCode',
-  renderCell: (value: string, data?: IIncidence) => (
-    <ReactLink to={`/sales/orders/${data?._id as string}/general`}>{value}</ReactLink>
-  ),
+  width: 200,
+  renderCell: (value: string, data?: IIncidence) => {
+    const route = data?.referenceType === ORDER_REFERENCE_TYPE.ORDER ? 'orders' : 'sub-orders'
+    return (
+      <ReactLink to={`/sales/${route}/${data?.orderReference?._id as string}/general`} underline='hover'>
+        {value}
+      </ReactLink>
+    )
+  },
 };
 
 export const incidenceAssignedToColumn: HeadCell<IIncidence> = {
@@ -34,7 +42,8 @@ export const incidenceAssignedToColumn: HeadCell<IIncidence> = {
   renderCell: (value: string, data?: IIncidence) => (
     <AvatarNameCell
       link={`/security/system-users/user/${data?.responsible?._id}/general`}
-      hideImage name={data?.responsible?.fullName}
+      image={data?.responsible?.avatar}
+      name={data?.responsible?.fullName}
       secondary={data?.responsible?.email}
     />
   ),
@@ -46,7 +55,8 @@ export const incidenceCreatedByColumn: HeadCell<IIncidence> = {
   renderCell: (value: string, data?: IIncidence) => (
     <AvatarNameCell
       link={`/security/system-users/user/${data?.createdBy?._id}/general`}
-      hideImage name={data?.createdBy?.fullName}
+      image={data?.createdBy?.avatar}
+      name={data?.createdBy?.fullName}
       secondary={data?.createdBy?.email}
     />
   ),

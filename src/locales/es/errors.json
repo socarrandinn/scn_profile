@@ -1,5 +1,6 @@
 {
   "title": "Error",
+  "requiredSubCause": "La incidencia actualmente requiere una sub-causa, pero no se ha proporcionado.",
   "coordinatesLength": "Las coordenadas deben ser un array con 2 elementos, longitud y latitud",
   "atLeast1": "Debe tener al menos un elemento",
   "authError": "¡Se requiere autorización!",

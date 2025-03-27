@@ -44,8 +44,8 @@ export const getAudienceFilter = (value: ACTIVE_STATUS, field: string) => {
   }
 };
 
-export const getParentCausesIncidenceFilter = (name?: string) => ({
-  filter: name || 'causesIncidence:fields.parent',
+export const parentCausesIncidenceFilter = {
+  filter: 'causesIncidence:fields.parent',
   translate: true,
   type: FilterType.DYNAMIC_LIST,
   key: 'parent',
@@ -55,9 +55,7 @@ export const getParentCausesIncidenceFilter = (name?: string) => ({
   fetchOption: { size: 10 },
   queryKey: CAUSES_INCIDENCES_LIST_KEY,
   transform: (value: any) => transformWhitObjectId(value, 'parent'),
-});
-
-export const parentCausesIncidenceFilter: Filter = getParentCausesIncidenceFilter();
+};
 
 export const audienceCausesIncidenceFilter: Filter = {
   filter: 'causesIncidence:notification.audience',

@@ -7,6 +7,7 @@
   "duplicatedValues": "Duplicate values",
   "duplicatedValuesMessage": "One or more values must be unique. Please ensure there are no duplicate values in the system",
   "duplicatedCountry": "The country has already been added. If you want to configure specific provinces, edit the existing configuration",
+  "requiredSubCause": "Incidence currently requires a sub-cause, but this has not been provided",
   "duplicatedProvince": "The province has already been added. If you want to configure specific municipalities, edit the existing configuration",
   "duplicatedCity": "The municipality has already been added. You can edit the existing configuration if you wish",
   "endDateGreaterThanStartDate": "End date must be after start date",

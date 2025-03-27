@@ -6,7 +6,7 @@ import { ORDER_REFERENCE_TYPE } from 'modules/sales/common/constants/order.enum'
 export interface IIncidence {
   _id?: string;
   description: string;
-  orderReference?: string;
+  orderReference?: any;
   cause?: any;
   code?: string;
   subCause?: any;
