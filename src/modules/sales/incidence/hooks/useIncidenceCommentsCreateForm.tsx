@@ -8,6 +8,8 @@ import { useMutation, useQueryClient } from '@tanstack/react-query';
 import { IncidenceCommentsService } from '../services';
 import { INCIDENCE_COMMENTS_LIST } from '../constants';
 import { IIncidenceComment } from '../interfaces';
+import { yupResolver } from '@hookform/resolvers/yup';
+import { incidenceCommentSchema } from '../schemas/incidence.schema';
 
 const initValues: IIncidenceComment = {
   incidence: '',
@@ -15,12 +17,12 @@ const initValues: IIncidenceComment = {
   file: [],
 };
 
-const useIncidenceCommentCreateForm = (defaultValues = initValues, incidenceId: string) => {
+const useIncidenceCommentCreateForm = (incidenceId: string, defaultValues = initValues) => {
   const { t } = useTranslation('incidence');
   const queryClient = useQueryClient();
 
   const { control, handleSubmit, reset, setValue, watch } = useForm({
-    // resolver: yupResolver(incidenceCommentSchema),
+    resolver: yupResolver(incidenceCommentSchema),
     defaultValues,
   });
 
@@ -49,6 +51,7 @@ const useIncidenceCommentCreateForm = (defaultValues = initValues, incidenceId: 
     isSuccess,
     data,
     watch,
+    setValue,
     reset,
     onSubmit: handleSubmit((values) => {
       const finalValue = assign(values, { image: values?.file?.map((a: any) => a.image) || [] });

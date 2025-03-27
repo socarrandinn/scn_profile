@@ -36,6 +36,7 @@ type FileDropZoneProps = TextFieldProps & {
   inputProps: DropzoneOptions;
   type?: TYPE_DROP;
   dropTitle?: string;
+  sxTitle?: any;
   showDropzoneWrapper?: boolean;
   documentName?: string;
 };
@@ -48,6 +49,7 @@ const FileDropZone = ({
   inputProps,
   required,
   label,
+  sxTitle,
   dropTitle,
   children,
   showDropzoneWrapper = false,
@@ -101,7 +103,7 @@ const FileDropZone = ({
                   <CircularProgress />
                 </Box>
               ) : (
-                <DropTitle type={type} title={dropTitle} />
+                <DropTitle type={type} title={dropTitle} sx={sxTitle}/>
               )}
             </Typography>
           </DropzoneWrapper>

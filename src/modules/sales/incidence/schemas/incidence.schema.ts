@@ -3,6 +3,7 @@ import '@dfl/yup-validations';
 import { ICausesIncidence } from 'modules/sales/settings/causes-incidence/interfaces';
 import { IFile } from 'components/FileDropZone/interfaces/IFile';
 import { mapperFile } from 'utils/file-utils';
+import { message } from 'locals/es';
 
 export const incidenceSchema = Yup.object().shape({
   description: Yup.string(),
@@ -22,6 +23,17 @@ export const incidenceSchema = Yup.object().shape({
     otherwise: (schema) => schema.transform((responsible) => responsible?._id || responsible),
   }),
   evidence: Yup.array().when('cause', {
+    is: (cause: ICausesIncidence) => cause?.requiresEvidence,
+    then: (schema) =>
+      schema.min(1, 'required').transform((values) => values?.map((file: IFile) => mapperFile(file)) || []),
+    otherwise: (schema) => schema.transform((values) => values?.map((file: IFile) => mapperFile(file)) || []),
+  }),
+  orderReference: Yup.string().transform((order) => order?._id || order),
+});
+
+export const incidenceCommentSchema = Yup.object().shape({
+  message: Yup.string().required('required'),
+  file: Yup.array().when('cause', {
     is: (cause: ICausesIncidence) => cause?.requiresEvidence,
     then: (schema) =>
       schema.min(1, 'required').transform((values) => values?.map((file: IFile) => mapperFile(file)) || []),

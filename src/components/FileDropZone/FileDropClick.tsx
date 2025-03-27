@@ -1,5 +1,5 @@
 import { Drop, Thumbnail, ThumbnailWrapper } from './styled';
-import { Box, IconButton } from '@mui/material';
+import { Box, IconButton, SxProps } from '@mui/material';
 import { TYPE_DROP } from './FileDropZone';
 import { TransTypography } from 'components/TransTypography';
 import UploadIcon from 'modules/inventory/product-stock/components/Icons/UploadIcon';
@@ -31,11 +31,12 @@ export const FileDropClick = ({ open, type }: RequestServiceDropClickProps) => {
 type DropTitleProps = {
   type?: TYPE_DROP;
   title?: string;
+  sx?: SxProps;
 };
-export const DropTitle = ({ type, title }: DropTitleProps) => {
+export const DropTitle = ({ type, title, sx }: DropTitleProps) => {
   if (type === TYPE_DROP.FILE) {
     return (
-      <Drop>
+      <Drop sx={sx}>
         <IconButton size='medium' disableTouchRipple disableRipple>
           <UploadIcon />
         </IconButton>

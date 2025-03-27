@@ -17,16 +17,17 @@ const IncidenceGeneralContainer = () => {
 
   return (
     <Stack mb={{ xs: 2, md: 4 }}>
-      <Form id='incidence-update-form' control={control}>
-        <DetailLayout>
-          <DetailContent ghost>
-            <IncidenceComments incidenceId={incidenceId} />
-          </DetailContent>
-          <DetailSummary ghost width={{ md: 398, lg: 400, xl: 420 }}>
+      <DetailLayout>
+        <DetailContent ghost>
+          <IncidenceComments incidenceId={incidenceId} />
+        </DetailContent>
+        <DetailSummary ghost width={{ md: 398, lg: 400, xl: 420 }}>
+          <Form id='incidence-update-form' control={control}>
             <ResponsibleForm data={incidence as IIncidence} />
-          </DetailSummary>
-        </DetailLayout>
-      </Form>
+          </Form>
+        </DetailSummary>
+      </DetailLayout>
+
     </Stack >
   );
 };

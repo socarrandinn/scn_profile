@@ -1,7 +1,7 @@
 
 import { memo } from 'react';
 import { DateValue, FlexBox } from '@dfl/mui-react-common';
-import { Typography } from '@mui/material';
+import { Box, Typography } from '@mui/material';
 import CloudDownloadIcon from '@mui/icons-material/CloudDownload';
 import { IIncidenceComment } from '../../interfaces';
 import { AvatarMedia } from 'components/AvatarMedia';
@@ -12,26 +12,24 @@ type IncidenceCommentItemProps = {
 
 const IncidenceCommentItem = ({ data }: IncidenceCommentItemProps) => {
   return (
-    <FlexBox gap={1}>
+    <FlexBox gap={'9px'}>
       <AvatarMedia avatar={data?.createdBy?.avatar} sx={{ height: '30px', width: '30px' }} />
-      <FlexBox flexDirection='column' gap={0.5} width='100%'>
-        <FlexBox height='30px' alignItems={'center'} gap={1} width='100%'>
-          <Typography fontWeight='700'>{data?.createdBy?.fullName?.split(' ').slice(0, 3).join(' ')}</Typography>
-          <Typography color='gray' variant='caption'>
-            <DateValue value={data?.createdAt} format='PPpp' />
-          </Typography>
+      <div className='w-full'>
+        <FlexBox alignItems={'center'} gap={1} sx={{ mb: '5px' }}>
+          <Typography variant='h4' fontWeight={600}>{data?.createdBy?.fullName}</Typography>
+          <DateValue value={data?.createdAt} format='h:mm aa' />
           {data?.file?.length !== 0 && (
             <a href={data?.file?.[0]?.url} download className='text-inherit'>
               <CloudDownloadIcon className='mr-2 animate-bounce' />
             </a>
           )}
         </FlexBox>
-        <FlexBox>
-          <Typography variant='body2' color='gray'>
+        <Box sx={{ background: '#F2F4F8', borderRadius: '5px' }}>
+          <Typography variant='body2' color='#2B3445' sx={{ p: '10px' }}>
             {data?.message}
           </Typography>
-        </FlexBox>
-      </FlexBox>
+        </Box>
+      </div>
     </FlexBox>
   );
 };

@@ -32,6 +32,8 @@
     "createdBy": "Creado por"
   },
   "addComments": "Añadir comentarios", 
+  "addCommentSuccess": "Comentario añadido satisfactoriamente",
+  "addCommentError": "Ha ocurrido un error",	
   "status": {
     "OPEN": "Por hacer",
     "IN_REVIEW": "En revisión",

@@ -10,12 +10,12 @@ type IncidenceCommentsListProps = {
 };
 
 const IncidenceCommentsList = ({ comments, limit = Infinity }: IncidenceCommentsListProps) => {
-  const limitedComments = limit < comments.length ? comments.slice(0, limit) : comments;
+  const limitedComments = limit < comments.length ? comments?.slice(0, limit) : comments;
 
   return (
-    <FlexBox flexDirection='column' gap={3} mt={3}>
+    <FlexBox flexDirection='column' gap={3} my={2}>
       {map(limitedComments, (comment) => (
-        <IncidenceCommentItem key={comment._id} data={comment} />
+        <IncidenceCommentItem key={comment?._id} data={comment} />
       ))}
     </FlexBox>
   );

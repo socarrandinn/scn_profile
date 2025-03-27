@@ -43,7 +43,7 @@ const IncidenceCard = ({ data }: { data: IIncidence }) => {
           <ReactLink to={`/sales/incidences/${data?._id as string}/general`} color={'#F94A44'} fontWeight={500}>
             {data?.code}
           </ReactLink>
-          <Typography>{format(new Date(data?.createdAt || ''), 'MM/dd/yyyy hh:mm a')}</Typography>
+          <Typography>{format(new Date(data?.createdAt || ''), 'MM/dd/yyyy h:mm a')}</Typography>
         </FlexBox>
 
         <FlexBox alignItems={'center'} justifyContent={'space-between'}>
