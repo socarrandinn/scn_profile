@@ -26,6 +26,7 @@
     "cause": "Cause",
     "orderCode": "Order code",
     "assignedTo": "Assigned to",
+    "type": "Incidence type",
     "createdBy": "Created by"
   },
   "status": {
@@ -33,5 +34,9 @@
     "IN_REVIEW": "In review",
     "RESOLVED": "Resolved",
     "CLOSED": "Closed"
+  },
+  "type": {
+    "ORDER": "Order",
+    "SUB_ORDER": "Suborder"
   }
 }

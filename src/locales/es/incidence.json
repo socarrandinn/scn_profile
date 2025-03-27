@@ -24,6 +24,7 @@
     "responsible": "Responsable",
     "cause": "Causa",
     "incidence": "Incidencia",
+    "type": "Tipo de incidencia",
     "orderCode": "Código de la Orden",
     "assignedTo": "Asignado a",
     "createdBy": "Creado por"
@@ -33,5 +34,9 @@
     "IN_REVIEW": "En revisión",
     "RESOLVED": "Resuelta",
     "CLOSED": "Cerrada"
+  },
+  "type": {
+    "ORDER": "Orden",
+    "SUB_ORDER": "Suborden"
   }
 }

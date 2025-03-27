@@ -18,7 +18,6 @@ const IncidenceListContainer = () => {
         total={data?.total}
         isLoading={isLoading}
         error={error}
-        select
       />
       <IncidenceEditModal />
     </Box>
