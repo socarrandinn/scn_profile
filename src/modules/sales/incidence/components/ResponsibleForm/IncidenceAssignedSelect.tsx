@@ -84,8 +84,8 @@ const IncidenceAssignedSelect = ({
             InputProps={{
               ...params.InputProps,
               startAdornment: (
-                <InputAdornment position="start">
-                  <AvatarMedia name={data?.fullName} avatar={data?.avatar} sx={{ height: '30px', width: '30px' }} />
+                <InputAdornment position="start" sx={{ pl: '6px' }}>
+                  <AvatarMedia name={data?.fullName} avatar={data?.avatar} sx={{ height: '32px', width: '32px' }} />
                 </InputAdornment>
               ),
               endAdornment: (
@@ -110,8 +110,9 @@ const IncidenceAssignedSelect = ({
       }}
       size="small"
       sx={{
-        width: '250px',
-        maxWidth: '100%',
+        '.MuiInputBase-root': {
+          minHeight: '50px',
+        },
         '.MuiInputBase-input': {
           whiteSpace: 'nowrap',
           overflow: 'hidden',

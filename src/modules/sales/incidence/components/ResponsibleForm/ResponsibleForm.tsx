@@ -16,8 +16,8 @@ const ResponsibleForm = ({ data }: { data: IIncidence }) => {
       title={t('fields.assignedTo')}
       mbHeader={'8px !important'}
     >
-      <Typography variant='body2' sx={{ mb: 1 }}>{t('assignResponsible')}</Typography>
-      <IncidenceAssignedSelect data={data?.responsible} incidenceId={data?._id as string} />
+      <Typography variant='body2' sx={{ mb: 1.5 }}>{t('assignResponsible')}</Typography>
+      <IncidenceAssignedSelect data={data?.responsible} incidenceId={data?._id as string} fullWidth />
 
       {data?.createdBy && <ResponsibleCell data={data?.createdBy} title={'fields.createdBy'} sx={{ mt: 2 }} />}
     </FormPaper>
