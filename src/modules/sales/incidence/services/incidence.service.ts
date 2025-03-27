@@ -11,13 +11,9 @@ class IncidenceService extends EntityApiService<IIncidence> {
 
   changeAssignation = (incidenceId: string, assignedId: string): any => {
     return this.handleResponse(
-      ApiClientService.patch(
-        this.getPath(`/${incidenceId}/change-assignation
-`),
-        {
-          assigned: assignedId,
-        },
-      ),
+      ApiClientService.patch(this.getPath(`/${incidenceId}/responsible`), {
+        responsible: assignedId,
+      }),
     );
   };
 }

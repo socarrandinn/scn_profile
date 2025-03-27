@@ -1,6 +1,7 @@
-import { AsyncSelectAutocompleteField } from '@dfl/mui-react-common';
+import { AsyncSelectAutocompleteField, FormAsyncSelectAutocompleteField } from '@dfl/mui-react-common';
 import {
   Avatar,
+  CircularProgress,
   IconButton,
   InputAdornment,
   ListItemAvatar,
@@ -20,7 +21,6 @@ type IncidenceAssignedSelectProps = {
   incidenceId: string;
   fullWidth?: boolean;
   data?: IUser;
-  orderCanceled?: boolean
 };
 
 const isOptionEqualToValue = (option: any, value: any | string) => {
@@ -35,9 +35,8 @@ const handleChange = (ev: any, changeFn: any) => {
 const IncidenceAssignedSelect = ({
   data,
   incidenceId,
-  orderCanceled = false,
 }: IncidenceAssignedSelectProps) => {
-  const { mutateAsync } = useUpdateIncidenceAssigned(incidenceId);
+  const { mutateAsync, isLoading } = useUpdateIncidenceAssigned(incidenceId);
   const { t } = useTranslation('incidence');
 
   const [inputElement, setInputElement] = useState<HTMLInputElement | null>(null);
@@ -54,11 +53,12 @@ const IncidenceAssignedSelect = ({
   }, [inputElement]);
 
   return (
-    <AsyncSelectAutocompleteField
+    <FormAsyncSelectAutocompleteField
+      name='responsible'
       defaultValue={data}
       id={'select-responsible'}
       autoComplete
-      readOnly={orderCanceled}
+      readOnly={isLoading}
       includeInputInList={false}
       fetchFunc={UserAdminService.searchClean}
       queryKey={USERS_CLEAN_LIST_KEY}
@@ -68,7 +68,7 @@ const IncidenceAssignedSelect = ({
         return (
           <li {...props} key={option?._id}>
             <ListItemAvatar>
-              <Avatar alt={option?.fullName} src={option?.avatar} />
+              <AvatarMedia name={option?.fullName} avatar={option?.avatar} />
             </ListItemAvatar>
             <ListItemText primary={option?.fullName} />
           </li>
@@ -96,7 +96,7 @@ const IncidenceAssignedSelect = ({
                     top: '0px%',
                   }}>
                     <IconButton onClick={openAutocomplete} size="small">
-                      <KeyboardArrowDownIcon />
+                      {isLoading ? <CircularProgress color="inherit" /> : <KeyboardArrowDownIcon />}
                     </IconButton>
                   </span>
                 </InputAdornment>

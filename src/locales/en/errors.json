@@ -10,6 +10,10 @@
   "requiredSubCause": "Incidence currently requires a sub-cause, but this has not been provided",
   "duplicatedProvince": "The province has already been added. If you want to configure specific municipalities, edit the existing configuration",
   "duplicatedCity": "The municipality has already been added. You can edit the existing configuration if you wish",
+  "assignedUpdate": {
+    "error": "Error updating the user assigned to the support message!",
+    "success": "The user assigned to the support message has been updated!"
+  },
   "endDateGreaterThanStartDate": "End date must be after start date",
   "primaryCurrencyDisabled": "The primary currency is not enabled",
   "generalError": "Error",

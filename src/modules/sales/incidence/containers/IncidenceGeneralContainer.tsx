@@ -22,7 +22,7 @@ const IncidenceGeneralContainer = () => {
           <DetailContent ghost>
             <IncidenceComments />
           </DetailContent>
-          <DetailSummary ghost width={{ md: 380, lg: 400, xl: 400 }}>
+          <DetailSummary ghost width={{ md: 398, lg: 400, xl: 420 }}>
             <ResponsibleForm data={incidence as IIncidence} />
           </DetailSummary>
         </DetailLayout>

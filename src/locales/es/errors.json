@@ -101,5 +101,9 @@
   "collection": {
     "POSITION_IS_ALREADY_OCCUPIED": "La posición seleccionada ya está ocupada por otra colección",
     "COLLECTION_CHANGE_TO_DYNAMIC": "La colección ahora es dinámica. No puede agregar elementos manualmente. Actualice la página para ver los cambios."
+  },
+  "assignedUpdate": {
+    "success": "Se ha cambiado el usuario asignado satisfactoriamente",
+    "error": "No es posible cambiar el usuario asignado"
   }
 }
