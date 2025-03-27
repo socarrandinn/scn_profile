@@ -93,7 +93,7 @@ const ProductWarehouseImportStockCreateModal = ({
           variant='contained'
           type={'submit'}
           loading={isLoading || loadingInitData}
-          disabled={!!dataError || isSuccess || !!summary?.message}
+          disabled={!!dataError || isSuccess}
           form='form-import-stock'
         >
           {t('common:save')}

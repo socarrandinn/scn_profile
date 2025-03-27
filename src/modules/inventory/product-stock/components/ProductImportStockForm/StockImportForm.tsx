@@ -27,7 +27,9 @@ const StockImportForm = ({ control, isLoading, onSubmit, summary, successData, r
   const resetState = useSupplierRelationContext((state) => state.resetState);
   resetState();
 
-  const hazShow = useMemo(() => [isLoading, !!summary].some((s) => s), [isLoading, summary]);
+  const hazShow = useMemo(() => [isLoading, !!summary?.summary].some((s) => s), [isLoading, summary]);
+
+  console.log(hazShow, 'hazShow')
 
   return (
     <>

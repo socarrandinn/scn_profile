@@ -1,13 +1,14 @@
-import { ChildrenProps, DateValue } from '@dfl/mui-react-common';
-import { Skeleton, Stack } from '@mui/material';
+import { DateValue } from '@dfl/mui-react-common';
+import { Stack } from '@mui/material';
 import { TransTypography } from 'components/TransTypography';
-import { memo, ReactNode, useMemo } from 'react';
+import { memo, useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 import TypeIcon from 'components/icons/offer-sales/TypeIcon';
 import FromDateIcon from 'components/icons/offer-sales/FromDateIcon';
 import DiscountIcon from 'components/icons/offer-sales/DiscountIcon';
 import ToDateIcon from 'components/icons/offer-sales/ToDateIcon';
 import { IProductDiscount } from '../../interfaces';
+import { DetailItem } from 'components/DetailItem/DetailItem';
 
 type DetailProps = {
   isLoading?: boolean;
@@ -59,31 +60,3 @@ const OfferStackDetails = ({ isLoading, offer, offerType }: DetailProps) => {
 };
 
 export default memo(OfferStackDetails);
-
-type Props = ChildrenProps & {
-  icon?: ReactNode;
-  isLoading?: boolean;
-};
-const DetailItem = ({ icon, children, isLoading }: Props) => {
-  const sx = {
-    flexDirection: 'row',
-    alignItems: 'center',
-    gap: 1,
-    flex: 1,
-  };
-  if (isLoading) {
-    return (
-      <Stack sx={sx}>
-        <Skeleton variant='circular' sx={{ width: 24, height: 24 }} />
-        <Skeleton variant='text' sx={{ width: 240 }} />
-      </Stack>
-    );
-  }
-
-  return (
-    <Stack sx={sx}>
-      {icon}
-      {children}
-    </Stack>
-  );
-};

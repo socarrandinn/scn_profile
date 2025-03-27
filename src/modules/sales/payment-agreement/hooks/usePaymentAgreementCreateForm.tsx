@@ -11,17 +11,18 @@ import { useEffect, useCallback } from 'react';
 import { PAYMENT_AGREEMENT_ROUTE } from '../constants/payment-agreement-route';
 import { useNavigate } from 'react-router';
 
-export const initPaymentAgreementValues: IPaymentAgreement = {
+export const initPaymentAgreementValues: Partial<IPaymentAgreement> = {
   name: '',
   driver: 'chofer todo',
   shippingCost: 0,
   sendDate: new Date(),
   estimatedShippingCost: 0.0,
+  maxShippingCost: 0.0,
 };
 
 const usePaymentAgreementCreateForm = (
   onClose: () => void,
-  defaultValues: IPaymentAgreement = initPaymentAgreementValues,
+  defaultValues: Partial<IPaymentAgreement> = initPaymentAgreementValues,
 ) => {
   const { t } = useTranslation('paymentAgreement');
   const queryClient = useQueryClient();
@@ -30,10 +31,13 @@ const usePaymentAgreementCreateForm = (
     control,
     handleSubmit,
     reset: resetForm,
+    formState,
   } = useForm({
     resolver: yupResolver(paymentAgreementSchema),
     defaultValues,
   });
+
+  console.log(formState.errors, 'formState');
 
   useEffect(() => {
     if (defaultValues) resetForm(defaultValues);
@@ -46,16 +50,19 @@ const usePaymentAgreementCreateForm = (
     isLoading,
     isSuccess,
     data,
-  } = useMutation((paymentAgreement: IPaymentAgreement) => PaymentAgreementService.saveOrUpdate(paymentAgreement), {
-    onSuccess: (data, values) => {
-      queryClient.invalidateQueries([PAYMENT_AGREEMENTS_LIST_KEY]);
-      values?._id && queryClient.invalidateQueries([values._id]);
-      toast.success(t(values?._id ? 'successUpdate' : 'successCreated'));
-      onClose?.();
-      resetForm();
-      navigate(PAYMENT_AGREEMENT_ROUTE.DETAIL(data?._id as string));
+  } = useMutation(
+    (paymentAgreement: Partial<IPaymentAgreement>) => PaymentAgreementService.saveOrUpdate(paymentAgreement),
+    {
+      onSuccess: (data, values) => {
+        queryClient.invalidateQueries([PAYMENT_AGREEMENTS_LIST_KEY]);
+        values?._id && queryClient.invalidateQueries([values._id]);
+        toast.success(t(values?._id ? 'successUpdate' : 'successCreated'));
+        onClose?.();
+        resetForm();
+        navigate(PAYMENT_AGREEMENT_ROUTE.DETAIL(data?._id as string));
+      },
     },
-  });
+  );
 
   const reset = useCallback(() => {
     resetForm();
@@ -68,6 +75,7 @@ const usePaymentAgreementCreateForm = (
     isLoading,
     isSuccess,
     data,
+    formState,
     reset,
     onSubmit: handleSubmit((values) => {
       mutate(values);

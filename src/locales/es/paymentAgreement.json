@@ -1,5 +1,7 @@
 {
   "list": "Pagos por acuerdo",
+  "name": "Pago por acuerdo",
+  "helpText": "En esta modalidad, el operador de la tienda garantiza la entrega a domicilio de los pedidos.",
   "create": "Crear nuevo pago por acuerdo",
   "deleteMany": "Debe tener pago por acuerdo seleccionados para realizar esta operación",
   "edit": "Editar Pagos por acuerdo",
@@ -9,6 +11,10 @@
   "successSubOrderDeleted": "Suborden de Pago por acuerdo eliminado satisfactoriamente",
   "confirmationDeleteSubOrder": "Está acción solamente removerá la orden del pago por acuerdo, posteriormente podrá agregarla a otro pago por acuerdo si así lo desea. ¿Está seguro que desea eliminar la orden del pago por acuerdo?",
   "goPaymentAgreement": "Ir a Pago por acuerdo",
+  "items": {
+    "quantityOrders": "<bold>Cantidad de órdenes:</bold> {{count}}",
+    "sendDate": "<bold>Fecha de envío:</bold> <send/>"
+  },
   "fields": {
     "name": "Nombre",
     "createdAt": "Fecha de creación",
@@ -17,11 +23,12 @@
     "quantityOrders": "Cantidad de órdenes",
     "sendDate": "Fecha de envío",
     "shippingCost": "Precio de envío",
-    "estimatedShippingCost": "Precio Estimado de envío",
+    "estimatedShippingCost": "Precio estimado de envío",
+    "maxShippingCost": "Precio máximo de envío",
     "status": "Estado",
     "verify": {
       "totalOrders": "Órdenes",
-      "orderInPaymentAgreement": "Órdenes en pago por acuerdo",
+      "orderInPaymentAgreement": "En Pago por Acuerdo",
       "orderCompleted": "Órdenes completada"
     }
   },

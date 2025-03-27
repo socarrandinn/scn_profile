@@ -31,12 +31,21 @@ const PaymentAgreementCreateModal = ({
 }: PaymentAgreementCreateModalProps) => {
   const { t } = useTranslation('paymentAgreement');
   const { query } = useTableSearch();
-  const { data, isInitialLoading } = usePaymentAgreementVerify(query, filters, open && !!filters);
+  const { data, isLoading: isVerifyLoading } = usePaymentAgreementVerify(query, filters, open && !!filters);
 
-  const isValid = useMemo(() => {
-    if (initValue?._id) return false;
-    return data?.isValid;
-  }, [data?.isValid, initValue?._id]);
+  const { isValid } = useMemo(() => {
+    /* is edit */
+    if (initValue?._id) {
+      return {
+        isValid: false,
+      };
+    }
+    return {
+      isValid: isVerifyLoading || data?.isValid,
+    };
+  }, [data?.isValid, initValue?._id, isVerifyLoading]);
+
+  console.log(isValid, isVerifyLoading);
 
   const _initValue: PaymentAgreementDTO = useMemo(
     () =>
@@ -46,7 +55,7 @@ const PaymentAgreementCreateModal = ({
           ...(initValue as IPaymentAgreement),
           filters,
         },
-        ['_id', 'name', 'sendDate', 'driver', 'shippingCost', 'estimatedShippingCost', 'filters'],
+        ['_id', 'name', 'sendDate', 'driver', 'shippingCost', 'estimatedShippingCost', 'maxShippingCost', 'filters'],
       ),
     [initValue, filters],
   );
@@ -70,9 +79,9 @@ const PaymentAgreementCreateModal = ({
         {(isValid || dataError) && (
           <HandlerError error={dataError} errors={PAYMENT_AGREEMENT_ERRORS} mapError={mapGetOneErrors} />
         )}
-
-        <PaymentAgreementVerifySummary data={data as IPaymentAgreementVerify} isLoading={isInitialLoading} />
-
+        {!initValue?._id && (
+          <PaymentAgreementVerifySummary data={data as IPaymentAgreementVerify} isLoading={isVerifyLoading} />
+        )}
         {!dataError && (
           <ConditionContainer active={!loadingInitData} alternative={<PaymentAgreementFormSkeleton />}>
             <PaymentAgreementForm error={error} isLoading={isLoading} control={control} onSubmit={onSubmit} />
@@ -84,7 +93,7 @@ const PaymentAgreementCreateModal = ({
         <LoadingButton
           variant='contained'
           type={'submit'}
-          loading={isLoading || loadingInitData || isInitialLoading}
+          loading={isLoading || loadingInitData}
           disabled={!!dataError || isValid}
           form='payment-agreement-form'
         >

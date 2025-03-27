@@ -7,7 +7,7 @@ export interface BasicTableProps {
   data: any[];
   isLoading?: boolean;
   error?: any;
-  minWidth?: number | string;
+  minWidth?: number | string | object
   sxProps?: any;
 }
 

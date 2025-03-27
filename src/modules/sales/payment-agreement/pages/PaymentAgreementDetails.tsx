@@ -1,14 +1,12 @@
 import { memo } from 'react';
-import { useParams } from 'react-router';
-import { PaymentAgreementProvider } from '../contexts/paymentAgreementContext';
 import PaymentAgreementDetailContainer from '../containers/PaymentAgreementDetailContainer';
+import { PageLayout } from 'layouts/index';
 
 const PaymentAgreementDetails = () => {
-  const { id } = useParams();
   return (
-    <PaymentAgreementProvider paymentAgreementId={id as string}>
+    <PageLayout>
       <PaymentAgreementDetailContainer />
-    </PaymentAgreementProvider>
+    </PageLayout>
   );
 };
 
