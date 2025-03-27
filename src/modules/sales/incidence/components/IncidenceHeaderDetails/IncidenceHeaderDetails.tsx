@@ -30,8 +30,10 @@ const IncidenceHeaderDetails = () => {
             code={incidence?.code}
             title={incidence?.code as string}
             incidenceTitle={incidence?.cause?.name}
+            orderCode={incidence?.orderReference?.code}
             message={incidence?.subCause?.name ? `(${t('fields.subCause')}) ${incidence?.subCause?.name}` : undefined}
             noActions
+            referenceType={incidence?.referenceType}
           >
             <FlexBox alignItems={'center'} gap={4} mb={1}>
               <DateValue value={incidence?.createdAt} format='MM/dd/yyyy hh:mm a' />

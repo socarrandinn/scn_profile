@@ -3,11 +3,13 @@
  * @version: v0.0.1
  * @date:
  */
-import React, { memo } from 'react';
+import React, { memo, useMemo } from 'react';
 import { Button, Grid, Typography } from '@mui/material';
 import { useTranslation } from 'react-i18next';
 import { ChildrenProps, FlexBox } from '@dfl/mui-react-common';
 import ErrorNote from 'modules/common/components/ErrorNote/ErrorNote';
+import { ReactLink } from '@dfl/react-security';
+import { ORDER_REFERENCE_TYPE } from 'modules/sales/common/constants/order.enum';
 
 type Props = ChildrenProps & {
   orderCode?: string;
@@ -16,11 +18,13 @@ type Props = ChildrenProps & {
   code?: string;
   message?: string;
   incidenceTitle?: string;
+  referenceType?: ORDER_REFERENCE_TYPE;
   noActions?: boolean;
 };
 
-const IncidenceActionsHeader = ({ title, noActions, message, code, incidenceTitle, orderCode, children, action }: Props) => {
+const IncidenceActionsHeader = ({ title, noActions, message, code, incidenceTitle, orderCode, children, action, referenceType }: Props) => {
   const { t } = useTranslation('incidence');
+  const type = useMemo(() => referenceType === ORDER_REFERENCE_TYPE.ORDER ? 'orders' : 'sub-orders', [referenceType]);
 
   return (
     <Grid container spacing={2}>
@@ -31,15 +35,9 @@ const IncidenceActionsHeader = ({ title, noActions, message, code, incidenceTitl
           </Typography>
           {children}
           <FlexBox gap={0.5} sx={{ color: '#9499A1' }}>
-            <Typography className='text-primary underline' fontSize={16} fontWeight={500}>
+            <ReactLink to={`/sales/${type}/${orderCode}/general`} className='text-primary underline' fontSize={16} fontWeight={500}>
               {orderCode || 'ORD023233653689'}
-            </Typography>
-            <Typography fontSize={21} lineHeight='22px'>
-              /
-            </Typography>
-            <Typography className='text-primary underline' fontSize={16} fontWeight={500}>
-              {orderCode || 'ORD023233653689'}
-            </Typography>
+            </ReactLink>
             <Typography fontSize={21} lineHeight='22px'>
               /
             </Typography>

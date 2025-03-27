@@ -8,7 +8,6 @@ export interface IIncidence {
   description: string;
   orderReference?: any;
   cause?: any;
-  createdBy?: Partial<IUser>;
   code?: string;
   subCause?: any;
   status: INCIDENCE_STATUS_ENUM;
