@@ -5,7 +5,6 @@ import PaymentAgreementCreateModal from './PaymentAgreementCreateModal';
 
 const PaymentAgreementEditModal = () => {
   const [searchParams, setSearchParams] = useSearchParams();
-
   const entityId = searchParams.get('edit');
 
   const { isLoading, data, error } = useFindOnePaymentAgreement(entityId);

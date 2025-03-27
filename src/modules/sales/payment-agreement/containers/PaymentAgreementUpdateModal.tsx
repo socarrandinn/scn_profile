@@ -75,8 +75,8 @@ const PaymentAgreementUpdateModal = ({
             <PaymentAgreementUpdateForm
               setValue={setValue}
               error={error}
-              disabled={!data?.isValid}
-              isLoading={isLoading || isLoadingVerify}
+              disabled={!data?.isValid || isLoadingVerify}
+              isLoading={isLoading}
               control={control}
               onSubmit={onSubmit}
             />

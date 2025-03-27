@@ -10,6 +10,7 @@ export interface IPaymentAgreement {
 
   // no editable
   estimatedShippingCost?: number;
+  maxShippingCost?: number;
   quantityOrders?: number;
   status?: PAYMENT_AGREEMENT_STATUS_ENUM;
   owner?: string;
@@ -18,7 +19,7 @@ export interface IPaymentAgreement {
 
 export type PaymentAgreementDTO = Pick<
 IPaymentAgreement,
-'name' | 'shippingCost' | 'estimatedShippingCost' | 'driver' | 'sendDate'
+'name' | 'shippingCost' | 'estimatedShippingCost' | 'maxShippingCost' | 'driver' | 'sendDate'
 > & {
   filters: any;
 };

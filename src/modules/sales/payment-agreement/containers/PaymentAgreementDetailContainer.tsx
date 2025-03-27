@@ -1,13 +1,16 @@
 import { memo } from 'react';
-import { Stack } from '@mui/material';
-import PaymentAgreementSubOrders from '../components/PaymentAgreementSubOrders/PaymentAgreementSubOrders';
+import { PaymentAgreementHeaderDetails } from '../components/PaymentAgreementHeaderDetails';
+import { PaymentAgreementProvider } from '../contexts/paymentAgreementContext';
+import { useParams } from 'react-router';
+import { PaymentAgreementContentDetail } from '../components/PaymentAgreementContentDetail';
 
 const PaymentAgreementDetailContainer = () => {
+  const { id } = useParams();
   return (
-    <Stack>
-      {/*  <DispatchHeader /> */}
-      <PaymentAgreementSubOrders />
-    </Stack>
+    <PaymentAgreementProvider paymentAgreementId={id as string}>
+      <PaymentAgreementHeaderDetails />
+      <PaymentAgreementContentDetail />
+    </PaymentAgreementProvider>
   );
 };
 

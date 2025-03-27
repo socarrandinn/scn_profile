@@ -7,6 +7,7 @@ import HelpOutlineOutlinedIcon from '@mui/icons-material/HelpOutlineOutlined';
 
 export type FormPaperProps = PaperTabViewProps & {
   title?: string | ReactNode;
+  subtitle?: string;
   helpText?: string;
   actions?: any;
   mbHeader?: string | number;
@@ -16,25 +17,40 @@ export type FormPaperProps = PaperTabViewProps & {
   icon?: ReactNode;
 };
 
-const FormPaper = ({ title, children, actions, mbHeader, helpText, variant, icon, ...props }: FormPaperProps) => {
+const FormPaper = ({
+  title,
+  children,
+  actions,
+  mbHeader,
+  helpText,
+  variant,
+  icon,
+  subtitle,
+  ...props
+}: FormPaperProps) => {
   const hasHeader = !!title || !!actions;
   return (
     <PaperTabView {...props}>
       {hasHeader && (
-        <FlexBox
-          sx={{ gap: 1, marginBottom: mbHeader || 3 }}
-          alignItems='center'
-          justifyContent={actions ? 'space-between' : 'start'}
-        >
-          {!!icon && <IconContent>{icon}</IconContent>}
-          {!!title && <Typography variant={variant?.title ?? 'subtitle1'}>{title}</Typography>}
-          {!!helpText && (
-            <Tooltip title={helpText} placement='right'>
-              <HelpOutlineOutlinedIcon fontSize='small' />
-            </Tooltip>
+        <Stack sx={{ gap: 1, marginBottom: mbHeader || 3 }}>
+          <FlexBox alignItems='center' justifyContent={actions ? 'space-between' : 'start'}>
+            <Stack gap={0.5} alignItems={'center'} direction={'row'}>
+              {!!icon && <IconContent>{icon}</IconContent>}
+              {!!title && <Typography variant={variant?.title ?? 'subtitle1'}>{title}</Typography>}
+              {!!helpText && (
+                <Tooltip title={helpText} placement='right'>
+                  <HelpOutlineOutlinedIcon fontSize='small' />
+                </Tooltip>
+              )}
+            </Stack>
+            {actions}
+          </FlexBox>
+          {!!subtitle && (
+            <Typography fontWeight={300} variant={'subtitle2'}>
+              {subtitle}
+            </Typography>
           )}
-          {actions}
-        </FlexBox>
+        </Stack>
       )}
 
       {children}

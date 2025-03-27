@@ -3,3 +3,12 @@ export enum PAYMENT_AGREEMENT_STATUS_ENUM {
   PENDING = 'PENDING',
   DELIVERY_PARTIAL = 'DELIVERY_PARTIAL',
 }
+
+export const PAYMENT_AGREEMENT_STATUS: Record<
+string,
+'primary' | 'error' | 'success' | 'warning' | 'info' | undefined
+> = {
+  [PAYMENT_AGREEMENT_STATUS_ENUM.COMPLETED]: 'primary',
+  [PAYMENT_AGREEMENT_STATUS_ENUM.PENDING]: 'warning',
+  [PAYMENT_AGREEMENT_STATUS_ENUM.DELIVERY_PARTIAL]: 'error',
+};
