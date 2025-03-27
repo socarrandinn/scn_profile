@@ -1,14 +1,13 @@
 import { memo, useCallback } from 'react';
 import { IIncidence } from '../../interfaces';
-import { Card, CardContent, Stack, Typography } from '@mui/material';
+import { Card, CardContent, Typography } from '@mui/material';
 import { useTranslation } from 'react-i18next';
-import { FlexBox, IconButton, LongText } from '@dfl/mui-react-common';
-import { Home, InfoOutlined, MoreVert, Person } from '@mui/icons-material';
+import { FlexBox, IconButton } from '@dfl/mui-react-common';
+import { InfoOutlined, MoreVert } from '@mui/icons-material';
 import { ReactLink } from '@dfl/react-security';
 import { format, } from 'date-fns';
 import { IncidenceStatusPicker } from '../IncidenceStatusPicker';
 import { InfoIcon } from 'components/icons/InfoIcon';
-import { AvatarMedia } from 'components/AvatarMedia';
 import ResponsibleCell from 'modules/sales/common/components/ResponsibleCell/ResponsibleCell';
 import { useNavigate } from 'react-router';
 import { ErrorStyledBadge } from './styled';

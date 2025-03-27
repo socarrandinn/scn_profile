@@ -35,7 +35,7 @@ const IncidenceActionsHeader = ({ title, noActions, message, code, incidenceTitl
           </Typography>
           {children}
           <FlexBox gap={0.5} sx={{ color: '#9499A1' }}>
-            <ReactLink to={`/sales/${type}/${orderCode}/general`} className='text-primary' fontSize={16} fontWeight={500}>
+            <ReactLink to={`/sales/${type as string}/${orderCode}/general`} className='text-primary' fontSize={16} fontWeight={500}>
               {orderCode || 'ORD023233653689'}
             </ReactLink>
             <Typography fontSize={21} lineHeight='22px'>

@@ -1,7 +1,6 @@
 import { IAddress } from 'modules/common/interfaces';
 import { IContactInfo } from 'modules/common/interfaces/IContactInfo';
 import { PRICE_TYPE } from 'modules/inventory/common/constants/price-type.enum';
-import { WarehouseLocation } from 'modules/inventory/warehouse/interfaces';
 
 export interface IDistributionCenters {
   _id?: string;

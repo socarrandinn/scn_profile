@@ -8,7 +8,6 @@ import { INCIDENCE_STATUS_ENUM } from './incidence-status';
 import { ReactLink } from '@dfl/react-security';
 import { AvatarNameCell } from 'modules/common/components/AvatarNameCell';
 import { ORDER_REFERENCE_TYPE } from 'modules/sales/common/constants/order.enum';
-import { Person } from '@mui/icons-material';
 
 export const incidenceCodeColumn: HeadCell<IIncidence> = {
   field: 'code',

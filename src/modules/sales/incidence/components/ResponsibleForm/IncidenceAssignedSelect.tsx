@@ -80,7 +80,7 @@ const IncidenceAssignedSelect = ({
             {...params}
             fullWidth
             size="small"
-            inputRef={(input) => setInputElement(input)}
+            inputRef={(input) => { setInputElement(input); }}
             InputProps={{
               ...params.InputProps,
               startAdornment: (
@@ -119,7 +119,7 @@ const IncidenceAssignedSelect = ({
           textOverflow: 'ellipsis',
         },
       }}
-      onChange={(ev: any) => handleChange(ev, mutateAsync)}
+      onChange={(ev: any) => { handleChange(ev, mutateAsync); }}
     />
   );
 };

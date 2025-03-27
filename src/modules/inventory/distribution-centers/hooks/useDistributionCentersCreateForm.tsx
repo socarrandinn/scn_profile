@@ -9,7 +9,6 @@ import { DistributionCentersService } from 'modules/inventory/distribution-cente
 import { DISTRIBUTION_CENTERS_LIST_KEY } from 'modules/inventory/distribution-centers/constants';
 import { useCallback, useEffect } from 'react';
 import { ADDRESS_INIT_VALUE, emailInitValue, phoneInitValue } from 'modules/common/constants';
-import { WarehouseLocation } from 'modules/inventory/warehouse/interfaces';
 import { scrollToFirstError } from 'utils/error-utils';
 import { PRICE_TYPE } from 'modules/inventory/common/constants/price-type.enum';
 import { formatedAddressObjUtils } from 'modules/common/utils/formated-utils';

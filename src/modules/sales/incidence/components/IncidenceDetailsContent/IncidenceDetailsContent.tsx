@@ -1,6 +1,5 @@
 import { memo } from 'react';
 import { RouteLoader } from '@dfl/react-security';
-import { useProductDetail } from 'modules/inventory/product/contexts/ProductDetail';
 import { ConditionContainer, PageLoader } from '@dfl/mui-react-common';
 import incidenceDetailsRoutes from '../../routes/incidence-details';
 import { useIncidenceDetail } from '../../context/IncidenceDetailContext';

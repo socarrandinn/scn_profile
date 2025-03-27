@@ -39,7 +39,7 @@ const DistributionCentersCreate = () => {
     [searchParams],
   );
 
-  const { control, onSubmit, isLoading, error, watch, setValue, commissionType, clearErrors, formState } =
+  const { control, onSubmit, isLoading, error, watch, setValue, commissionType, clearErrors } =
     useDistributionCentersCreateForm(ADDRESS_COUNTRY_CODE, handleCancel, initialValues);
 
   return (

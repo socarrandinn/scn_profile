@@ -1,4 +1,4 @@
-import { Form, FormDatePickerField, FormSwitchField, FormTextField, HandlerError } from '@dfl/mui-react-common';
+import { Form, FormDatePickerField, FormTextField, HandlerError } from '@dfl/mui-react-common';
 import { Grid } from '@mui/material';
 import { FormEventHandler, memo } from 'react';
 import { useTranslation } from 'react-i18next';

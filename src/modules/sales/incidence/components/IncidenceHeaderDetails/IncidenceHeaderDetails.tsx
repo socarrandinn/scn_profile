@@ -1,5 +1,5 @@
 import { memo } from 'react';
-import { RouterTab, useParamsLink } from '@dfl/react-security';
+import { RouterTab } from '@dfl/react-security';
 import HeaderSummaryTabsSkeleton from 'modules/common/components/HeaderSummaryTabs/HeaderSummaryTabsSkeleton';
 import { useIncidenceDetail } from '../../context/IncidenceDetailContext';
 import { incidenceTabs } from '../../constants/incidence-tabs';
@@ -9,7 +9,7 @@ import { IncidenceStatusPicker } from '../IncidenceStatusPicker';
 import { INCIDENCE_STATUS_ENUM } from '../../constants/incidence-status';
 import { DateValue, FlexBox } from '@dfl/mui-react-common';
 import { useTranslation } from 'react-i18next';
-import { Button, IconButton } from '@mui/material';
+import { Button } from '@mui/material';
 import { EditIcon } from 'components/icons/EditIcon';
 import { MoreVert } from '@mui/icons-material';
 import { useToggle } from '@dfl/hook-utils';

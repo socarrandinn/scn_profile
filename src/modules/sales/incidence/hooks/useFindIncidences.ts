@@ -4,8 +4,6 @@ import { IncidenceService } from 'modules/sales/incidence/services';
 import { INCIDENCES_LIST_KEY } from 'modules/sales/incidence/constants';
 import { useMemo } from 'react';
 import { TermFilter } from '@dofleini/query-builder';
-import { IIncidence } from '../interfaces';
-import { SearchResponseType } from '@dfl/react-security';
 
 export const useFindIncidences = (orderReference?: string) => {
   const filters = useMemo(() => {

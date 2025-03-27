@@ -4,7 +4,6 @@ import { userAdminFilter } from 'modules/security/users/constants/user-filters';
 import { INCIDENCE_STATUS_ENUM } from './incidence-status';
 import { CausesIncidenceService } from 'modules/sales/settings/causes-incidence/services';
 import { CAUSES_INCIDENCES_LIST_KEY } from 'modules/sales/settings/causes-incidence/constants';
-import { UserAdminService } from 'modules/security/users/services';
 import { ORDER_REFERENCE_TYPE } from 'modules/sales/common/constants/order.enum';
 
 export const incidenceStatusFilter: Filter = {

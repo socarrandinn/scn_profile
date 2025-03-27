@@ -32,10 +32,10 @@ const routes = {
     path: '/incidences/*',
     component: IncidenceModule,
   },
-    PaymentAgreementList: {
-              path: '/payment-agreements/*',
-              component: PaymentAgreementModule,
-            }
+  PaymentAgreementList: {
+    path: '/payment-agreements/*',
+    component: PaymentAgreementModule,
+  }
 };
 const Module = () => {
   return <RouteLoader routes={routes} notfoundRedirect={'/sales/orders'} memory />;

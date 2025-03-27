@@ -1,5 +1,4 @@
 import { createContext, useContext } from 'react';
-import { ChildrenProps } from '@dfl/mui-react-common';
 import { useFindOneIncidence } from '../hooks/useFindOneIncidence';
 import { IIncidence } from '../interfaces';
 import { useBreadcrumbName } from '@dfl/mui-admin-layout';
