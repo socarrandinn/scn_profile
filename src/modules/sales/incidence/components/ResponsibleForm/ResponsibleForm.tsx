@@ -11,7 +11,7 @@ const ResponsibleForm = ({ data }: { data: IIncidence }) => {
 
   return (
     <FormPaper
-      sx={{ marginTop: '0px' }}
+      sx={{ marginTop: '0px', borderRadius: '10px' }}
       variant={{ title: 'h4' }}
       title={t('fields.assignedTo')}
       mbHeader={'8px !important'}

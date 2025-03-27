@@ -5,7 +5,7 @@ import { INCIDENCES_LIST_KEY } from '../constants';
 import { useMutation, useQueryClient } from '@tanstack/react-query';
 
 const useUpdateIncidenceAssigned = (incidenceId: string) => {
-  const { t } = useTranslation('incidence');
+  const { t } = useTranslation('errors');
   const queryClient = useQueryClient();
 
   return useMutation(
@@ -16,6 +16,9 @@ const useUpdateIncidenceAssigned = (incidenceId: string) => {
         queryClient.invalidateQueries([INCIDENCES_LIST_KEY]);
         queryClient.invalidateQueries(data?._id);
       },
+      onError: () => {
+        toast.error(t('assignedUpdate.error'));
+      }
     },
   );
 };
