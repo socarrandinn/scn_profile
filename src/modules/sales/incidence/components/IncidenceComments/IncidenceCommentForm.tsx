@@ -1,0 +1,86 @@
+import { memo, useMemo } from 'react';
+import { Form, FormTextField, HandlerError, IconButton } from '@dfl/mui-react-common';
+import { Grid, InputAdornment, useTheme } from '@mui/material';
+import { useTranslation } from 'react-i18next';
+import FileDropZone, { TYPE_DROP } from 'components/FileDropZone/FileDropZone';
+import { ACCEPT_ALL, MAX_SIZE_FILE } from 'components/FileDropZone/constants/common';
+import useIncidenceCommentCreateForm from '../../hooks/useIncidenceCommentsCreateForm';
+import { ArrowRightIcon } from 'components/icons/ArrowRightIcon';
+
+type IncidenceCommentFormProps = {
+  incidenceId: string;
+};
+
+const IncidenceCommentForm = ({ incidenceId }: IncidenceCommentFormProps) => {
+  const { t } = useTranslation('incidence');
+  const theme = useTheme();
+  const { control, onSubmit, isLoading, error, watch } = useIncidenceCommentCreateForm(undefined, incidenceId);
+  const message = watch?.('message');
+  const file = watch?.('file');
+  console.log(watch());
+
+  const isDisabled = useMemo(() => {
+    return Boolean(message === '' && file?.length === 0);
+  }, [JSON.stringify(message), JSON.stringify(file)]);
+
+  return (
+    <>
+      <HandlerError error={error} />
+      <Form onSubmit={onSubmit} control={control} isLoading={isLoading} size={'small'} id={'incidence-comment-form'}>
+        <Grid container spacing={{ xs: 1, md: 1 }} columns={{ xs: 4, sm: 8, md: 12 }}>
+          <Grid item xs={12}>
+            <FormTextField
+              name='message'
+              label={t('addComments')}
+              minRows={1}
+              variant='outlined'
+              fullWidth
+              multiline
+              sx={{
+                '.MuiInputAdornment-positionEnd': {
+                  alignSelf: 'end',
+                  transform: 'translate(9px, -9px)',
+                },
+              }}
+              InputProps={{
+                endAdornment: (
+                  <InputAdornment position='end'>
+                    <IconButton
+                      disabled={isDisabled}
+                      type='submit'
+                      form='incidence-comment-form'
+                      tooltip={t('common:send')}
+                      sx={{
+                        background: theme.palette.primary.main, '&:hover': { background: theme.palette.primary.dark }, '&.Mui-disabled': {
+                          backgroundColor: '#E0E0E0',
+                        },
+                      }}>
+                      <ArrowRightIcon fontSize={'small'} sx={{ p: 0.3 }} />
+                    </IconButton>
+                  </InputAdornment>
+                ),
+              }}
+            />
+          </Grid>
+          <Grid item xs={12}>
+            <FileDropZone
+              required
+              name='file'
+              dropTitle={t('stock:warehouse.import.fields.uploadFile')}
+              type={TYPE_DROP.FILE}
+              control={control}
+              showDropzoneWrapper
+              inputProps={{
+                accept: ACCEPT_ALL,
+                maxFiles: 4,
+                maxSize: MAX_SIZE_FILE,
+              }}
+            />
+          </Grid>
+        </Grid>
+      </Form>
+    </>
+  );
+};
+
+export default memo(IncidenceCommentForm);

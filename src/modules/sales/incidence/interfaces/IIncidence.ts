@@ -17,3 +17,12 @@ export interface IIncidence {
   createdAt?: string;
   referenceType: ORDER_REFERENCE_TYPE;
 }
+
+export interface IIncidenceComment {
+  _id?: string;
+  incidence?: string;
+  message?: string;
+  file?: IFile[];
+  createdBy?: Partial<IUser>;
+  createdAt?: string;
+}

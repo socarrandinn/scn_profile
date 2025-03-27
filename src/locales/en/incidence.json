@@ -31,6 +31,7 @@
     "type": "Incidence type",
     "createdBy": "Created by"
   },
+  "addComments": "Add comments", 
   "status": {
     "OPEN": "To be done",
     "IN_REVIEW": "In review",

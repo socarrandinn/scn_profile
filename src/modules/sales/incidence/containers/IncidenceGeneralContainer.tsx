@@ -9,7 +9,7 @@ import { useIncidenceDetail } from '../context/IncidenceDetailContext';
 import { IIncidence } from '../interfaces';
 
 const IncidenceGeneralContainer = () => {
-  const { incidence } = useIncidenceDetail();
+  const { incidence, incidenceId } = useIncidenceDetail();
 
   const { control } = useForm({
     defaultValues: incidence,
@@ -20,7 +20,7 @@ const IncidenceGeneralContainer = () => {
       <Form id='incidence-update-form' control={control}>
         <DetailLayout>
           <DetailContent ghost>
-            <IncidenceComments />
+            <IncidenceComments incidenceId={incidenceId} />
           </DetailContent>
           <DetailSummary ghost width={{ md: 398, lg: 400, xl: 420 }}>
             <ResponsibleForm data={incidence as IIncidence} />
