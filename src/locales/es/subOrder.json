@@ -6,6 +6,8 @@
   "successUpdate": "SubOrden actualizada satisfactoriamente",
   "successCreated": "SubOrden creada satisfactoriamente",
   "successUpdateDriver": "Transportista actualizado satisfactoriamente",
+  "successStatusBulkUpdate": "Estados de Subórdenes actualizados satisfactoriamente",
+  "successStatusUpdate": "Estado de Suborden actualizado satisfactoriamente",
   "fields": {
     "code": "Factura",
     "description": "Descripción",
@@ -25,5 +27,18 @@
   },
   "section": {
     "transport": "Transporte"
+  },
+  "action": {
+    "statusImport": "Importar Estados"
+  },
+  "changeStatus": {
+    "title": "Cambiar estado",
+    "selected": "Seleccionadas ({{ count }})",
+    "all": "Todas las filtradas ({{ count }})",
+    "totalOrders": "órdenes",
+    "totalOrdersByStatus": "órdenes por Estados"
+  },
+  "errors": {
+    "STATUS_NOT_ALLOWED": "El nuevo estado no está permitido desde el estado actual."
   }
 }

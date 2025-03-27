@@ -7,6 +7,7 @@ import OrderInfoSkeleton from 'modules/sales/common/components/OrderDetails/Orde
 import SubOrderDetail from './SubOrderDetail';
 import ProductTotal from './ProductTotal';
 import { IOrder } from 'modules/sales/common/interfaces/IOrder';
+import { Box } from '@mui/material';
 
 const OrderProductsInfo = ({ isParent }: { isParent?: boolean }) => {
   const { t } = useTranslation('order');
@@ -16,12 +17,11 @@ const OrderProductsInfo = ({ isParent }: { isParent?: boolean }) => {
 
   if (isLoading) {
     return (
-      <FormPaper title={t('section.products')}>
-        <OrderInfoSkeleton />
-      </FormPaper>
+      <Box mt={2}>
+        <OrderInfoSkeleton />;
+      </Box>
     );
   }
-
   if (error) {
     return (
       <FormPaper title={t('section.products')}>

@@ -7,7 +7,6 @@ import ProductTable from './ProductTable';
 import { useCheckOrderStatus } from 'modules/sales/common/hooks/useCheckOrderStatus';
 import { SUB_ORDER_ROUTE } from 'modules/sales/sub-orders/constants/sub-order.route';
 import { useMemo } from 'react';
-import { OrderStatusCell } from '../../OrderStatusCell';
 import OrderExportMenu from 'modules/sales/paid-order/components/PaidOrderHeaderActions/actions/OrderExportMenu';
 import { OrderCompleteButton } from '../../OrderCompleteButton';
 import { ORDER_PERMISSIONS } from 'modules/sales/common/constants/order-permissions';
@@ -16,6 +15,7 @@ import { ORDER_TYPE_ENUM } from 'modules/sales/common/constants/order.enum';
 import { useOrderContext } from 'modules/sales/common/contexts/OrderContext';
 import OrderShippingPackageInfo from '../../OrderShipping/OrderShippingPackageInfo';
 import OrderShippingInfo from '../../OrderShipping/OrderShippingInfo';
+import { OrderStatusPicker } from '../../OrderStatusPicker';
 
 const Content = styled(Stack)(() => ({ gap: 16, mb: 3 }));
 type Props = Pick<IOrder, 'suborders'>;
@@ -121,7 +121,7 @@ export const ValidateHeader = ({ order, isValidated }: { order: IOrder; isValida
         gap: 1,
       }}
     >
-      <OrderStatusCell value={order?.status} rowId={order._id as string} record={order} />
+      <OrderStatusPicker value={order?.status} rowId={order._id as string} readOnly />
       {order?._id && (
         <PermissionCheck permissions={[ORDER_PERMISSIONS.ORDER_STATUS_WRITE]}>
           <Stack gap={1} flexDirection={'row'} flexWrap={'wrap'}>

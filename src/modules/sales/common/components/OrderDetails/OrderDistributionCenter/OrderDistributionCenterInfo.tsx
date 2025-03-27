@@ -13,11 +13,7 @@ const OrderDistributionCenterInfo = ({ nm = false }: Props) => {
   const { order, isLoading, error } = useOrderContext();
 
   if (isLoading) {
-    return (
-      <FormPaper nm={nm} title={t('distributionCenters:name')}>
-        <OrderInfoSkeleton row={2} />
-      </FormPaper>
-    );
+    return <OrderInfoSkeleton row={2} />;
   }
 
   if (error) {

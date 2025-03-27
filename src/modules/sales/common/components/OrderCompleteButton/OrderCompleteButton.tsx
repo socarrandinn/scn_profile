@@ -19,7 +19,7 @@ type OrderCompleteButtonProps = {
 const OrderCompleteButton = ({ orderId, status, code, isActionButton }: OrderCompleteButtonProps) => {
   const { t } = useTranslation('order');
   const { isOpen, onClose, onOpen } = useToggle(false);
-  const { mutateAsync, isLoading: isUpdating } = useUpdateOrderStatus(orderId as string, code);
+  const { mutateAsync, isLoading: isUpdating } = useUpdateOrderStatus(orderId as string);
   const onFinishAction = useCallback(() => mutateAsync(status?._id || ''), [status?._id, mutateAsync]);
 
   const iconActionCmp = useMemo(() => {

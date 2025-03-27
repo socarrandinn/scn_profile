@@ -1,7 +1,6 @@
 import { CellAlign, CellType, HeadCell } from '@dfl/mui-admin-layout';
 import { IOrder } from '../interfaces/IOrder';
 import { ORDER_PERMISSIONS } from './order-permissions';
-import { OrderStatusCell } from '../components/OrderStatusCell';
 import { OrderDeliveryTimeTypeCell } from '../components/OrderDeliveryTimeTypeCell';
 import { OrderShippingTypeCell } from '../components/OrderShippingTypeCell';
 import { OrderPaymentGateway } from '../components/OrderPaymentGateway';
@@ -15,6 +14,8 @@ import { OrderPaymentMethod } from '../components/OrderPaymentMethod';
 import { FormattedAddressCell } from 'components/AddressCell';
 import SubOrderStatusCell from '../components/SubOrderStatusCell/SubOrderStatusCell';
 import { preOrderCodeColumn } from 'modules/sales/pre-order/constants';
+import { IOrderStatus } from 'modules/sales/settings/order-status/interfaces';
+import { OrderStatusPicker } from '../components/OrderStatusPicker';
 
 const orderLocationColumn: HeadCell<IOrder> = {
   field: 'shipping',
@@ -22,16 +23,6 @@ const orderLocationColumn: HeadCell<IOrder> = {
   permissions: [ORDER_PERMISSIONS.VIEW_PAYMENT_INFO],
   width: 200,
   renderCell: (shipping: any) => <FormattedAddressCell address={shipping?.address} lineClamp={2} />,
-};
-
-const orderStatusColumn: HeadCell<IOrder> = {
-  field: 'status',
-  headerName: 'order:status.title',
-  permissions: [ORDER_PERMISSIONS.ORDER_VIEW, ORDER_PERMISSIONS.ORDER_STATUS_VIEW],
-  atLessOne: false,
-  sortable: false,
-  align: CellAlign.CENTER,
-  component: OrderStatusCell,
 };
 
 const orderDeliveryTimeTypeColumn: HeadCell<IOrder> = {
@@ -59,12 +50,23 @@ const orderTotalProductColumns: HeadCell<IOrder> = {
   align: CellAlign.CENTER,
 };
 
-/* const orderTotalItemsColumns: HeadCell<IOrder> = {
-  headerName: 'order:totalItems',
-  field: 'totalItems',
-  type: CellType.NUMBER,
-  align: CellAlign.CENTER,
-}; */
+export const orderReadOnlyStatusColumn: HeadCell<IOrder> = {
+  field: 'status',
+  headerName: 'order:status.title',
+  disablePadding: false,
+  renderCell: (status: IOrderStatus, order: IOrder) => (
+    <OrderStatusPicker rowId={order?._id as string} value={status} readOnly />
+  ),
+  permissions: [ORDER_PERMISSIONS.ORDER_WRITE],
+};
+
+export const subOrderStatusColumn: HeadCell<IOrder> = {
+  field: 'status',
+  headerName: 'order:status.title',
+  disablePadding: false,
+  component: OrderStatusPicker,
+  permissions: [ORDER_PERMISSIONS.ORDER_WRITE],
+};
 
 const orderGatewayColumn: HeadCell<IOrder> = {
   field: 'payment.gateway',
@@ -127,7 +129,7 @@ const orderSubOrderColumn: HeadCell<IOrder> = {
 export const paidOrderColumns: Array<HeadCell<any>> = [
   paidOrderCodeColumn,
   orderLocationColumn,
-  orderStatusColumn,
+  orderReadOnlyStatusColumn,
   orderTotalProductColumns,
   orderInvoiceTotal,
   orderGatewayColumn,
@@ -139,7 +141,7 @@ export const paidOrderColumns: Array<HeadCell<any>> = [
 export const preOrderColumns: Array<HeadCell<any>> = [
   preOrderCodeColumn,
   orderLocationColumn,
-  orderStatusColumn,
+  orderReadOnlyStatusColumn,
   orderTotalProductColumns,
   orderInvoiceTotal,
   orderGatewayColumn,
@@ -150,7 +152,7 @@ export const preOrderColumns: Array<HeadCell<any>> = [
 export const subOrderColumns: Array<HeadCell<any>> = [
   subOrderCodeColumn,
   orderLocationColumn,
-  orderStatusColumn,
+  subOrderStatusColumn,
   orderShippingTypeColumn,
   orderDeliveryTimeTypeColumn,
   orderTotalProductColumns,

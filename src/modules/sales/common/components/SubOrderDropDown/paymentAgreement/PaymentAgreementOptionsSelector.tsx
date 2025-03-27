@@ -3,10 +3,10 @@ import { DropDown } from '@dfl/mui-react-common';
 import { useToggle } from '@dfl/hook-utils';
 import { useTranslation } from 'react-i18next';
 import { FilterFactory, InFilter } from '@dofleini/query-builder';
-import { menuProps } from '../styled';
 import { OptionItem } from '../OptionItem';
 import PaymentAgreementUpdateModal from 'modules/sales/payment-agreement/containers/PaymentAgreementUpdateModal';
 import PaymentAgreementCreateModal from 'modules/sales/payment-agreement/containers/PaymentAgreementCreateModal';
+import { menuProps } from 'modules/sales/common/constants/drop-down-styled';
 
 type Props = {
   filters: any;

@@ -1,15 +1,17 @@
 {
   "list": "Suborders",
   "name": "Suborder",
-  "deleteMany": "You must select orders to perform this operation",
-  "successDeleted": "Suborder successfully deleted",
-  "successUpdate": "Suborder successfully updated",
-  "successCreated": "Suborder successfully created",
-  "successUpdateDriver": "Carrier successfully updated",
+  "deleteMany": "You must have selected orders to perform this operation",
+  "successDeleted": "Suborder deleted successfully",
+  "successUpdate": "Suborder updated successfully",
+  "successCreated": "Suborder created successfully",
+  "successUpdateDriver": "Carrier updated successfully",
+  "successStatusBulkUpdate": "Suborders statuses updated successfully",
+  "successStatusUpdate": "Suborder status updated successfully",
   "fields": {
     "code": "Invoice",
     "description": "Description",
-    "createdAt": "Creation Date",
+    "createdAt": "Creation date",
     "active": "Active",
     "driver": "Driver",
     "carrier": "Carrier"
@@ -17,7 +19,7 @@
   "details": {
     "products": "Products",
     "total": "Total",
-    "logistic": "Logistics",
+    "logistic": "Logistic",
     "distributionCenter": "Distribution Center",
     "shippingPackage": {
       "weight": "<bold>Weight</bold> {{weight}}"
@@ -25,5 +27,18 @@
   },
   "section": {
     "transport": "Transport"
+  },
+  "action": {
+    "statusImport": "Import Statuses"
+  },
+  "changeStatus": {
+    "title": "Change status",
+    "selected": "Selected ({{ count }})",
+    "all": "All filtered ({{ count }})",
+    "totalOrders": "orders",
+    "totalOrdersByStatus": "orders by Status"
+  },
+  "errors": {
+    "STATUS_NOT_ALLOWED": "The new status is not allowed from the current status."
   }
 }

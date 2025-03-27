@@ -3,10 +3,10 @@ import { DropDown } from '@dfl/mui-react-common';
 import { useToggle } from '@dfl/hook-utils';
 import { useTranslation } from 'react-i18next';
 import { FilterFactory, InFilter } from '@dofleini/query-builder';
-import { menuProps } from '../styled';
 import DispatchCreateModal from '../../../../dispatch/containers/DispatchCreateModal';
 import DispatchUpdateModal from '../../../../dispatch/containers/DispatchUpdateModal';
 import { OptionItem } from '../OptionItem';
+import { menuProps } from 'modules/sales/common/constants/drop-down-styled';
 
 type Props = {
   filters: any;
