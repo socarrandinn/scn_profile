@@ -1,8 +1,8 @@
-import { HeaderSummaryTabs } from 'modules/inventory/provider/common/components/HeaderSummaryTabs';
+import { HeaderSummaryTabs } from 'modules/common/components/HeaderSummaryTabs';
 import { memo } from 'react';
 import { Box } from '@mui/material';
 import { PermissionCheck, RouterTab } from '@dfl/react-security';
-import HeaderSummaryTabsSkeleton from 'modules/inventory/provider/common/components/HeaderSummaryTabs/HeaderSummaryTabsSkeleton';
+import HeaderSummaryTabsSkeleton from 'modules/common/components/HeaderSummaryTabs/HeaderSummaryTabsSkeleton';
 import { useLogisticsDetailContext } from 'modules/inventory/provider/logistics/context/LogisticDetail';
 import { logisticTabs } from 'modules/inventory/provider/logistics/constants/tabs.logistic.details';
 import {

@@ -1,7 +1,7 @@
 import { memo } from 'react';
-import { HeaderSummaryTabs } from 'modules/inventory/provider/common/components/HeaderSummaryTabs';
+import { HeaderSummaryTabs } from 'modules/common/components/HeaderSummaryTabs';
 import { RouterTab, useSecurity } from '@dfl/react-security';
-import HeaderSummaryTabsSkeleton from 'modules/inventory/provider/common/components/HeaderSummaryTabs/HeaderSummaryTabsSkeleton';
+import HeaderSummaryTabsSkeleton from 'modules/common/components/HeaderSummaryTabs/HeaderSummaryTabsSkeleton';
 import { useWarehouseDetail } from '../../context/WarehouseContext';
 import { warehouseTabs } from '../../constants/warehouse.tabs';
 import { Link } from 'react-router-dom';

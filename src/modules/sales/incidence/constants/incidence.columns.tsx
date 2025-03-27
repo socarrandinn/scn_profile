@@ -1,5 +1,5 @@
 import { IncidenceRowActions } from 'modules/sales/incidence/components/IncidenceRowActions';
-import { EditLink, HeadCell } from '@dfl/mui-admin-layout';
+import { HeadCell } from '@dfl/mui-admin-layout';
 import { IIncidence } from 'modules/sales/incidence/interfaces';
 import { createdATColumn } from 'modules/common/constants/common.columns';
 import { INCIDENCE_PERMISSIONS } from 'modules/sales/incidence/constants/incidence.permissions';
@@ -14,7 +14,9 @@ export const incidenceCodeColumn: HeadCell<IIncidence> = {
   field: 'code',
   headerName: 'incidence:fields.incidence',
   disablePadding: false,
-  renderCell: (name: string, data?: IIncidence) => <EditLink entityId={data?._id as string}>{name}</EditLink>,
+  renderCell: (name: string, data?: IIncidence) => (
+    <AvatarNameCell link={`/sales/incidences/${data?._id as string}/general`} name={name} hideImage />
+  ),
 };
 
 export const incidenceCauseColumn: HeadCell<IIncidence> = {

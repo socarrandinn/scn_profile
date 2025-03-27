@@ -4,6 +4,7 @@ import ElectricRickshawOutlinedIcon from '@mui/icons-material/ElectricRickshawOu
 import PublishedWithChangesOutlinedIcon from '@mui/icons-material/PublishedWithChangesOutlined';
 import EventBusyOutlinedIcon from '@mui/icons-material/EventBusyOutlined';
 import CancelScheduleSendOutlinedIcon from '@mui/icons-material/CancelScheduleSendOutlined';
+import { OrderIssuesIcon } from '../common/components/icons';
 
 export const ORDERS = {
   ICON: PublishedWithChangesOutlinedIcon,
@@ -31,4 +32,9 @@ export const CAUSES_INCIDENCE = {
 export const CAUSES_CANCELLATION = {
   ICON: CancelScheduleSendOutlinedIcon,
   COLOR: '#f74943ff',
+};
+
+export const INCIDENCE_ENTITY = {
+  ICON: OrderIssuesIcon,
+  COLOR: '#26a69a',
 };

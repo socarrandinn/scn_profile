@@ -11,7 +11,7 @@ export type FormPaperProps = PaperTabViewProps & {
   actions?: any;
   mbHeader?: string | number;
   variant?: {
-    title: 'h1' | 'subtitle2';
+    title: 'h1' | 'subtitle2' | 'h4';
   };
   icon?: ReactNode;
 };

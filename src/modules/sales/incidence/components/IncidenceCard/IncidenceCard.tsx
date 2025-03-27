@@ -9,9 +9,11 @@ import { format, } from 'date-fns';
 import { IncidenceStatusPicker } from '../IncidenceStatusPicker';
 import { InfoIcon } from 'components/icons/InfoIcon';
 import { AvatarMedia } from 'components/AvatarMedia';
+import ResponsibleCell from 'modules/sales/common/components/ResponsibleCell/ResponsibleCell';
 import { useNavigate } from 'react-router';
 import { ErrorStyledBadge } from './styled';
-
+import { ReactComponent as CommentsIcon } from 'components/icons/comments.svg';
+import { ReactComponent as ActivityIcon } from 'components/icons/actions.svg';
 
 const IncidenceCard = ({ data }: { data: IIncidence }) => {
   const { t } = useTranslation('order');
@@ -22,7 +24,7 @@ const IncidenceCard = ({ data }: { data: IIncidence }) => {
   }, [data?._id, navigate]);
 
   const goToActivity = useCallback(() => {
-    navigate(`/sales/incidences/${data?._id as string}/activity`);
+    navigate(`/sales/incidences/${data?._id as string}/history_change`);
   }, [data?._id, navigate]);
 
   return (
@@ -50,12 +52,12 @@ const IncidenceCard = ({ data }: { data: IIncidence }) => {
           <FlexBox alignItems={'center'} gap={2}>
             <ErrorStyledBadge badgeContent={3} color='error'>
               <IconButton tooltip={t('common:comments')} onClick={goToDetails} sx={{ backgroundColor: '#F2F4F8' }}>
-                <Home />
+                <CommentsIcon />
               </IconButton>
             </ErrorStyledBadge>
             <ErrorStyledBadge badgeContent={5} color='error'>
-              <IconButton tooltip={t('common:activity')} onClick={goToActivity} sx={{ backgroundColor: '#F2F4F8' }}>
-                <Home />
+              <IconButton tooltip={t('breadcrumb:activity')} onClick={goToActivity} sx={{ backgroundColor: '#F2F4F8' }}>
+                <ActivityIcon />
               </IconButton>
             </ErrorStyledBadge>
           </FlexBox>
@@ -73,15 +75,7 @@ const IncidenceCard = ({ data }: { data: IIncidence }) => {
         </FlexBox>
 
         {data?.responsible?.fullName &&
-          <FlexBox justifyContent={'space-between'} alignItems={'center'}>
-            <Typography variant={'h4'}>{t('incidence:fields.assignedTo')}</Typography>
-            <Stack flexDirection={'row'} alignItems={'center'} gap={1} sx={{ background: '#E9EBEF', borderRadius: '16px', pr: 2 }}>
-              <AvatarMedia name={data?.responsible?.fullName} avatar={data?.responsible?.avatar} sx={{ width: 32, height: 32, }}>
-                <Person />
-              </AvatarMedia>
-              <LongText lineClamp={1} text={data?.responsible?.fullName} />
-            </Stack>
-          </FlexBox>
+          <ResponsibleCell data={data?.responsible} />
         }
       </CardContent>
     </Card>

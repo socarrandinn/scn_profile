@@ -6,13 +6,15 @@
   "childIncidence": "Sub-causa de incidencia",
   "selectIncidence": "Seleccione la incidencia acorde a su problema",
   "assignTo": "Asignar a",
-  "report": "Reportar incidencia",	
+  "report": "Reportar incidencia",
   "initialStatus": "Este es el estado inicial del problema en el momento de la creación",
   "deleteMany": "Debe tener elementos seleccionados para realizar esta operación",
-  "edit": "Editar ...",
+  "edit": "Editar incidencia",
   "successDeleted": "Elemento eliminado satisfactoriamente",
   "successUpdate": "Elemento actualizado satisfactoriamente",
   "successCreated": "Elemento creado satisfactoriamente",
+  "assignResponsible": "Asigne a un responsable de esta incidencia",
+  "successAssignResponsible": "Responsable asignado satisfactoriamente",
   "fields": {
     "name": "Nombre",
     "description": "Descripción",
@@ -38,5 +40,60 @@
   "type": {
     "ORDER": "Orden",
     "SUB_ORDER": "Suborden"
-  }
+  },
+  "apply": "Aplicar",
+  "customCharges": {
+    "title": "Cargos al cliente",
+    "add": "Añadir cargo al cliente",
+    "remove": "Eliminar cargo al cliente",
+    "total": "Total",
+    "modal": {
+      "title": "Otros",
+      "field": "Descripción",
+      "percentage": "Porcentaje",
+      "fixed": "Monto",
+      "value": "Valor"
+    }
+  },
+  "bills": {
+    "title": "Gastos",
+    "add": "Añadir gasto",
+    "remove": "Eliminar gasto",
+    "total": "Total",
+    "modal": {
+      "title": "Otros",
+      "field": "Descripción",
+      "value": "Valor"
+    }
+  },
+  "summary": {
+    "products": "Productos",
+    "shipping": "Envío",
+    "discount": "Descuento",
+    "customerCharges": "Cargos al cliente",
+    "reimbursements": "Reembolsos",
+    "reimbursementsTotal": "TOTAL DE REEMBOLSOS",
+    "operatingExpenses": "Gastos operativos",
+    "shippingExpenses": "Gastos de envío",
+    "total": "TOTAL",
+    "expensesTotal": "TOTAL DE GASTOS"
+  },
+  "chooseProductToChange": "Seleccione el producto que desea cambiar del listado de productos de la orden",
+  "actions": {
+    "fields": {
+      "product": "Producto",
+      "price": "Precio",
+      "quantity": "Cantidad",
+      "reimbursement": "Reembolso",
+      "inventory": "Inventario"
+    },
+    "chooseNewProduct": "Seleccione el nuevo producto",
+    "automaticReplacementInfo": "Automáticamente que añada un producto se remmplazará el anterior por el seleccionado",
+    "add": "Añadir"
+  },
+  "noProductAddedYet": "¡Aún no has cambiado el producto!",
+  "noProductAddedYetDescription": "Selecciona el nuevo producto que reemplazará al producto recibido por el cliente",
+  "areYouSureToReplaceThisProduct": "¿Estás seguro que deseas reemplazar el producto?",
+  "areYouSureToReplaceThisProductDescription": "Por favor, verifique y confirme los siguientes datos para proceder con el reemplazo de manera efectiva.",
+  "assignedTo": "Asignado a"
 }

@@ -1,6 +1,6 @@
 import { memo } from 'react';
 import { ReactLink, RouterTab } from '@dfl/react-security';
-import HeaderSummaryTabsSkeleton from 'modules/inventory/provider/common/components/HeaderSummaryTabs/HeaderSummaryTabsSkeleton';
+import HeaderSummaryTabsSkeleton from 'modules/common/components/HeaderSummaryTabs/HeaderSummaryTabsSkeleton';
 import { OrderStatusCell } from 'modules/sales/common/components/OrderStatusCell';
 import { Stack, Typography } from '@mui/material';
 import { DateValue } from '@dfl/mui-react-common';

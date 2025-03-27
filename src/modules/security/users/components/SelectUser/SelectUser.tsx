@@ -15,6 +15,7 @@ type SelectUserProps = {
   helperText?: string;
   fetchOption?: FetchOption;
   label?: string;
+  size?: 'small' | 'medium';
   multiple?: boolean;
   required?: boolean;
   fetchValueFunc?: ((payload: any) => Promise<any>) | undefined;
@@ -23,7 +24,7 @@ type SelectUserProps = {
 const icon = <CheckBoxOutlineBlankIcon fontSize='small' />;
 const checkedIcon = <CheckBoxIcon fontSize='small' />;
 
-const renderLabel = (option: IUser) => option.fullName || '';
+const renderLabel = (option: IUser) => option?.fullName || '';
 
 const renderOption = (props: any, option: IUser, { selected }: any) => {
   return (

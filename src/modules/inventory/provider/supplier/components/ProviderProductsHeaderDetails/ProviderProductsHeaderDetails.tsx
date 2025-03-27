@@ -1,10 +1,10 @@
 import { memo, useMemo } from 'react';
-import { HeaderSummaryTabs } from 'modules/inventory/provider/common/components/HeaderSummaryTabs';
+import { HeaderSummaryTabs } from 'modules/common/components/HeaderSummaryTabs';
 import { useProviderProductsDetail } from 'modules/inventory/provider/supplier/context/ProviderProductDetail';
 import { Box } from '@mui/material';
 import { PermissionCheck, RouterTab } from '@dfl/react-security';
 import { supplierTabs } from 'modules/inventory/provider/supplier/constants/tabs.supplier.details';
-import HeaderSummaryTabsSkeleton from 'modules/inventory/provider/common/components/HeaderSummaryTabs/HeaderSummaryTabsSkeleton';
+import HeaderSummaryTabsSkeleton from 'modules/common/components/HeaderSummaryTabs/HeaderSummaryTabsSkeleton';
 import {
   SupplierDeleteButton,
   SupplierEditButton,
