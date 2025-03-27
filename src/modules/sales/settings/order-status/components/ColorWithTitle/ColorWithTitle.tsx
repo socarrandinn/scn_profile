@@ -8,9 +8,10 @@ interface IColorWithTitle {
   value: string;
   record: IOrderStatus;
   rowId: string;
+  notLink?: boolean;
 }
 
-const ColorWithTitle = ({ record, rowId, value }: IColorWithTitle) => {
+const ColorWithTitle = ({ record, rowId, value, notLink }: IColorWithTitle) => {
   const { t } = useTranslation('orderStatus');
   return (
     <FlexBox flexDirection='row' alignItems='center' gap={1}>
@@ -24,7 +25,7 @@ const ColorWithTitle = ({ record, rowId, value }: IColorWithTitle) => {
           backgroundColor: record.color,
         }}
       />
-      <EditLink entityId={rowId}>{value}</EditLink>
+      {notLink ? value : <EditLink entityId={rowId}>{value}</EditLink>}
       {record?.validationType && (
         <Chip
           sx={{ borderColor: record.color, borderRadius: 0.5 }}

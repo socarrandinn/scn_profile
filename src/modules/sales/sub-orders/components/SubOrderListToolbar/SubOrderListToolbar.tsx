@@ -14,6 +14,8 @@ import {
   DispatchOptionsSelector,
   PaymentAgreementOptionsSelector,
 } from 'modules/sales/common/components/SubOrderDropDown';
+import { ORDER_PERMISSIONS } from 'modules/sales/common/constants/order-permissions';
+import { SubOrderStatusChange } from '../SubOrderStatusChange';
 
 const useToolbarSetting = () => {
   const settings = useMemo<TableHeaderOptions>(() => {
@@ -54,6 +56,10 @@ const SubOrderListToolbar = (props: Props) => {
         </PermissionCheck>
         <PermissionCheck permissions={[DISPATCH_PERMISSIONS.DISPATCH_WRITE]} atLessOne>
           <DispatchOptionsSelector total={props?.total} filters={props?.filters} selectedItems={selected} />
+        </PermissionCheck>
+        <PermissionCheck permissions={[ORDER_PERMISSIONS.ORDER_WRITE]} atLessOne>
+          <SubOrderStatusChange total={props?.total} filters={props?.filters} selectedItems={selected} />
+          {/*    <SubOrderStatusImportAction /> */}
         </PermissionCheck>
       </GeneralActions>
     </>

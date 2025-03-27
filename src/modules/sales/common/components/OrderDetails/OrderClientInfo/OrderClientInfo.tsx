@@ -18,7 +18,13 @@ const OrderClientInfo = ({ nm }: Props) => {
   const { t } = useTranslation('order');
   const { isLoading, order, error } = useOrderContext();
 
-  if (isLoading) return <OrderClientInfoSkeleton />;
+  if (isLoading) {
+    return (
+      <Box sx={{ mt: 2 }}>
+        <OrderClientInfoSkeleton />
+      </Box>
+    );
+  }
 
   if (error) {
     return (

@@ -1,10 +1,11 @@
 import { memo } from 'react';
-import { FormAsyncSelectAutocompleteField } from '@dfl/mui-react-common';
+import { FetchOption, FormAsyncSelectAutocompleteField } from '@dfl/mui-react-common';
 import { Checkbox } from '@mui/material';
 import { isOptionEqualToValue } from 'utils/comparing';
 import { IOrderStatus } from 'modules/sales/settings/order-status/interfaces';
 import { ORDER_STATUSES_LIST_KEY } from 'modules/sales/settings/order-status/constants';
 import { OrderStatusService } from 'modules/sales/settings/order-status/services';
+import ColorWithTitle from '../ColorWithTitle/ColorWithTitle';
 
 type OrderStatusSelectProps = {
   name: string;
@@ -13,6 +14,8 @@ type OrderStatusSelectProps = {
   placeholder?: string;
   helperText?: string;
   multiple?: boolean;
+
+  fetchOption?: FetchOption;
 };
 
 const renderLabel = (option: IOrderStatus) => option.title || '';
@@ -21,12 +24,20 @@ const renderOption = (props: any, option: IOrderStatus, { selected }: any) => {
   return (
     <li {...props} key={option._id as string}>
       <Checkbox style={{ marginRight: 8 }} checked={selected} />
-      {option.title}
+      <ColorWithTitle record={option} value={option?.title} rowId={option._id as string} notLink />
     </li>
   );
 };
 
-const OrderStatusSelect = ({ name, required, multiple, label, helperText, ...props }: OrderStatusSelectProps) => {
+const OrderStatusSelect = ({
+  name,
+  required,
+  multiple,
+  label,
+  helperText,
+  fetchOption,
+  ...props
+}: OrderStatusSelectProps) => {
   return (
     <FormAsyncSelectAutocompleteField
       {...props}
@@ -36,10 +47,10 @@ const OrderStatusSelect = ({ name, required, multiple, label, helperText, ...pro
       name={name}
       disableCloseOnSelect={multiple}
       fetchFunc={OrderStatusService.search}
+      fetchOption={fetchOption}
       queryKey={ORDER_STATUSES_LIST_KEY}
       autoHighlight
       isOptionEqualToValue={isOptionEqualToValue}
-      fieldValue={'_id'}
       loadValue
       fetchValueFunc={multiple ? OrderStatusService.search : OrderStatusService.getOne}
       id='select-order-status'

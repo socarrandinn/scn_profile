@@ -1,6 +1,5 @@
 import { styled } from '@mui/material/styles';
 import { ChildrenProps } from '@dfl/mui-react-common';
-import * as React from 'react';
 import MenuItem from '@mui/material/MenuItem';
 import { Paper } from '@mui/material';
 

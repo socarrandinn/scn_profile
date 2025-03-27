@@ -1,7 +1,7 @@
 import { memo } from 'react';
 import { ReactLink, RouterTab } from '@dfl/react-security';
 import HeaderSummaryTabsSkeleton from 'modules/common/components/HeaderSummaryTabs/HeaderSummaryTabsSkeleton';
-import { OrderStatusCell } from 'modules/sales/common/components/OrderStatusCell';
+
 import { Stack, Typography } from '@mui/material';
 import { DateValue } from '@dfl/mui-react-common';
 import { PaidOrderHeaderActions } from 'modules/sales/paid-order/components/PaidOrderHeaderActions';
@@ -12,6 +12,7 @@ import { useBreadcrumbName } from '@dfl/mui-admin-layout';
 import OrderHeader from 'modules/sales/common/components/OrderHeader/OrderHeader';
 import { PAID_ORDER_ROUTE } from 'modules/sales/paid-order/constants/paid-order.route';
 import { ORDER_REFERENCE_TYPE } from 'modules/sales/common/constants/order.enum';
+import { OrderStatusPicker } from 'modules/sales/common/components/OrderStatusPicker';
 
 const SubOrderHeaderDetails = () => {
   const { order, isLoading, error } = useOrderContext();
@@ -36,7 +37,7 @@ const SubOrderHeaderDetails = () => {
             <Typography variant='h1'>{`/ ${order?.code}`}</Typography>
           </Stack>
         }
-        status={<OrderStatusCell value={order?.status} record={order} rowId={order?._id as string} />}
+        status={<OrderStatusPicker value={order?.status} rowId={order?._id as string} />}
         subtitle={
           <Stack gap={1} flexDirection={{ md: 'row' }}>
             <DateValue value={order?.createdAt} format={'PPpp'} />

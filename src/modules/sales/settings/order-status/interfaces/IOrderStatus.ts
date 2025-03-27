@@ -8,7 +8,7 @@ export interface IOrderStatus {
   order: number;
   tracking: boolean;
   color?: string;
-  allowTo?: string[];
+  allowTo?: IOrderStatus[];
   notification: INotification;
   type?: ORDER_STATUS_TYPE_ENUM;
   validationType: ORDER_STATUS_VALIDATE_TYPE | null;

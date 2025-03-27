@@ -1,9 +1,8 @@
-import * as React from 'react';
 import { useToggle } from '@dfl/hook-utils';
 import ItemActions from './ItemActions';
-import { StyledMenuItem, StyledPaperShadow, SubMenu } from './styled';
 import { FlexBox } from '@dfl/mui-react-common';
 import ArrowRightIcon from '@mui/icons-material/ArrowRight';
+import { StyledMenuItem, StyledPaperShadow, SubMenu } from '../../constants/drop-down-styled';
 
 type Props = {
   label: string;

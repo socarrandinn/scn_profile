@@ -1,28 +1,35 @@
 {
   "list": "Payment Agreements",
-  "create": "Create New Payment Agreement",
+  "name": "Payment Agreement",
+  "helpText": "In this mode, the store operator guarantees home delivery of orders.",
+  "create": "Create new Payment Agreement",
   "deleteMany": "You must have selected Payment Agreements to perform this operation",
   "edit": "Edit Payment Agreements",
   "successDeleted": "Payment Agreement successfully deleted",
   "successUpdate": "Payment Agreement successfully updated",
   "successCreated": "Payment Agreement successfully created",
-  "successSubOrderDeleted": "Payment Agreement suborder successfully deleted",
-  "confirmationDeleteSubOrder": "This action will only remove the order from the payment agreement. You can add it to another payment agreement later if you wish. Are you sure you want to remove the order from the payment agreement?",
+  "successSubOrderDeleted": "Payment Agreement sub-order successfully deleted",
+  "confirmationDeleteSubOrder": "This action will only remove the order from the Payment Agreement. You can later add it to another Payment Agreement if desired. Are you sure you want to remove the order from the Payment Agreement?",
   "goPaymentAgreement": "Go to Payment Agreement",
+  "items": {
+    "quantityOrders": "<bold>Number of orders:</bold> {{count}}",
+    "sendDate": "<bold>Shipping date:</bold> <send/>"
+  },
   "fields": {
     "name": "Name",
-    "createdAt": "Creation Date",
+    "createdAt": "Creation date",
     "active": "Active",
     "driver": "Driver",
-    "quantityOrders": "Number of Orders",
-    "sendDate": "Shipping Date",
-    "shippingCost": "Shipping Cost",
-    "estimatedShippingCost": "Estimated Shipping Cost",
+    "quantityOrders": "Number of orders",
+    "sendDate": "Shipping date",
+    "shippingCost": "Shipping cost",
+    "estimatedShippingCost": "Estimated shipping cost",
+    "maxShippingCost": "Maximum shipping cost",
     "status": "Status",
     "verify": {
       "totalOrders": "Orders",
-      "orderInPaymentAgreement": "Orders in Payment Agreement",
-      "orderCompleted": "Completed Orders"
+      "orderInPaymentAgreement": "In Payment Agreement",
+      "orderCompleted": "Completed orders"
     }
   },
   "status": {
@@ -30,7 +37,7 @@
     "all": "All",
     "COMPLETED": "Completed",
     "PENDING": "Pending",
-    "DELIVERY_PARTIAL": "Partial Delivery"
+    "DELIVERY_PARTIAL": "Partial delivery"
   },
   "dropdown": {
     "action": "Payment Agreement",
@@ -38,12 +45,12 @@
       "create": {
         "title": "Create Payment Agreement",
         "selected": "Selected ({{ count }})",
-        "all": "All Filtered ({{ count }})"
+        "all": "All filtered ({{ count }})"
       },
       "addTo": {
         "title": "Add to Payment Agreement",
         "selected": "Selected ({{ count }})",
-        "all": "All Filtered ({{ count }})"
+        "all": "All filtered ({{ count }})"
       }
     }
   },

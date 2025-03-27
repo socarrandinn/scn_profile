@@ -4,11 +4,11 @@ import { PaidOrderService } from 'modules/sales/paid-order/services';
 import toast from 'react-hot-toast';
 import { useTranslation } from 'react-i18next';
 
-const useUpdateOrderStatus = (orderId: string, code: string | undefined) => {
+const useUpdateOrderStatus = (orderId: string) => {
   const { t } = useTranslation('paidOrders');
   const queryClient = useQueryClient();
 
-  return useMutation((statusId: string | undefined) => PaidOrderService.updateStatus(orderId, code, statusId), {
+  return useMutation((status: string) => PaidOrderService.updateStatus(orderId, status), {
     onSuccess: ({ data }: any) => {
       toast.success(t('statusUpdate.success'));
       queryClient.invalidateQueries([PAID_ORDERS_LIST_KEY]);

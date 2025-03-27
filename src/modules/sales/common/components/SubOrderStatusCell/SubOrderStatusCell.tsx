@@ -8,7 +8,7 @@ import { SubOrderIcon } from '../icons';
 import { Scrollbar } from '@dfl/mui-admin-layout';
 import { ReactLink } from '@dfl/react-security';
 import { useTranslation } from 'react-i18next';
-import { OrderStatusCell } from '../OrderStatusCell';
+import { OrderStatusPicker } from '../OrderStatusPicker';
 
 type Props = {
   value: IOrder[];
@@ -94,7 +94,7 @@ const SubOrderList = ({ subOrders }: { subOrders: IOrder[] }) => {
                 {subOrder.code}
               </ReactLink>
             </Typography>
-            <OrderStatusCell value={subOrder?.status} record={subOrder} rowId={subOrder._id as string} />
+            <OrderStatusPicker value={subOrder?.status} record={subOrder} rowId={subOrder._id as string} readOnly/>
           </Stack>
         ))}
       </Stack>
