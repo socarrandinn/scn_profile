@@ -5,12 +5,13 @@ import { INCIDENCE_STATUS_ENUM } from './incidence-status';
 import { CausesIncidenceService } from 'modules/sales/settings/causes-incidence/services';
 import { CAUSES_INCIDENCES_LIST_KEY } from 'modules/sales/settings/causes-incidence/constants';
 import { UserAdminService } from 'modules/security/users/services';
+import { ORDER_REFERENCE_TYPE } from 'modules/sales/common/constants/order.enum';
 
 export const incidenceStatusFilter: Filter = {
   filter: 'common:status',
   type: FilterType.FIXED_LIST,
   translate: true,
-  key: 'incidence-status-filter',
+  key: 'status',
   field: 'status',
   options: Object.keys(INCIDENCE_STATUS_ENUM).map((key) => ({
     value: key,
@@ -47,11 +48,25 @@ const orderCodeFilter: Filter = {
   field: 'orderReference.code',
 };
 
+export const incidenceTypeFilter: Filter = {
+  filter: 'incidence:fields.type',
+  type: FilterType.FIXED_LIST,
+  translate: true,
+  key: 'type',
+  field: 'referenceType',
+  options: Object.keys(ORDER_REFERENCE_TYPE).map((key) => ({
+    value: key,
+    translate: true,
+    label: `incidence:type.${key}`,
+  })),
+};
+
 const assignedFilter: Filter = userAdminFilter('responsible._id', 'incidence:fields.assignedTo', 'assigned');
 
 const createdByFilter: Filter = userAdminFilter('createdBy._id', 'incidence:fields.createdBy', 'created');
 
 export const incidenceFilters = [
+  incidenceTypeFilter,
   codeFilter,
   causeFilter,
   orderCodeFilter,
