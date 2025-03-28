@@ -19,7 +19,7 @@ const AddressMapMarket = ({ position, setPosition }: Props) => {
       setPosition?.({ lat: e.latlng.lat, lng: e.latlng.lng });
     },
   });
-  return position === null ? null : <Marker position={[position.lng, position.lat]} icon={customIcon} />;
+  return position === null ? null : <Marker position={[position.lat, position.lng]} icon={customIcon} />;
 };
 
 export default AddressMapMarket;
