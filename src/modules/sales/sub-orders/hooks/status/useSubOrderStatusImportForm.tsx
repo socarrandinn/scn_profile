@@ -35,11 +35,10 @@ const useSubOrderStatusImportForm = (defaultValues: IOrderStatusImport = initVal
     reset: mutateReset,
   } = useMutation((file: IOrderStatusImport) => SubOrderService.importStatus(file), {
     onSuccess: (data: Pick<IOrderStatusSuccessData, 'error'>) => {
-      queryClient.invalidateQueries([SUB_ORDERS_LIST_KEY]);
       if (data?.error > 0) {
         return toast.error(t('common:errors.generalErrorMessage'));
       }
-
+      queryClient.invalidateQueries([SUB_ORDERS_LIST_KEY]);
       toast.success(t('importStatusSuccess'));
     },
   });

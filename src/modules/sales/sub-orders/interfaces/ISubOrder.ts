@@ -26,8 +26,8 @@ export interface IOrderStatusSummary {
   summary: {
     total: number;
     error: number;
-    suborderNoExist: string[]
-    statusNoExist: string[]
+    suborderNoExist: string[];
+    statusNoExist: string[];
   };
 
   showDetail: boolean;
@@ -41,5 +41,6 @@ export interface IOrderStatusSuccessData {
 }
 
 export interface IOrderStatusDetailCallback {
-  title: string;
+  suborderNoExist: string[];
+  statusNoExist: string[];
 }
