@@ -130,7 +130,7 @@ const AutocompleteInternationalAddress = ({
     if (selectedPlaceId && data && !isLoading) {
       const address = extractAddressComponents(data?.addressComponents);
       const formattedAddress = data?.formattedAddress;
-      const coordinates = [data?.location?.latitude, data?.location?.longitude];
+      const coordinates = [data?.location?.longitude, data?.location?.latitude];
 
       setValueForm?.(`${name}.address1`, address.address1);
       setValueForm?.(`${name}.address2`, address.address2);
