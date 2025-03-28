@@ -1,24 +1,24 @@
 import { memo, useMemo, useState } from 'react';
 import { Box, Collapse, Stack } from '@mui/material';
 import CardItem from './CardItem/CardItem';
-import ProductStockIcon from '../Icons/ProductStockIcon';
 import { useTranslation } from 'react-i18next';
-import { ErrorCardItems } from './CardItem/ErrorCardItems';
 import { ExpandMoreAction } from './CardItem/styled';
 import { ArrowOutward } from '@mui/icons-material';
-import { SuccessCardItems } from './CardItem/SuccessCardItems';
-import { IStockSuccessData, IStockSummary } from '../../interfaces/IStockSummary';
-import WarningIcon from '../Icons/WarningIcon';
-type StockImportSummaryProps = {
-  summary: IStockSummary | undefined;
-  successData: IStockSuccessData;
+import { IOrderStatusSuccessData, IOrderStatusSummary } from 'modules/sales/sub-orders/interfaces';
+import WarningIcon from 'modules/inventory/product-stock/components/Icons/WarningIcon';
+import { ErrorCardItems } from './CardItem/ErrorCardItems';
+import CheckIcon from 'modules/inventory/product-stock/components/Icons/CheckIcon';
+
+type OrderStatusImportSummaryProps = {
+  summary: IOrderStatusSummary | undefined;
+  successData: IOrderStatusSuccessData;
 };
 
-const StockImportSummary = ({ summary, successData }: StockImportSummaryProps) => {
-  const { t } = useTranslation('stock');
+const OrderStatusImportSummary = ({ summary, successData }: OrderStatusImportSummaryProps) => {
+  const { t } = useTranslation('subOrder');
   const [expanded, setExpanded] = useState<'success' | 'error' | null>(null);
 
-  const openSuccess = useMemo(() => successData?.totalAddition > 0 || successData?.totalReduction > 0, [successData]);
+  const openSuccess = useMemo(() => successData?.total > 0, [successData]);
   const openError = useMemo(
     () => successData?.error > 0 || (summary?.summary?.error ?? 0) > 0,
     [successData?.error, summary?.summary?.error],
@@ -35,9 +35,9 @@ const StockImportSummary = ({ summary, successData }: StockImportSummaryProps) =
       <Stack mt={1} gap={1} flexDirection={{ xs: 'column', sm: 'row' }}>
         <CardItem
           color='success'
-          title={t('warehouse.import.summary.success.title')}
-          count={successData?.total || 0}
-          icon={<ProductStockIcon />}
+          title={t('statusImport.summary.success.title')}
+          count={summary?.summary?.total || successData?.total || 0}
+          icon={<CheckIcon sx={{ color: '#fff' }}/>}
           action={
             openSuccess && (
               // @ts-ignore
@@ -57,7 +57,7 @@ const StockImportSummary = ({ summary, successData }: StockImportSummaryProps) =
         />
         <CardItem
           color='error'
-          title={t('warehouse.import.summary.error.title')}
+          title={t('statusImport.summary.error.title')}
           count={summary?.summary?.error || successData?.error || 0}
           icon={<WarningIcon sx={{ color: '#fff' }} />}
           action={
@@ -80,13 +80,10 @@ const StockImportSummary = ({ summary, successData }: StockImportSummaryProps) =
       </Stack>
 
       <Collapse in={expanded === 'error' || summary?.showDetail} timeout='auto' unmountOnExit>
-        <ErrorCardItems summary={summary} successData={successData} />
-      </Collapse>
-      <Collapse in={expanded === 'success'} timeout='auto' unmountOnExit>
-        <SuccessCardItems successData={successData} />
+        <ErrorCardItems summary={summary as IOrderStatusSummary} successData={successData} />
       </Collapse>
     </Box>
   );
 };
 
-export default memo(StockImportSummary);
+export default memo(OrderStatusImportSummary);

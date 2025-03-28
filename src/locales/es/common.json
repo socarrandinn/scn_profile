@@ -349,5 +349,7 @@
       "ADMIN": "Administrador",
       "CUSTOM": "Personalizado"
     }
-  }
+  },
+  "downloadTemplate": "Descargar Plantilla",
+  "uploadFile": "Subir archivos o arrastre para importar"
 }

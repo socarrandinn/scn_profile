@@ -35,8 +35,8 @@ const AccordionProductSection = ({ name, data }: AccordionDetailProps) => {
           </FlexBox>
         </AccordionSummary>
         <AccordionDetails sx={{ display: 'flex', flexWrap: 'wrap', gap: 1, width: '100%' }}>
-          {data?.map((a: string) => (
-            <Chip label={a ?? t('stock:emptyValue.notCode')} key={a} />
+          {data?.map((a: string, index: number) => (
+            <Chip label={a ?? t('stock:emptyValue.notCode')} key={index} />
           ))}
         </AccordionDetails>
       </Accordion>
