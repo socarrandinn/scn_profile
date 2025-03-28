@@ -11,7 +11,6 @@ import Box from '@mui/material/Box';
 export const categoryNameColumn: HeadCell<ICategory> = {
   field: 'name',
   headerName: 'category:fields.name',
-  disablePadding: true,
   renderCell: (name: string, data: ICategory) => (
     <AvatarNameCell
       link={`/inventory/settings/categories/${data._id as string}/subcategories`}
