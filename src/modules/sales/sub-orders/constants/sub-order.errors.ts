@@ -1,9 +1,13 @@
 export enum SUB_ORDER_ERROR {
   STATUS_NOT_ALLOWED = 'STATUS_NOT_ALLOWED',
+  IMPORT_STATUS_FILE_ERROR = 'SE001',
 }
 
 export const SUB_ORDER_ERRORS = {
   [SUB_ORDER_ERROR.STATUS_NOT_ALLOWED]: {
     description: 'subOrder:errors.STATUS_NOT_ALLOWED',
+  },
+  [SUB_ORDER_ERROR.IMPORT_STATUS_FILE_ERROR]: {
+    description: 'subOrder:errors.IMPORT_STATUS_FILE_ERROR',
   },
 };

@@ -1,7 +1,7 @@
 import { ApiClientService, EntityApiService, RequestConfig, SearchResponseType } from '@dfl/react-security';
 import { IValidation } from '../interfaces/IValidation';
 import { parserManyOrders } from '../constants/order-table.parsing';
-import { IStatusChange } from 'modules/sales/sub-orders/interfaces';
+import { IOrderStatusImport, IStatusChange } from 'modules/sales/sub-orders/interfaces';
 
 export class OrderCommonService<T> extends EntityApiService<T> {
   validateBilling = (id: string | undefined, values: IValidation): any => {
@@ -42,5 +42,18 @@ export class OrderCommonService<T> extends EntityApiService<T> {
       });
     }
     throw new Error('Suborder _id and statusId is required');
+  };
+
+  importStatus = (payload: IOrderStatusImport) => {
+    const { file } = payload;
+    if (file) {
+      const formData = new FormData();
+      formData.append('file', file, file?.name);
+
+      return this.handleResponse(ApiClientService.post(this.getPath('/import-status-update'), formData));
+    }
+    return Promise.reject({
+      message: 'You must need a file',
+    });
   };
 }

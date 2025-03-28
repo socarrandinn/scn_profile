@@ -2,34 +2,34 @@ import { FormEventHandler, memo, useMemo } from 'react';
 import { Form } from '@dfl/mui-react-common';
 import { Button, Grid, Stack } from '@mui/material';
 import { useTranslation } from 'react-i18next';
-import ImportDownWhite from '../../../../../components/icons/DownloadIcon';
-import StockImportLoading from './StockImportLoading';
-import { StockImportSummary } from '../StockImportDetails';
 import { ACCEPT_ONLY_EXCEL, MAX_SIZE_FILE } from 'components/FileDropZone/constants/common';
 import { FileInputDropZone } from 'components/FileDropZone';
-import { IStockSummary } from '../../interfaces/IStockSummary';
-import { useSupplierRelationContext } from '../ErrorContents/SupplierNoRelation/hooks/useSupplierNotRelationContext';
+import DownloadIcon from 'components/icons/DownloadIcon';
+import OrderStatusImportLoading from './OrderStatusImportLoading';
+import { IOrderStatusSummary } from 'modules/sales/sub-orders/interfaces';
+import OrderStatusImportSummary from '../OrderStatusImportDetails/OrderStatusImportSummary';
 
-type StockImportFormProps = {
+type OrderStatusImportFormProps = {
   control: any;
   isLoading: boolean;
   onSubmit: FormEventHandler | undefined;
-  summary?: IStockSummary;
+  summary?: IOrderStatusSummary;
   successData?: any;
   isSuccess?: boolean;
   reset?: any;
 };
 
-const StockImportForm = ({ control, isLoading, onSubmit, summary, successData, reset }: StockImportFormProps) => {
-  const { t } = useTranslation('stock');
-
-  // reset status not relation supplier-warehouse
-  const resetState = useSupplierRelationContext((state) => state.resetState);
-  resetState();
+const OrderStatusImportForm = ({
+  control,
+  isLoading,
+  onSubmit,
+  summary,
+  successData,
+  reset,
+}: OrderStatusImportFormProps) => {
+  const { t } = useTranslation('common');
 
   const hazShow = useMemo(() => [isLoading, !!summary?.summary].some((s) => s), [isLoading, summary]);
-
-  console.log(hazShow, 'hazShow')
 
   return (
     <>
@@ -39,15 +39,15 @@ const StockImportForm = ({ control, isLoading, onSubmit, summary, successData, r
         control={control}
         isLoading={isLoading}
         size={'small'}
-        id={'form-import-stock'}
+        id={'order-status-import-form'}
         dark
       >
         <Grid container spacing={{ xs: 1, md: 2 }}>
           {!hazShow && (
             <Grid item xs={12}>
               <Button
-                href={'/product/product-stock-template.xlsx'}
-                download='product-stock-template.xlsx'
+                href={'/order/order-status-import.xlsx'}
+                download='order-status-import.xlsx'
                 target='_blank'
                 variant='contained'
                 fullWidth
@@ -55,8 +55,8 @@ const StockImportForm = ({ control, isLoading, onSubmit, summary, successData, r
                 sx={{ minHeight: 44 }}
               >
                 <Stack gap={1} flexDirection={'row'} color={'#fff'}>
-                  <ImportDownWhite />
-                  {t('warehouse.import.downloadTemplate')}
+                  <DownloadIcon />
+                  {t('downloadTemplate')}
                 </Stack>
               </Button>
             </Grid>
@@ -65,20 +65,19 @@ const StockImportForm = ({ control, isLoading, onSubmit, summary, successData, r
           <Grid item xs={12}>
             <FileInputDropZone
               name='file'
-              dropTitle={t('stock:warehouse.import.fields.uploadFile')}
+              dropTitle={t('common:uploadFile')}
               control={control}
               required
               showDropzoneWrapper={!isLoading}
-              // documentName={`${t('common:productStock')}.xlsx`}
               inputProps={{
                 accept: ACCEPT_ONLY_EXCEL,
                 maxFiles: 1,
                 maxSize: MAX_SIZE_FILE,
               }}
             />
-            <StockImportLoading isLoading={isLoading}>
-              <StockImportSummary summary={summary} successData={successData} />
-            </StockImportLoading>
+            <OrderStatusImportLoading isLoading={isLoading}>
+              <OrderStatusImportSummary summary={summary} successData={successData} />
+            </OrderStatusImportLoading>
           </Grid>
         </Grid>
       </Form>
@@ -86,4 +85,4 @@ const StockImportForm = ({ control, isLoading, onSubmit, summary, successData, r
   );
 };
 
-export default memo(StockImportForm);
+export default memo(OrderStatusImportForm);

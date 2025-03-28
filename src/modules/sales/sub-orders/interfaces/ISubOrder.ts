@@ -9,3 +9,38 @@ export interface IStatusChange {
   status: string | null;
   filters: any;
 }
+
+export interface IOrderStatusImport {
+  file?: File | null;
+}
+
+export enum ORDER_STATUS_SUMMARY_CASE {
+  suborderNoExist = 'suborderNoExist',
+  statusNoExist = 'statusNoExist',
+  dataError = 'dataError',
+}
+
+export interface IOrderStatusSummary {
+  details: IOrderStatusDetailCallback;
+  message: string;
+  summary: {
+    total: number;
+    error: number;
+    suborderNoExist: string[];
+    statusNoExist: string[];
+  };
+
+  showDetail: boolean;
+}
+
+export interface IOrderStatusSuccessData {
+  total: number;
+  success: number;
+  error: number;
+  dataError: [];
+}
+
+export interface IOrderStatusDetailCallback {
+  suborderNoExist: string[];
+  statusNoExist: string[];
+}

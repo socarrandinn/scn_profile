@@ -8,6 +8,7 @@
   "successUpdateDriver": "Transportista actualizado satisfactoriamente",
   "successStatusBulkUpdate": "Estados de Subórdenes actualizados satisfactoriamente",
   "successStatusUpdate": "Estado de Suborden actualizado satisfactoriamente",
+  "importStatusSuccess": "Estados importados satisfactoriamente",
   "fields": {
     "code": "Factura",
     "description": "Descripción",
@@ -37,6 +38,27 @@
     "all": "Todas las filtradas ({{ count }})",
     "totalOrders": "órdenes",
     "totalOrdersByStatus": "órdenes por Estados"
+  },
+  "statusImport": {
+    "title": "Importar Estados",
+    "subtitle": "A continuación descargue primero la plantilla de Excel disponible. Rellene con la información requerida en el archivo, luego importa el archivo",
+    "downloadTemplate": "Descargar plantilla",
+    "fields": {
+      "uploadFile": "Subir archivos o arrastre para importar"
+    },
+    "loading": "Validando datos",
+    "summary": {
+      "success": {
+        "title": "Total estados subidos",
+        "total": "Cambio de estado satisfactorio"
+      },
+      "error": {
+        "title": "Total de errores",
+        "suborderNoExist": "Subórdenes no existentes",
+        "statusNoExist": "Estados no existentes",
+        "dataError": "Datos no válidos"
+      }
+    }
   },
   "errors": {
     "STATUS_NOT_ALLOWED": "El nuevo estado no está permitido desde el estado actual."

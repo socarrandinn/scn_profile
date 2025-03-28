@@ -7,3 +7,12 @@ export const statusChangeBulkSchema = Yup.object().shape({
     .transform((d) => d?._id || d),
   filters: Yup.object(),
 });
+
+export const statusOrderFileSchema = Yup.object().shape({
+  file: Yup.mixed()
+    .transform((value) => {
+      return Array.isArray(value) ? value?.[0]?.url || '' : value;
+    })
+    .nullable()
+    .optional(),
+});

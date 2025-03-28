@@ -16,6 +16,7 @@ import {
 } from 'modules/sales/common/components/SubOrderDropDown';
 import { ORDER_PERMISSIONS } from 'modules/sales/common/constants/order-permissions';
 import { SubOrderStatusChange } from '../SubOrderStatusChange';
+import SubOrderStatusImportAction from './SubOrderStatusImportAction';
 
 const useToolbarSetting = () => {
   const settings = useMemo<TableHeaderOptions>(() => {
@@ -59,7 +60,7 @@ const SubOrderListToolbar = (props: Props) => {
         </PermissionCheck>
         <PermissionCheck permissions={[ORDER_PERMISSIONS.ORDER_WRITE]} atLessOne>
           <SubOrderStatusChange total={props?.total} filters={props?.filters} selectedItems={selected} />
-          {/*    <SubOrderStatusImportAction /> */}
+          <SubOrderStatusImportAction />
         </PermissionCheck>
       </GeneralActions>
     </>
