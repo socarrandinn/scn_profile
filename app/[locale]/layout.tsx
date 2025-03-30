@@ -1,9 +1,10 @@
 import "../css/globals.css";
 import type { Metadata } from "next";
-import localFont from "next/font/local"; 
+import localFont from "next/font/local";
 import Section from "@/components/containers/section";
 import { ThemeProvider } from "@/components/theme-provider";
-import NextTopLoader from 'nextjs-toploader';  
+import NextTopLoader from "nextjs-toploader";
+import { Toaster } from "@/components/ui/sonner";
 
 const lekton = localFont({
   src: [
@@ -38,11 +39,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" >
-      <body
-        className={`${lekton.variable} antialiased font-lekton`}
-      >
-      
+    <html lang="en">
+      <body className={`${lekton.variable} antialiased font-lekton`}>
         <NextTopLoader
           color="oklch(47.84% 0.1836 27.01)"
           initialPosition={0.08}
@@ -63,10 +61,8 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          <Section>
-            {children}
-          </Section>
-         
+          <Section>{children}</Section>
+          <Toaster />
         </ThemeProvider>
       </body>
     </html>

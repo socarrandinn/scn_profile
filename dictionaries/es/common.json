@@ -3,5 +3,8 @@
   "address": "Sevilla, Sevilla, España",
   "hour": "hora",
   "orderNow": "Ordena ahora",
-  "porfolio": "Portafolio"
+  "porfolio": "Portafolio",
+  "send": "Enviar",
+  "successOperation": "Operación completada",
+  "sendEmailSuccess": "Correo enviado satisfactoriamente"
 }

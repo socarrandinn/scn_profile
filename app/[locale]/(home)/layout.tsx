@@ -1,18 +1,23 @@
-import React from 'react'
-import i18nConfig from '@/next-i18next.config';
-import initTranslations from '@/app/i18n';
-import { notFound } from 'next/navigation';
-import { PageProps } from '@/definitions/page-types';
-import TranslationsProvider from '@/app/contexts/translation-provider';
- 
+import React from "react";
+import i18nConfig from "@/next-i18next.config";
+import initTranslations from "@/app/i18n";
+import { notFound } from "next/navigation";
+import { PageProps } from "@/definitions/page-types";
+import TranslationsProvider from "@/app/contexts/translation-provider";
 
 export function generateStaticParams() {
   return i18nConfig.locales.map((locale) => ({ locale }));
 }
 
-const i18nNamespaces = ['common', 'about-me', 'resumen', 'education', 'experience'];
-
-
+const i18nNamespaces = [
+  "common",
+  "about-me",
+  "resumen",
+  "education",
+  "experience",
+  "contact",
+  "errors",
+];
 
 const HomeLayout = async ({ params, children }: PageProps) => {
   const { locale } = await params;
@@ -24,11 +29,14 @@ const HomeLayout = async ({ params, children }: PageProps) => {
   }
 
   return (
-    <TranslationsProvider namespaces={i18nNamespaces} locale={locale} resources={resources}>
+    <TranslationsProvider
+      namespaces={i18nNamespaces}
+      locale={locale}
+      resources={resources}
+    >
       {children}
     </TranslationsProvider>
+  );
+};
 
-  )
-}
-
-export default HomeLayout
+export default HomeLayout;

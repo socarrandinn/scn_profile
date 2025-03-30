@@ -1,0 +1,7 @@
+{
+  "fields": {
+    "fullName": "Nombre completo",
+    "email": "Correo electrónico",
+    "message": "Tu mensaje"
+  }
+}
