@@ -6,7 +6,7 @@ import { useTranslation } from "react-i18next"
 export const ServiceIcon = ({ service }: { service: IAboutMeService }) => {
   const { t } = useTranslation('about-me')
   return (
-    <article className={cn("flex flex-col gap-2 py-2 ", service?.span ? 'col-span-2' : "col-span-1")}>
+    <article className={cn("flex flex-col gap-2 py-2 ", service?.span ? 'col-span-1 md:col-span-2' : "col-span-1")}>
       <Avatar className="w-15 h-15 border-[1px] border-dashed border-secondary p-1 ">
         <AvatarFallback className="bg-primary/80">
           {service?.icon}

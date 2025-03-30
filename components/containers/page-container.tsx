@@ -9,8 +9,8 @@ type Props = {
 const PageContainer = ({ children, title }: Props & PropsWithChildren) => {
 
   return (
-    <motion.div initial={{ x: -200 }} animate={{ x: 0 }} transition={{ duration: 1 }} className='w-full h-auto my-4'>
-      <Card className='w-full px-2 md:px-3 max-h-[84vh] overflow-y-scroll customScroll mr-4 pr-4'>
+    <motion.div initial={{ x: -200 }} animate={{ x: 0 }} transition={{ duration: 1 }} className='w-full h-auto lg:my-4'>
+      <Card className='w-full px-2 md:px-3 md:max-h-[84vh] md:overflow-y-scroll customScroll lg:mr-4 pr-4'>
         <PageHeader variant='compuse' title={title} className='fade-line-bottom' />
         {children}
       </Card>

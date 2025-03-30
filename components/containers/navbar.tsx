@@ -9,7 +9,7 @@ import { useCallback } from "react";
 import { menu_links } from "@/constants/menu";
 
 // Configuración de enlaces
-const NavLinks = () => {
+export const NavLinks = () => {
   const pathName = usePathname()
   const isActive = useCallback((path: string) => path === pathName, [pathName])
   return menu_links.map((link) => (
@@ -34,14 +34,14 @@ const NavLinks = () => {
 
 
 // Componente Principal
-export function VerticalNav() {
+export function VerticalNav({ className }: { className?: string }) {
   return (
-    <header id="menu" className="flex flex-col gap-4">
+    <header id="menu" className={cn("flex-col gap-4 hidden lg:flex", className)}>
       <VerticalHomeNav />
-      <nav className="h-auto md:h-auto w-full md:w-18 p-2 md:mr-4 bg-card rounded-md">
+      <nav className="h-auto w-full md:w-18 p-2 md:mr-4 lg:bg-card rounded-md">
         {/* Lista de Enlaces */}
         <NavigationMenu orientation="horizontal" className="w-full">
-          <NavigationMenuList className="grid grid-cols-4 md:grid-cols-1 gap-2 md:gap-4 mx-auto isZoom">
+          <NavigationMenuList className="grid grid-cols-1 gap-2 md:gap-4 mx-auto isZoom">
             <NavLinks />
           </NavigationMenuList>
         </NavigationMenu>
@@ -51,7 +51,7 @@ export function VerticalNav() {
 }
 export function VerticalHomeNav() {
   return (
-    <nav className="h-auto md:h-auto w-18 p-6 bg-card rounded-md">
+    <nav className="lg:h-auto w-18 p-6 bg-card rounded-md">
       <NavigationMenu >
         <NavigationMenuList className="flex flex-row gap-1 items-start">
           <ModeToggle />
@@ -60,3 +60,4 @@ export function VerticalHomeNav() {
     </nav>
   );
 }
+

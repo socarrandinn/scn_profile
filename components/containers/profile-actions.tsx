@@ -5,7 +5,7 @@ import { CloudDownloadIcon, Send } from 'lucide-react'
 
 const ProfileActions = () => {
   return (
-    <CardFooter className=" mt-auto w-full p-0 m-0 grid grid-cols-2 justify-between fade-line-top">
+    <CardFooter className="mt-auto w-full p-0 m-0 grid grid-cols-2 justify-between fade-line-top">
       <Button
         variant="ghost"
         className="w-full button-rectangle flex items-center group "

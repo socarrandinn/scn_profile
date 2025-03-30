@@ -11,7 +11,7 @@ type Props = {
 const QuoteContent = ({ autor, rol, image, quote }: Props) => {
   const { t } = useTranslation('resumen')
   return (
-    <div className='flex flex-col w-full p-8 gap-4'>
+    <div className='flex flex-col w-full px-4 lg:px-8 gap-4 pt-5 lg:mt-10 '>
       <div className='px-4 py-2 relative'>
         <p className='text-lg text-center text-color italic font-md'>{t(quote)}</p>
         <QuoteIcon className='absolute -top-1 -left-1 w-3 h-3' />

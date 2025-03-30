@@ -15,7 +15,7 @@ const AboutMe = () => {
 
   return (
     <PageContainer title={'about-me:title'} >
-      <CardContent>
+      <CardContent >
         <section className='flex flex-col w-full gap-2'>
           <h1 className='font-bold'>{t('aboutMe.hello')}</h1>
           <p className='font-normal text-justify leading-7'>{t('aboutMe.description', { name: 'Silvio O. Carrandi Noa', years: 5 })}</p>
@@ -29,14 +29,14 @@ const AboutMe = () => {
       </CardContent>
       {/* my services */}
 
-      <section className='mt-16 md:mt-20'>
+      <section className='mt-5 md:mt-10'>
         <PageHeader variant='compuse' title={'about-me:my_service.title'} className='fade-line-bottom' />
         <CardContent>
           <ServiceContainer />
         </CardContent>
       </section>
 
-      <section className='mt-16 md:mt-20'>
+      <section className='mt-5 md:mt-10'>
         <PageHeader variant='compuse' title={'about-me:payment_plans.title'} className='fade-line-bottom' />
         <CardContent>
           <PlansContainer />
