@@ -1,21 +1,21 @@
-
-import { ITimeLine } from '@/definitions/resumen'
-import React from 'react'
-import TimeLineItem from './time-line-item'
-
+import { ITimeLine } from "@/definitions/resumen";
+import React from "react";
+import TimeLineItem from "./time-line-item";
 
 type Props = {
-  items: ITimeLine[]
-}
+  items: ITimeLine[];
+};
 
 const TimeLine = ({ items }: Props) => {
   return (
     <div className="p-2">
       <div className="relative border-l border-gray-500 pl-6 flex flex-col gap-4 justify-start ">
-        {items?.map((item, index) => <TimeLineItem key={item?.dateRange} {...item} isFirst={index === 0} />)}
+        {items?.map((item, index) => (
+          <TimeLineItem key={item?.jobTitle} {...item} isFirst={index === 0} />
+        ))}
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default TimeLine
+export default TimeLine;
