@@ -5,7 +5,7 @@ import { CardContent } from "@/components/ui/card";
 
 const AboutMe = () => {
   return (
-    <PageContainer title={"about-me:title"}>
+    <PageContainer title={"contact:title"}>
       <CardContent>
         <Contact />
       </CardContent>
