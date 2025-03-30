@@ -13,6 +13,7 @@ import { HandlerError } from "../handle-error";
 const ContactForm = () => {
   const { t } = useTranslation("contact");
   const form = useSendContact();
+
   return (
     <Form {...form}>
       <div className="grid grid-cols-2 gap-3 lg:gap-6">
