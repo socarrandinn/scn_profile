@@ -17,34 +17,35 @@ const IncidenceMenu = ({ type }: { type: ORDER_REFERENCE_TYPE }) => {
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
   const open = Boolean(anchorEl);
 
-  const handleClick = useCallback(
-    (event: React.MouseEvent<HTMLElement>) => {
-      setAnchorEl(event.currentTarget);
-    },
-    [setAnchorEl],
-  );
+  const handleClick = useCallback((event: React.MouseEvent<HTMLElement>) => {
+    setAnchorEl(event.currentTarget);
+  }, []);
 
   const handleClose = useCallback(() => {
     setAnchorEl(null);
-  }, [setAnchorEl]);
+  }, []);
+
+  const handleCreateClick = useCallback(() => {
+    handleClose();
+    onOpen();
+  }, [handleClose, onOpen]);
 
   return (
     <>
       <IconButton
         onClick={handleClick}
-        size='small'
+        size="small"
         aria-controls={open ? 'account-menu' : undefined}
-        aria-haspopup='true'
+        aria-haspopup="true"
         aria-expanded={open ? 'true' : undefined}
       >
         <MoreVert />
       </IconButton>
       <Menu
         anchorEl={anchorEl}
-        id='account-menu'
+        id="account-menu"
         open={open}
         onClose={handleClose}
-        onClick={onOpen}
         slotProps={slotProps}
         anchorOrigin={{
           vertical: 'bottom',
@@ -55,7 +56,7 @@ const IncidenceMenu = ({ type }: { type: ORDER_REFERENCE_TYPE }) => {
           horizontal: 'right',
         }}
       >
-        <MenuItem onClick={handleClose}>{t('create')}</MenuItem>
+        <MenuItem onClick={handleCreateClick}>{t('create')}</MenuItem>
       </Menu>
       <IncidenceCreateModal
         open={isOpen}
