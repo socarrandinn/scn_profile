@@ -1,23 +1,27 @@
 import { memo, useMemo } from 'react';
 import { Stack } from '@mui/material';
-import { useToggle } from '@dfl/hook-utils';
-import { TableToolbar, TableToolbarActions, TablaHeaderOptions } from '@dfl/mui-admin-layout';
+import { getDefaultFilterKeys } from 'utils/custom-filters';
+import { TableHeaderOptions } from 'components/libs/table';
+import { incidenceFilters } from '../../constants';
+import { TableToolbar } from '@dfl/mui-admin-layout';
+import TableToolbarActions from 'components/libs/table/toolbar/TableToolbarActions';
 
 const useToolbarSetting = () => {
-  const { isOpen, onClose, onOpen } = useToggle(false);
-  const settings = useMemo<TablaHeaderOptions>(() => {
+  const settings = useMemo<TableHeaderOptions>(() => {
     return {
       actions: {
         create: false,
         export: false,
+        menuFilter: false,
+      },
+      filter: {
+        activeMenu: true,
+        defaultFilterKeys: getDefaultFilterKeys(incidenceFilters.slice(1)),
       },
     };
   }, []);
 
   return {
-    isOpen,
-    onOpen,
-    onClose,
     settings,
   };
 };
