@@ -4,6 +4,9 @@ import initTranslations from "@/app/i18n";
 import { notFound } from "next/navigation";
 import { PageProps } from "@/definitions/page-types";
 import TranslationsProvider from "@/app/contexts/translation-provider";
+import { VerticalNav } from "@/components/containers/navbar/navbar";
+import NavarMobile from "@/components/containers/navbar-mobile";
+import ProfileSummary from "@/components/containers/profile-summary";
 
 export function generateStaticParams() {
   return i18nConfig.locales.map((locale) => ({ locale }));
@@ -34,6 +37,9 @@ const HomeLayout = async ({ params, children }: PageProps) => {
       locale={locale}
       resources={resources}
     >
+      <VerticalNav locale={locale} />
+      <NavarMobile locale={locale} />
+      <ProfileSummary />
       {children}
     </TranslationsProvider>
   );

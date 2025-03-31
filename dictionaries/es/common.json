@@ -6,5 +6,13 @@
   "porfolio": "Portafolio",
   "send": "Enviar",
   "successOperation": "Operación completada",
-  "sendEmailSuccess": "Correo enviado satisfactoriamente"
+  "sendEmailSuccess": "Correo enviado satisfactoriamente",
+  "languages": {
+    "es": "Español",
+    "en": "Inglés"
+  },
+  "mode": {
+    "dark": "Tema oscuro",
+    "light": "Tema claro"
+  }
 }

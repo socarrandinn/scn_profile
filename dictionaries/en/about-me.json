@@ -1,3 +1,118 @@
 {
-  "title": "About me" 
+  "title": "About Me",
+  "aboutMe": {
+    "hello": "Hello, I'm Silvio Orlando Carrandi Noa",
+    "description": "Hi! 👋 I'm {{name}}, a Fullstack Developer with {{years}}+ years of experience and a degree in Computer Engineering (2014). Specializing in frontend with React, TypeScript, and Next.js, I've developed efficient back offices and scalable e-commerce solutions, combining reusable components, performance optimization, and technical support. With fullstack vision and a quality-focused approach, I aim to create robust technical solutions that impact business, always learning and sharing knowledge.",
+    "summary": {
+      "age": "Age",
+      "freelance": "Freelance",
+      "residence": "Residence",
+      "address": "Address"
+    }
+  },
+  "my_service": {
+    "title": "My Services",
+    "services": {
+      "service_1": {
+        "title": "Front-End Development",
+        "description": "Modern, responsive web applications with React.js, Next.js, and Astro, optimized for excellent user experience across all devices.",
+        "icon": "🖥️"
+      },
+      "service_2": {
+        "title": "Back-End Development",
+        "description": "Scalable and secure APIs with NestJS, focused on data management, authentication, and business logic.",
+        "icon": "🛠️"
+      },
+      "service_3": {
+        "title": "Full Stack Development",
+        "description": "Complete solutions integrating front-end (React, Next.js) and back-end (NestJS) with high performance and best practices.",
+        "icon": "🚀"
+      },
+      "service_4": {
+        "title": "Static Sites with Astro",
+        "description": "Fast, SEO-optimized websites with Astro, ideal for lightweight content and high performance.",
+        "icon": "🌐"
+      },
+      "service_5": {
+        "title": "API Development & Integration",
+        "description": "Custom REST and GraphQL APIs to efficiently connect services and enhance application functionality.",
+        "icon": "🔗"
+      },
+      "service_6": {
+        "title": "Performance Optimization",
+        "description": "Improvements in speed, accessibility, and SEO to deliver a smooth and efficient user experience.",
+        "icon": "⚡"
+      },
+      "service_7": {
+        "title": "Web3 & Smart Contract Development",
+        "description": "Building decentralized applications (dApps) with smart contract integration using wagmi and ethers.js, ensuring secure blockchain connectivity. Development and deployment of custom ERC-20 tokens for DeFi and Web3 projects. Creation of NFT marketplaces enabling purchase, sale, and exchange of digital assets with wallet integration like MetaMask.",
+        "icon": "⛓️"
+      }
+    }
+  },
+  "payment_plans": {
+    "title": "Pricing",
+    "plans": {
+      "basic": {
+        "title": "Basic Plan",
+        "price": "$25",
+        "description": "For small, fast websites.",
+        "services": [
+          "Static sites with Astro",
+          "Performance optimization",
+          "SEO and accessibility improvements",
+          "Basic API integration",
+          "Responsive design",
+          "Basic technical support"
+        ],
+        "icon": "✨"
+      },
+      "standard": {
+        "title": "Standard Plan",
+        "price": "$35",
+        "description": "For web applications with APIs and databases.",
+        "services": [
+          "Front-End with React and Next.js",
+          "Back-End with NestJS",
+          "REST and GraphQL APIs",
+          "Load optimization",
+          "SQL and NoSQL databases",
+          "Basic authentication"
+        ],
+        "icon": "⚡"
+      },
+      "premium": {
+        "title": "Premium Plan",
+        "price": "$48",
+        "description": "Complete solution for scalable applications.",
+        "services": [
+          "Full Stack with Next.js and NestJS",
+          "Advanced SEO and performance",
+          "Custom APIs",
+          "Advanced authentication",
+          "Database management",
+          "Cloud deployment",
+          "Maintenance and monitoring",
+          "Premium support"
+        ],
+        "icon": "🚀"
+      },
+      "enterprise": {
+        "title": "Enterprise Plan",
+        "price": "$50",
+        "description": "For Web3, blockchain, and large-scale projects.",
+        "services": [
+          "Full Stack with Next.js and NestJS",
+          "High-traffic scalability",
+          "Web3 & Smart Contracts",
+          "ERC-20 Tokens",
+          "NFT Marketplaces",
+          "Wallet integration",
+          "Security and auditing",
+          "Premium support"
+        ],
+        "icon": "🏆"
+      }
+    }
+  }
 }

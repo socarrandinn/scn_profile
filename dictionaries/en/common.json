@@ -1,0 +1,18 @@
+{
+  "country": "Spain",
+  "address": "Seville, Seville, Spain",
+  "hour": "hour",
+  "orderNow": "Order now",
+  "porfolio": "Portfolio",
+  "send": "Send",
+  "successOperation": "Operation completed",
+  "sendEmailSuccess": "Email sent successfully",
+  "languages": {
+    "es": "Spanish",
+    "en": "English"
+  },
+  "mode": {
+    "dark": "Dark theme",
+    "light": "Light theme"
+  }
+}

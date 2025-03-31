@@ -1,12 +1,9 @@
-"use client";
-
 import * as React from "react";
 import { Menu } from "lucide-react";
-
 import { Button } from "@/components/ui/button";
 import { Drawer, DrawerContent, DrawerTrigger } from "@/components/ui/drawer";
-import { NavLinks } from "./navbar";
 import { NavigationMenu, NavigationMenuList } from "../ui/navigation-menu";
+import { NavLinks } from "./navbar/navbar-link";
 
 export function DrawerDemo() {
   return (

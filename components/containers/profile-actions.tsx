@@ -1,3 +1,4 @@
+"use client";
 import React, { useCallback } from "react";
 import { CardFooter } from "../ui/card";
 import { Button } from "../ui/button";

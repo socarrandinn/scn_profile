@@ -1,0 +1,14 @@
+{
+  "experiences": [
+    {
+      "dateRange": {
+        "from": "2022-06-15",
+        "to": "Present"
+      },
+      "jobTitle": "Frontend Developer & Technical Support",
+      "companyName": "Dofleini Software",
+      "description": "Develop applications using ReactJS, TypeScript, and Next.js, optimizing backoffice and e-commerce systems. Additionally, I provide technical support by troubleshooting issues and ensuring proper system functionality. I combine technical skills with attention to detail to enhance user experience and operational efficiency.",
+      "isButtonVisible": false
+    }
+  ]
+}

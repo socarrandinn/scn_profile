@@ -1,0 +1,14 @@
+{
+  "educations": [
+    {
+      "dateRange": {
+        "from": "2009-09-11",
+        "to": "2014-07-16"
+      },
+      "jobTitle": "Computer Science Engineer",
+      "companyName": "University of Computer Sciences",
+      "description": "Graduated as a Computer Science Engineer in 2014 from the University of Computer Sciences in Havana, Cuba",
+      "isButtonVisible": false
+    }
+  ]
+}
