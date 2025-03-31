@@ -1,10 +1,11 @@
+"use client";
 import PageContainer from "@/components/containers/page-container";
 import ContactForm from "@/components/core/contact/contact-form";
 import ContactMap from "@/components/core/contact/contact-map";
 import { CardContent } from "@/components/ui/card";
 import PageHeader from "@/components/ui/page-header";
 
-const ContactMePage = async () => {
+const ContactMePage = () => {
   return (
     <PageContainer title={"contact:section.map"}>
       <CardContent>
