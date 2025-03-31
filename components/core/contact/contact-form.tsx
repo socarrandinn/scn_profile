@@ -9,6 +9,7 @@ import {
 import useSendContact from "@/hooks/use-send-contact";
 import { useTranslation } from "react-i18next";
 import { HandlerError } from "../handle-error";
+import { Send } from "lucide-react";
 
 const ContactForm = () => {
   const { t } = useTranslation("contact");
@@ -51,8 +52,12 @@ const ContactForm = () => {
             type="submit"
             loading={form?.isLoading}
             disabled={form?.isLoading}
+            variant={"outline"}
+            size={"lg"}
+            className="uppercase"
           >
             {t("common:send")}
+            <Send />
           </ButtonLoading>
         </div>
       </div>

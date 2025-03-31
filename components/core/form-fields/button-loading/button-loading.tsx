@@ -1,11 +1,11 @@
 "use client";
 import React, { memo, ReactNode } from "react";
-import { Button } from "@/components/ui/button";
+import { Button, ButtonProps } from "@/components/ui/button";
 import { Loader2 } from "lucide-react";
 import { useTranslation } from "react-i18next";
 import { cn } from "@/lib/utils";
 
-type Props = React.ComponentProps<"button"> & {
+type Props = ButtonProps & {
   children?: ReactNode;
   loading?: boolean;
   className?: string;

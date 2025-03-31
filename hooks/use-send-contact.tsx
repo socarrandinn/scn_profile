@@ -23,7 +23,7 @@ const useSendContact = (defaultValues?: EmailTemplate) => {
     defaultValues,
   });
 
-  const { mutate, error, isLoading, isSuccess, data } = useDflMutation({
+  const { mutate, error, isLoading, data } = useDflMutation({
     action: async (vals: EmailTemplate) => {
       return await SendEmail(vals);
     },
@@ -41,7 +41,6 @@ const useSendContact = (defaultValues?: EmailTemplate) => {
   return {
     control,
     isLoading,
-    isSuccess,
     data,
     // reset,
     error,
