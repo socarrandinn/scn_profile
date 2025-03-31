@@ -2,6 +2,7 @@ import { THEMES } from '@dfl/mui-react-common';
 import { grey } from '@mui/material/colors';
 import { createTheme, lighten, Theme } from '@mui/material';
 import { components } from './components';
+import { light } from '@mui/material/styles/createPalette';
 
 export const RED = '#F84842';
 export const GREEN = '#65BE46';

@@ -31,6 +31,9 @@
     "type": "Incidence type",
     "createdBy": "Created by"
   },
+  "addComments": "Add comments", 
+  "addCommentSuccess": "Comment successfully added",
+  "addCommentError": "Comment could not be added",
   "status": {
     "OPEN": "To be done",
     "IN_REVIEW": "In review",
