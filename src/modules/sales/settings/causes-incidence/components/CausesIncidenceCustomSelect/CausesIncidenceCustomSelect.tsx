@@ -9,6 +9,7 @@ import { CausesIncidenceService } from 'modules/sales/settings/causes-incidence/
 type CausesIncidenceSelectProps = {
   name: string;
   required?: boolean;
+  queryKey?: string;
   label?: string;
   placeholder?: string;
   helperText?: string;
@@ -30,6 +31,7 @@ const renderOption = (props: any, option: ICausesIncidence, { selected }: any) =
 const CausesIncidenceCustomSelect = ({
   name,
   required,
+  queryKey,
   multiple,
   label,
   fetchOption,
@@ -45,13 +47,15 @@ const CausesIncidenceCustomSelect = ({
       name={name}
       disableCloseOnSelect={multiple}
       fetchFunc={CausesIncidenceService.searchClean}
-      queryKey={CAUSES_INCIDENCES_LIST_KEY + name}
+      queryKey={`${CAUSES_INCIDENCES_LIST_KEY}`}
       autoHighlight
       isOptionEqualToValue={isOptionEqualToValue}
       fetchValueFunc={multiple ? CausesIncidenceService.searchClean : CausesIncidenceService.getOne}
       id={`select-incidence-${name}`}
       getOptionLabel={renderLabel}
       renderOption={renderOption}
+      loadValue
+      key={name}
       helperText={helperText}
       fetchOption={fetchOption}
     />

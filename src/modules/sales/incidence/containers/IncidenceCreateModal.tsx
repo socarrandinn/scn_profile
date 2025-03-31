@@ -45,7 +45,6 @@ const IncidenceCreateModal = ({
     >
       <DialogContent>
         {dataError && <HandlerError error={dataError} />}
-
         {!dataError && (
           <ConditionContainer active={!loadingInitData} alternative={<IncidenceFormSkeleton />}>
             <Divider sx={{ mb: 2 }} />
@@ -60,7 +59,7 @@ const IncidenceCreateModal = ({
               setValue={setValue}
               watch={watch}
             >
-              <IncidenceForm />
+              <IncidenceForm initValue={initValue} />
             </Form>
           </ConditionContainer>
         )}

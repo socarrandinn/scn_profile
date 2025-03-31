@@ -9,13 +9,19 @@ import { ICausesIncidence } from 'modules/sales/settings/causes-incidence/interf
 import FileDropZone, { TYPE_DROP } from 'components/FileDropZone/FileDropZone';
 import { ACCEPT_ALL, MAX_SIZE_FILE } from 'components/FileDropZone/constants/common';
 import { IncidenceStatusPicker } from '../IncidenceStatusPicker';
+import { IIncidence } from '../../interfaces';
 
-const IncidenceForm = () => {
+const filters = { filters: { type: 'TERM', field: 'parent', value: null } };
+
+const IncidenceForm = ({ initValue }: { initValue?: IIncidence }) => {
   const { t } = useTranslation('incidence');
   const { watch, control, formState } = useDFLForm();
   const cause: ICausesIncidence = watch?.('cause');
-  const filters = useMemo(() => ({ type: 'TERM', field: 'parent', value: null }), []);
-  const childFilter = useMemo(() => ({ type: 'TERM', field: 'parent._id', value: cause?._id, objectId: true }), [cause?._id]);
+
+
+  const childFilter = useMemo(() => {
+    return { filters: { type: 'TERM', field: 'parent._id', value: cause?._id || initValue?.cause?._id, objectId: true } }
+  }, [cause?._id, initValue?.cause?._id]);
 
   return (
     <Grid container spacing={{ xs: 1, md: 2 }} columns={{ xs: 4, sm: 8, md: 12 }}>
@@ -23,16 +29,16 @@ const IncidenceForm = () => {
         <Typography fontWeight={500}>{t('selectIncidence')}</Typography>
       </Grid>
       <Grid item xs={12}>
-        <CausesIncidenceCustomSelect required name='cause' fetchOption={{ filters }} label={t('parentIncidence')} />
+        <CausesIncidenceCustomSelect required name='cause' fetchOption={filters} label={t('parentIncidence')} />
         {formState?.errors?.cause?._id?.message && (
           <FormHelperText error={true} sx={{ ml: 2 }}>
             {t('errors:required')}
           </FormHelperText>
         )}
       </Grid>
-      {cause?.hasChildCauses && (
+      {(cause?.hasChildCauses || initValue?.subCause?.name) && (
         <Grid item xs={12}>
-          <CausesIncidenceCustomSelect required name='subCause' label={t('childIncidence')} fetchOption={{ filters: childFilter }} />
+          <CausesIncidenceCustomSelect required name='subCause' label={t('childIncidence')} fetchOption={childFilter} />
         </Grid>
       )}
       <Grid item xs={12}>
