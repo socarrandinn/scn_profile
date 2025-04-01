@@ -19,7 +19,7 @@ const ProfileSummary = async () => {
         alt={"profile"}
       />
 
-      <Card className="mt-auto rounded-t-4xl border border-t-primary/50 flex flex-col items-center z-10 max-h-1/2 h-full !lg:p-0 lg:ovalo bg-card/10 backdrop-blur-sm ">
+      <Card className="mt-auto rounded-t-4xl border border-t-primary/50 flex flex-col items-center z-10 max-h-1/2 h-full !lg:p-0 lg:ovalo bg-card/10 backdrop-blur-sm">
         {/* image profile */}
         <div className="profile-avatar lg:-mt-24 mt-4">
           <Avatar className="w-24 h-24 lg:w-32 lg:h-32 border-2 border-card scale">
