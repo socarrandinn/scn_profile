@@ -14,7 +14,7 @@ export const statusFilter: Filter = {
   },
   options: Object.keys(STATUS).map((key) => ({
     value: STATUS[key],
-    translate: false,
-    label: key,
+    translate: true,
+    label: `manufacture:${key}`,
   })),
 };
