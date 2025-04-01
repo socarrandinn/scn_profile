@@ -6,6 +6,7 @@ import ProfileSocialNetwork from "./profile-social-network";
 import { TypingTitle } from "./typed-titles";
 import { profileRoles } from "@/constants/profile";
 import ProfileActions from "./profile-actions";
+import { User } from "lucide-react";
 
 const ProfileSummary = async () => {
   return (
@@ -22,7 +23,9 @@ const ProfileSummary = async () => {
         <div className="profile-avatar lg:-mt-24 mt-4">
           <Avatar className="w-24 h-24 lg:w-32 lg:h-32 border-2 border-card scale">
             <AvatarImage src="/images/profile/avatar.webp" />
-            <AvatarFallback className="bg-card">SCN</AvatarFallback>
+            <AvatarFallback className="bg-card">
+              <User />
+            </AvatarFallback>
           </Avatar>
         </div>
 
