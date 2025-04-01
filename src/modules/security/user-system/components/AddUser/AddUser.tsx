@@ -17,7 +17,7 @@ const AddUser = () => {
         validationScheme={userSchema}
         queryKey={USERS_LIST_KEY}
         rolesType={ROLE_TYPE_ENUM.ROOT}
-        redirect={'/security/system-users/user'}
+        redirect={'/security/system-users'}
         apiPath={'/admin/invite'}
       />
     </>

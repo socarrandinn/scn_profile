@@ -32,6 +32,7 @@ const useUserCreateForm = (validationScheme: any, onClose?: () => void, queryKey
   } = useForm({
     resolver: yupResolver(validationScheme),
     defaultValues: initialValue,
+    values: initialValue,
   });
 
   const {
@@ -69,8 +70,8 @@ const useUserCreateForm = (validationScheme: any, onClose?: () => void, queryKey
   );
 
   const reset = useCallback(() => {
-    resetMutation();
     resetForm();
+    resetMutation();
   }, [resetForm, resetMutation]);
 
   return {

@@ -22,7 +22,7 @@ type FromCreateToInviteProps = {
   onClose?: () => void;
 };
 
-export default function FromCreateToInvite ({
+export default function FromCreateToInvite({
   error,
   watch,
   redirect,
@@ -35,7 +35,7 @@ export default function FromCreateToInvite ({
   const security = watch('security');
   const space = watch('space');
 
-  const { mutate, error: errorInvite, reset } = useUsersInviteForm(userInvitationSchema, redirect, apiPath);
+  const { mutate, error: errorInvite, reset } = useUsersInviteForm(userInvitationSchema, redirect, apiPath, onClose);
 
   const isDuplicated = useMemo(
     () => error?.reference === COMMON_ERRORS.DUPLICATE_KEY && error?.key?.includes('email'),

@@ -24,7 +24,7 @@ const AddUser = ({ provider, providerType }: ProviderProps) => {
         validationScheme={userProviderSchema}
         queryKey={USERS_LIST_KEY}
         rolesType={ROLE_TYPE_ENUM.PROVIDER}
-        redirect={'/security/providers-users/user'}
+        redirect={'/security/providers-users'}
         apiPath={'/providers/invite'}
         providerType={providerType}
       >

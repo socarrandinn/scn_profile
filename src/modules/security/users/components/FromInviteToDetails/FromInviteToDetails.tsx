@@ -16,7 +16,7 @@ type FromCreateToInviteProps = {
   onClose?: () => void;
 };
 
-export default function FromInviteToDetails ({ error, redirect, onClose }: Readonly<FromCreateToInviteProps>) {
+export default function FromInviteToDetails({ error, redirect, onClose }: Readonly<FromCreateToInviteProps>) {
   const { t } = useTranslation('usersInvite');
   const navigate = useNavigate();
 
@@ -37,7 +37,7 @@ export default function FromInviteToDetails ({ error, redirect, onClose }: Reado
   }, [isExisted, setOpen]);
 
   const handleDetail = useCallback(() => {
-    navigate(`${redirect}/${error?.userId as string}/general`);
+    navigate(`${redirect}/user/${error?.userId as string}/general`);
   }, [navigate, redirect, error?.userId]);
 
   return (
