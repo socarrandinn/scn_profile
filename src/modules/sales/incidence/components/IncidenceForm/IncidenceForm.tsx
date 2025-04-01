@@ -1,4 +1,4 @@
-import { memo, useMemo } from 'react';
+import { memo, useEffect, useMemo, useState } from 'react';
 import { FormTextField, useDFLForm } from '@dfl/mui-react-common';
 import { FormHelperText, Grid, Typography } from '@mui/material';
 import { useTranslation } from 'react-i18next';
@@ -15,13 +15,26 @@ const filters = { filters: { type: 'TERM', field: 'parent', value: null } };
 
 const IncidenceForm = ({ initValue }: { initValue?: IIncidence }) => {
   const { t } = useTranslation('incidence');
-  const { watch, control, formState } = useDFLForm();
-  const cause: ICausesIncidence = watch?.('cause');
+  const { watch, control, formState, setValue } = useDFLForm();
 
+  const cause: ICausesIncidence = watch?.('cause');
 
   const childFilter = useMemo(() => {
     return { filters: { type: 'TERM', field: 'parent._id', value: cause?._id || initValue?.cause?._id, objectId: true } }
   }, [cause?._id, initValue?.cause?._id]);
+
+  const shouldShowSubCause = useMemo(() => {
+    if (!cause) return false;
+    if (cause?.hasChildCauses === true) return true;
+    if (!!initValue?.subCause && cause?._id === initValue?.cause?._id) return true;
+    return false;
+  }, [cause, initValue?.subCause, initValue?.cause?._id]);
+
+  useEffect(() => {
+    if (!shouldShowSubCause) {
+      setValue?.('subCause', null);
+    }
+  }, [shouldShowSubCause, setValue]);
 
   return (
     <Grid container spacing={{ xs: 1, md: 2 }} columns={{ xs: 4, sm: 8, md: 12 }}>
@@ -36,9 +49,9 @@ const IncidenceForm = ({ initValue }: { initValue?: IIncidence }) => {
           </FormHelperText>
         )}
       </Grid>
-      {(cause?.hasChildCauses || initValue?.subCause?.name) && (
+      {shouldShowSubCause && (
         <Grid item xs={12}>
-          <CausesIncidenceCustomSelect required name='subCause' label={t('childIncidence')} fetchOption={childFilter} />
+          <CausesIncidenceCustomSelect required name='subCause' label={t('childIncidence')} fetchOption={childFilter} key={`subCause-${cause?._id}`} />
         </Grid>
       )}
       <Grid item xs={12}>
