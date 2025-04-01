@@ -7,6 +7,7 @@ import { TypingTitle } from "./typed-titles";
 import { profileRoles } from "@/constants/profile";
 import ProfileActions from "./profile-actions";
 import { User } from "lucide-react";
+import { INFO } from "@/constants/info";
 
 const ProfileSummary = async () => {
   return (
@@ -18,7 +19,7 @@ const ProfileSummary = async () => {
         alt={"profile"}
       />
 
-      <Card className="mt-auto flex flex-col items-center z-10 max-h-1/2 h-full !lg:p-0 lg:ovalo ">
+      <Card className="mt-auto rounded-t-4xl border border-t-primary/50 flex flex-col items-center z-10 max-h-1/2 h-full !lg:p-0 lg:ovalo bg-card/10 backdrop-blur-sm ">
         {/* image profile */}
         <div className="profile-avatar lg:-mt-24 mt-4">
           <Avatar className="w-24 h-24 lg:w-32 lg:h-32 border-2 border-card scale">
@@ -31,7 +32,7 @@ const ProfileSummary = async () => {
 
         {/* name section */}
         <h1 className="font-bold text-color text-xl lg:text-2xl leading-1 mt-5 lg:mt-10">
-          Silvio Carrandi Noa
+          {INFO.name}
         </h1>
         <TypingTitle texts={profileRoles} className="mb-4" />
         <ProfileSocialNetwork />

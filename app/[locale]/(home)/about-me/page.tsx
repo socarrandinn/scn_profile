@@ -5,13 +5,12 @@ import PlansContainer from "@/components/sections/payment-plans/payment-plan-con
 import ServiceContainer from "@/components/sections/service/service-container";
 import { CardContent } from "@/components/ui/card";
 import PageHeader from "@/components/ui/page-header";
-import { calculeAge } from "@/components/utils/about-me";
+import { INFO } from "@/constants/info";
 
 import { useTranslation } from "react-i18next";
 
 const AboutMe = () => {
   const { t } = useTranslation("about-me");
-  const age = calculeAge("1990-07-16");
 
   return (
     <PageContainer title={"about-me:title"}>
@@ -20,12 +19,15 @@ const AboutMe = () => {
           <h1 className="font-bold">{t("aboutMe.hello")}</h1>
           <p className="font-normal text-justify leading-7">
             {t("aboutMe.description", {
-              name: "Silvio O. Carrandi Noa",
-              years: 5,
+              name: INFO.name,
+              years: INFO.work.year,
             })}
           </p>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-1 mt-2">
-            <AboutMeItem title="about-me:aboutMe.summary.age" value={age} />
+            <AboutMeItem
+              title="about-me:aboutMe.summary.age"
+              value={INFO.age}
+            />
             <AboutMeItem
               title="about-me:aboutMe.summary.residence"
               value={t("common:country")}
