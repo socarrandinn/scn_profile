@@ -1,7 +1,7 @@
 import { memo } from 'react';
 import { FilterViewProvider, TableProvider } from '@dfl/mui-admin-layout';
 import CollectionsListContainer from 'modules/cms/collections/containers/CollectionsListContainer';
-import { collectionsBannerFilters, collectionsFilters } from 'modules/cms/collections/constants/collections.filters';
+import { collectionsBannerFilters, collectionsProductFilters } from 'modules/cms/collections/constants/collections.filters';
 import { collectionViewTabs } from '../constants/collection.viewtabs';
 import { COLLECTION_CONTENT_TYPE } from '../constants/collection-types';
 
@@ -10,7 +10,7 @@ type Props = {
 };
 const CollectionsList = ({ contentType }: Props) => {
   return (
-    <TableProvider id={`collections-${contentType}`} filters={contentType === COLLECTION_CONTENT_TYPE.BANNER ? collectionsBannerFilters : collectionsFilters}>
+    <TableProvider id={`collections-${contentType}`} filters={contentType === COLLECTION_CONTENT_TYPE.BANNER ? collectionsBannerFilters : collectionsProductFilters}>
       <FilterViewProvider views={collectionViewTabs}>
         <CollectionsListContainer contentType={contentType} />
       </FilterViewProvider>
