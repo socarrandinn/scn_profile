@@ -2,6 +2,7 @@ import { IAddress, IContactEmail, IContactPhone, IImageMedia } from 'modules/com
 import { ISummaryTags } from 'modules/inventory/settings/tags/interfaces';
 import { IRole } from 'modules/security/roles/interfaces';
 import { IUser } from 'modules/security/users/interfaces/IUser';
+import { PROVIDER_TYPE_ENUM } from '../../common/constants';
 
 export interface ISupplier {
   _id?: string;
@@ -19,7 +20,7 @@ export interface ISupplier {
   address: IAddress;
   createdAt?: Date;
   users?: IUser[];
-  type?: string;
+  type?: PROVIDER_TYPE_ENUM;
 
   // keywords: string[]
   tags: {

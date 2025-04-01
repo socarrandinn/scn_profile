@@ -71,6 +71,13 @@ class SupplierService extends EntityApiService<ISupplier> {
       ApiClientService.post(this.getPath(`/${supplierId as string}/products/search`), rest, config),
     ).then();
   };
+
+  searchWarehouses = (params?: any, config?: RequestConfig): any => {
+    const { supplierId, ...rest } = params;
+    return this.handleResponse(
+      ApiClientService.post(this.getPath(`/${supplierId as string}/warehouse/search`), rest, config),
+    ).then();
+  };
 }
 
 export default new SupplierService('/ms-inventory/api/provider/suppliers');

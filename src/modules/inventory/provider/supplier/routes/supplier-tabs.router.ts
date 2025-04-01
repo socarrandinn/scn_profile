@@ -7,10 +7,12 @@ import {
   SupplierHistoryChangePage,
   SupplierUsersPage,
   SupplierInventoryPage,
+  SupplierWarehouses,
 } from '../pages/tabs';
 import { SUPPLIER_PERMISSIONS } from '../constants';
 import { PRODUCT_PERMISSIONS } from 'modules/inventory/product/constants';
 import { STOCK_PERMISSIONS } from 'modules/inventory/product-stock/constants/stock.permissions';
+import { WAREHOUSE_PERMISSIONS } from 'modules/inventory/warehouse/constants';
 
 const supplierRoutes: RouteConfig = {
   general: {
@@ -27,6 +29,11 @@ const supplierRoutes: RouteConfig = {
     path: '/inventory',
     component: SupplierInventoryPage,
     permissions: [STOCK_PERMISSIONS.VIEW],
+  },
+  warehouses: {
+    path: '/warehouses',
+    component: SupplierWarehouses,
+    permissions: [WAREHOUSE_PERMISSIONS.WAREHOUSE_VIEW],
   },
   sale_report: {
     path: '/sale_report',
