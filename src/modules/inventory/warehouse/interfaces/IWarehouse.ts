@@ -1,6 +1,7 @@
 import { IAddress } from 'modules/common/interfaces';
 import { IContactInfo } from 'modules/common/interfaces/IContactInfo';
 import { IDistributionCenters } from 'modules/inventory/distribution-centers/interfaces';
+import { ILogistics } from 'modules/inventory/provider/logistics/interfaces';
 
 export interface IWarehouse {
   _id?: string;
@@ -34,4 +35,13 @@ export interface WarehouseLocation {
   region?: number;
   type?: string;
   acronym?: string;
+}
+
+export interface WarehouseSupplier {
+  warehouse: {
+    address: IAddress;
+    name: string;
+    _id: string;
+    logistic: Partial<ILogistics>;
+  };
 }
