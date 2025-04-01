@@ -1,6 +1,6 @@
 import { StoreRowActions } from 'modules/inventory/warehouse/components/StoreRowActions';
 import { CellAlign, HeadCell } from '@dfl/mui-admin-layout';
-import { IWarehouse } from 'modules/inventory/warehouse/interfaces';
+import { IWarehouse, WarehouseSupplier } from 'modules/inventory/warehouse/interfaces';
 import { addressColumn, createdATColumn } from 'modules/common/constants/common.columns';
 import { WAREHOUSE_PERMISSIONS } from 'modules/inventory/warehouse/constants/warehouse.permissions';
 import { StoreVisiblePicker } from 'modules/inventory/warehouse/components/StoreVisiblePicker';
@@ -9,6 +9,7 @@ import { DistributionCenterWarehouseRowActions } from 'modules/inventory/distrib
 import { DISTRIBUTION_CENTER_PERMISSIONS } from 'modules/inventory/distribution-centers/constants';
 import { AvatarNameCell } from 'modules/common/components/AvatarNameCell';
 import { LOGISTICS_PERMISSIONS } from 'modules/inventory/provider/logistics/constants';
+import { FormattedAddressCell } from 'components/AddressCell';
 
 export const warehouseNameColumn: HeadCell<IWarehouse> = {
   field: 'name',
@@ -17,18 +18,34 @@ export const warehouseNameColumn: HeadCell<IWarehouse> = {
   renderCell: (name: string, data: IWarehouse) => <StoreCell name={name} warehouseId={data._id as string} />,
 };
 
-export const storeLogisticColumn: HeadCell<IWarehouse> = {
-  field: 'logistic.name',
+export const supplierWarehouseNameColumn: HeadCell<WarehouseSupplier> = {
+  field: 'warehouse.name',
+  headerName: 'warehouse:fields.name',
+  disablePadding: false,
+  renderCell: (name: string, data: WarehouseSupplier) => <StoreCell name={name} warehouseId={data?.warehouse?._id as string} />,
+};
+
+export const storeLogisticColumn = (field?: string, warehouse?: boolean): HeadCell<IWarehouse> => ({
+  field: field ?? 'logistic.name',
   headerName: 'warehouse:fields.logistic',
-  renderCell: (name: string, data: IWarehouse) => (
+  renderCell: (name: string, data: any) => (
     <AvatarNameCell
       name={name}
-      link={`/inventory/settings/logistics/${data?.logistic?._id as string}/general`}
+      link={`/inventory/settings/logistics/${warehouse ? data?.warehouse?.logistic?._id : data?.logistic?._id as string}/general`}
       hideImage
       permissions={LOGISTICS_PERMISSIONS.LOGISTICS_VIEW}
     />
   ),
+});
+
+export const supplierAddressColumn: HeadCell<any> = {
+  field: 'warehouse.address',
+  translate: true,
+  headerName: 'common:address',
+  width: 350,
+  renderCell: (name: string, data: any) => <FormattedAddressCell address={data?.warehouse?.address} />,
 };
+
 
 export const storeDescriptionColumn: HeadCell<IWarehouse> = {
   field: 'description',
@@ -42,12 +59,12 @@ export const storeVisibilityColumn: HeadCell<IWarehouse> = {
   component: StoreVisiblePicker,
 };
 
-// export const storeLocationsColumn: HeadCell<IWarehouse> = {
-//   field: 'locations',
-//   align: CellAlign.CENTER,
-//   headerName: 'warehouse:fields.locations',
-//   component: StoreDistributionZone,
-// };
+export const supplierStoreVisibilityColumn: HeadCell<IWarehouse> = {
+  field: 'visible',
+  align: CellAlign.CENTER,
+  headerName: 'warehouse:fields.visibility',
+  renderCell: (value: boolean, data: any) => <StoreVisiblePicker rowId={data?.warehouse?._id as string} value={value} />,
+};
 
 export const storeActionsColumn: HeadCell<IWarehouse> = {
   field: 'actions',
@@ -59,14 +76,33 @@ export const storeActionsColumn: HeadCell<IWarehouse> = {
   permissions: WAREHOUSE_PERMISSIONS.WAREHOUSE_WRITE,
 };
 
+export const supplierStoreActionsColumn: HeadCell<IWarehouse> = {
+  field: 'actions',
+  sortable: false,
+  width: 100,
+  headerName: 'common:actions',
+  disablePadding: true,
+  renderCell: (name: string, data: any) => <StoreRowActions rowId={data?.warehouse?._id as string} />,
+  permissions: WAREHOUSE_PERMISSIONS.WAREHOUSE_WRITE,
+};
+
 // inventory/warehouses/:warehouseId/inventory
 export const warehouseColumns: Array<HeadCell<any>> = [
   warehouseNameColumn,
-  storeLogisticColumn,
+  storeLogisticColumn(),
   addressColumn,
   storeVisibilityColumn,
   createdATColumn,
   storeActionsColumn,
+];
+
+export const supplierWarehouseColumns: Array<HeadCell<any>> = [
+  supplierWarehouseNameColumn,
+  storeLogisticColumn('warehouse.logistic.name', true),
+  supplierAddressColumn,
+  supplierStoreVisibilityColumn,
+  createdATColumn,
+  supplierStoreActionsColumn,
 ];
 
 export const logisticWarehouseColumns: Array<HeadCell<any>> = [
@@ -90,7 +126,7 @@ export const distributionCenterWarehouseActionsColumn: HeadCell<IWarehouse> = {
 
 export const distributionCenterWarehouseColumns: Array<HeadCell<any>> = [
   warehouseNameColumn,
-  storeLogisticColumn,
+  storeLogisticColumn(),
   addressColumn,
   storeVisibilityColumn,
   createdATColumn,

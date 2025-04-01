@@ -9,9 +9,12 @@ import { getVisibleFilter, getProviderLogisticFilter, getSupplierFilter } from '
 const visibleFilter = getVisibleFilter('visible');
 const logisticFilter = getProviderLogisticFilter('logistic._id');
 const supplierFilter = getSupplierFilter('supplier._id');
-// const distributionZoneFilter = getLocationFilterByField('locations.states');
 const provinceFilter = getProvincesFilterByField('address.state');
 const municipalityFilter = getMunicipalityFilterByField('address.city', 'address.state');
+
+const supplierLogisticFilter = getProviderLogisticFilter('warehouse.logistic._id');
+const supplierProvinceFilter = getProvincesFilterByField('warehouse.address.state');
+const supplierMunicipalityFilter = getMunicipalityFilterByField('warehouse.address.city', 'warehouse.address.state');
 
 const CommissionFilter: Filter = {
   filter: 'supplier:fields.commission',
@@ -26,6 +29,15 @@ export const warehouseFilters: Filter[] = [
   logisticFilter,
   provinceFilter,
   municipalityFilter,
+  visibleFilter,
+  createdATFilter,
+];
+
+// warehouses list
+export const supplierWarehouseFilters: Filter[] = [
+  supplierLogisticFilter,
+  supplierProvinceFilter,
+  supplierMunicipalityFilter,
   visibleFilter,
   createdATFilter,
 ];

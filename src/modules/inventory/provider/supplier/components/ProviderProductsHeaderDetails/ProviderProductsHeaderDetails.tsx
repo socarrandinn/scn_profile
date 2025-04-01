@@ -1,8 +1,6 @@
 import { memo, useMemo } from 'react';
 import { HeaderSummaryTabs } from 'modules/common/components/HeaderSummaryTabs';
 import { useProviderProductsDetail } from 'modules/inventory/provider/supplier/context/ProviderProductDetail';
-import { Box } from '@mui/material';
-import { PermissionCheck, RouterTab } from '@dfl/react-security';
 import { supplierTabs } from 'modules/inventory/provider/supplier/constants/tabs.supplier.details';
 import HeaderSummaryTabsSkeleton from 'modules/common/components/HeaderSummaryTabs/HeaderSummaryTabsSkeleton';
 import {
@@ -13,9 +11,9 @@ import {
 import { LOGISTIC, SUPPLIER } from 'modules/inventory/constants/entities.style';
 import { LogisticProvider } from 'modules/inventory/provider/common/constants';
 import IconBox from 'modules/inventory/provider/common/components/ProviderAvatarCell/IconBox';
-import { SUPPLIER_PERMISSIONS } from '../../constants';
-import { LOGISTICS_PERMISSIONS } from 'modules/inventory/provider/logistics/constants';
 import { useUpdateProviderAvatar } from 'modules/inventory/provider/common/hooks/useUpdateAvatar';
+import ProviderProductsHeaderActions from './ProviderProductsHeaderActions';
+import { RouterTab } from '@dfl/react-security';
 
 const ProviderManufactureHeaderDetails = () => {
   const { isLoading, error, providerProducts, providerProductsId } = useProviderProductsDetail();
@@ -34,7 +32,7 @@ const ProviderManufactureHeaderDetails = () => {
       title={providerProducts?.name || ''}
       subtitle={providerProducts?.contacts?.mainEmail || ''}
       logo={providerProducts?.avatar}
-      actions={<Actions />}
+      actions={<ProviderProductsHeaderActions />}
       entityStyle={SUPPLIER}
       onImageSubmit={onSubmit}
       isLoadingImage={isImageLoading}
@@ -53,24 +51,3 @@ const ProviderManufactureHeaderDetails = () => {
 };
 
 export default memo(ProviderManufactureHeaderDetails);
-
-export const Actions = () => {
-  const { providerProducts, isLoading } = useProviderProductsDetail();
-
-  const isLogistic = useMemo(() => {
-    if (isLoading) return false;
-    return providerProducts?.type === LogisticProvider;
-  }, [isLoading, providerProducts?.type]);
-
-  return (
-    <Box gap={1} display={'flex'}>
-      <PermissionCheck permissions={[LOGISTICS_PERMISSIONS.LOGISTICS_VIEW]}>
-        {isLogistic && <SupplierViewAsLogisticButton />}
-      </PermissionCheck>
-      <PermissionCheck permissions={[SUPPLIER_PERMISSIONS.SUPPLIER_WRITE]}>
-        <SupplierEditButton />
-        <SupplierDeleteButton />
-      </PermissionCheck>
-    </Box>
-  );
-};
