@@ -8,6 +8,8 @@ import { GeneralActions } from 'layouts/portals';
 import { PermissionCheck } from '@dfl/react-security';
 import { TableHeaderOptions } from 'components/libs/table';
 import TableToolbarActions from 'components/libs/table/toolbar/TableToolbarActions';
+import { getDefaultFilterKeys } from 'utils/custom-filters';
+import { disallowedWordFilters } from '../../constants';
 
 const useToolbarSetting = () => {
   const { isOpen, onClose, onOpen } = useToggle(false);
@@ -18,7 +20,8 @@ const useToolbarSetting = () => {
         export: false,
       },
       filter: {
-        activeMenu: false,
+        activeMenu: true,
+        defaultFilterKeys: getDefaultFilterKeys(disallowedWordFilters),
       },
     };
   }, []);

@@ -7,7 +7,7 @@ import { rolesTabs } from 'modules/security/roles/constants/tabs.details';
 
 const RoleTabList = () => {
   return (
-    <PageTabPaperLayout prefix={'/security/roles'} tabs={rolesTabs}>
+    <PageTabPaperLayout prefix={'/security/roles'} tabs={rolesTabs} paddingTop={1}>
       <Suspense fallback={<PageLoader size={'screen'} />}>
         <RouteLoader routes={tabActionRoutes} notfoundRedirect={'/security/roles/system'} />
       </Suspense>
