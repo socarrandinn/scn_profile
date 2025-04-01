@@ -56,7 +56,7 @@ const useUsersInviteForm = (
         queryKey && queryClient.invalidateQueries([queryKey]);
         toast.success(t('invitationSuccess'));
         onClose?.();
-        navigate(redirect);
+        navigate(`${redirect}/invitation`);
         resetForm();
       },
       onError: (error: any) => {
