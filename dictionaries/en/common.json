@@ -5,6 +5,8 @@
   "orderNow": "Order now",
   "porfolio": "Portfolio",
   "send": "Send",
+  "contactMe": "Contact me",
+  "downloadCV": "Download CV",
   "successOperation": "Operation completed",
   "sendEmailSuccess": "Email sent successfully",
   "languages": {
@@ -14,5 +16,13 @@
   "mode": {
     "dark": "Dark theme",
     "light": "Light theme"
+  },
+  "menu": {
+    "about": "About",
+    "resumen": "Summary",
+    "works": "Works",
+    "contact": "Contact",
+    "blog": "Blog",
+    "products": "Products"
   }
 }

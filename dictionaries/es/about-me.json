@@ -2,7 +2,7 @@
   "title": "Acerca de mi",
   "aboutMe": {
     "hello": "Hola, soy Silvio Orlando Carrandi Noa",
-    "description": "¡Hola! 👋 Soy {{name}}, Desarrollador Fullstack con +{{years}} años de experiencia y formación en Ingeniería Informática (2014). Especializado en frontend con React, TypeScript y Next.js, he desarrollado back offices eficientes y e-commerces escalables, combinando componentes reutilizables, optimización de rendimiento y soporte técnico. Con visión fullstack y enfoque en calidad, busco crear soluciones técnicas robustas que impacten en el negocio, siempre aprendiendo y compartiendo conocimiento.",
+    "description": "¡Hola! 👋 Soy {{name}}, Desarrollador Fullstack con +{{years}} años de experiencia y formación en Ingeniería en Ciencias Informáticas (2014).<breakWord/>Especializado en frontend con <primary>React.js, TypeScript y Next.js</primary>, he desarrollado <primary>backoffices</primary> eficientes y <primary>e-commerces</primary> escalables, aplicando componentización, optimización de rendimiento y buenas prácticas de desarrollo.<breakWord/>Con una visión fullstack y un enfoque en calidad y escalabilidad, creo soluciones técnicas sólidas que generan impacto en el negocio. Me motiva el aprendizaje continuo y compartir conocimiento para potenciar el crecimiento tecnológico.",
     "summary": {
       "age": "Edad",
       "freelance": "Freelance",
@@ -108,7 +108,7 @@
           "Tokens ERC-20",
           "Marketplaces de NFTs",
           "Integración de wallets",
-          "Seguridad y auditoría", 
+          "Seguridad y auditoría",
           "Soporte premium"
         ],
         "icon": "🏆"

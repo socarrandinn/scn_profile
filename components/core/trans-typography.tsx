@@ -1,15 +1,17 @@
-'use client'
-import { memo } from 'react';
-import { Trans } from 'react-i18next';
+"use client";
+import { memo } from "react";
+import { Trans } from "react-i18next";
 
 const defaultComponents = {
-  primary: <span className='text-primary' />,
-  secondary: <span className='text-secondary' />,
-  white: <span className='text-white' />,
-  error: <span className='text-red-600' />,
-  bold: <span className='font-bold' />,
-  semibold: <span className='font-semibold' />,
+  primary: <span className="text-primary" />,
+  secondary: <span className="text-secondary" />,
+  white: <span className="text-white" />,
+  error: <span className="text-red-600" />,
+  bold: <span className="font-bold" />,
+  semibold: <span className="font-semibold" />,
   br: <br />,
+  breakWord: <p className="!pt-2 md:pt-4" />,
+  mbr: <p className="!ml-5" />,
 };
 
 export type TransTypographyProps = {
@@ -23,11 +25,15 @@ const TransTypography = ({
   message,
   values = {},
   components = {},
-  className
+  className,
 }: TransTypographyProps) => {
   return (
     <span className={className}>
-      <Trans i18nKey={message} components={{ ...defaultComponents, ...components }} values={values} />
+      <Trans
+        i18nKey={message}
+        components={{ ...defaultComponents, ...components }}
+        values={values}
+      />
     </span>
   );
 };

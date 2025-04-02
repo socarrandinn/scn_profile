@@ -16,12 +16,12 @@
 
 
   .profile-avatar {
-    @apply w-24 h-24 lg:h-32 lg:w-32 relative
+    @apply w-20 h-20 lg:h-28 lg:w-28 relative
   }
 
   .profile-avatar::before {
     content: '';
-    @apply w-24 h-24 lg:h-32 lg:w-32 bg-gradient-to-b from-primary/60 to-primary/30 absolute top-1 -left-2 rounded-full
+    @apply w-20 h-20 lg:h-28 lg:w-28 bg-gradient-to-b from-primary/60 to-primary/30 absolute top-1 -left-2 rounded-full
   }
 
 
@@ -61,6 +61,14 @@
     @apply absolute w-10 h-1 -bottom-1 left-0 bg-secondary content-[''];
   }
 
+
+  .summary-bg {
+    @apply relative
+  }
+
+  .summary-bg::before {
+    @apply absolute -top-2 -left-2 lg:top-3 lg:-left-3 -z-20 bg-primary/15 w-full h-full content-[''] rounded-md
+  }
 
 
 }

@@ -7,5 +7,3 @@ const config = {
 };
 
 export default config;
-
-console.log(config);

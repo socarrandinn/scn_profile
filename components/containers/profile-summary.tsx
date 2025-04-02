@@ -8,21 +8,27 @@ import { profileRoles } from "@/constants/profile";
 import ProfileActions from "./profile-actions";
 import { User } from "lucide-react";
 import { INFO } from "@/constants/info";
+import { cn } from "@/lib/utils";
 
 const ProfileSummary = async () => {
   return (
-    <Card className="relative lg:min-w-92 z-20 !py-0 !m-0 lg:overflow-hidden ">
+    <Card
+      className={cn(
+        "relative border-0 lg:border-1 border-primary/50 lg:min-w-80 z-20 !py-0 !m-0  ",
+        "summary-bg",
+      )}
+    >
       <Image
         src={"/images/profile/bg-profile.webp"}
-        className=" bg-contain hidden lg:block"
+        className="bg-contain rounded-md"
         fill
         alt={"profile"}
       />
 
-      <Card className="mt-auto rounded-t-4xl border border-t-primary/50 flex flex-col items-center z-10 max-h-1/2 h-full !lg:p-0 lg:ovalo bg-card/10 backdrop-blur-sm">
+      <Card className="mt-40 lg:mt-auto lg:rounded-t-4xl border dark:lg:border-t-primary/50 flex flex-col items-center z-10 h-auto !lg:p-0 lg:ovalo backdrop-blur-sm  bg-card/10 text-white dark:text-color !pb-0">
         {/* image profile */}
         <div className="profile-avatar lg:-mt-24 mt-4">
-          <Avatar className="w-24 h-24 lg:w-32 lg:h-32 border-2 border-card scale">
+          <Avatar className="w-20 h-20 lg:w-28 lg:h-28 border-2 border-card scale">
             <AvatarImage src="/images/profile/avatar.webp" />
             <AvatarFallback className="bg-card">
               <User />
@@ -31,7 +37,7 @@ const ProfileSummary = async () => {
         </div>
 
         {/* name section */}
-        <h1 className="font-bold text-color text-xl lg:text-2xl leading-1 mt-5 lg:mt-10">
+        <h1 className="font-bold text-white dark:text-color text-xl lg:text-2xl leading-1 mt-5 lg:mt-10 li  ">
           {INFO.name}
         </h1>
         <TypingTitle texts={profileRoles} className="mb-4" />

@@ -1,8 +1,8 @@
 {
   "title": "About Me",
   "aboutMe": {
-    "hello": "Hello, I'm Silvio Orlando Carrandi Noa",
-    "description": "Hi! 👋 I'm {{name}}, a Fullstack Developer with {{years}}+ years of experience and a degree in Computer Engineering (2014). Specializing in frontend with React, TypeScript, and Next.js, I've developed efficient back offices and scalable e-commerce solutions, combining reusable components, performance optimization, and technical support. With fullstack vision and a quality-focused approach, I aim to create robust technical solutions that impact business, always learning and sharing knowledge.",
+    "hello": "Hello, I am Silvio Orlando Carrandi Noa",
+    "description": "Hello! 👋 I'm {{name}}, a Fullstack Developer with +{{years}} years of experience and a degree in Computer Science Engineering (2014).<breakWord/>Specialized in frontend with <primary>React.js, TypeScript, and Next.js</primary>, I have developed <primary>efficient backoffices</primary> and <primary>scalable e-commerce</primary> solutions, applying componentization, performance optimization, and best development practices.<breakWord/>With a fullstack vision and a focus on quality and scalability, I create robust technical solutions that drive business impact. I'm passionate about continuous learning and sharing knowledge to foster technological growth.",
     "summary": {
       "age": "Age",
       "freelance": "Freelance",
@@ -15,7 +15,7 @@
     "services": {
       "service_1": {
         "title": "Front-End Development",
-        "description": "Modern, responsive web applications with React.js, Next.js, and Astro, optimized for excellent user experience across all devices.",
+        "description": "Modern and responsive web applications with React.js, Next.js, and Astro, optimized for an excellent user experience on any device.",
         "icon": "🖥️"
       },
       "service_2": {
@@ -29,8 +29,8 @@
         "icon": "🚀"
       },
       "service_4": {
-        "title": "Static Sites with Astro",
-        "description": "Fast, SEO-optimized websites with Astro, ideal for lightweight content and high performance.",
+        "title": "Static Websites with Astro",
+        "description": "Fast and SEO-optimized websites with Astro, ideal for lightweight content and high performance.",
         "icon": "🌐"
       },
       "service_5": {
@@ -40,12 +40,12 @@
       },
       "service_6": {
         "title": "Performance Optimization",
-        "description": "Improvements in speed, accessibility, and SEO to deliver a smooth and efficient user experience.",
+        "description": "Improvements in speed, accessibility, and SEO to provide a smooth and efficient user experience.",
         "icon": "⚡"
       },
       "service_7": {
-        "title": "Web3 & Smart Contract Development",
-        "description": "Building decentralized applications (dApps) with smart contract integration using wagmi and ethers.js, ensuring secure blockchain connectivity. Development and deployment of custom ERC-20 tokens for DeFi and Web3 projects. Creation of NFT marketplaces enabling purchase, sale, and exchange of digital assets with wallet integration like MetaMask.",
+        "title": "Web3 Development & Smart Contracts",
+        "description": "Development of decentralized applications (dApps) integrating smart contracts with wagmi and ethers.js for secure blockchain interaction. Deployment of custom ERC-20 tokens for DeFi and Web3 projects. Creation of NFT marketplaces, enabling buying, selling, and trading of digital assets with wallet integration like MetaMask.",
         "icon": "⛓️"
       }
     }
@@ -56,7 +56,7 @@
       "basic": {
         "title": "Basic Plan",
         "price": "$25",
-        "description": "For small, fast websites.",
+        "description": "For small and fast websites.",
         "services": [
           "Static sites with Astro",
           "Performance optimization",
@@ -100,11 +100,11 @@
       "enterprise": {
         "title": "Enterprise Plan",
         "price": "$50",
-        "description": "For Web3, blockchain, and large-scale projects.",
+        "description": "For projects with Web3, blockchain, and large-scale needs.",
         "services": [
           "Full Stack with Next.js and NestJS",
-          "High-traffic scalability",
-          "Web3 & Smart Contracts",
+          "Scalability for high traffic",
+          "Web3 and Smart Contracts",
           "ERC-20 Tokens",
           "NFT Marketplaces",
           "Wallet integration",

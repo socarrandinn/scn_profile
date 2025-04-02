@@ -8,24 +8,20 @@ import { cn } from "@/lib/utils";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useCallback } from "react";
+import { useTranslation } from "react-i18next";
 
-// Configuración de enlaces
 export const NavLinks = () => {
+  const { t } = useTranslation("common");
   const pathName = usePathname();
   const isActive = useCallback(
     (path: string) => {
-      // Normaliza el path de entrada (agrega / si no lo tiene)
       const normalizedPath = path.startsWith("/") ? path : `/${path}`;
-
-      // Elimina el locale del path actual
       const pathWithoutLocale = pathName.replace(/^\/(es|en)/, "") || "/";
-
       return normalizedPath === pathWithoutLocale;
     },
     [pathName],
   );
 
-  console.log(isActive, pathName);
   return menu_links.map((link) => (
     <NavigationMenuItem key={link.name} className="w-full relative">
       <Link href={link.href} legacyBehavior passHref>
@@ -36,7 +32,7 @@ export const NavLinks = () => {
           )}
         >
           {link.icon}
-          <span className="text-sm">{link.name}</span>
+          <span className="text-xs text-center">{t(link.name)}</span>
         </NavigationMenuLink>
       </Link>
     </NavigationMenuItem>

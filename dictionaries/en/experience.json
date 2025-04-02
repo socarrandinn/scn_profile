@@ -3,11 +3,21 @@
     {
       "dateRange": {
         "from": "2022-06-15",
-        "to": "Present"
+        "to": "now"
       },
       "jobTitle": "Frontend Developer & Technical Support",
       "companyName": "Dofleini Software",
-      "description": "Develop applications using ReactJS, TypeScript, and Next.js, optimizing backoffice and e-commerce systems. Additionally, I provide technical support by troubleshooting issues and ensuring proper system functionality. I combine technical skills with attention to detail to enhance user experience and operational efficiency.",
+      "description": "I develop applications using ReactJS, TypeScript, and Next.js, optimizing backoffice and e-commerce platforms. Additionally, I provide technical support, resolving issues and ensuring systems run smoothly. I combine technical skills with attention to detail to enhance user experience and operational efficiency.",
+      "isButtonVisible": false
+    },
+    {
+      "dateRange": {
+        "from": "2014-10-01",
+        "to": "2015-10-01"
+      },
+      "jobTitle": "FullStack Symfony Developer",
+      "companyName": "Wholesale Business Group for Goods and Other Consumer Uses",
+      "description": "I developed a business management system using Symfony, PHP, and PostgreSQL, focusing on basic unit accounting. I followed the MVC pattern and Scrum methodology, implementing inventory, customer, supplier, and billing modules.",
       "isButtonVisible": false
     }
   ]

@@ -17,12 +17,15 @@ const AboutMe = () => {
       <CardContent>
         <section className="flex flex-col w-full gap-2">
           <h1 className="font-bold">{t("aboutMe.hello")}</h1>
-          <p className="font-normal text-justify leading-7">
-            {t("aboutMe.description", {
+          <TransTypography
+            className="text-sm font-normal text-justify leading-7"
+            message="about-me:aboutMe.description"
+            values={{
               name: INFO.name,
               years: INFO.work.year,
-            })}
-          </p>
+            }}
+          />
+
           <div className="grid grid-cols-1 md:grid-cols-2 gap-1 mt-2">
             <AboutMeItem
               title="about-me:aboutMe.summary.age"

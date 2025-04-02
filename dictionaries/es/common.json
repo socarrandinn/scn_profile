@@ -5,6 +5,8 @@
   "orderNow": "Ordena ahora",
   "porfolio": "Portafolio",
   "send": "Enviar",
+  "contactMe": "Contácteme",
+  "downloadCV": "Descargar CV",
   "successOperation": "Operación completada",
   "sendEmailSuccess": "Correo enviado satisfactoriamente",
   "languages": {
@@ -14,5 +16,13 @@
   "mode": {
     "dark": "Tema oscuro",
     "light": "Tema claro"
+  },
+  "menu": {
+    "about": "Acerca de",
+    "resumen": "Resumen",
+    "works": "Trabajos",
+    "contact": "Contacto",
+    "blog": " Blog",
+    "products": "Productos"
   }
 }

@@ -17,12 +17,12 @@ const ContactMePage = () => {
   return (
     <PageContainer title={"contact:section.map"}>
       <CardContent>
-        <div className="h-[20rem] w-full">
-          <LeafletMap posix={[23.1136, -82.3666]} zoom={12} />
+        <div className="h-[24rem] md:h-[16rem] w-full">
+          <LeafletMap posix={[23.1136, -82.3666]} zoom={18} />
         </div>
       </CardContent>
 
-      <section className="mt-4 md:mt-8">
+      <section className="mt-2 md:mt-8">
         <PageHeader
           variant="compuse"
           title={"contact:section.form"}

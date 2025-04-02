@@ -56,7 +56,7 @@ const ContactForm = () => {
             size={"lg"}
             className="uppercase"
           >
-            {t("common:send")}
+            {t("common:contactMe")}
             <Send />
           </ButtonLoading>
         </div>
