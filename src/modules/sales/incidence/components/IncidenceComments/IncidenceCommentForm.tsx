@@ -15,8 +15,8 @@ const IncidenceCommentForm = ({ incidenceId, children }: IncidenceCommentFormPro
   const { t } = useTranslation('incidence');
   const theme = useTheme();
   const { control, onSubmit, isLoading, error, watch, setValue } = useIncidenceCommentCreateForm(incidenceId);
-  const message = watch?.('message');
-  const file = watch?.('file');
+  const message = watch?.('comment');
+  const file = watch?.('attachments');
 
   const isDisabled = useMemo(() => {
     return Boolean(message === '' && file?.length === 0);
@@ -29,7 +29,7 @@ const IncidenceCommentForm = ({ incidenceId, children }: IncidenceCommentFormPro
         <Grid container spacing={{ xs: 1, md: 1 }} columns={{ xs: 4, sm: 8, md: 12 }}>
           <Grid item xs={12}>
             <FormTextField
-              name='message'
+              name='comment'
               label={t('addComments')}
               minRows={1}
               variant='outlined'
@@ -72,7 +72,7 @@ const IncidenceCommentForm = ({ incidenceId, children }: IncidenceCommentFormPro
             <FileDropZone
               sxTitle={{ flexDirection: 'row', alignItems: 'center' }}
               required
-              name='file'
+              name='attachments'
               dropTitle={t('stock:warehouse.import.fields.uploadFile')}
               type={TYPE_DROP.FILE}
               control={control}

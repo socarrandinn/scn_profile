@@ -1,5 +1,5 @@
 import { ApiClientService, EntityApiService } from '@dfl/react-security';
-import { IIncidence } from 'modules/sales/incidence/interfaces';
+import { IIncidence, IIncidenceComment } from 'modules/sales/incidence/interfaces';
 import { INCIDENCE_STATUS_ENUM } from '../constants/incidence-status';
 
 class IncidenceService extends EntityApiService<IIncidence> {
@@ -15,6 +15,14 @@ class IncidenceService extends EntityApiService<IIncidence> {
         responsible: assignedId,
       }),
     );
+  };
+
+  searchComments = (incidenceId: string, params?: any) => {
+    return this.handleResponse(ApiClientService.post(this.getPath(`/${incidenceId}/comments/search`), params));
+  };
+
+  addComments = (incidenceId: string, params: any) => {
+    return this.handleResponse(ApiClientService.post(this.getPath(`/${incidenceId}/comments`), params));
   };
 }
 

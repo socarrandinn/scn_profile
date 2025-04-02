@@ -14,7 +14,7 @@ const IncidenceCommentsList = ({ comments, limit = Infinity }: IncidenceComments
 
   return (
     <FlexBox flexDirection='column' gap={3} my={2}>
-      {map(limitedComments, (comment) => (
+      {comments?.map((comment) => (
         <IncidenceCommentItem key={comment?._id} data={comment} />
       ))}
     </FlexBox>

@@ -32,12 +32,11 @@ export const incidenceSchema = Yup.object().shape({
 });
 
 export const incidenceCommentSchema = Yup.object().shape({
-  message: Yup.string().required('required'),
-  file: Yup.array().when('cause', {
+  comment: Yup.string().required('required'),
+  attachments: Yup.array().when('cause', {
     is: (cause: ICausesIncidence) => cause?.requiresEvidence,
     then: (schema) =>
       schema.min(1, 'required').transform((values) => values?.map((file: IFile) => mapperFile(file)) || []),
     otherwise: (schema) => schema.transform((values) => values?.map((file: IFile) => mapperFile(file)) || []),
   }),
-  orderReference: Yup.string().transform((order) => order?._id || order),
 });

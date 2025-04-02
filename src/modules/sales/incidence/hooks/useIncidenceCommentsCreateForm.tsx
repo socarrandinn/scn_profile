@@ -2,10 +2,9 @@ import { useForm } from 'react-hook-form';
 import toast from 'react-hot-toast';
 import { useTranslation } from 'react-i18next';
 import { useEffect } from 'react';
-import { useSearchParams } from 'react-router-dom';
 import { assign } from 'lodash';
 import { useMutation, useQueryClient } from '@tanstack/react-query';
-import { IncidenceCommentsService } from '../services';
+import { IncidenceService } from '../services';
 import { INCIDENCE_COMMENTS_LIST } from '../constants';
 import { IIncidenceComment } from '../interfaces';
 import { yupResolver } from '@hookform/resolvers/yup';
@@ -13,8 +12,8 @@ import { incidenceCommentSchema } from '../schemas/incidence.schema';
 
 const initValues: IIncidenceComment = {
   incidence: '',
-  message: '',
-  file: [],
+  comment: '',
+  attachments: [],
 };
 
 const useIncidenceCommentCreateForm = (incidenceId: string, defaultValues = initValues) => {
@@ -27,16 +26,16 @@ const useIncidenceCommentCreateForm = (incidenceId: string, defaultValues = init
   });
 
   useEffect(() => {
-    if (defaultValues) reset({ message: '', file: [] });
+    if (defaultValues) reset({ comment: '', attachments: [] });
   }, [defaultValues, reset]);
 
   const { mutate, error, isLoading, isSuccess, data } = useMutation(
-    (value: IIncidenceComment) => IncidenceCommentsService.save(value),
+    (value: IIncidenceComment) => IncidenceService.addComments(incidenceId, value),
     {
       onSuccess: (data, values) => {
         queryClient.invalidateQueries([INCIDENCE_COMMENTS_LIST]);
         toast.success(t('addCommentSuccess'));
-        reset({ incidence: values?.incidence || incidenceId, message: '', file: [] });
+        reset({ incidence: values?.incidence || incidenceId, comment: '', attachments: [] });
       },
       onError: () => {
         toast.error(t('addCommentError'));
@@ -54,7 +53,7 @@ const useIncidenceCommentCreateForm = (incidenceId: string, defaultValues = init
     setValue,
     reset,
     onSubmit: handleSubmit((values) => {
-      const finalValue = assign(values, { image: values?.file?.map((a: any) => a.image) || [] });
+      const finalValue = assign(values, { image: values?.attachments?.map((a: any) => a.image) || [] });
       //@ts-ignore
       mutate(finalValue);
     }),
