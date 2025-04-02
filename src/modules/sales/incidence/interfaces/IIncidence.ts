@@ -21,8 +21,8 @@ export interface IIncidence {
 export interface IIncidenceComment {
   _id?: string;
   incidence?: string;
-  message?: string;
-  file?: IFile[];
+  comment?: string;
+  attachments?: IFile[];
   createdBy?: Partial<IUser>;
   createdAt?: string;
 }

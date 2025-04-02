@@ -18,15 +18,15 @@ const IncidenceCommentItem = ({ data }: IncidenceCommentItemProps) => {
         <FlexBox alignItems={'center'} gap={1} sx={{ mb: '5px' }}>
           <Typography variant='h4' fontWeight={600}>{data?.createdBy?.fullName}</Typography>
           <DateValue value={data?.createdAt} format='h:mm aa' />
-          {data?.file?.length !== 0 && (
-            <a href={data?.file?.[0]?.url} download className='text-inherit'>
+          {data?.attachments?.length !== 0 && (
+            <a href={data?.attachments?.[0]?.url} download className='text-inherit'>
               <CloudDownloadIcon className='mr-2 animate-bounce' />
             </a>
           )}
         </FlexBox>
         <Box sx={{ background: '#F2F4F8', borderRadius: '5px' }}>
           <Typography variant='body2' color='#2B3445' sx={{ p: '10px' }}>
-            {data?.message}
+            {data?.comment}
           </Typography>
         </Box>
       </div>
