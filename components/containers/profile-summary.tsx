@@ -16,11 +16,10 @@ type Props = {
 const ProfileSummary = async ({ t }: Props) => {
   const roles = t("common:roles", { returnObjects: true }) as string[];
 
-  console.log(roles);
   return (
     <Card
       className={cn(
-        "relative border-0 lg:border-1 border-primary/50 lg:min-w-80 z-20 !py-0 !m-0  ",
+        "relative border-0 lg:border-1 border-primary/50 lg:min-w-[22rem] z-20 !py-0 !m-0  ",
         "summary-bg",
       )}
     >
