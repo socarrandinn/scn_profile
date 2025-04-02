@@ -13,14 +13,14 @@ type IncidenceCommentItemProps = {
 const IncidenceCommentItem = ({ data }: IncidenceCommentItemProps) => {
   return (
     <FlexBox gap={'9px'}>
-      <AvatarMedia avatar={data?.createdBy?.avatar} sx={{ height: '30px', width: '30px' }} />
+      <AvatarMedia avatar={data?.createdBy?.avatar} sx={{ height: '30px', width: '30px', mt: 0.5 }} />
       <div className='w-full'>
         <FlexBox alignItems={'center'} gap={1} sx={{ mb: '5px' }}>
           <Typography variant='h4' fontWeight={600}>{data?.createdBy?.fullName}</Typography>
           <DateValue value={data?.createdAt} format='h:mm aa' />
           {data?.attachments?.length !== 0 && (
             <a href={data?.attachments?.[0]?.url} download className='text-inherit'>
-              <CloudDownloadIcon className='mr-2 animate-bounce' />
+              <CloudDownloadIcon className='mr-3 animate-bounce' />
             </a>
           )}
         </FlexBox>
