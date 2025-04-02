@@ -5,7 +5,7 @@ import LanguageChanger from "../core/language-changer/language-changer";
 
 const NavarMobile = async ({ locale }: { locale: string }) => {
   return (
-    <div className="flex lg:hidden justify-between items-center">
+    <div className="flex lg:hidden justify-between items-center ">
       <h1> </h1>
       <div className="flex flex-row gap-1">
         <LanguageChanger locale={locale} />

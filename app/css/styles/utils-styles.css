@@ -16,12 +16,12 @@
 
 
   .profile-avatar {
-    @apply w-20 h-20 lg:h-28 lg:w-28 relative
+    @apply w-24 h-24 lg:h-28 lg:w-28 relative
   }
 
   .profile-avatar::before {
     content: '';
-    @apply w-20 h-20 lg:h-28 lg:w-28 bg-gradient-to-b from-primary/60 to-primary/30 absolute top-1 -left-2 rounded-full
+    @apply w-24 h-24 lg:h-28 lg:w-28 bg-gradient-to-b from-primary/60 to-primary/30 absolute top-1 -left-2 rounded-full
   }
 
 

@@ -18,7 +18,7 @@ const AboutMe = () => {
         <section className="flex flex-col w-full gap-2">
           <h1 className="font-bold">{t("aboutMe.hello")}</h1>
           <TransTypography
-            className="text-sm font-normal text-justify leading-7"
+            className="text-sm font-normal lg:text-justify leading-7"
             message="about-me:aboutMe.description"
             values={{
               name: INFO.name,
