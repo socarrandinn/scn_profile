@@ -9,6 +9,8 @@
   "event": {
     "title": "Evento",
     "UPDATE_ENABLED": "Habilitado",
+    "ADD_COMMENT": "Comentario Agregado",
+    "UPDATE_RESPONSIBLE": "Responsable Actualizado",
     "UPDATE_SETTINGS": "Actualizado/a",
     "CREATE": "Creado",
     "CREATE_ROLE_PROVIDER": "Creado",
