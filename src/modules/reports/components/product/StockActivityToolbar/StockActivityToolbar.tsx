@@ -1,6 +1,5 @@
 import { memo, useMemo } from 'react';
 import { Box } from '@mui/material';
-
 import { TableHeaderOptions } from 'components/libs/table';
 import TableToolbarActions from 'components/libs/table/toolbar/TableToolbarActions';
 import { TableToolbar } from '@dfl/mui-admin-layout';
@@ -16,7 +15,7 @@ const useToolbarSetting = () => {
         disabled: true,
       },
       filter: {
-        activeMenu: false,
+        activeMenu: true,
       },
     };
   }, []);

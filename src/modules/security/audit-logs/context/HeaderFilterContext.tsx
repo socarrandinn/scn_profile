@@ -66,7 +66,7 @@ const useToolbarSetting = () => {
         create: false,
       },
       filter: {
-        activeMenu: false,
+        activeMenu: true,
       },
     };
   }, [onOpen]);

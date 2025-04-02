@@ -50,31 +50,12 @@ export const getMunicipalityFilterByField = (field: string = MUNICIPALITY_FIELD,
   filter: 'common:municipalities',
   translate: true,
   key: 'mun',
-  Component: MunicipalityFilter,
-  transform: (value: any) => {
-    if (Array.isArray(value)) {
-      return new OperatorFilter({
-        type: 'OR',
-        filters: value?.map(
-          (e) =>
-            new OperatorFilter({
-              type: 'AND',
-              filters: [
-                new TermFilter({ field, value: e.slice(-2) }),
-                new TermFilter({ field: stateField, value: e.slice(2, -2) }),
-              ],
-            }),
-        ),
-      });
-    }
-    return new OperatorFilter({
-      type: 'AND',
-      filters: [
-        new TermFilter({ field, value: value.slice(-2) }),
-        new TermFilter({ field: stateField, value: value.slice(2, -2) }),
-      ],
-    });
-  },
+  options: provinces?.flatMap((pv) =>
+    pv?.city?.map((city) => ({
+      value: String(city?.code),
+      label: city?.name,
+    })),
+  ),
 });
 
 export const provincesFilter: Filter = getProvincesFilterByField();

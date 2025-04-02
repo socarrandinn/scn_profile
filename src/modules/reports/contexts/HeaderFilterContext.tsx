@@ -94,7 +94,7 @@ const useToolbarSetting = () => {
         disabled: true,
       },
       filter: {
-        activeMenu: false,
+        activeMenu: true,
       },
     };
   }, [onOpen]);

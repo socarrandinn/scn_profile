@@ -1,113 +1,5 @@
 export const provinces = [
   {
-    code: 57,
-    name: 'Camaguey',
-    city: [
-      {
-        code: 1103,
-        name: 'Sibanicú',
-      },
-      {
-        code: 1102,
-        name: 'Sierra de Cubitas',
-      },
-      {
-        code: 1109,
-        name: 'Guáimaro',
-      },
-      {
-        code: 1108,
-        name: 'Carlos Manuel de Cespedes',
-      },
-      {
-        code: 1105,
-        name: 'Vertientes',
-      },
-      {
-        code: 1104,
-        name: 'Florida',
-      },
-      {
-        code: 1106,
-        name: 'Minas',
-      },
-      {
-        code: 1107,
-        name: 'Jimaguayú',
-      },
-      {
-        code: 1170,
-        name: 'Santa Cruz del Sur',
-      },
-      {
-        code: 1038,
-        name: 'Nuevitas',
-      },
-      {
-        code: 1171,
-        name: 'Esmeralda',
-      },
-      {
-        code: 1145,
-        name: 'Camaguey',
-      },
-      {
-        code: 1110,
-        name: 'Najasa',
-      },
-    ],
-  },
-  {
-    code: 59,
-    name: 'Mayabeque',
-    city: [
-      {
-        code: 1150,
-        name: 'Santa Cruz del Norte',
-      },
-      {
-        code: 1149,
-        name: 'Jaruco',
-      },
-      {
-        code: 1130,
-        name: 'Bejucal',
-      },
-      {
-        code: 1154,
-        name: 'Nueva Paz',
-      },
-      {
-        code: 1151,
-        name: 'San Nicolás',
-      },
-      {
-        code: 1131,
-        name: 'Quivicán',
-      },
-      {
-        code: 1153,
-        name: 'Güines',
-      },
-      {
-        code: 1152,
-        name: 'Melena del Sur',
-      },
-      {
-        code: 1183,
-        name: 'San José de las Lajas',
-      },
-      {
-        code: 1178,
-        name: 'Madruga',
-      },
-      {
-        code: 1181,
-        name: 'Batabanó',
-      },
-    ],
-  },
-  {
     code: 39,
     name: 'La Habana',
     city: [
@@ -170,6 +62,114 @@ export const provinces = [
       {
         code: 1035,
         name: 'Guanabacoa',
+      },
+    ],
+  },
+  {
+    code: 59,
+    name: 'Mayabeque',
+    city: [
+      {
+        code: 1150,
+        name: 'Santa Cruz del Norte',
+      },
+      {
+        code: 1149,
+        name: 'Jaruco',
+      },
+      {
+        code: 1130,
+        name: 'Bejucal',
+      },
+      {
+        code: 1154,
+        name: 'Nueva Paz',
+      },
+      {
+        code: 1151,
+        name: 'San Nicolás',
+      },
+      {
+        code: 1131,
+        name: 'Quivicán',
+      },
+      {
+        code: 1153,
+        name: 'Güines',
+      },
+      {
+        code: 1152,
+        name: 'Melena del Sur',
+      },
+      {
+        code: 1183,
+        name: 'San José de las Lajas',
+      },
+      {
+        code: 1178,
+        name: 'Madruga',
+      },
+      {
+        code: 1181,
+        name: 'Batabanó',
+      },
+    ],
+  },
+  {
+    code: 57,
+    name: 'Camaguey',
+    city: [
+      {
+        code: 1103,
+        name: 'Sibanicú',
+      },
+      {
+        code: 1102,
+        name: 'Sierra de Cubitas',
+      },
+      {
+        code: 1109,
+        name: 'Guáimaro',
+      },
+      {
+        code: 1108,
+        name: 'Carlos Manuel de Cespedes',
+      },
+      {
+        code: 1105,
+        name: 'Vertientes',
+      },
+      {
+        code: 1104,
+        name: 'Florida',
+      },
+      {
+        code: 1106,
+        name: 'Minas',
+      },
+      {
+        code: 1107,
+        name: 'Jimaguayú',
+      },
+      {
+        code: 1170,
+        name: 'Santa Cruz del Sur',
+      },
+      {
+        code: 1038,
+        name: 'Nuevitas',
+      },
+      {
+        code: 1171,
+        name: 'Esmeralda',
+      },
+      {
+        code: 1145,
+        name: 'Camaguey',
+      },
+      {
+        code: 1110,
+        name: 'Najasa',
       },
     ],
   },

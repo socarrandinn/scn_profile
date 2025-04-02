@@ -9,7 +9,7 @@ import ProductWarehouseStockCreateModal from 'modules/inventory/product-stock/co
 import { IProduct } from '../../interfaces/IProduct';
 import ProductUpdateStockForm from 'modules/inventory/product-stock/components/UpdateStocksForm/ProductUpdateStockForm';
 import { TransTypography } from 'components/TransTypography';
-import { AddButton, TableToolbar, TableToolbarActions } from '@dfl/mui-admin-layout';
+import { AddButton, TableToolbar } from '@dfl/mui-admin-layout';
 import { PermissionCheck } from '@dfl/react-security';
 import { STOCK_PERMISSIONS } from 'modules/inventory/product-stock/constants/stock.permissions';
 import ButtonRefresh from 'modules/inventory/common/components/ButtonRefresh/ButtonRefresh';
@@ -21,6 +21,7 @@ import { PRODUCT_PERMISSIONS } from '../../constants';
 import { GeneralActions } from 'layouts/PageLayouts/PagePaperLayout';
 import { TableHeaderOptions } from 'components/libs/table';
 import { VISIBILITY_STATUS } from 'modules/inventory/common/constants/visibility-status';
+import TableToolbarActions from 'components/libs/table/toolbar/TableToolbarActions';
 
 const useToolbarSetting = () => {
   const { isOpen, onClose, onOpen } = useToggle(false);
@@ -29,6 +30,9 @@ const useToolbarSetting = () => {
       actions: {
         create: false,
         export: false,
+      },
+      filter: {
+        activeMenu: true,
       },
     };
   }, []);

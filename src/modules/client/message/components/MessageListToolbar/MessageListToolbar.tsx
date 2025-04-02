@@ -18,7 +18,7 @@ const useToolbarSetting = () => {
         export: false,
       },
       filter: {
-        activeMenu: false,
+        activeMenu: true,
       },
     };
   }, []);

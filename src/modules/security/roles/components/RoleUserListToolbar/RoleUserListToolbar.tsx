@@ -19,7 +19,7 @@ const useToolbarSetting = () => {
         // createAction: onOpen,
       },
       filter: {
-        activeMenu: false,
+        activeMenu: true,
       },
     };
   }, []);
