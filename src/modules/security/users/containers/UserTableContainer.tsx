@@ -19,10 +19,10 @@ const UserTableContainer = ({ type, status, columns, space, ...props }: UserTabl
   const { isLoading, error, data } = useFindUsersTable(type, status, space);
 
   return (
-    <Box>
+    <>
       <UserListToolbar {...props} />
       <Table columns={columns} data={data?.data} total={data?.total} isLoading={isLoading} error={error} />
-    </Box>
+    </>
   );
 };
 

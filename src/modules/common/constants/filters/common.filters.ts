@@ -1,7 +1,10 @@
 import { Filter, FilterType } from '@dfl/mui-admin-layout';
 import { OperatorFilter, TermFilter } from '@dofleini/query-builder';
 import MunicipalityFilter from 'modules/common/components/Address/MunicipalityFilter';
-import { PROVINCES } from '@dfl/location';
+import { provinces } from '../state-codes';
+import { AddressService } from 'modules/common/service';
+import { ADDRESS_STATE_LIST_KEY } from '../address.queries';
+import { transformWhitObjectId } from '../object-id';
 
 export const createdATFilter: Filter = {
   filter: 'common:createdAt',
@@ -15,16 +18,18 @@ const LOCATION_FIELD = 'locations';
 const STATE_FIELD = 'address.state';
 const MUNICIPALITY_FIELD = 'address.city';
 
-export const getProvincesFilterByField = (field: string = STATE_FIELD) => ({
+export const getProvincesFilterByField = (field: string = STATE_FIELD): Filter => ({
   filter: 'common:provinces',
   translate: true,
-  type: FilterType.FIXED_LIST,
+  type: FilterType.DYNAMIC_LIST,
   key: 'pv',
   field,
-  options: PROVINCES.map((pv) => ({
-    value: pv.state,
-    label: pv.name,
-  })),
+  fetchFunc: AddressService.searchState,
+  labelKey: 'name',
+  fetchOption: { size: 10 },
+  queryKey: ADDRESS_STATE_LIST_KEY,
+  valueKey: 'code',
+  mapEntities: (rows) => rows?.map((row) => ({ ...row, label: row?.name, value: String(row?.code) })),
 });
 
 export const getLocationFilterByField = (field: string = LOCATION_FIELD) => ({
@@ -33,9 +38,9 @@ export const getLocationFilterByField = (field: string = LOCATION_FIELD) => ({
   type: FilterType.FIXED_LIST,
   key: 'zone',
   field,
-  options: PROVINCES.map((pv) => ({
-    value: pv.state,
-    label: pv.name,
+  options: provinces?.map((pv) => ({
+    value: String(pv?.code),
+    label: pv?.name,
   })),
 });
 

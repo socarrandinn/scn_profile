@@ -28,7 +28,7 @@ const UserListContainer = ({ path, userType, listComponent, children }: UserList
   const userTabsRouts = useTabRoutes(userType, listComponent);
 
   return (
-    <PageTabPaperLayout prefix={path} tabs={userTabs} actions={children}>
+    <PageTabPaperLayout prefix={path} tabs={userTabs} actions={children} paddingTop={1}>
       <Suspense fallback={<PageLoader size={'screen'} />}>
         <RouteLoader routes={userTabsRouts} notfoundRedirect={`${path}/all`} />
       </Suspense>

@@ -9,9 +9,10 @@ type PageTabPaperLayoutProps = ChildrenProps & {
   prefix: string;
   tabs: TabRouteType[];
   actions?: ReactNode | undefined;
+  paddingTop?: number;
 };
 
-const PageTabPaperLayout = ({ children, prefix, tabs, actions }: PageTabPaperLayoutProps) => {
+const PageTabPaperLayout = ({ children, prefix, tabs, actions, paddingTop }: PageTabPaperLayoutProps) => {
   const [render, setRendered] = useState(false);
 
   useEffect(() => {
@@ -41,7 +42,7 @@ const PageTabPaperLayout = ({ children, prefix, tabs, actions }: PageTabPaperLay
               render,
             }}
           >
-            <Box sx={{ padding: { xs: 2, md: 4 }, paddingTop: { xs: 2, md: 3 } }}>{children}</Box>
+            <Box sx={{ padding: { xs: 2, md: 4 }, paddingTop: { xs: paddingTop || 2, md: paddingTop || 3 } }}>{children}</Box>
           </ActionPortal.Provider>
         </Box>
       </Paper>

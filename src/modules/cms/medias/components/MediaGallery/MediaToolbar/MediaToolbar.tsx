@@ -8,6 +8,8 @@ import { GeneralActions } from 'layouts/portals';
 import { MEDIA_PERMISSIONS } from 'modules/cms/medias/constants/medias.permissions';
 import { PermissionCheck } from '@dfl/react-security';
 import MediaCreateModal from 'modules/cms/medias/containers/MediaCreateModal';
+import { getDefaultFilterKeys } from 'utils/custom-filters';
+import { mediaFilters } from 'modules/cms/medias/constants/medias.filters';
 
 const useToolbarSetting = () => {
   const { isOpen, onClose, onOpen } = useToggle(false);
@@ -17,6 +19,10 @@ const useToolbarSetting = () => {
         create: false,
         export: false,
       },
+      filter: {
+        activeMenu: true,
+        defaultFilterKeys: getDefaultFilterKeys(mediaFilters),
+      }
     };
   }, []);
 

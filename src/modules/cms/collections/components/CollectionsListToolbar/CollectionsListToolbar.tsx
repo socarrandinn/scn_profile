@@ -11,6 +11,8 @@ import { COLLECTION_CONTENT_TYPE } from '../../constants/collection-types';
 import { initCollectionValues } from '../../hooks/useCollectionsCreateForm';
 import { TableHeaderOptions } from 'components/libs/table';
 import TableToolbarActions from 'components/libs/table/toolbar/TableToolbarActions';
+import { getDefaultFilterKeys } from 'utils/custom-filters';
+import { collectionsProductFilters } from '../../constants';
 
 const useToolbarSetting = () => {
   const { isOpen, onClose, onOpen } = useToggle(false);
@@ -19,9 +21,11 @@ const useToolbarSetting = () => {
       actions: {
         create: false,
         export: false,
+        menuFilter: false,
       },
       filter: {
-        activeMenu: false,
+        activeMenu: true,
+        defaultFilterKeys: getDefaultFilterKeys(collectionsProductFilters),
       },
     };
   }, []);

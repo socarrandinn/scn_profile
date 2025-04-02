@@ -1,19 +1,27 @@
 import { memo, useMemo } from 'react';
 import { Stack } from '@mui/material';
 import { useToggle } from '@dfl/hook-utils';
-import { TableToolbar, TableToolbarActions, TablaHeaderOptions, AddButton } from '@dfl/mui-admin-layout';
+import { TableToolbar, AddButton } from '@dfl/mui-admin-layout';
 import ConciliationAdjustmentCausesCreateModal from 'modules/sales/settings/conciliation-adjustment-causes/containers/ConciliationAdjustmentCausesCreateModal';
 import { CONCILIATION_ADJUSTMENT_CAUSES_PERMISSIONS } from 'modules/sales/settings/conciliation-adjustment-causes/constants/conciliation-adjustment-causes.permissions';
 import { GeneralActions } from 'layouts/portals';
 import { PermissionCheck } from '@dfl/react-security';
+import { getDefaultFilterKeys } from 'utils/custom-filters';
+import TableToolbarActions from 'components/libs/table/toolbar/TableToolbarActions';
+import { TableHeaderOptions } from 'components/libs/table';
+import { conciliationAdjustmentCausesFilters } from '../../constants';
 
 const useToolbarSetting = () => {
   const { isOpen, onClose, onOpen } = useToggle(false);
-  const settings = useMemo<TablaHeaderOptions>(() => {
+  const settings = useMemo<TableHeaderOptions>(() => {
     return {
       actions: {
         create: false,
         export: false,
+      },
+      filter: {
+        activeMenu: true,
+        defaultFilterKeys: getDefaultFilterKeys(conciliationAdjustmentCausesFilters),
       },
     };
   }, []);

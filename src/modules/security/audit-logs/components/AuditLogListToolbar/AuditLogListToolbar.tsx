@@ -4,6 +4,8 @@ import { useToggle } from '@dfl/hook-utils';
 import { TableToolbar } from '@dfl/mui-admin-layout';
 import TableToolbarActions from 'components/libs/table/toolbar/TableToolbarActions';
 import { TableHeaderOptions } from 'components/libs/table';
+import { getDefaultFilterKeys } from 'utils/custom-filters';
+import { auditLogAllFilters } from '../../constants';
 
 const useToolbarSetting = () => {
   const { isOpen, onClose, onOpen } = useToggle(false);
@@ -13,6 +15,10 @@ const useToolbarSetting = () => {
         create: false,
         export: false,
       },
+      filter: {
+        activeMenu: true,
+        defaultFilterKeys: getDefaultFilterKeys(auditLogAllFilters),
+      }
     };
   }, []);
 
