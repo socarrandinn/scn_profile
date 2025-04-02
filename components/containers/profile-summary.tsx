@@ -4,13 +4,19 @@ import Image from "next/image";
 import { Avatar, AvatarFallback, AvatarImage } from "../ui/avatar";
 import ProfileSocialNetwork from "./profile-social-network";
 import { TypingTitle } from "./typed-titles";
-import { profileRoles } from "@/constants/profile";
 import ProfileActions from "./profile-actions";
 import { User } from "lucide-react";
 import { INFO } from "@/constants/info";
 import { cn } from "@/lib/utils";
+import { TFunctionNonStrict } from "i18next";
 
-const ProfileSummary = async () => {
+type Props = {
+  t: TFunctionNonStrict<["translation", ...string[]], undefined>;
+};
+const ProfileSummary = async ({ t }: Props) => {
+  const roles = t("common:roles", { returnObjects: true }) as string[];
+
+  console.log(roles);
   return (
     <Card
       className={cn(
@@ -40,7 +46,7 @@ const ProfileSummary = async () => {
         <h1 className="font-bold text-white dark:text-color text-xl lg:text-2xl leading-1 mt-5 lg:mt-10 li  ">
           {INFO.name}
         </h1>
-        <TypingTitle texts={profileRoles} className="mb-4" />
+        <TypingTitle texts={roles} className="mb-4" />
         <ProfileSocialNetwork />
 
         <ProfileActions />

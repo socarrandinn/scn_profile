@@ -24,5 +24,12 @@
     "contact": "Contact",
     "blog": "Blog",
     "products": "Products"
-  }
+  },
+  "roles": [
+    "Front-end Developer",
+    "Programmer",
+    "Freelance",
+    "Software Engineer",
+    "UI/UX Designer"
+  ]
 }

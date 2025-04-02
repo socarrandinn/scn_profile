@@ -24,7 +24,7 @@ const i18nNamespaces = [
 
 const HomeLayout = async ({ params, children }: PageProps) => {
   const { locale } = await params;
-  const { resources } = await initTranslations(locale, i18nNamespaces);
+  const { resources, t } = await initTranslations(locale, i18nNamespaces);
 
   if (!i18nConfig.locales.includes(locale)) {
     notFound();
@@ -38,7 +38,7 @@ const HomeLayout = async ({ params, children }: PageProps) => {
     >
       <VerticalNav locale={locale} />
       <NavarMobile locale={locale} />
-      <ProfileSummary />
+      <ProfileSummary t={t} />
       {children}
     </TranslationsProvider>
   );
