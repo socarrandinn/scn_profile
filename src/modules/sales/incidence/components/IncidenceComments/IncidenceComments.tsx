@@ -18,7 +18,7 @@ const IncidenceComments = ({ incidenceId }: IncidenceCommentsProps) => {
 
   return (
     <FormPaper sx={{ marginTop: '0px', borderRadius: '10px' }} title={t('common:comments')} variant={{ title: 'h4' }}>
-      <ConditionContainer active={!isLoading} alternative={<SkeletonList numberItemsToShow={3} />}>
+      <ConditionContainer active={!isLoading} alternative={<SkeletonList numberItemsToShow={4} />}>
         <HandlerError error={error} />
         <FlexBox flexDirection='column'>
           <IncidenceCommentForm incidenceId={incidenceId}>

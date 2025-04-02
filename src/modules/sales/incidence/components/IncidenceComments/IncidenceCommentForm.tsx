@@ -1,6 +1,6 @@
 import { memo, useMemo } from 'react';
 import { ChildrenProps, Form, FormTextField, HandlerError, IconButton } from '@dfl/mui-react-common';
-import { Grid, InputAdornment, useTheme } from '@mui/material';
+import { CircularProgress, Grid, InputAdornment, useTheme } from '@mui/material';
 import { useTranslation } from 'react-i18next';
 import FileDropZone, { TYPE_DROP } from 'components/FileDropZone/FileDropZone';
 import { ACCEPT_ALL, MAX_SIZE_FILE } from 'components/FileDropZone/constants/common';
@@ -51,7 +51,7 @@ const IncidenceCommentForm = ({ incidenceId, children }: IncidenceCommentFormPro
                 endAdornment: (
                   <InputAdornment position='end'>
                     <IconButton
-                      disabled={isDisabled}
+                      disabled={isDisabled || isLoading}
                       type='submit'
                       form='incidence-comment-form'
                       tooltip={t('common:send')}
@@ -60,7 +60,7 @@ const IncidenceCommentForm = ({ incidenceId, children }: IncidenceCommentFormPro
                           backgroundColor: '#E0E0E0',
                         },
                       }}>
-                      <ArrowRightIcon fontSize={'small'} sx={{ p: 0.3 }} />
+                      {isLoading ? <CircularProgress size={20} /> : <ArrowRightIcon fontSize={'small'} sx={{ p: 0.3 }} />}
                     </IconButton>
                   </InputAdornment>
                 ),
