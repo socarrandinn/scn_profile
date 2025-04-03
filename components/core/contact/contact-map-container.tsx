@@ -4,7 +4,9 @@ import dynamic from "next/dynamic";
 
 const ContactMap = dynamic(() => import("./contact-map"), {
   ssr: false,
-  loading: () => <div className="h-[400px] w-full bg-gray-100" />,
+  loading: () => (
+    <div className="h-[24rem] md:h-[16rem] w-full bg-primary/20 backdrop-blur-lg" />
+  ),
 });
 
 const ContactMapContainer = () => {

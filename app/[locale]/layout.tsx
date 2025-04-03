@@ -4,13 +4,13 @@ import localFont from "next/font/local";
 import { ThemeProvider } from "@/components/theme-provider";
 import NextTopLoader from "nextjs-toploader";
 import { Toaster } from "@/components/ui/sonner";
-
 import { ReactNode } from "react";
 import TranslationsProvider from "../contexts/translation-provider";
 import i18nConfig from "@/next-i18next.config";
 import initTranslations from "../i18n";
 import NotFound from "./not-found";
 import { cn } from "@/lib/utils";
+import { dir } from "i18next";
 
 const lekton = localFont({
   src: [
@@ -35,8 +35,26 @@ const lekton = localFont({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL(`${process.env.NEXT_PUBLIC_APP_URL}`),
   title: "SilviDev",
   description: "Portafolio de desarrollo de software",
+  viewport: "width=device-width, initial-scale=1",
+  alternates: {
+    canonical: new URL(`${process.env.NEXT_PUBLIC_APP_URL}/es`),
+    languages: {
+      "en-US": "/en-US",
+      "es-ES": "/es-ES",
+    },
+  },
+  robots: {
+    index: false,
+    follow: false,
+    nocache: false,
+    googleBot: {
+      index: false,
+      follow: false,
+    },
+  },
 };
 
 type Props = {
@@ -60,7 +78,7 @@ export default async function RootLayout({ children, params }: Props) {
   }
 
   return (
-    <html lang="en">
+    <html lang={locale} dir={dir(locale)}>
       <body className={cn(lekton.className, "antialiased font-lekton")}>
         <NextTopLoader
           color="oklch(47.84% 0.1836 27.01)"
