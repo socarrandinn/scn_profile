@@ -10,6 +10,7 @@ import { PaymentAgreementForm, PaymentAgreementFormSkeleton } from '../component
 import { IPaymentAgreement, IPaymentAgreementVerify, PaymentAgreementDTO } from '../interfaces';
 import PaymentAgreementVerifySummary from '../components/PaymentAgreementSummary/PaymentAgreementVerifySummary';
 import usePaymentAgreementCreateForm, { initPaymentAgreementValues } from '../hooks/usePaymentAgreementCreateForm';
+import { useIsValid } from '../hooks/useIsValid';
 
 type PaymentAgreementCreateModalProps = {
   open: boolean;
@@ -33,19 +34,8 @@ const PaymentAgreementCreateModal = ({
   const { query } = useTableSearch();
   const { data, isLoading: isVerifyLoading } = usePaymentAgreementVerify(query, filters, open && !!filters);
 
-  const { isValid } = useMemo(() => {
-    /* is edit */
-    if (initValue?._id) {
-      return {
-        isValid: false,
-      };
-    }
-    return {
-      isValid: isVerifyLoading || data?.isValid,
-    };
-  }, [data?.isValid, initValue?._id, isVerifyLoading]);
-
-  console.log(isValid, isVerifyLoading);
+  // valid payment agreement
+  const { isValid } = useIsValid(initValue, data);
 
   const _initValue: PaymentAgreementDTO = useMemo(
     () =>
@@ -93,7 +83,7 @@ const PaymentAgreementCreateModal = ({
         <LoadingButton
           variant='contained'
           type={'submit'}
-          loading={isLoading || loadingInitData}
+          loading={isLoading || loadingInitData || isVerifyLoading}
           disabled={!!dataError || isValid}
           form='payment-agreement-form'
         >

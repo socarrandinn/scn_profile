@@ -22,13 +22,12 @@ const useOrderStatusCreateForm = (onClose: () => void, defaultValues: IOrderStat
     handleSubmit,
     reset,
     setValue,
-    formState: { errors },
+    // formState: { errors },
   } = useForm({
     mode: 'onChange',
     resolver: yupResolver(orderStatusSchema),
     defaultValues,
   });
-  console.log(errors);
 
   // If default values was provided, initialize the form values with this values
   useEffect(() => {
