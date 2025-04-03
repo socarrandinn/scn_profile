@@ -16,13 +16,14 @@ type Props = ChildrenProps & {
   title: string;
   action?: () => void;
   code?: string;
+  noNote?: boolean;
   message?: string;
   incidenceTitle?: string;
   referenceType?: ORDER_REFERENCE_TYPE;
   noActions?: boolean;
 };
 
-const IncidenceActionsHeader = ({ title, noActions, message, code, incidenceTitle, orderCode, children, action, referenceType }: Props) => {
+const IncidenceActionsHeader = ({ title, noActions, message, code, incidenceTitle, orderCode, children, action, referenceType, noNote }: Props) => {
   const { t } = useTranslation('incidence');
   const type = useMemo(() => referenceType === ORDER_REFERENCE_TYPE.ORDER ? 'orders' : 'sub-orders', [referenceType]);
 
@@ -45,9 +46,9 @@ const IncidenceActionsHeader = ({ title, noActions, message, code, incidenceTitl
               {code || 'INC15236236'}
             </Typography>
           </FlexBox>
-          <FlexBox className='text-lg font-bold'>
+          {!noNote && <FlexBox className='text-lg font-bold'>
             <ErrorNote message={message || 'El cliente reporta haber recibido una pasta de bocadito en mal estado'} title={incidenceTitle} />
-          </FlexBox>
+          </FlexBox>}
         </FlexBox>
       </Grid>
 

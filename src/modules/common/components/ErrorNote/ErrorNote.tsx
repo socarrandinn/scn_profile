@@ -10,7 +10,7 @@ import { Typography } from '@mui/material';
 
 type Props = {
   title?: string;
-  message: string;
+  message?: string;
 };
 
 const ErrorNote = ({ title, message }: Props) => {
@@ -26,7 +26,6 @@ const ErrorNote = ({ title, message }: Props) => {
       alignItems={'center'}
       mt={2}
       mb={1}
-      minWidth={'809px'}
     >
       <InfoOutlinedIcon sx={{ color: '#F94A44', fontSize: '25px' }} />
       <div>

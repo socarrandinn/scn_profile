@@ -1,3 +1,4 @@
+import { imageUrl } from '@dfl/mui-react-common';
 import { IFile } from 'components/FileDropZone/interfaces/IFile';
 import { isArray, isEmpty } from 'lodash';
 
@@ -58,3 +59,18 @@ export const mapperFile = (file: IFile) => {
     url: file?.url,
   };
 };
+
+export const downloadFile = (data: IFile | undefined) => {
+  if (!data?.url) {
+    console.error('No URL available for download.');
+    return;
+  }
+
+  const link = document.createElement('a');
+  link.href = imageUrl(data.url);
+  link.download = data?.originalname || 'document.txt'; // Force filename
+  document.body.appendChild(link);
+  link.click();
+  document.body.removeChild(link);
+};
+

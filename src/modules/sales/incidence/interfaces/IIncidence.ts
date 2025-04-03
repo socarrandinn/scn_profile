@@ -12,7 +12,7 @@ export interface IIncidence {
   subCause?: any;
   status: INCIDENCE_STATUS_ENUM;
   responsible?: any;
-  evidence?: IFile;
+  evidence?: IFile[];
   createdBy?: Partial<IUser>;
   createdAt?: string;
   referenceType: ORDER_REFERENCE_TYPE;
