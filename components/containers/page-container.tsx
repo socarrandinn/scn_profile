@@ -12,9 +12,9 @@ const PageContainer = ({ children, title }: Props & PropsWithChildren) => {
       initial={{ x: -200 }}
       animate={{ x: 0 }}
       transition={{ duration: 1 }}
-      className="w-full h-auto lg:my-4 lg:-translate-x-4"
+      className="w-full h-auto lg:my-4 lg:-translate-x-4 "
     >
-      <Card className="w-full md:!rounded-[0_1rem_1rem_0] px-2 md:px-3 md:max-h-[84vh] md:overflow-y-scroll customScroll lg:mr-4 pr-4">
+      <Card className="w-full md:!rounded-[0_1rem_1rem_0] px-2 md:px-3 md:max-h-[84vh] md:overflow-y-scroll customScroll lg:mr-4 pr-4 mb-4 lg:mb-0">
         <PageHeader
           variant="compuse"
           title={title}
