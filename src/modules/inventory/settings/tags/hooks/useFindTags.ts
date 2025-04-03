@@ -14,7 +14,7 @@ export const useFindTags = () => {
 export const useFindTagByRequired = (rule: TAG_NAMES | undefined = TAG_NAMES.PRODUCT) => {
   const filters = useMemo(() => new TermFilter({ field: `rules.${rule}.required`, value: true }), [rule]);
   const { fetch, queryKey } = useTableRequest(TagsService.search, filters);
-  return useQuery([TAGS_LIST_KEY, `REQUIRED_TAG_${rule}`, queryKey], fetch);
+  return useQuery([TAGS_LIST_KEY, `REQUIRED_TAG_${rule}`, queryKey], fetch, { enabled: !!rule });
 };
 
 export const useTagsFilterOptions = () => {

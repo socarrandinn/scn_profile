@@ -61,6 +61,7 @@ const ProductCreate = () => {
         size={'large'}
         id='product-form'
         watch={watch}
+        setValue={setValue}
         formState={formState}
         noValidate
       >

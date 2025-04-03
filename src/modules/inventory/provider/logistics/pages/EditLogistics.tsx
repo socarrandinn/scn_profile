@@ -8,10 +8,6 @@ const EditLogistics = () => {
   const { id } = useParams();
   const { data, isLoading } = useFindOneLogistics(id as string);
   useBreadcrumbName(data?._id || '', data?.name, isLoading);
-  return (
-    <>
-      <LogisticsCreate title={'edit'} initValue={data} />
-    </>
-  );
+  return <LogisticsCreate title={'edit'} initValue={data} />;
 };
 export default memo(EditLogistics);

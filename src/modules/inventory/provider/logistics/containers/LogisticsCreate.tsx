@@ -110,13 +110,7 @@ const LogisticsCreate = ({ title = 'create', initValue }: LogisticsCreateProps) 
               title={t('product:section.summary.tags.title')}
               actions={<ButtonRefresh queryKey={[[TAGS_LIST_KEY]]} type='iconButton' />}
             >
-              <TagsFormContainer
-                control={control}
-                // tags={tags}
-                name={TAG_NAMES.LOGISTIC}
-                ruleRequired
-                isLoading={isLoading}
-              />
+              <TagsFormContainer control={control} name={TAG_NAMES.LOGISTIC} ruleRequired isLoading={isLoading} />
             </FormPaper>
           </DetailSummary>
         </DetailLayout>

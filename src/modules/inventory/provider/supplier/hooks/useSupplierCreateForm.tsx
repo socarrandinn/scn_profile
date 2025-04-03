@@ -1,3 +1,4 @@
+import { useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { useMutation, useQueryClient } from '@tanstack/react-query';
@@ -7,11 +8,8 @@ import { supplierSchema } from 'modules/inventory/provider/supplier/schemas/supp
 import { ISupplier } from 'modules/inventory/provider/supplier/interfaces';
 import { SupplierService } from 'modules/inventory/provider/supplier/services';
 import { SUPPLIER_LIST_KEY } from 'modules/inventory/provider/supplier/constants';
-import { useEffect } from 'react';
 import { ADDRESS_INIT_VALUE, emailInitValue, phoneInitValue } from 'modules/common/constants';
-import { useFindTagByRequired } from 'modules/inventory/settings/tags/hooks/useFindTags';
-import { TAG_NAMES } from 'modules/inventory/settings/tags/interfaces';
-import { getTagDefaultValue, parseTagList } from 'modules/inventory/settings/tags/utils/parser-tags';
+import { parseTagList } from 'modules/inventory/settings/tags/utils/parser-tags';
 import { scrollToFirstError } from 'utils/error-utils';
 import { formatedAddressObjUtils } from 'modules/common/utils/formated-utils';
 
@@ -38,7 +36,6 @@ const useSupplierCreateForm = (
   defaultValues: Partial<ISupplier> = initValues,
 ) => {
   const { t } = useTranslation('supplier');
-  const { data: list } = useFindTagByRequired(TAG_NAMES.SUPPLIER);
   const queryClient = useQueryClient();
 
   const { control, handleSubmit, reset, watch, setValue, clearErrors } = useForm({
@@ -63,12 +60,6 @@ const useSupplierCreateForm = (
     // @ts-ignore
     if (defaultValues) reset(defaultValues);
   }, [defaultValues, reset]);
-
-  useEffect(() => {
-    if (list?.data) {
-      setValue('tags.supplier', getTagDefaultValue(list?.data));
-    }
-  }, [setValue, list?.data]);
 
   // @ts-ignore
   const { mutate, error, isLoading, isSuccess, data } = useMutation(
