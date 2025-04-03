@@ -48,8 +48,6 @@ const useLogisticsCreateForm = (
     defaultValues,
   });
 
-  console.log(formState.errors, 'eee')
-
   const address1 = watch('address.address1');
   const address2 = watch('address.address2');
   const city = watch('address.city');
