@@ -1,5 +1,4 @@
 import { FlexBox } from '@dfl/mui-react-common';
-import { map } from 'lodash';
 import { memo } from 'react';
 import IncidenceCommentItem from './IncidenceCommentItem';
 import { IIncidenceComment } from '../../interfaces';

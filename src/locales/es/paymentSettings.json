@@ -13,6 +13,8 @@
   "primaryCurrency": "Seleccione la moneda principal de la página",
   "secondaryRate": "Configure el rate de cambio para las monedas secundarias",
   "secondaryHelp": "El resto de las monedas se consideran automáticamente monedas secundarias",
+  "gatewaySelect": "Seleccione las pasarelas de pago que serán aceptadas en la tienda",
+  "bankSelect": "Seleccione los bancos que serán aceptados en la tienda",
   "paymentMethod": {
     "info": "Los métodos de pago son las opciones disponibles para que los clientes realicen sus compras en la tienda."
   },

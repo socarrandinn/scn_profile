@@ -26,7 +26,7 @@ const IncidenceCommentForm = ({ incidenceId, children }: IncidenceCommentFormPro
 
   const isDisabled = useMemo(() => {
     return Boolean(message === '' && files?.length === 0);
-  }, [JSON.stringify(message), JSON.stringify(files)]);
+  }, [message, files?.length]);
 
   return (
     <>
@@ -72,7 +72,9 @@ const IncidenceCommentForm = ({ incidenceId, children }: IncidenceCommentFormPro
                       tooltip={t('common:send')}
                       sx={{
                         cursor: 'pointer !important',
-                        background: theme.palette.primary.main, '&:hover': { background: theme.palette.primary.dark }, '&.Mui-disabled': {
+                        background: theme.palette.primary.main,
+                        '&:hover': { background: theme.palette.primary.dark },
+                        '&.Mui-disabled': {
                           backgroundColor: '#E0E0E0',
                         },
                       }}>

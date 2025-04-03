@@ -10,8 +10,7 @@ import { ReactComponent as BankTransferIcon } from 'assets/icons/bank-transfer.s
 import { ReactComponent as TropipayIcon } from 'assets/icons/tropipay.svg';
 import { ReactComponent as TuambiaIcon } from 'assets/icons/tuambia.svg';
 import { DetailStack } from '@dfl/mui-react-common';
-import { PAYMENT_DETAILS_SUMMARY } from '../../constants/payment-details-summary';
-import { GatewayCell } from '../GatewayCell';
+import { PAYMENT_DETAILS_SUMMARY, PAYMENT_GATEWAY_SUMMARY } from '../../constants/payment-details-summary';
 
 type PaymentMethodCardProps = {
   paymentMethod: IPaymentMethod;
@@ -63,15 +62,7 @@ const PaymentMethodCard = ({ selected, paymentMethod }: PaymentMethodCardProps) 
         details={
           !paymentMethod?.settings?.gatewayConfig?.length
             ? PAYMENT_DETAILS_SUMMARY
-            : [
-                ...PAYMENT_DETAILS_SUMMARY,
-                {
-                  label: 'common:fields.gateway',
-                  render: (data: IPaymentMethod) => <GatewayCell data={data?.settings?.gatewayConfig} />,
-                  hideEmpty: true,
-                  translate: true,
-                },
-              ]
+            : PAYMENT_GATEWAY_SUMMARY
         }
         data={paymentMethod}
         sx={{ px: 0 }}

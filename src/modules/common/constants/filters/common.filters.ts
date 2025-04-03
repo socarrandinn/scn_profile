@@ -1,10 +1,8 @@
 import { Filter, FilterType } from '@dfl/mui-admin-layout';
-import { OperatorFilter, TermFilter } from '@dofleini/query-builder';
-import MunicipalityFilter from 'modules/common/components/Address/MunicipalityFilter';
+import { TermFilter } from '@dofleini/query-builder';
 import { provinces } from '../state-codes';
 import { AddressService } from 'modules/common/service';
 import { ADDRESS_STATE_LIST_KEY } from '../address.queries';
-import { transformWhitObjectId } from '../object-id';
 
 export const createdATFilter: Filter = {
   filter: 'common:createdAt',

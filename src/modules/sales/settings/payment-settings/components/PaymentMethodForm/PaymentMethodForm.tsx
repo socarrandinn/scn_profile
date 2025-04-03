@@ -7,6 +7,7 @@ import PaymentGatewayForm from './PaymentGatewayForm';
 import { IPaymentSettings } from '../../interfaces';
 import FormDiscountField from 'modules/inventory/product/components/FormDiscountField/FormDiscountField';
 import { PRICE_TYPE } from 'modules/inventory/common/constants/price-type.enum';
+import PaymentBankForm from './PaymentBankForm';
 
 type Props = {
   data?: IPaymentSettings;
@@ -16,18 +17,20 @@ type Props = {
 const PaymentMethodForm = ({ data, initTaxType }: Props) => {
   const { t } = useTranslation('paymentSettings');
 
-  const form = useMemo(
-    () =>
-      data?.gatewayConfig?.length && data?.gatewayConfig?.length > 0 ? (
-        <PaymentGatewayForm data={data?.gatewayConfig} />
-      ) : (
-        <Grid item xs={12}>
-          <Typography sx={{ mb: 1.5 }}>{t('currenciesStoreSelect')}</Typography>
-          <CurrencySelect name='currency' multiple size='small' />
-        </Grid>
-      ),
-    [data?.gatewayConfig, t],
-  );
+  const form = useMemo(() => {
+    if (data?.gatewayConfig?.length) {
+      return <PaymentGatewayForm data={data?.gatewayConfig} />
+    }
+    if (data?.bankConfig?.length) {
+      return <PaymentBankForm data={data?.bankConfig} />
+    }
+    return (
+      <Grid item xs={12}>
+        <Typography sx={{ mb: 1.5 }}>{t('currenciesStoreSelect')}</Typography>
+        <CurrencySelect name='currency' multiple size='small' />
+      </Grid>
+    )
+  }, [data?.gatewayConfig, data?.bankConfig, t]);
 
   return (
     <Grid

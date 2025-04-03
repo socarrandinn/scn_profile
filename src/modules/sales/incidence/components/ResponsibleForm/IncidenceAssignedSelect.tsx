@@ -1,6 +1,5 @@
-import { AsyncSelectAutocompleteField, FormAsyncSelectAutocompleteField } from '@dfl/mui-react-common';
+import { FormAsyncSelectAutocompleteField } from '@dfl/mui-react-common';
 import {
-  Avatar,
   CircularProgress,
   IconButton,
   InputAdornment,

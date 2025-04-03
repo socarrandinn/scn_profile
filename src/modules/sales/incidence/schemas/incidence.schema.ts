@@ -3,7 +3,6 @@ import '@dfl/yup-validations';
 import { ICausesIncidence } from 'modules/sales/settings/causes-incidence/interfaces';
 import { IFile } from 'components/FileDropZone/interfaces/IFile';
 import { mapperFile } from 'utils/file-utils';
-import { message } from 'locals/es';
 
 export const incidenceSchema = Yup.object().shape({
   description: Yup.string(),

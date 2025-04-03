@@ -7,7 +7,7 @@ import SupplierWarehouseListContainer from '../../containers/SupplierWarehouseLi
 
 const SupplierWarehouses = () => {
   const { t } = useTranslation('warehouse');
-  
+
   return (
     <PagePaperLayout title={t('list')} mb={3}>
       <TableProvider id={'supplier-warehouses'} filters={supplierWarehouseFilters}>

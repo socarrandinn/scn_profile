@@ -6,12 +6,12 @@ export enum StepsGroup {
 }
 
 class TourService extends EntityApiService<any> {
-  async getSeenStepsfromLocalStorage (stepsGroup: StepsGroup): Promise<number[]> {
+  async getSeenStepsfromLocalStorage(stepsGroup: StepsGroup): Promise<number[]> {
     const steps = localStorage.getItem(stepsGroup);
     return steps ? JSON.parse(steps) : [];
   }
 
-  async saveSeenStep (step: number, stepsGroup: StepsGroup): Promise<void> {
+  async saveSeenStep(step: number, stepsGroup: StepsGroup): Promise<void> {
     const seenSteps = await this.getSeenStepsfromLocalStorage(stepsGroup);
     if (!seenSteps.includes(step)) {
       const updatedSteps = [...seenSteps, step];
@@ -23,14 +23,8 @@ class TourService extends EntityApiService<any> {
   //   localStorage.removeItem(stepsGroup);
   // }
 
-  async sendSeenSteps (stepsGroup: StepsGroup): Promise<void> {
+  async sendSeenSteps(stepsGroup: StepsGroup): Promise<void> {
     const seenSteps = await this.getSeenStepsfromLocalStorage(stepsGroup);
-    const payload = {
-      stepsGroup,
-      seenSteps,
-    };
-
-    console.log(payload);
   }
 }
 

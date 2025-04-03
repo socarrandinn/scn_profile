@@ -3,11 +3,6 @@ import { HeaderSummaryTabs } from 'modules/common/components/HeaderSummaryTabs';
 import { useProviderProductsDetail } from 'modules/inventory/provider/supplier/context/ProviderProductDetail';
 import { supplierTabs } from 'modules/inventory/provider/supplier/constants/tabs.supplier.details';
 import HeaderSummaryTabsSkeleton from 'modules/common/components/HeaderSummaryTabs/HeaderSummaryTabsSkeleton';
-import {
-  SupplierDeleteButton,
-  SupplierEditButton,
-  SupplierViewAsLogisticButton,
-} from 'modules/inventory/provider/supplier/components/SupplierDetailActions';
 import { LOGISTIC, SUPPLIER } from 'modules/inventory/constants/entities.style';
 import { LogisticProvider } from 'modules/inventory/provider/common/constants';
 import IconBox from 'modules/inventory/provider/common/components/ProviderAvatarCell/IconBox';

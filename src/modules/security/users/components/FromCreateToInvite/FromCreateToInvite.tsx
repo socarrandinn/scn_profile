@@ -22,7 +22,7 @@ type FromCreateToInviteProps = {
   onClose?: () => void;
 };
 
-export default function FromCreateToInvite({
+export default function FromCreateToInvite ({
   error,
   watch,
   redirect,

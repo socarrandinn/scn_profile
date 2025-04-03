@@ -20,7 +20,6 @@ const FormAddressAutocompleteAddress1Field = ({
       label={label}
       name={name}
       fetchFunc={(params) => {
-        console.log(address, 'jjjjjjjjj', params);
         return AddressService.searchAddress1({
           ...params,
           province: address?.state,

@@ -5,6 +5,7 @@ import { useFindOnePaymentMethod } from '../hooks/useFindOnePaymentMethod';
 import { IPaymentSettings } from '../interfaces';
 import { PRICE_TYPE } from 'modules/inventory/common/constants/price-type.enum';
 import { PAYMENT_GATEWAYS_ENUM } from 'modules/sales/common/constants/order-payments';
+import { CURRENCY_TYPE_ENUM } from '../constants';
 
 const initValues: IPaymentSettings = {
   minAmount: 0,
@@ -18,6 +19,13 @@ const initValues: IPaymentSettings = {
     {
       currency: [],
       gateway: PAYMENT_GATEWAYS_ENUM.STRIPE,
+      enabled: false,
+    },
+  ],
+  bankConfig: [
+    {
+      currency: CURRENCY_TYPE_ENUM.USD,
+      name: '',
       enabled: false,
     },
   ],

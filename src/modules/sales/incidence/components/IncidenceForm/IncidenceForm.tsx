@@ -1,4 +1,4 @@
-import { memo, useEffect, useMemo, useState } from 'react';
+import { memo, useEffect, useMemo } from 'react';
 import { FormTextField, useDFLForm } from '@dfl/mui-react-common';
 import { FormHelperText, Grid, Typography } from '@mui/material';
 import { useTranslation } from 'react-i18next';
@@ -51,7 +51,7 @@ const IncidenceForm = ({ initValue }: { initValue?: IIncidence }) => {
       </Grid>
       {shouldShowSubCause && (
         <Grid item xs={12}>
-          <CausesIncidenceCustomSelect required name='subCause' label={t('childIncidence')} fetchOption={childFilter} key={`subCause-${cause?._id}`} />
+          <CausesIncidenceCustomSelect required name='subCause' label={t('childIncidence')} fetchOption={childFilter} key={`subCause-${cause?._id as string}`} />
         </Grid>
       )}
       <Grid item xs={12}>

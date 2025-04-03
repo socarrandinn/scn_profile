@@ -54,7 +54,7 @@ const useIncidenceCommentCreateForm = (incidenceId: string, defaultValues = init
     reset,
     onSubmit: handleSubmit((values) => {
       const finalValue = assign(values, { image: values?.attachments?.map((a: any) => a.image) || [] });
-      //@ts-ignore
+      // @ts-ignore
       mutate(finalValue);
     }),
   };

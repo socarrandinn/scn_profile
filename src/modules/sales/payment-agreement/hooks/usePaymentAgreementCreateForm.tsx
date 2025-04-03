@@ -37,8 +37,6 @@ const usePaymentAgreementCreateForm = (
     defaultValues,
   });
 
-  console.log(formState.errors, 'formState');
-
   useEffect(() => {
     if (defaultValues) resetForm(defaultValues);
   }, [defaultValues, resetForm]);

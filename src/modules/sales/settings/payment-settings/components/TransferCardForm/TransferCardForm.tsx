@@ -1,26 +1,20 @@
-import { memo, useMemo } from 'react';
-import { IGatewayConfig } from '../../interfaces';
+import { memo, ReactNode, useMemo } from 'react';
 import { Card, Checkbox, FormControlLabel, Typography } from '@mui/material';
 import { useTranslation } from 'react-i18next';
 import { CurrencySelect } from 'modules/common/components/CurrencySelect';
 import { FlexBox, useDFLForm } from '@dfl/mui-react-common';
-import { ReactComponent as StripeIcon } from 'assets/icons/stripe.svg';
-import { ReactComponent as ElavonIcon } from 'assets/icons/elavon.svg';
-import { ReactComponent as TropipayIcon } from 'assets/icons/tropipay.svg';
-import { ReactComponent as RedsysIcon } from 'assets/icons/redsys.svg';
-import { ReactComponent as DucappIcon } from 'assets/icons/ducapp0.svg';
-import { ReactComponent as BillpocketIcon } from 'assets/icons/billpocket.svg';
 import { translateValue } from 'hooks/useTranslateValue';
-import { PAYMENT_GATEWAYS_ENUM } from 'modules/sales/common/constants/order-payments';
 import { Controller } from 'react-hook-form';
 
 type Props = {
-  data: IGatewayConfig;
+  data: any;
   name: string;
+  icon?: ReactNode;
+  multiple?: boolean;
+  title: string;
 };
 
-const GatewayCard = ({ data, name }: Props) => {
-  const { t } = useTranslation('order');
+const TransferCardForm = ({ data, name, icon, multiple = false, title }: Props) => {
   const { watch, control } = useDFLForm();
   const { i18n } = useTranslation('locales');
   const locale = i18n?.language;
@@ -30,25 +24,6 @@ const GatewayCard = ({ data, name }: Props) => {
   const description = useMemo(() => {
     return translateValue(data?.description, locale);
   }, [locale, data?.description]);
-
-  const gatewayIconMap = useMemo(() => {
-    switch (data?.gateway) {
-      case PAYMENT_GATEWAYS_ENUM.ELAVON:
-        return <ElavonIcon />;
-      case PAYMENT_GATEWAYS_ENUM.TROPIPAY:
-        return <TropipayIcon />;
-      case PAYMENT_GATEWAYS_ENUM.STRIPE:
-        return <StripeIcon />;
-      case PAYMENT_GATEWAYS_ENUM.REDSYS:
-        return <RedsysIcon />;
-      case PAYMENT_GATEWAYS_ENUM.DUCAPP:
-        return <DucappIcon />;
-      case PAYMENT_GATEWAYS_ENUM.BILL_POCKET:
-        return <BillpocketIcon />;
-      default:
-        return <></>;
-    }
-  }, [data?.gateway]);
 
   return (
     <Card sx={{ p: '20px', borderRadius: '8px', boxShadow: '0px 5px 10px 5px rgba(0, 0, 0, 0.07)' }}>
@@ -75,15 +50,15 @@ const GatewayCard = ({ data, name }: Props) => {
             )}
           />
           <div>
-            <Typography variant='h3'>{t(`payment.gateway.${data?.gateway}`)}</Typography>
+            <Typography variant='h3'>{title}</Typography>
             {data?.description && <Typography sx={{ mt: 0.5 }}>{description}</Typography>}
           </div>
         </FlexBox>
-        {gatewayIconMap}
+        {icon}
       </div>
-      <CurrencySelect size='small' name={`${name}.currency`} multiple value={currencyValue} />
+      <CurrencySelect size='small' name={`${name}.currency`} multiple={multiple} value={currencyValue} />
     </Card>
   );
 };
 
-export default memo(GatewayCard);
+export default memo(TransferCardForm);
