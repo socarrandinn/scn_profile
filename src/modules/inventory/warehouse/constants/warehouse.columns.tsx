@@ -22,7 +22,7 @@ export const supplierWarehouseNameColumn: HeadCell<WarehouseSupplier> = {
   field: 'warehouse.name',
   headerName: 'warehouse:fields.name',
   disablePadding: false,
-  renderCell: (name: string, data: WarehouseSupplier) => <StoreCell name={name} warehouseId={data?.warehouse?._id as string} />,
+  renderCell: (name: string, data: WarehouseSupplier) => <StoreCell name={name} warehouseId={data?.warehouse?._id} />,
 };
 
 export const storeLogisticColumn = (field?: string, warehouse?: boolean): HeadCell<IWarehouse> => ({
@@ -31,7 +31,7 @@ export const storeLogisticColumn = (field?: string, warehouse?: boolean): HeadCe
   renderCell: (name: string, data: any) => (
     <AvatarNameCell
       name={name}
-      link={`/inventory/settings/logistics/${warehouse ? data?.warehouse?.logistic?._id : data?.logistic?._id as string}/general`}
+      link={`/inventory/settings/logistics/${warehouse ? data?.warehouse?.logistic?._id as string : data?.logistic?._id as string}/general`}
       hideImage
       permissions={LOGISTICS_PERMISSIONS.LOGISTICS_VIEW}
     />
@@ -45,7 +45,6 @@ export const supplierAddressColumn: HeadCell<any> = {
   width: 350,
   renderCell: (name: string, data: any) => <FormattedAddressCell address={data?.warehouse?.address} />,
 };
-
 
 export const storeDescriptionColumn: HeadCell<IWarehouse> = {
   field: 'description',

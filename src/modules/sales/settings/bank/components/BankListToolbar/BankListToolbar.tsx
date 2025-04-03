@@ -11,7 +11,6 @@ import { TableHeaderOptions } from 'components/libs/table';
 import { bankFilters } from '../../constants';
 import { useToggle } from '@dfl/hook-utils';
 
-
 const useToolbarSetting = () => {
   const { isOpen, onClose, onOpen } = useToggle();
   const settings = useMemo<TableHeaderOptions>(() => {
@@ -34,7 +33,6 @@ const useToolbarSetting = () => {
     onOpen,
   };
 };
-
 
 const BankListToolbar = () => {
   const { isOpen, settings, onClose, onOpen } = useToolbarSetting();

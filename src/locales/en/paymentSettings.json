@@ -11,6 +11,8 @@
   "currenciesSelect": "Select the currencies to be used on the page",
   "currenciesStoreSelect": "Select the currencies to be used on the store",
   "primaryCurrency": "Select the page's primary currency",
+  "gatewaySelect": "Select the payment gateways to be used on the store",
+  "bankSelect": "Select the banks to be used on the store",
   "secondaryRate": "Set the exchange rate for secondary currencies",
   "secondaryHelp": "All other currencies are automatically considered secondary currencies",
   "paymentMethod": {

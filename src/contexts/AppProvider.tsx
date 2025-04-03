@@ -3,7 +3,7 @@ import { CssBaseline, ThemeProvider } from '@mui/material';
 import { ChildrenProps, toasterOptions } from '@dfl/mui-react-common';
 import { useSettings } from 'contexts/SettingsProvider';
 import QueryProvider from 'contexts/QueryContext';
-import { AuthControl, SecurityProvider } from '@dfl/react-security';
+import { AuthControl, SecurityProvider, useUser } from '@dfl/react-security';
 import { TourProviderCustom as TourProvider } from './TourProvider';
 
 type AppContentProps = {
@@ -24,12 +24,13 @@ const AppContent = ({ children }: AppContentProps) => {
 
 export const AppProvider = ({ children }: ChildrenProps) => {
   const { theme } = useSettings(); // App theme
+  const { user } = useUser();
 
   return (
     <QueryProvider>
       <ThemeProvider theme={theme}>
         <TourProvider>
-          <SecurityProvider>
+          <SecurityProvider useMe={user}>
             <AppContent>{children}</AppContent>
           </SecurityProvider>
         </TourProvider>

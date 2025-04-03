@@ -32,6 +32,7 @@ export interface IPaymentSettings {
   currency: CURRENCY_TYPE_ENUM[];
   tax: IAmountConfig;
   gatewayConfig: IGatewayConfig[];
+  bankConfig: IBankConfig[];
 }
 
 export interface IGatewayConfig {
@@ -39,4 +40,11 @@ export interface IGatewayConfig {
   currency: CURRENCY_TYPE_ENUM[];
   enabled: boolean;
   description?: { es: string; en: string };
+}
+
+export interface IBankConfig {
+  _id?: string;
+  name: string;
+  currency: CURRENCY_TYPE_ENUM;
+  enabled: boolean;
 }

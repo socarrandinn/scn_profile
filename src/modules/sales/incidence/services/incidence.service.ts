@@ -1,5 +1,5 @@
 import { ApiClientService, EntityApiService } from '@dfl/react-security';
-import { IIncidence, IIncidenceComment } from 'modules/sales/incidence/interfaces';
+import { IIncidence } from 'modules/sales/incidence/interfaces';
 import { INCIDENCE_STATUS_ENUM } from '../constants/incidence-status';
 
 class IncidenceService extends EntityApiService<IIncidence> {

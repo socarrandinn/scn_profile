@@ -41,7 +41,7 @@ const PaymentMethodCreateModal = ({
     <DialogForm
       open={open}
       onClose={handleClose}
-      maxWidth={initValue?.gatewayConfig?.length && initValue?.gatewayConfig?.length > 0 ? 'sm' : 'xs'}
+      maxWidth={initValue?.gatewayConfig?.length || initValue?.bankConfig?.length ? 'sm' : 'xs'}
       isLoading={loadingInitData}
       title={`${t('common:configTo')} ${t(title)}`}
       aria-labelledby={'paymentSettings-creation-title'}

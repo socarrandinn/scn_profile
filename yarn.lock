@@ -1354,47 +1354,47 @@
     ts-morph "^17.0.1"
     typescript "~4.9.3"
 
-"@dfl/hook-utils@2.0.84":
-  version "2.0.84"
-  resolved "https://nexus.dofleinisoftware.com/repository/npm-local/@dfl/hook-utils/-/hook-utils-2.0.84.tgz#eb8d25482ea975a1f641fe4b6ec9b413b38ff39a"
-  integrity sha512-KSIVdZ37tMyAg4ReGOi96A0Kkd6QWh/aa+vsKCosHRWyeepysm20AmVjaPRFErDKmjS891ggWpckp2gfexBJWA==
+"@dfl/hook-utils@2.0.86":
+  version "2.0.86"
+  resolved "https://nexus.dofleinisoftware.com/repository/npm-local/@dfl/hook-utils/-/hook-utils-2.0.86.tgz#b34dba420157276b4e0449d8b7cf53c31b3ce8c1"
+  integrity sha512-AmxnTaJHmjV/RiAg7RcbuEKjNh27P0UXTCj1bQou5jX93U/sfvyWgD24xlpVNma9V1AUdUhJmbeSL/ONdfMSlg==
 
 "@dfl/location@^0.0.15":
   version "0.0.15"
   resolved "http://nexus.dofleinisoftware.com/repository/npm/@dfl/location/-/location-0.0.15.tgz#6f75fe73866f395bddc8564001620770899f70be"
   integrity sha512-g1reOzWgKptUpD9eN4jgQpxgDNyCoB6xOhWWJrhWmd/uct6E967+sc0Pu9g617kX6asrTk5Yod4whka2G0rmqA==
 
-"@dfl/mui-admin-layout@2.0.84":
-  version "2.0.84"
-  resolved "https://nexus.dofleinisoftware.com/repository/npm-local/@dfl/mui-admin-layout/-/mui-admin-layout-2.0.84.tgz#c6646e2e3ebb0b29441c252dd48f038f9916c8ac"
-  integrity sha512-PmpSTaanYmo9r4xdbLzquZHEsJYvkyVaINY1xJvEtOMADrwqTltVQKLZWO+vqkiKHDzFhdk4gzzYUFoHAIZ+lA==
+"@dfl/mui-admin-layout@2.0.86":
+  version "2.0.86"
+  resolved "https://nexus.dofleinisoftware.com/repository/npm-local/@dfl/mui-admin-layout/-/mui-admin-layout-2.0.86.tgz#70cd3dae3c836a714491d1f589feb2c6e373b065"
+  integrity sha512-RYS5kZjiEfCQlTUZwgnB8pBZnZjNymj3cDlMqXUWI8z4ma/fNGbFQjFZPPTdQoYOC/eoQf0dz/CzU+aT7g8E3w==
 
-"@dfl/mui-form-layout@2.0.84":
-  version "2.0.84"
-  resolved "https://nexus.dofleinisoftware.com/repository/npm-local/@dfl/mui-form-layout/-/mui-form-layout-2.0.84.tgz#47ee3f1bb4f2267b4602eefde29bd49cc248e906"
-  integrity sha512-OZhdBZgJuvr5ZRxKJYngjAzBT+zO7/28UO1KCgbXlIrbfg8Hd41qfE5XLZ53r8mDv5agI6Lh3/yghF4ZTq+gsg==
+"@dfl/mui-form-layout@2.0.86":
+  version "2.0.86"
+  resolved "https://nexus.dofleinisoftware.com/repository/npm-local/@dfl/mui-form-layout/-/mui-form-layout-2.0.86.tgz#f16e982f34405316428fd8443af68a99beb68003"
+  integrity sha512-rfY+H6+Wwv7B8LbGxXR0IJdl6TkPUJc+bZIaVQqOWiyr0l9RzgC5oYdO4zuUwlw48qQzva7iWLKnkCbjPoYXwQ==
 
-"@dfl/mui-react-common@2.0.84":
-  version "2.0.84"
-  resolved "https://nexus.dofleinisoftware.com/repository/npm-local/@dfl/mui-react-common/-/mui-react-common-2.0.84.tgz#530e72a38f40254bb9608fd786632779447a4aaf"
-  integrity sha512-JFxsmBzfSHgtEMvDmRM+n35XAmdZ+DwyK+jgcVCoMsNd4I8s2DoS/x+l7VrqXf8k7txSRD96EfER+wNqkWwESg==
+"@dfl/mui-react-common@2.0.86":
+  version "2.0.86"
+  resolved "https://nexus.dofleinisoftware.com/repository/npm-local/@dfl/mui-react-common/-/mui-react-common-2.0.86.tgz#2bade9046492b204c20d3d51ff8e92724102795b"
+  integrity sha512-Mf3ztp5tnzwk1Z8Ux8MdKSXnhzHk4pZ+NrTDoojk9Sb2SjBuig05VmTXzszeZvuo5bBdJKQOE0QvUkb9A7mzGA==
   dependencies:
     react-color "^2.19.3"
 
-"@dfl/react-security@2.0.84":
-  version "2.0.84"
-  resolved "https://nexus.dofleinisoftware.com/repository/npm-local/@dfl/react-security/-/react-security-2.0.84.tgz#b3a9d1fb64e44115cad31a9458f52ada88d5ef1b"
-  integrity sha512-ci2PtyrFSGxIx7LFsavtaVhkF7Ntke9S6o2MzNwlXDDvDVloPJL/1nSPBQSY238CZmGtcrjHadU+yqqoouSQag==
+"@dfl/react-security@2.0.86":
+  version "2.0.86"
+  resolved "https://nexus.dofleinisoftware.com/repository/npm-local/@dfl/react-security/-/react-security-2.0.86.tgz#c067e7999cf048721ca0e6702a4aaed1f4dac606"
+  integrity sha512-Riw4CJ/81C6sMS3Vz9nimUO8Sqshbd3G3DpYfgfhidYZ2JpMKIziFuHRAZcXSBwjvE1NlwoniFJ+riCiQEfL3A==
 
 "@dfl/tailwindcss-config@^0.0.83":
   version "0.0.83"
   resolved "http://nexus.dofleinisoftware.com/repository/npm/@dfl/tailwindcss-config/-/tailwindcss-config-0.0.83.tgz#02b3e40ae4da52726c16e748be0b1b005a52b070"
   integrity sha512-uXlDLCjSssdcoPl1LsDk9NwQmbYi1MUQScNd4tNux3Sut6t2zRdqH7qzSr1un5hV8TbBZe64IEqedCVVARUx7w==
 
-"@dfl/yup-validations@2.0.84":
-  version "2.0.84"
-  resolved "https://nexus.dofleinisoftware.com/repository/npm-local/@dfl/yup-validations/-/yup-validations-2.0.84.tgz#4eda8e3aec6527dc5b034d80185cb15e64c7f366"
-  integrity sha512-IXOP5PVMd+gWPrGtwcg5yibx3qF2mTrH9SH8HwnX8Yt/hpwgqbNPKItPAoztP86nx292ITBTVSmG5KPqIhE9og==
+"@dfl/yup-validations@2.0.86":
+  version "2.0.86"
+  resolved "https://nexus.dofleinisoftware.com/repository/npm-local/@dfl/yup-validations/-/yup-validations-2.0.86.tgz#9bc23e0300c4781c175d2cf172915a0c5bb47af3"
+  integrity sha512-8Is3OUqIG0jPixq+P3CWWDXMMPz+5ZnD6UGCn/tYouy4wF0KuTHOUBeSram2AXHzPGSfnjXPuZDK7QtzRAeiBQ==
 
 "@dnd-kit/accessibility@^3.1.1":
   version "3.1.1"
