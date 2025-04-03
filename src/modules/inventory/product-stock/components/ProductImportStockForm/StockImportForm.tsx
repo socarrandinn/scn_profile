@@ -29,8 +29,6 @@ const StockImportForm = ({ control, isLoading, onSubmit, summary, successData, r
 
   const hazShow = useMemo(() => [isLoading, !!summary?.summary].some((s) => s), [isLoading, summary]);
 
-  console.log(hazShow, 'hazShow')
-
   return (
     <>
       <Form

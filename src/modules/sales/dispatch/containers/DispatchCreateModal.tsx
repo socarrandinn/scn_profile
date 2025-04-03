@@ -11,6 +11,7 @@ import { DISPATCH_ERRORS, mapGetOneErrors } from '../constants';
 import DispatchVerifySummary from '../components/DispatchSummary/DispatchVerifySummary';
 import DispatchSummary from '../components/DispatchSummary/DispatchSummary';
 import { pick } from 'lodash';
+import { useIsValid } from 'modules/sales/payment-agreement/hooks/useIsValid';
 
 type DispatchCreateModalProps = {
   open: boolean;
@@ -34,10 +35,8 @@ const DispatchCreateModal = ({
   const { query } = useTableSearch();
   const { data, isInitialLoading } = useDispatchVerify(query, filters, open && !!filters);
 
-  const isValid = useMemo(() => {
-    if (initValue?._id) return false;
-    return data?.isValid;
-  }, [data?.isValid, initValue?._id]);
+  // valid dispatch
+  const { isValid } = useIsValid(initValue, data);
 
   const _initValue: DispatchDTO = useMemo(
     () => pick({ ...(initValue as IDispatch), filters }, ['_id', 'name', 'filters']),
