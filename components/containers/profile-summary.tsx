@@ -14,7 +14,7 @@ type Props = {
   t: TFunctionNonStrict<["translation", ...string[]], undefined>;
 };
 const ProfileSummary = async ({ t }: Props) => {
-  const roles = t("common:roles", { returnObjects: true }) as string[];
+  const roles = (await t("common:roles", { returnObjects: true })) as string[];
 
   return (
     <Card

@@ -82,9 +82,7 @@ export default async function RootLayout({ children, params }: Props) {
           enableSystem
           disableTransitionOnChange
         >
-          <div className="flex flex-col lg:flex-row container gap-4 h-auto lg:max-h-[92vh] mb-5 md:mb-0">
-            {children}
-          </div>
+          {children}
         </ThemeProvider>
         <TranslationsProvider
           namespaces={i18nNamespaces}

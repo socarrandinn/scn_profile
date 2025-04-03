@@ -28,11 +28,14 @@ const TimeLineItem = ({
             <DateValue value={dateRange?.from} format="MM-yyyy" /> -{" "}
             <DateValue value={dateRange?.to} format="MM-yyyy" />
           </Badge>
-          <div className="flex flex-col gap-2">
+          <div className="flex flex-col gap-2 w-full">
             <h3 className="text-color-secondary text-lg font-semibold ">
               {jobTitle}
             </h3>
-            <Badge variant={"outline"} className="py-0.5 px-2 rounded-sm">
+            <Badge
+              variant={"outline"}
+              className="py-0.5 px-2 rounded-sm !whitespace-break-spaces"
+            >
               {companyName}
             </Badge>
             <TransTypography

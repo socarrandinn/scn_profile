@@ -36,10 +36,12 @@ const HomeLayout = async ({ params, children }: PageProps) => {
       locale={locale}
       resources={resources}
     >
-      <VerticalNav locale={locale} />
-      <NavarMobile locale={locale} />
-      <ProfileSummary t={t} />
-      {children}
+      <main className="flex flex-col lg:flex-row container gap-4 h-auto lg:max-h-[92vh] !mb-5 ">
+        <NavarMobile locale={locale} />
+        <VerticalNav locale={locale} />
+        <ProfileSummary t={t} />
+        {children}
+      </main>
     </TranslationsProvider>
   );
 };
