@@ -7,6 +7,8 @@ import { useTagsFieldArray } from '../../hooks/useTagsFieldArray';
 import { TagsRequiredList } from './TagsRequiredList';
 import { Add } from '@mui/icons-material';
 import { TAG_NAMES } from '../../interfaces';
+import { getTagDefaultValue } from '../../utils/parser-tags';
+import { useFindTagByRequired } from '../../hooks/useFindTags';
 
 type TagsFormProps = {
   control: any;
@@ -17,6 +19,7 @@ type TagsFormProps = {
 
 const TagsForm = ({ control, name, isEdit = false, ruleRequired }: TagsFormProps) => {
   const { t } = useTranslation('tags');
+  const { data: requiredTags } = useFindTagByRequired(name);
 
   const {
     fields: otherFields,
@@ -53,7 +56,12 @@ const TagsForm = ({ control, name, isEdit = false, ruleRequired }: TagsFormProps
         </Stack>
       )}
       <TagListContent fields={otherFields} name={nameOther} onRemoveTag={onRemoveTag} />
-      <TagsRequiredList control={control} name={name} ruleRequired={ruleRequired} />
+      <TagsRequiredList
+        control={control}
+        name={name}
+        ruleRequired={ruleRequired}
+        requiredTags={getTagDefaultValue(requiredTags?.data)}
+      />
     </Stack>
   );
 };

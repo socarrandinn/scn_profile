@@ -10,9 +10,8 @@ import { ILogistics } from 'modules/inventory/provider/logistics/interfaces';
 import { LogisticsService } from 'modules/inventory/provider/logistics/services';
 import { LOGISTICS_LIST_KEY } from 'modules/inventory/provider/logistics/constants';
 import { ADDRESS_INIT_VALUE, emailInitValue, phoneInitValue } from 'modules/common/constants';
-import { getTagDefaultValue, parseTagList } from 'modules/inventory/settings/tags/utils/parser-tags';
-import { useFindTagByRequired } from 'modules/inventory/settings/tags/hooks/useFindTags';
-import { TAG_NAMES } from 'modules/inventory/settings/tags/interfaces';
+import { parseTagList } from 'modules/inventory/settings/tags/utils/parser-tags';
+
 import { scrollToFirstError } from 'utils/error-utils';
 import { formatedAddressObjUtils } from 'modules/common/utils/formated-utils';
 
@@ -41,7 +40,7 @@ const useLogisticsCreateForm = (
   defaultValues: Partial<ILogistics> = initValues,
 ) => {
   const { t } = useTranslation('logistics');
-  const { data: tagList } = useFindTagByRequired(TAG_NAMES.LOGISTIC);
+
   const queryClient = useQueryClient();
   const navigate = useNavigate();
   const { control, handleSubmit, reset, watch, formState, setValue, clearErrors } = useForm({
@@ -67,12 +66,6 @@ const useLogisticsCreateForm = (
     if (defaultValues) reset(defaultValues);
   }, [defaultValues, reset]);
 
-  useEffect(() => {
-    if (tagList?.data) {
-      setValue('tags.logistic', getTagDefaultValue(tagList?.data));
-    }
-  }, [setValue, tagList?.data]);
-
   // @ts-ignore
   const { mutate, error, isLoading, isSuccess, data } = useMutation(
     (logistics: Partial<ILogistics>) => LogisticsService.saveOrUpdate(logistics),
@@ -87,8 +80,6 @@ const useLogisticsCreateForm = (
       },
     },
   );
-
-  // const tags = watch('tags.logistic');
 
   return {
     control,

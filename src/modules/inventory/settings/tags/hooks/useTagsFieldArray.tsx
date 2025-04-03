@@ -7,7 +7,7 @@ export const useTagsFieldArray = ({ control, name = 'tags.product' }: { control:
   const { selectedTag } = useWatch({ control });
   const tags = useWatch({ control, name });
 
-  const { fields, append, remove } = useFieldArray({ control, name, keyName: 'tagId' });
+  const { fields, append, remove, replace } = useFieldArray({ control, name, keyName: 'tagId' });
 
   const getValue = (tag: ITags) => {
     const { type } = tag;
@@ -85,5 +85,6 @@ export const useTagsFieldArray = ({ control, name = 'tags.product' }: { control:
     remove,
     onAddTag,
     onRemoveTag,
+    replace
   };
 };
