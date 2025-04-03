@@ -1,7 +1,3 @@
-import { ReactNode } from "react";
-
-export type PageProps= Readonly<{
-  children: ReactNode;
+export type PageProps = {
   params: Promise<{ locale: string }>;
-}>
- 
+};

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { PropsWithChildren } from "react";
 import i18nConfig from "@/next-i18next.config";
 import initTranslations from "@/app/i18n";
 import { notFound } from "next/navigation";
@@ -12,19 +12,14 @@ export function generateStaticParams() {
   return i18nConfig.locales.map((locale) => ({ locale }));
 }
 
-const i18nNamespaces = [
-  "common",
-  "about-me",
-  "resumen",
-  "education",
-  "experience",
-  "contact",
-  "errors",
-];
+const i18nNamespaces = ["common", "errors"];
 
-const HomeLayout = async ({ params, children }: PageProps) => {
+const HomeLayout = async ({
+  params,
+  children,
+}: PageProps & PropsWithChildren) => {
   const { locale } = await params;
-  const { resources, t } = await initTranslations(locale, i18nNamespaces);
+  const { resources } = await initTranslations(locale, i18nNamespaces);
 
   if (!i18nConfig.locales.includes(locale)) {
     notFound();
@@ -39,7 +34,7 @@ const HomeLayout = async ({ params, children }: PageProps) => {
       <main className="flex flex-col lg:flex-row container gap-4 h-auto lg:max-h-[92vh] !mb-5 ">
         <NavarMobile locale={locale} />
         <VerticalNav locale={locale} />
-        <ProfileSummary t={t} />
+        <ProfileSummary params={params} />
         {children}
       </main>
     </TranslationsProvider>

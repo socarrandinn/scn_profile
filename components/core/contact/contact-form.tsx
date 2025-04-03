@@ -47,14 +47,13 @@ const ContactForm = () => {
           />
         </div>
 
-        <div className="col-span-2 mt-2 flex items-center ">
+        <div className="col-span-2 mt-2 flex items-center w-full justify-end">
           <ButtonLoading
             type="submit"
             loading={form?.isLoading}
             disabled={form?.isLoading}
-            variant={"outline"}
             size={"lg"}
-            className="uppercase"
+            className="uppercase hover:scale-105 transition-all duration-100"
           >
             {t("common:contactMe")}
             <Send />

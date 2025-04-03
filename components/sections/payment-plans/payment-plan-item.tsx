@@ -1,7 +1,7 @@
+import React, { ReactNode } from "react";
+import TransTypography from "@/components/core/trans-typography";
 import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 import { IAboutMePaymentPlan } from "@/definitions/about-me";
-import React, { ReactNode } from "react";
-import { useTranslation } from "react-i18next";
 
 const PaymentPlanItem = ({
   plan,
@@ -10,7 +10,6 @@ const PaymentPlanItem = ({
   plan: IAboutMePaymentPlan;
   icon: ReactNode;
 }) => {
-  const { t } = useTranslation("common");
   return (
     <article className="flex flex-col gap-1 items-center text-center ">
       <Avatar className="w-12 h-12">
@@ -22,7 +21,7 @@ const PaymentPlanItem = ({
       {/* pricing */}
       <div className="flex justify-end items-end gap-1">
         <h1 className="text-4xl font-bold">{plan?.price}</h1>
-        <p className="text-sm font-italic mb-1">{t("hour")}</p>
+        <TransTypography message="common:hour" />
       </div>
       {/*   <p className='font-normal '>{plan?.description}</p> */}
       <ul className="mt-1 md:mt-2 text-color-secondary">

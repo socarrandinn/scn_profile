@@ -1,4 +1,5 @@
 "use client";
+
 import React, { memo } from "react";
 import {
   MapContainer,
@@ -10,6 +11,19 @@ import {
 import "leaflet/dist/leaflet.css";
 import "leaflet-defaulticon-compatibility/dist/leaflet-defaulticon-compatibility.css";
 import "leaflet-defaulticon-compatibility";
+import L from "leaflet";
+import dynamic from "next/dynamic";
+
+// Fix para los iconos desaparecidos
+const DefaultIcon = L.icon({
+  iconUrl: "/marker-icon.png",
+  iconRetinaUrl: "/marker-icon-2x.png",
+  shadowUrl: "/marker-shadow.png",
+  iconSize: [25, 41],
+  iconAnchor: [12, 41],
+});
+
+L.Marker.prototype.options.icon = DefaultIcon;
 
 interface Props {
   posix: [number, number];
@@ -21,9 +35,7 @@ const defaults = {
   zoom: 19,
 };
 
-// Manage logic for adding markers
 const LocationMarker = ({ posix, setMarkers }: Props) => {
-  // Listen to map events
   useMapEvents({
     click: (e) => {
       const { lat, lng } = e.latlng;
@@ -32,20 +44,16 @@ const LocationMarker = ({ posix, setMarkers }: Props) => {
   });
 
   return (
-    <>
-      <Marker position={posix} draggable={false}>
-        <Popup>
-          Mi ubicación <br />
-          Lat: {posix?.[0]}, Lng: {posix?.[1]}
-        </Popup>
-      </Marker>
-    </>
+    <Marker position={posix} draggable={false}>
+      <Popup>
+        Mi ubicación <br />
+        Lat: {posix[0].toFixed(4)}, Lng: {posix[1].toFixed(4)}
+      </Popup>
+    </Marker>
   );
 };
 
-const ContactMap = (Map: Props) => {
-  const { zoom = defaults.zoom, posix, setMarkers } = Map;
-
+const ContactMap = ({ zoom = defaults.zoom, posix, setMarkers }: Props) => {
   return (
     <MapContainer
       center={posix}
@@ -58,18 +66,13 @@ const ContactMap = (Map: Props) => {
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
       />
 
-      {/* Initial marker */}
-      <Marker position={posix} draggable={false}>
-        <Popup>
-          Mi ubicación <br />
-          Lat: {posix?.[0]}, Lng: {posix?.[1]}
-        </Popup>
-      </Marker>
-
-      {/* Add marker dynamically */}
       <LocationMarker posix={posix} setMarkers={setMarkers} />
     </MapContainer>
   );
 };
 
-export default memo(ContactMap);
+// Exportación dinámica corregida
+export default dynamic(() => Promise.resolve(memo(ContactMap)), {
+  ssr: false,
+  loading: () => <p>Cargando mapa...</p>,
+});

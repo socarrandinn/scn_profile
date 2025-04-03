@@ -8,12 +8,12 @@ import ProfileActions from "./profile-actions";
 import { User } from "lucide-react";
 import { INFO } from "@/constants/info";
 import { cn } from "@/lib/utils";
-import { TFunctionNonStrict } from "i18next";
+import { PageProps } from "@/definitions/page-types";
+import initTranslations from "@/app/i18n";
 
-type Props = {
-  t: TFunctionNonStrict<["translation", ...string[]], undefined>;
-};
-const ProfileSummary = async ({ t }: Props) => {
+const ProfileSummary = async ({ params }: PageProps) => {
+  const { locale } = await params;
+  const { t } = await initTranslations(locale, ["common"]);
   const roles = (await t("common:roles", { returnObjects: true })) as string[];
 
   return (

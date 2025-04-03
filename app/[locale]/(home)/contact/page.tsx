@@ -1,38 +1,39 @@
-"use client";
+import TranslationsProvider from "@/app/contexts/translation-provider";
+import initTranslations from "@/app/i18n";
 import PageContainer from "@/components/containers/page-container";
 import ContactForm from "@/components/core/contact/contact-form";
+import ContactMapContainer from "@/components/core/contact/contact-map-container";
 import { CardContent } from "@/components/ui/card";
 import PageHeader from "@/components/ui/page-header";
-import dynamic from "next/dynamic";
+import { PageProps } from "@/definitions/page-types";
 
-const LeafletMap = dynamic(
-  () => import("@/components/core/contact/contact-map"),
-  {
-    ssr: false,
-    loading: () => <p>Loading...</p>,
-  },
-);
+const i18nNamespaces = ["common", "contact"];
 
-const ContactMePage = () => {
+const ContactMePage = async ({ params }: PageProps) => {
+  const { locale } = await params;
+  const { resources } = await initTranslations(locale, i18nNamespaces);
   return (
-    <PageContainer title={"contact:section.map"}>
-      <CardContent>
-        <div className="h-[24rem] md:h-[16rem] w-full">
-          <LeafletMap posix={[23.1136, -82.3666]} zoom={18} />
-        </div>
-      </CardContent>
+    <TranslationsProvider
+      namespaces={i18nNamespaces}
+      locale={locale}
+      resources={resources}
+    >
+      <PageContainer title={"contact:section.map"}>
+        {/* map */}
+        <ContactMapContainer />
 
-      <section className="mt-2 md:mt-8">
-        <PageHeader
-          variant="compuse"
-          title={"contact:section.form"}
-          className="fade-line-bottom"
-        />
-        <CardContent id="form">
-          <ContactForm />
-        </CardContent>
-      </section>
-    </PageContainer>
+        <section className="mt-2 md:mt-8">
+          <PageHeader
+            variant="compuse"
+            title={"contact:section.form"}
+            className="fade-line-bottom"
+          />
+          <CardContent id="form">
+            <ContactForm />
+          </CardContent>
+        </section>
+      </PageContainer>
+    </TranslationsProvider>
   );
 };
 

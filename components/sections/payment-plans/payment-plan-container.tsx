@@ -1,15 +1,17 @@
 import React from "react";
-import { useTranslation } from "react-i18next";
 import PaymentPlanItem from "./payment-plan-item";
 import { IAboutMePaymentPlan } from "@/definitions/about-me";
-import StarIcon from "@/components/icons/pyament-plan/star-icon";
+import StarIcon from "@/components/icons/payment-plan/star-icon";
+import { PageProps } from "@/definitions/page-types";
+import initTranslations from "@/app/i18n";
 
-const PlansContainer = () => {
-  const { t } = useTranslation();
+const PlansContainer = async ({ params }: PageProps) => {
+  const { locale } = await params;
+  const { t } = await initTranslations(locale, ["about-me"]);
 
-  const services = t("about-me:payment_plans.plans", {
+  const services = (await t("about-me:payment_plans.plans", {
     returnObjects: true,
-  }) as Record<string, IAboutMePaymentPlan>;
+  })) as Record<string, IAboutMePaymentPlan>;
 
   const plans = Object.keys(services);
 

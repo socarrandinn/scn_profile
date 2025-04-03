@@ -35,7 +35,7 @@ const lekton = localFont({
 });
 
 export const metadata: Metadata = {
-  title: "SOCN",
+  title: "SilviDev",
   description: "Portafolio de desarrollo de software",
 };
 
