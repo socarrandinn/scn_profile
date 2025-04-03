@@ -24,15 +24,14 @@ const IncidenceHeaderDetails = () => {
 
   return (
     <>
-      <Section sx={{ padding: '24px 24px 0px 30px', gap: 0.5 }}>
-        <FlexBox alignItems={'center'} justifyContent={'space-between'}>
+      <Section sx={{ padding: '24px 24px 0px 30px', gap: 0.5, minHeight: 'auto' }}>
+        <FlexBox justifyContent={'space-between'} mb={1} alignItems={'flex-start'}>
           <IncidenceActionsHeader
             code={incidence?.code}
             title={incidence?.code as string}
-            incidenceTitle={incidence?.cause?.name}
             orderCode={incidence?.orderReference?.code}
-            message={incidence?.subCause?.name ? `(${t('fields.subCause')}) ${incidence?.subCause?.name}` : undefined}
             noActions
+            noNote
             referenceType={incidence?.referenceType}
           >
             <FlexBox alignItems={'center'} gap={4} mb={1}>

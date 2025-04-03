@@ -31,7 +31,7 @@
     "type": "Incidence type",
     "createdBy": "Created by"
   },
-  "addComments": "Add comments", 
+  "addComments": "Add comments...", 
   "addCommentSuccess": "Comment successfully added",
   "addCommentError": "Comment could not be added",
   "status": {

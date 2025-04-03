@@ -31,7 +31,7 @@
     "assignedTo": "Asignado a",
     "createdBy": "Creado por"
   },
-  "addComments": "Añadir comentarios", 
+  "addComments": "Añadir comentarios...", 
   "addCommentSuccess": "Comentario añadido satisfactoriamente",
   "addCommentError": "Ha ocurrido un error",	
   "status": {

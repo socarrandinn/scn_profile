@@ -5,30 +5,32 @@ import { Box, Typography } from '@mui/material';
 import CloudDownloadIcon from '@mui/icons-material/CloudDownload';
 import { IIncidenceComment } from '../../interfaces';
 import { AvatarMedia } from 'components/AvatarMedia';
+import { FilePreview } from 'components/FileDropZone/FilePreview';
+import { IFile } from 'components/FileDropZone/interfaces/IFile';
+import { formatDistanceToNow, formatRelative } from 'date-fns';
+import { es } from 'date-fns/locale';
 
 type IncidenceCommentItemProps = {
   data: IIncidenceComment;
 };
 
 const IncidenceCommentItem = ({ data }: IncidenceCommentItemProps) => {
+  const time = formatDistanceToNow(new Date(data?.createdAt as string), { addSuffix: true, locale: es });;
+
   return (
     <FlexBox gap={'9px'}>
       <AvatarMedia avatar={data?.createdBy?.avatar} sx={{ height: '30px', width: '30px', mt: 0.5 }} />
       <div className='w-full'>
-        <FlexBox alignItems={'center'} gap={1} sx={{ mb: '5px' }}>
-          <Typography variant='h4' fontWeight={600}>{data?.createdBy?.fullName}</Typography>
-          <DateValue value={data?.createdAt} format='h:mm aa' />
-          {data?.attachments?.length !== 0 && (
-            <a href={data?.attachments?.[0]?.url} download className='text-inherit'>
-              <CloudDownloadIcon className='mr-3 animate-bounce' />
-            </a>
-          )}
+        <FlexBox alignItems={'center'} justifyContent={'space-between'} gap={1} sx={{ mb: '5px' }}>
+          <Typography variant='body1' fontWeight={600}>{data?.createdBy?.fullName}</Typography>
+          <Typography>{time.charAt(0).toUpperCase() + time.slice(1)}</Typography>
         </FlexBox>
-        <Box sx={{ background: '#F2F4F8', borderRadius: '5px' }}>
+        <Box sx={{ background: '#F2F4F8', borderRadius: '5px', mb: 1 }}>
           <Typography variant='body2' color='#2B3445' sx={{ p: '10px' }}>
             {data?.comment}
           </Typography>
         </Box>
+        {data?.attachments && data?.attachments?.map((file: IFile) => <FilePreview key={file?.url} data={file} hideLabel />)}
       </div>
     </FlexBox>
   );

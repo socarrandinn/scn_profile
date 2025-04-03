@@ -6,14 +6,11 @@ import { IIncidenceComment } from '../../interfaces';
 
 type IncidenceCommentsListProps = {
   comments: IIncidenceComment[];
-  limit?: number;
 };
 
-const IncidenceCommentsList = ({ comments, limit = Infinity }: IncidenceCommentsListProps) => {
-  const limitedComments = limit < comments.length ? comments?.slice(0, limit) : comments;
-
+const IncidenceCommentsList = ({ comments }: IncidenceCommentsListProps) => {
   return (
-    <FlexBox flexDirection='column' gap={3} my={2}>
+    <FlexBox flexDirection='column' gap={1}>
       {comments?.map((comment) => (
         <IncidenceCommentItem key={comment?._id} data={comment} />
       ))}
