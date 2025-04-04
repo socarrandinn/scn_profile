@@ -11,6 +11,7 @@ import initTranslations from "../i18n";
 import NotFound from "./not-found";
 import { cn } from "@/lib/utils";
 import { dir } from "i18next";
+import config from "@/lib/admin/config";
 
 const lekton = localFont({
   src: [
@@ -35,12 +36,12 @@ const lekton = localFont({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL(`${process.env.NEXT_PUBLIC_APP_URL}`),
+  metadataBase: new URL(config.env.appUrl),
   title: "SilviDev",
   description: "Portafolio de desarrollo de software",
   viewport: "width=device-width, initial-scale=1",
   alternates: {
-    canonical: new URL(`${process.env.NEXT_PUBLIC_APP_URL}/es`),
+    canonical: new URL(`${config.env.appUrl}/es`),
     languages: {
       "en-US": "/en-US",
       "es-ES": "/es-ES",
