@@ -1,9 +1,9 @@
 import { FormEventHandler, memo } from 'react';
 import { Form, HandlerError } from '@dfl/mui-react-common';
 import { Grid, Box } from '@mui/material';
-import SeoForm from 'modules/inventory/product/containers/ProductFormSections/SeoForm';
+import SeoForm from '../components/SeoForm/SeoForm';
 
-type ProductSEOInformationFormProps = {
+type Props = {
   error: any;
   control: any;
   isLoading: boolean;
@@ -13,7 +13,7 @@ type ProductSEOInformationFormProps = {
   slugDescription?: string;
 };
 
-const ProductSEOInformationForm = ({
+const SeoFormContainer = ({
   error,
   control,
   isLoading,
@@ -21,7 +21,7 @@ const ProductSEOInformationForm = ({
   seoTitle,
   seoDescription,
   slugDescription,
-}: ProductSEOInformationFormProps) => {
+}: Props) => {
   return (
     <Box paddingLeft={3}>
       <HandlerError error={error} />
@@ -38,4 +38,4 @@ const ProductSEOInformationForm = ({
     </Box>
   );
 };
-export default memo(ProductSEOInformationForm);
+export default memo(SeoFormContainer);

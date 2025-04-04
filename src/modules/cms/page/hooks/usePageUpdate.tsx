@@ -6,13 +6,12 @@ import { useTranslation } from 'react-i18next';
 import { IPage } from '../interfaces';
 import { PAGES_ONE_KEY } from '../constants';
 import { PageService } from '../services';
-import { useParams } from 'react-router';
+import { Schema } from 'yup';
 
-const usePageUpdate = (defaultValues: Partial<IPage>, schema: any, onClose?: () => void) => {
-  const { t } = useTranslation('provider');
-  const { id } = useParams();
+const usePageUpdate = (defaultValues: Partial<IPage>, schema: Schema, onClose?: () => void) => {
+  const { t } = useTranslation('page');
   const queryClient = useQueryClient();
-  const { control, handleSubmit, reset, formState, watch } = useForm({
+  const { control, handleSubmit, reset, formState, watch, setValue } = useForm({
     resolver: yupResolver(schema),
     defaultValues,
     values: defaultValues,
@@ -22,13 +21,14 @@ const usePageUpdate = (defaultValues: Partial<IPage>, schema: any, onClose?: () 
   const seoDescription = watch?.('seo.description');
   const slug = watch?.('slug');
 
-  const { mutate, error, isLoading, isSuccess, data } = useMutation(
-    (data: Partial<IPage>) => PageService.update(id, data),
+  console.log('defaultValues', watch());
+
+  const { mutate, error, isLoading, data } = useMutation(
+    (seo: Partial<IPage>) => PageService.update(seo),
     {
-      onSuccess: (data, values) => {
+      onSuccess: (data) => {
         queryClient.invalidateQueries([data?._id, PAGES_ONE_KEY]);
-        values?._id && queryClient.invalidateQueries([values._id]);
-        toast.success(t('successBasicUpdate'));
+        toast.success(t('successUpdate'));
         onClose?.();
         reset();
       },
@@ -39,7 +39,7 @@ const usePageUpdate = (defaultValues: Partial<IPage>, schema: any, onClose?: () 
     control,
     error,
     isLoading,
-    isSuccess,
+    setValue,
     data,
     reset,
     seoTitle,
@@ -47,6 +47,7 @@ const usePageUpdate = (defaultValues: Partial<IPage>, schema: any, onClose?: () 
     seoDescription,
     slug,
     values: formState.errors,
+    watch,
     onSubmit: handleSubmit((values) => {
       mutate(values);
     }),

@@ -13,7 +13,6 @@ import GeneralInfoForm from 'modules/inventory/product/containers/ProductFormSec
 import MediaForm from 'modules/inventory/product/containers/ProductFormSections/MediaForm';
 import PricesForm from 'modules/inventory/product/containers/ProductFormSections/PricesForm';
 import ScoreForm from 'modules/inventory/product/containers/ProductFormSections/ScoreForm';
-import SeoForm from 'modules/inventory/product/containers/ProductFormSections/SeoForm';
 import ProductProviderForm from 'modules/inventory/product/containers/ProductFormSections/ProductProviderForm';
 import EstimatedTimeForm from 'modules/inventory/product/containers/ProductFormSections/EstimatedTimeForm';
 import ShippingInfoForm from 'modules/inventory/product/containers/ProductFormSections/ShippingInfoForm';
@@ -23,6 +22,7 @@ import { TagsFormContainer } from 'modules/inventory/settings/tags/containers/Ta
 import { TAG_NAMES } from 'modules/inventory/settings/tags/interfaces';
 import ButtonRefresh from 'modules/inventory/common/components/ButtonRefresh/ButtonRefresh';
 import { TAGS_LIST_KEY } from 'modules/inventory/settings/tags/constants';
+import { SeoForm } from 'modules/common/components/SeoForm';
 
 const mt = {
   xs: 2,

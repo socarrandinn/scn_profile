@@ -12,10 +12,10 @@ const PageGeneralContainer = () => {
         <ContentText />
       </DetailContent>
 
-      {/* <DetailSummary ghost width={{ md: 400, lg: 450, xl: 500 }}>
+      <DetailSummary ghost width={{ md: 400, lg: 450, xl: 500 }}>
         <PageSeo />
-        <PageDates />
-      </DetailSummary> */}
+        {/* <PageDates /> */}
+      </DetailSummary>
     </DetailLayout>
   );
 };
