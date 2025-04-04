@@ -40,6 +40,20 @@ export const CMS_MENU: IMenu[] = [
     ],
   },
   {
+    title: 'main_menu.admin.section.cms.content',
+    prefix: '/pages',
+    atLessOne: true,
+    items: [
+      {
+        title: 'main_menu.admin.section.cms.pages',
+        path: '/cms/pages',
+        partialMatch: true,
+        icon: <PermMediaOutlined fontSize='small' />,
+        permissions: [COLLECTIONS_PERMISSIONS.COLLECTIONS_VIEW],
+      },
+    ],
+  },
+  {
     title: 'main_menu.admin.section.cms.resources',
     prefix: '/medias',
     atLessOne: true,

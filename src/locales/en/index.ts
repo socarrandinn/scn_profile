@@ -84,3 +84,5 @@ export { default as tour } from './tour.json';
 export { default as bank } from './bank.json';
 
 export { default as paymentAgreement } from './paymentAgreement.json';
+
+export { default as page } from './page.json';

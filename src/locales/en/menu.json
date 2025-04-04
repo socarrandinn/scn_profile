@@ -72,6 +72,8 @@
         },
         "cms": {
           "title": "Content",
+          "content": "Page Management",
+          "pages": "Pages",
           "seo": "SEO Optimization",
           "collection": "Collections",
           "resources": "Resources"

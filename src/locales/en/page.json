@@ -1,0 +1,24 @@
+{
+  "list": "Management pages",
+  "create": "Create new page",
+  "deleteMany": "You must have items selected to do this operation",
+  "edit": "Edit page...",
+  "successDeleted": "Item successfully deleted",
+  "successUpdate": "Item successfully updated",
+  "successCreated": "Item successfully created",
+  "noteUrl": "Url to access the page",	
+  "status": {
+    "PUBLISH": "Publish",
+    "DRAFT": "Draft"
+  },
+  "fields": {
+    "name": "Page title",
+    "url": "URL",	
+    "isHomePage": "Set as home page",	
+    "content": "Content",
+    "status": "Status",
+    "description": "Description",
+    "createdAt": "Created date",
+    "active": "Active"
+  }
+}
