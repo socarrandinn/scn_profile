@@ -1,0 +1,4 @@
+export enum PAGE_PERMISSIONS {
+  PAGE_VIEW = 'PAGE_VIEW',
+  PAGE_WRITE = 'PAGE_WRITE',
+}

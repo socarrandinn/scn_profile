@@ -72,9 +72,11 @@
         },
         "cms": {
           "title": "Contenidos",
+          "content": "Gestión de páginas",
           "collection": "Colecciones",
           "seo": "Optimización SEO",
-          "resources": "Recursos"
+          "resources": "Recursos",
+          "pages": "Páginas"
         }
       }
     }

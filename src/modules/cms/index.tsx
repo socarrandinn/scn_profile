@@ -5,6 +5,7 @@ import CollectionsModule from 'modules/cms/collections';
 
 import BannerModule from 'modules/cms/banners';
 import MediasModule from './medias';
+import PageModule from 'modules/cms/page';
 
 const routes = {
   SeoSettings: {
@@ -28,6 +29,10 @@ const routes = {
     path: '/medias/*',
     component: MediasModule,
   },
+    PageList: {
+              path: '/pages/*',
+              component: PageModule,
+            }
 };
 
 const Module = () => {
