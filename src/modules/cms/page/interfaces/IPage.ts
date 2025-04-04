@@ -7,4 +7,5 @@ export interface IPage {
   slug: string;
   seo: ISeo;
   content: string;
+  updatedAt?: Date;
 }
