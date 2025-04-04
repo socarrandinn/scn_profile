@@ -11,8 +11,13 @@ import { useEffect, useCallback } from 'react';
 
 const initValues: IPage = {
   slug: '',
-  seo: {},
-  content: ''
+  seo: {
+    name: '',
+    description: '',
+  },
+  content: '',
+  createdAt: new Date(),
+  updatedAt: new Date(),
 };
 
 const usePageCreateForm = (onClose: () => void, defaultValues: IPage = initValues) => {

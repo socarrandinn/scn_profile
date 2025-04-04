@@ -6,12 +6,15 @@ import { PAGE_PERMISSIONS } from 'modules/cms/page/constants/page.permissions';
 import { PageStatusPicker } from '../components/PageStatusPicker';
 import { PAGE_STATUS_ENUM } from './page-status';
 import { LongText } from '@dfl/mui-react-common';
+import { AvatarNameCell } from 'modules/common/components/AvatarNameCell';
 
 export const pageNameColumn: HeadCell<IPage> = {
   field: 'seo.name',
   headerName: 'page:fields.name',
   disablePadding: false,
-  renderCell: (name: string, data?: IPage) => (<EditLink entityId={data?._id as string}>{name}</EditLink>),
+  renderCell: (name: string, data?: IPage) => (
+    <AvatarNameCell link={`/cms/pages/${data?._id}/general`} name={name} hideImage />
+  ),
 };
 
 export const pageDescriptionColumn: HeadCell<IPage> = {

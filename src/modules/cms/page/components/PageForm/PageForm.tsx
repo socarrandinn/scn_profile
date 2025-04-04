@@ -2,10 +2,6 @@ import { FormEventHandler, memo } from 'react';
 import { Form, FormTextField, HandlerError } from '@dfl/mui-react-common';
 import { Grid, InputAdornment } from '@mui/material';
 import { useTranslation } from 'react-i18next';
-import { FormCustomSwitchField } from 'modules/common/components/IphoneSwitchField';
-import { UseFormWatch } from 'react-hook-form';
-import { IPage } from '../../interfaces';
-import { NoteInfo } from 'modules/common/components/NoteInfo';
 import { Link } from '@mui/icons-material';
 
 type PageFormProps = {
@@ -32,7 +28,7 @@ const PageForm = ({ error, control, isLoading, onSubmit }: PageFormProps) => {
               autoFocus
               name='slug'
               label={t('fields.url')}
-              helperText={<NoteInfo>{t('noteUrl')}</NoteInfo>}
+              helperText={t('noteUrl')}
               InputProps={{
                 startAdornment: (
                   <InputAdornment position='start'>

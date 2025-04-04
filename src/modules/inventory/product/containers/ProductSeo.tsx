@@ -5,8 +5,8 @@ import { FormPaper } from 'modules/common/components/FormPaper';
 import { FormPaperAction } from 'modules/common/components/FormPaperAction';
 import { PRODUCT_PERMISSIONS } from '../constants';
 import SeoPreview from 'components/SeoPreview/SeoPreview';
-import { urlBase } from './ProductFormSections/SeoForm';
 import ProductDetailSeoUpdate from './ProductTabs/ProductDetailSeoUpdate';
+import { urlBase } from 'modules/common/components/SeoForm/SeoForm';
 
 const ProductSeo = () => {
   const { t } = useTranslation('product');

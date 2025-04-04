@@ -8,19 +8,19 @@ import useProductSEOCreateForm from 'modules/inventory/product/hooks/useProductS
 import { mapGetOneErrors } from 'constants/errors';
 import SeoFormContainer from 'modules/common/containers/SeoFormContainer';
 
-type productDetailSEOUpdateContainerProps = {
+type Props = {
   loadingInitData?: boolean;
   dataError?: any;
   initValue?: Partial<IProductCreate>;
   onClose: () => void;
 };
 
-const ProductDetailSeoUpdateContainer = ({
+const PageSeoUpdate = ({
   dataError,
   initValue,
   loadingInitData,
   onClose,
-}: productDetailSEOUpdateContainerProps) => {
+}: Props) => {
   const { t } = useTranslation('common');
   const { control, onSubmit, isLoading, error, reset, seoTitle, seoDescription, slugDescription, formState } =
     useProductSEOCreateForm(initValue, onClose);
@@ -65,4 +65,4 @@ const ProductDetailSeoUpdateContainer = ({
   );
 };
 
-export default memo(ProductDetailSeoUpdateContainer);
+export default memo(PageSeoUpdate);

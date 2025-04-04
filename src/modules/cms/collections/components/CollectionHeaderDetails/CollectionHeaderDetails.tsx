@@ -7,7 +7,7 @@ import { COLLECTION_CONTENT_TYPE, COLLECTION_POSITION } from '../../constants/co
 import { Stack } from '@mui/material';
 import { COLLECTIONS_PERMISSIONS } from '../../constants';
 import CollectionDeleteButton from './CollectionDeleteButton';
-import { COLLECTION_STYLE } from '../../constants/entities.style';
+import { COLLECTION_STYLE } from '../../constants/cms-entities.style';
 import { useBreadcrumbName } from '@dfl/mui-admin-layout';
 import { CollectionStatus } from '../CollectionStatus';
 import { CollectionBannerTypeChip } from 'modules/cms/collections/components/CollectionBannerTypeChip/CollectionBannerTypeChip';
