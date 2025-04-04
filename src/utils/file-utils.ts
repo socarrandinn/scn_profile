@@ -73,4 +73,3 @@ export const downloadFile = (data: IFile | undefined) => {
   link.click();
   document.body.removeChild(link);
 };
-

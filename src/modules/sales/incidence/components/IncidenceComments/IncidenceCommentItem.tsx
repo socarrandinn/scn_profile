@@ -1,13 +1,12 @@
 
 import { memo } from 'react';
-import { DateValue, FlexBox } from '@dfl/mui-react-common';
+import { FlexBox } from '@dfl/mui-react-common';
 import { Box, Typography } from '@mui/material';
-import CloudDownloadIcon from '@mui/icons-material/CloudDownload';
 import { IIncidenceComment } from '../../interfaces';
 import { AvatarMedia } from 'components/AvatarMedia';
 import { FilePreview } from 'components/FileDropZone/FilePreview';
 import { IFile } from 'components/FileDropZone/interfaces/IFile';
-import { formatDistanceToNow, formatRelative } from 'date-fns';
+import { formatDistanceToNow } from 'date-fns';
 import { es } from 'date-fns/locale';
 
 type IncidenceCommentItemProps = {
@@ -15,7 +14,7 @@ type IncidenceCommentItemProps = {
 };
 
 const IncidenceCommentItem = ({ data }: IncidenceCommentItemProps) => {
-  const time = formatDistanceToNow(new Date(data?.createdAt as string), { addSuffix: true, locale: es });;
+  const time = formatDistanceToNow(new Date(data?.createdAt as string), { addSuffix: true, locale: es });
 
   return (
     <FlexBox gap={'9px'}>

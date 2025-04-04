@@ -4,7 +4,6 @@ import { useTranslation } from 'react-i18next';
 import { Box } from '@mui/material';
 import { PAGE_STATUS, PAGE_STATUS_ENUM, PAGE_STATUS_MAP } from '../../constants/page-status';
 import { useSecurity } from '@dfl/react-security';
-import useUpdateIncidenceStatus from 'modules/sales/incidence/hooks/useUpdateIncidenceStatus';
 import { PAGE_PERMISSIONS } from '../../constants';
 import useUpdatePageStatus from '../../hooks/useUpdatePageStatus';
 

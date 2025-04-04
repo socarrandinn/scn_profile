@@ -1,4 +1,4 @@
-import { Box, Stack, Typography } from '@mui/material';
+import { Stack } from '@mui/material';
 import { memo } from 'react';
 import { DetailContent, DetailLayout, DetailSummary } from '@dfl/mui-form-layout';
 import { IncidenceComments } from '../components/IncidenceComments';
@@ -39,7 +39,7 @@ const IncidenceGeneralContainer = () => {
             <FormPaper title={t('common:evidence')} variant={{ title: 'h4' }} mbHeader={1}>
               <div className='flex gap-4 items-center'>
                 {incidence?.evidence?.map((file) =>
-                  <div className='p-3 rounded-lg text-center bg-[#F8F9FD]'>
+                  <div key={file?.url} className='p-3 rounded-lg text-center bg-[#F8F9FD]'>
                     <FilePreview key={file?.url} data={file} />
                   </div>
                 )}

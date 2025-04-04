@@ -64,7 +64,7 @@ const PageSeo = () => {
         </Stack>
       </FormPaper>
     )
-  };
+  }
 
   return (
     <FormPaper

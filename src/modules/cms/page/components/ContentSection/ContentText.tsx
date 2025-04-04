@@ -45,7 +45,7 @@ const ContentText = () => {
         />
       </FormPaper>
     )
-  };
+  }
 
   return (
     <FormPaper

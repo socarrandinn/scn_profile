@@ -42,7 +42,7 @@ export const incidenceAssignedToColumn: HeadCell<IIncidence> = {
   headerName: 'incidence:fields.assignedTo',
   renderCell: (value: string, data?: IIncidence) => (
     <AvatarNameCell
-      link={`/security/system-users/user/${data?.responsible?._id}/general`}
+      link={`/security/system-users/user/${data?.responsible?._id as string}/general`}
       image={data?.responsible?.avatar}
       name={data?.responsible?.fullName}
       secondary={data?.responsible?.email}
@@ -55,7 +55,7 @@ export const incidenceCreatedByColumn: HeadCell<IIncidence> = {
   headerName: 'incidence:fields.createdBy',
   renderCell: (value: string, data?: IIncidence) => (
     <AvatarNameCell
-      link={`/security/system-users/user/${data?.createdBy?._id}/general`}
+      link={`/security/system-users/user/${data?.createdBy?._id as string}/general`}
       image={data?.createdBy?.avatar}
       name={data?.createdBy?.fullName}
       secondary={data?.createdBy?.email}

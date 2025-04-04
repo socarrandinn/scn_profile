@@ -2,14 +2,12 @@ import { memo, useMemo } from 'react';
 import { ChildrenProps, Form, FormTextField, HandlerError, IconButton } from '@dfl/mui-react-common';
 import { CircularProgress, Divider, Grid, InputAdornment, useTheme } from '@mui/material';
 import { useTranslation } from 'react-i18next';
-import FileDropZone, { TYPE_DROP } from 'components/FileDropZone/FileDropZone';
+import { TYPE_DROP } from 'components/FileDropZone/FileDropZone';
 import { ACCEPT_ALL, MAX_SIZE_FILE } from 'components/FileDropZone/constants/common';
 import useIncidenceCommentCreateForm from '../../hooks/useIncidenceCommentsCreateForm';
 import { ArrowRightIcon } from 'components/icons/ArrowRightIcon';
 import { AttachFileForm } from 'components/FileDropZone';
-import FileContent from 'components/FileDropZone/FileContent';
 import { useFieldArray } from 'react-hook-form';
-import { useDropzone } from 'react-dropzone';
 import FileItem from 'components/FileDropZone/FileTypes/File/FileItem';
 
 type IncidenceCommentFormProps = ChildrenProps & {

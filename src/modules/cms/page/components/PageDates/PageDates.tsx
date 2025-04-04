@@ -2,9 +2,8 @@ import { memo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { usePageDetails } from '../../context/PageDetailsContext';
 import { FormPaper } from 'modules/common/components/FormPaper';
-import { ConditionContainer, DateValue, DetailStack, SkeletonForm } from '@dfl/mui-react-common';
+import { ConditionContainer, DetailStack, SkeletonForm } from '@dfl/mui-react-common';
 import { DATES_SUMMARY } from 'modules/common/constants/dates-summary';
-
 
 const PageDates = () => {
   const { t } = useTranslation('page');

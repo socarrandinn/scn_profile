@@ -1,5 +1,5 @@
 import { PageRowActions } from 'modules/cms/page/components/PageRowActions';
-import { CellAlign, EditLink, HeadCell } from '@dfl/mui-admin-layout';
+import { CellAlign, HeadCell } from '@dfl/mui-admin-layout';
 import { IPage } from 'modules/cms/page/interfaces';
 import { createdATColumn } from 'modules/common/constants/common.columns';
 import { PAGE_PERMISSIONS } from 'modules/cms/page/constants/page.permissions';
@@ -13,7 +13,7 @@ export const pageNameColumn: HeadCell<IPage> = {
   headerName: 'page:fields.name',
   disablePadding: false,
   renderCell: (name: string, data?: IPage) => (
-    <AvatarNameCell link={`/cms/pages/${data?._id}/general`} name={name} hideImage />
+    <AvatarNameCell link={`/cms/pages/${data?._id as string}/general`} name={name} hideImage />
   ),
 };
 

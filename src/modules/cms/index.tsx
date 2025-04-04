@@ -29,10 +29,10 @@ const routes = {
     path: '/medias/*',
     component: MediasModule,
   },
-    PageList: {
-              path: '/pages/*',
-              component: PageModule,
-            }
+  PageList: {
+    path: '/pages/*',
+    component: PageModule,
+  }
 };
 
 const Module = () => {
