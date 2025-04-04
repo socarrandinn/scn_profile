@@ -37,15 +37,20 @@ const lekton = localFont({
 
 export const metadata: Metadata = {
   metadataBase: new URL(config.env.appUrl),
-  title: "SilviDev",
+  title: "SILVI-DEV 💼",
   description: "Portafolio de desarrollo de software",
   viewport: "width=device-width, initial-scale=1",
+
   alternates: {
-    canonical: new URL(`${config.env.appUrl}/es`),
+    canonical: new URL(`${config.env.appUrl}/en`),
     languages: {
       "en-US": "/en-US",
       "es-ES": "/es-ES",
     },
+  },
+
+  other: {
+    google: "notranslate", // Bloquea traducción automática
   },
   robots: {
     index: false,
