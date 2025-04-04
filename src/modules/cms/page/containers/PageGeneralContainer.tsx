@@ -1,6 +1,5 @@
 import { memo } from 'react';
 import { DetailContent, DetailLayout, DetailSummary } from '@dfl/mui-form-layout';
-import { FormPaper } from 'modules/common/components/FormPaper';
 import { PageSeo } from '../components/PageSeo';
 import { ContentText } from '../components/ContentSection';
 import PageDates from '../components/PageDates/PageDates';
@@ -14,7 +13,7 @@ const PageGeneralContainer = () => {
 
       <DetailSummary ghost width={{ md: 400, lg: 450, xl: 500 }}>
         <PageSeo />
-        {/* <PageDates /> */}
+        <PageDates />
       </DetailSummary>
     </DetailLayout>
   );
