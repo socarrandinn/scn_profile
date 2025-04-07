@@ -23,23 +23,21 @@ const TimeLineItem = ({
       <TimeLineDot isFirst={isFirst} />
 
       <div className="flex flex-col md:flex-row md:items-center md:justify-between -mt-0.5">
-        <div className="flex flex-col flex-1 gap-4 justify-start">
-          <Badge className="text-primary" variant={"outline"}>
+        <div className="flex flex-col flex-1 gap-2 justify-start">
+          <Badge
+            variant={"outline"}
+            className="leading-normal  border-primary "
+          >
             <DateValue value={dateRange?.from} format="MM-yyyy" /> -{" "}
             <DateValue value={dateRange?.to} format="MM-yyyy" />
           </Badge>
-          <div className="flex flex-col gap-2 w-full">
+          <div className="flex flex-col  w-full">
             <h3 className="text-color-secondary text-lg font-semibold ">
               {jobTitle}
             </h3>
-            <Badge
-              variant={"default"}
-              className="py-0.5 px-1 rounded-sm !whitespace-break-spaces"
-            >
-              {companyName}
-            </Badge>
+            <p className="text-sm text-primary"> {companyName}</p>
             <TransTypography
-              className="text-color text-md"
+              className="text-color text-md mt-2"
               message={description}
             />
           </div>
