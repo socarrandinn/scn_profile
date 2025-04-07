@@ -1,14 +1,14 @@
 {
   "list": "Dispatches",
-  "create": "Create New Dispatch",
+  "create": "Create new Dispatch",
   "update": "Add to Dispatch",
-  "deleteMany": "You must have selected Dispatches to perform this operation",
+  "deleteMany": "You must select Dispatches to perform this operation",
   "edit": "Edit Dispatch",
   "successDeleted": "Dispatch successfully deleted",
   "successSubOrderDeleted": "Dispatch suborder successfully deleted",
   "successUpdate": "Dispatch successfully updated",
   "successCreated": "Dispatch successfully created",
-  "confirmationDeleteSubOrder": "This action will only remove the order from the dispatch. You can add it to another dispatch later if you wish. Are you sure you want to remove the order from the dispatch?",
+  "confirmationDeleteSubOrder": "This action will only remove the order from the dispatch. You can add it to another dispatch later if desired. Are you sure you want to remove the order from the dispatch?",
   "goDispatch": "Dispatch",
   "fields": {
     "name": "Name",
@@ -29,7 +29,8 @@
     "verify": {
       "totalOrders": "Orders",
       "orderInDispatch": "In Dispatch",
-      "orderCompleted": "Completed Orders"
+      "orderCompleted": "Completed Orders",
+      "orderInDifferentDistributionCenter": "In Different Distribution Centers"
     }
   },
   "status": {
@@ -48,18 +49,18 @@
       "create": {
         "title": "Create Dispatch",
         "selected": "Selected ({{ count }})",
-        "all": "All Filtered ({{ count }})"
+        "all": "All filtered ({{ count }})"
       },
       "addTo": {
         "title": "Add to Dispatch",
         "selected": "Selected ({{ count }})",
-        "all": "All Filtered ({{ count }})"
+        "all": "All filtered ({{ count }})"
       }
     }
   },
   "inDispatch": "In Dispatch",
   "noDispatch": "No Dispatch",
   "errors": {
-    "INVALID_DISPATCH": "The provided data for the dispatch is incorrect"
+    "INVALID_DISPATCH": "The provided dispatch data is invalid"
   }
 }

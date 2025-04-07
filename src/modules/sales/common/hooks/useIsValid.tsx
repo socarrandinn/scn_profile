@@ -10,7 +10,7 @@ export const useIsValid = (initValue: any, data: any) => {
     }
     if (data) {
       return {
-        isValid: data?.isValid,
+        isValid: !data?.isValid,
       };
     }
     return {

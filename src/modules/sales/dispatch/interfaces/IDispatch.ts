@@ -11,7 +11,11 @@ export interface IDispatch {
   metrics: IDispatchMetrics;
 }
 
-export type DispatchDTO = Pick<IDispatch, 'name' | '_id'> & { filters: any };
+export type DispatchDTO = Pick<IDispatch, 'name' | '_id'> & {
+  filters: any;
+  space?: string | null;
+  logistic?: string | null;
+};
 
 export interface IDispatchMetrics {
   suborderCount: number;
@@ -33,9 +37,16 @@ export interface IDispatchVerify {
   totalOrders: number;
   orderInDispatch: number;
   orderCompleted: number;
+  orderInDifferentDistributionCenter: number;
   subordersByRegion: Array<{
     totalOrders: number;
     region: string;
   }>;
   isValid: boolean;
+}
+
+export interface IVerifyPayload {
+  filters: any;
+  query: any;
+  space?: string | null;
 }

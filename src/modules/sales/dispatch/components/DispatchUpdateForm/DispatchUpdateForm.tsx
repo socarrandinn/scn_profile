@@ -8,12 +8,11 @@ type DispatchFormProps = {
   error: any;
   control: any;
   isLoading: boolean;
-  disabled: boolean;
   setValue: any;
   onSubmit: FormEventHandler | undefined;
 };
 
-const DispatchUpdateForm = ({ error, control, isLoading, onSubmit, disabled, setValue }: DispatchFormProps) => {
+const DispatchUpdateForm = ({ error, control, isLoading, onSubmit }: DispatchFormProps) => {
   const { t } = useTranslation('dispatch');
 
   return (
@@ -25,8 +24,7 @@ const DispatchUpdateForm = ({ error, control, isLoading, onSubmit, disabled, set
         isLoading={isLoading}
         size={'small'}
         id={'dispatch-update-form'}
-        dark
-        disabled={disabled}
+        noValidate
       >
         <Grid container spacing={{ xs: 1, md: 2 }} columns={{ xs: 4, sm: 8, md: 12 }}>
           <Grid item xs={12}>

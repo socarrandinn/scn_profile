@@ -4,6 +4,7 @@ import { memo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { ListAltOutlined } from '@mui/icons-material';
 import { IDispatchMetrics } from '../../interfaces';
+import { renderDispatchRegion } from '../DispatchRegion/DispatchRegion';
 
 type Props = {
   metrics: IDispatchMetrics;
@@ -12,7 +13,7 @@ type Props = {
 const DispatchSummary = ({ metrics, isLoading }: Props) => {
   const { t } = useTranslation('dispatch');
   return (
-    <Stack gap={2} flexDirection={{ xs: 'column', md: 'row' }} flexWrap='wrap' mb={2}>
+    <Stack gap={2} flexDirection={{ xs: 'column', md: 'row' }} flexWrap='wrap' mb={4}>
       <CounterBox
         title={t('fields.verify.totalOrders')}
         value={metrics?.suborderCount}
@@ -36,7 +37,7 @@ const DispatchSummary = ({ metrics, isLoading }: Props) => {
           variant='contented'
           color='primary'
         >
-          {reg?.state}
+          {renderDispatchRegion({ value: reg?.state })}
         </CounterBox>
       ))}
     </Stack>

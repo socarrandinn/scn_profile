@@ -5,14 +5,15 @@ import toast from 'react-hot-toast';
 import { useTranslation } from 'react-i18next';
 import { useEffect } from 'react';
 import { useNavigate } from 'react-router';
-import { updateDispatchSchema } from '../schemas/dispatch.schema';
 import { DispatchService } from '../services';
 import { DISPATCHES_LIST_KEY } from '../constants';
 import { SUB_ORDERS_LIST_KEY } from 'modules/sales/sub-orders/constants/sub-order.queries';
 import { DISPATCH_ROUTE } from '../constants/dispatch-route';
+import { IDispatch } from '../interfaces';
+import { updateDispatchSchema } from '../schemas/dispatch.schema';
 
 type IUpdateDispatch = {
-  dispatch: string | null;
+  dispatch: IDispatch | null;
   filters: any;
 };
 const initValues: IUpdateDispatch = {
@@ -24,7 +25,7 @@ const useDispatchUpdateForm = (onClose: () => void, defaultValues: IUpdateDispat
   const { t } = useTranslation('dispatch');
   const queryClient = useQueryClient();
   const navigate = useNavigate();
-  const { control, handleSubmit, reset, setValue } = useForm({
+  const { control, handleSubmit, reset, setValue, watch } = useForm({
     resolver: yupResolver(updateDispatchSchema),
     defaultValues,
   });
@@ -44,7 +45,7 @@ const useDispatchUpdateForm = (onClose: () => void, defaultValues: IUpdateDispat
     reset: resetMutation,
   } = useMutation(
     (values: IUpdateDispatch) =>
-      DispatchService.add(values?.dispatch, {
+      DispatchService.add(values?.dispatch as unknown as string, {
         filters: values?.filters,
       }),
     {
@@ -56,11 +57,12 @@ const useDispatchUpdateForm = (onClose: () => void, defaultValues: IUpdateDispat
         toast.success(t(dispatch ? 'successUpdate' : 'successCreated'));
         onClose?.();
         reset();
-        navigate(DISPATCH_ROUTE.DETAIL(dispatch as string));
+        navigate(DISPATCH_ROUTE.DETAIL(dispatch as unknown as string));
       },
     },
   );
 
+  const dispatch = watch('dispatch');
   return {
     control,
     error,
@@ -70,6 +72,7 @@ const useDispatchUpdateForm = (onClose: () => void, defaultValues: IUpdateDispat
     reset,
     resetMutation,
     setValue,
+    dispatch,
     onSubmit: handleSubmit((values) => {
       mutate(values);
     }),

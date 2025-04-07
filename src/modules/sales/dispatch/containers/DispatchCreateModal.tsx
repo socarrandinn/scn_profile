@@ -11,7 +11,7 @@ import { DISPATCH_ERRORS, mapGetOneErrors } from '../constants';
 import DispatchVerifySummary from '../components/DispatchSummary/DispatchVerifySummary';
 import DispatchSummary from '../components/DispatchSummary/DispatchSummary';
 import { pick } from 'lodash';
-import { useIsValid } from 'modules/sales/payment-agreement/hooks/useIsValid';
+import { useIsValid } from 'modules/sales/common/hooks/useIsValid';
 
 type DispatchCreateModalProps = {
   open: boolean;
@@ -21,6 +21,7 @@ type DispatchCreateModalProps = {
   initValue?: IDispatch;
   onClose: () => void;
   filters?: any;
+  schema?: any;
 };
 const DispatchCreateModal = ({
   title = 'create',
@@ -30,20 +31,26 @@ const DispatchCreateModal = ({
   initValue,
   loadingInitData,
   filters,
+  schema,
 }: DispatchCreateModalProps) => {
   const { t } = useTranslation('dispatch');
   const { query } = useTableSearch();
-  const { data, isInitialLoading } = useDispatchVerify(query, filters, open && !!filters);
 
-  // valid dispatch
-  const { isValid } = useIsValid(initValue, data);
+  const _initValue: Partial<DispatchDTO> = useMemo(
+    () =>
+      pick(
+        { ...(initValue as IDispatch), filters, space: null, logistic: null },
 
-  const _initValue: DispatchDTO = useMemo(
-    () => pick({ ...(initValue as IDispatch), filters }, ['_id', 'name', 'filters']),
+        initValue?._id ? ['_id', 'name'] : ['_id', 'name', 'filters', 'logistic', 'space'],
+      ),
     [initValue, filters],
   );
 
-  const { control, onSubmit, isLoading, reset, error } = useDispatchCreateForm(onClose, _initValue);
+  const { control, onSubmit, isLoading, reset, error, space } = useDispatchCreateForm(onClose, _initValue, schema);
+
+  // valid dispatch
+  const { data, isInitialLoading } = useDispatchVerify({ query, filters, space }, open && !!filters && !!space);
+  const { isValid } = useIsValid(initValue, data);
 
   const handleClose = useCallback(() => {
     onClose?.();
@@ -71,7 +78,13 @@ const DispatchCreateModal = ({
 
         {!dataError && (
           <ConditionContainer active={!loadingInitData} alternative={<DispatchFormSkeleton />}>
-            <DispatchForm error={error} isLoading={isLoading} control={control} onSubmit={onSubmit} />
+            <DispatchForm
+              error={error}
+              isLoading={isLoading}
+              control={control}
+              onSubmit={onSubmit}
+              isEdit={!!initValue?._id}
+            />
           </ConditionContainer>
         )}
       </DialogContent>

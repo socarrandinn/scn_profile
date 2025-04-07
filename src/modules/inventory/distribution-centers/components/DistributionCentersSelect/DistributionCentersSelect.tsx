@@ -1,5 +1,5 @@
 import { memo } from 'react';
-import { FormAsyncSelectAutocompleteField } from '@dfl/mui-react-common';
+import { FetchOption, FormAsyncSelectAutocompleteField } from '@dfl/mui-react-common';
 import { Checkbox } from '@mui/material';
 import { isOptionEqualToValue } from 'utils/comparing';
 import { IDistributionCenters } from 'modules/inventory/distribution-centers/interfaces';
@@ -13,6 +13,8 @@ type DistributionCentersSelectProps = {
   placeholder?: string;
   helperText?: string;
   multiple?: boolean;
+  fetchOption?: FetchOption;
+  disabled?: boolean;
 };
 
 const renderLabel = (option: IDistributionCenters) => option.name || '';

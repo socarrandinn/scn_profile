@@ -11,6 +11,7 @@ import { DISPATCH_ERRORS } from '../constants';
 import { DispatchFormSkeleton } from '../components/DispatchForm';
 import { DispatchUpdateForm } from '../components/DispatchUpdateForm';
 import DispatchVerifySummary from '../components/DispatchSummary/DispatchVerifySummary';
+import { useIsValid } from 'modules/sales/common/hooks/useIsValid';
 
 type DispatchUpdateModalProps = {
   open: boolean;
@@ -31,10 +32,7 @@ const DispatchUpdateModal = ({
   loadingInitData,
 }: DispatchUpdateModalProps) => {
   const { query } = useTableSearch();
-
   const { t } = useTranslation('dispatch');
-
-  const { isLoading: isLoadingVerify, data } = useDispatchVerify(query, filters, open && !!filters);
 
   const initValue = useMemo(
     () => ({
@@ -44,10 +42,20 @@ const DispatchUpdateModal = ({
     [filters],
   );
 
-  const { control, onSubmit, isLoading, reset, resetMutation, error, setValue } = useDispatchUpdateForm(
+  const { control, onSubmit, isLoading, reset, resetMutation, error, setValue, dispatch } = useDispatchUpdateForm(
     onClose,
     initValue,
   );
+
+  // valid dispatch
+  const { isInitialLoading, data } = useDispatchVerify(
+    { query, filters, space: dispatch?.space },
+    open && !!filters && !!dispatch?.space,
+  );
+  const { isValid } = useIsValid(initValue, data);
+
+  console.log(dispatch, 'dispatch');
+
   const handleClose = useCallback(() => {
     onClose?.();
     reset();
@@ -67,15 +75,14 @@ const DispatchUpdateModal = ({
           <HandlerError error={dataError} errors={DISPATCH_ERRORS} mapError={mapGetOneErrors} />
         )}
 
-        <DispatchVerifySummary data={data as IDispatchVerify} isLoading={isLoadingVerify} />
+        <DispatchVerifySummary data={data as IDispatchVerify} isLoading={isInitialLoading} />
 
         {!dataError && (
           <ConditionContainer active={!loadingInitData} alternative={<DispatchFormSkeleton />}>
             <DispatchUpdateForm
               setValue={setValue}
               error={error}
-              disabled={!data?.isValid}
-              isLoading={isLoading || isLoadingVerify}
+              isLoading={isLoading || isInitialLoading}
               control={control}
               onSubmit={onSubmit}
             />
@@ -87,8 +94,8 @@ const DispatchUpdateModal = ({
         <LoadingButton
           variant='contained'
           type={'submit'}
-          loading={isLoading || loadingInitData}
-          disabled={!!dataError || !data?.isValid}
+          loading={isLoading || loadingInitData || isInitialLoading}
+          disabled={!!dataError || isValid}
           form='dispatch-update-form'
         >
           {t('common:save')}
