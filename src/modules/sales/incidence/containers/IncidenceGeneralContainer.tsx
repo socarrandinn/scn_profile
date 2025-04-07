@@ -39,9 +39,7 @@ const IncidenceGeneralContainer = () => {
             <FormPaper title={t('common:evidence')} variant={{ title: 'h4' }} mbHeader={1}>
               <div className='flex gap-4 items-center'>
                 {incidence?.evidence?.map((file) =>
-                  <div key={file?.url} className='p-3 rounded-lg text-center bg-[#F8F9FD]'>
-                    <FilePreview key={file?.url} data={file} />
-                  </div>
+                  <FilePreview key={file?.url} data={file}/>
                 )}
               </div>
             </FormPaper>

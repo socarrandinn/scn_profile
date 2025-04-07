@@ -29,7 +29,7 @@ const IncidenceCommentItem = ({ data }: IncidenceCommentItemProps) => {
             {data?.comment}
           </Typography>
         </Box>
-        {data?.attachments && data?.attachments?.map((file: IFile) => <FilePreview key={file?.url} data={file} hideLabel />)}
+        {data?.attachments && data?.attachments?.map((file: IFile) => <FilePreview key={file?.url} data={file} />)}
       </div>
     </FlexBox>
   );
