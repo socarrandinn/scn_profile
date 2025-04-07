@@ -6,6 +6,8 @@ import { WAREHOUSE_PERMISSIONS } from '../constants';
 import { STOCK_PERMISSIONS } from 'modules/inventory/product-stock/constants/stock.permissions';
 import { PRODUCT_PERMISSIONS } from 'modules/inventory/product/constants';
 import { USER_PERMISSIONS } from 'modules/security/users/constants/warehouse.permissions';
+import { DISTRIBUTION_CENTER_PERMISSIONS } from 'modules/inventory/distribution-centers/constants';
+import { WarehouseDistributionCenter } from '../components/WarehouseDistributionCenter';
 
 const warehouseRoutes: RouteConfig = {
   general: {
@@ -16,7 +18,12 @@ const warehouseRoutes: RouteConfig = {
   inventory: {
     path: '/inventory',
     component: WarehouseProductList,
-    permissions: [STOCK_PERMISSIONS.VIEW, PRODUCT_PERMISSIONS.PRODUCT_VIEW],
+    permissions: [STOCK_PERMISSIONS.VIEW || PRODUCT_PERMISSIONS.PRODUCT_VIEW],
+  },
+  centers: {
+    path: '/distribution-centers',
+    component: WarehouseDistributionCenter,
+    permissions: [DISTRIBUTION_CENTER_PERMISSIONS.DISTRIBUTION_CENTER_VIEW],
   },
   supplier: {
     path: '/supplier',
