@@ -19,7 +19,7 @@ const ProfileSummary = async ({ params }: PageProps) => {
   return (
     <Card
       className={cn(
-        "relative border-0 lg:border-1 border-primary/50 lg:min-w-[22rem] z-20 !py-0 !m-0  ",
+        "relative border-0 lg:border-1 border-primary/50 lg:min-w-[22rem] z-20 !py-0 !m-0  !min-h-[85vh] md:min-h-auto",
         "summary-bg",
       )}
     >
@@ -30,12 +30,12 @@ const ProfileSummary = async ({ params }: PageProps) => {
         alt={"profile"}
       />
 
-      <Card className="mt-40 lg:mt-auto lg:rounded-t-4xl border dark:lg:border-t-primary/50 flex flex-col items-center z-10 h-auto !lg:p-0 lg:ovalo backdrop-blur-sm  bg-card/10 text-white dark:text-color !pb-0">
+      <Card className="mt-auto lg:rounded-t-4xl border dark:lg:border-t-primary/50 flex flex-col items-center z-10 h-auto !lg:p-0 lg:ovalo backdrop-blur-sm  bg-card/10 text-white dark:text-color !pb-0">
         {/* image profile */}
         <div className="profile-avatar lg:-mt-24 -mt-16">
-          <Avatar className="w-24 h-24 lg:w-28 lg:h-28 border-2 border-card scale">
-            <AvatarImage src="/images/profile/avatar.webp" />
-            <AvatarFallback className="bg-card">
+          <Avatar className="w-24 h-24 lg:w-28 lg:h-28 border-2 border-primary scale">
+            <AvatarImage src="/images/profile/avatar-retro.webp" />
+            <AvatarFallback className="bg-primary/80 backdrop-blur-sm">
               <User />
             </AvatarFallback>
           </Avatar>

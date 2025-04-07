@@ -25,7 +25,7 @@ const AboutMe = async ({ params }: PageProps) => {
         <CardContent>
           <section className="flex flex-col w-full gap-2">
             <TransTypography
-              className="text-sm font-normal lg:text-justify leading-7"
+              className="text-md font-normal lg:text-justify leading-7"
               message="about-me:aboutMe.description"
               values={{
                 name: INFO.name,

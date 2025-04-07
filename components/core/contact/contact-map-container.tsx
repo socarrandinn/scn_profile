@@ -1,12 +1,17 @@
 "use client";
 import { CardContent } from "@/components/ui/card";
+import { Spinner } from "@/components/ui/loading";
 import dynamic from "next/dynamic";
+
+export const Loading = () => (
+  <div className="h-[24rem] md:h-[16rem] w-full bg-transparent border  border-muted flex justify-center items-center">
+    <Spinner />
+  </div>
+);
 
 const ContactMap = dynamic(() => import("./contact-map"), {
   ssr: false,
-  loading: () => (
-    <div className="h-[24rem] md:h-[16rem] w-full bg-primary/20 backdrop-blur-lg" />
-  ),
+  loading: () => <Loading />,
 });
 
 const ContactMapContainer = () => {

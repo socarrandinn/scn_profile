@@ -13,6 +13,7 @@ import "leaflet-defaulticon-compatibility/dist/leaflet-defaulticon-compatibility
 import "leaflet-defaulticon-compatibility";
 
 import dynamic from "next/dynamic";
+import { Loading } from "./contact-map-container";
 
 interface Props {
   posix: [number, number];
@@ -63,5 +64,5 @@ const ContactMap = ({ zoom = defaults.zoom, posix, setMarkers }: Props) => {
 // Exportación dinámica corregida
 export default dynamic(() => Promise.resolve(memo(ContactMap)), {
   ssr: false,
-  loading: () => <p>Cargando mapa...</p>,
+  loading: () => <Loading />,
 });

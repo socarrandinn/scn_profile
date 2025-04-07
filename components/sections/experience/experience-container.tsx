@@ -16,7 +16,7 @@ const ExperienceContainer = ({ t }: Props) => {
   const experiences =
     (t("experience:experiences", { returnObjects: true }) as ITimeLine[]) ?? [];
   return (
-    <section className="grid grid-cols-1 md:grid-cols-2">
+    <section className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-5">
       <article className="">
         <SectionHeader
           className="mb-4"

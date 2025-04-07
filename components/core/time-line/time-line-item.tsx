@@ -33,13 +33,13 @@ const TimeLineItem = ({
               {jobTitle}
             </h3>
             <Badge
-              variant={"outline"}
-              className="py-0.5 px-2 rounded-sm !whitespace-break-spaces"
+              variant={"default"}
+              className="py-0.5 px-1 rounded-sm !whitespace-break-spaces"
             >
               {companyName}
             </Badge>
             <TransTypography
-              className="text-color text-sm"
+              className="text-color text-md"
               message={description}
             />
           </div>
@@ -47,7 +47,7 @@ const TimeLineItem = ({
           {isButtonVisible && (
             <Button variant={"outline"} className="group mr-auto" size={"sm"}>
               {buttonText}
-              <span className="material-symbols-outlined ml-2 text-sm group-hover:translate-x-1 transition-transform duration-300">
+              <span className="material-symbols-outlined ml-2 text-md group-hover:translate-x-1 transition-transform duration-300">
                 <ChevronRight />
               </span>
             </Button>

@@ -1,14 +1,14 @@
-"use client"
+"use client";
 
-import { useEffect, useState } from "react"
+import { useEffect, useState } from "react";
 
 interface SkillCircularProgressProps {
-  percentage: number
-  skill: string
-  size?: number
-  strokeWidth?: number
-  color?: string
-  duration?: number
+  percentage: number;
+  skill: string;
+  size?: number;
+  strokeWidth?: number;
+  color?: string;
+  duration?: number;
 }
 
 export const SkillCircularProgress = ({
@@ -19,31 +19,38 @@ export const SkillCircularProgress = ({
   color = "#f59e0b", // Amber/gold color
   duration = 1500,
 }: SkillCircularProgressProps) => {
-  const [progress, setProgress] = useState(0)
+  const [progress, setProgress] = useState(0);
 
   // Calculate circle properties
-  const radius = (size - strokeWidth) / 2
-  const circumference = radius * 2 * Math.PI
-  const strokeDashoffset = circumference - (progress / 100) * circumference
+  const radius = (size - strokeWidth) / 2;
+  const circumference = radius * 2 * Math.PI;
+  const strokeDashoffset = circumference - (progress / 100) * circumference;
 
   // Center position
-  const center = size / 2
+  const center = size / 2;
 
   useEffect(() => {
     // Animate the progress
     const timer = setTimeout(() => {
-      setProgress(percentage)
-    }, 100)
+      setProgress(percentage);
+    }, 100);
 
-    return () => clearTimeout(timer)
-  }, [percentage])
+    return () => clearTimeout(timer);
+  }, [percentage]);
 
   return (
     <div className="flex flex-col items-center justify-center">
       <div className="relative" style={{ width: size, height: size }}>
         <svg width={size} height={size} viewBox={`0 0 ${size} ${size}`}>
           {/* Background circle */}
-          <circle cx={center} cy={center} r={radius} fill="none" stroke="#333333" strokeWidth={strokeWidth} />
+          <circle
+            cx={center}
+            cy={center}
+            r={radius}
+            fill="none"
+            stroke="#333333"
+            strokeWidth={strokeWidth}
+          />
 
           {/* Progress circle */}
           <circle
@@ -76,8 +83,9 @@ export const SkillCircularProgress = ({
       </div>
 
       {/* Skill label */}
-      <div className="mt-3 text-center text-sm font-medium text-gray-300">{skill}</div>
+      <div className="mt-3 text-center text-md font-medium text-gray-300">
+        {skill}
+      </div>
     </div>
-  )
-}
-
+  );
+};

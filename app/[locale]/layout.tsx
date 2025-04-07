@@ -37,7 +37,7 @@ const lekton = localFont({
 
 export const metadata: Metadata = {
   metadataBase: new URL(config.env.appUrl),
-  title: "SILVI-DEV 💼",
+  title: "SILVI-DEV",
   description: "Portafolio de desarrollo de software",
   viewport: "width=device-width, initial-scale=1",
 
@@ -50,7 +50,27 @@ export const metadata: Metadata = {
   },
 
   other: {
-    google: "notranslate", // Bloquea traducción automática
+    google: "notranslate",
+  },
+  icons: {
+    icon: [
+      { url: "/favicon/favicon.ico", sizes: "any" },
+      { url: "/favicon/favicon-16x16.png", type: "image/png", sizes: "16x16" },
+      { url: "/favicon/favicon-32x32.png", type: "image/png", sizes: "32x32" },
+    ],
+    apple: [{ url: "/favicon/apple-touch-icon.png", sizes: "180x180" }],
+    other: [
+      {
+        rel: "android-chrome",
+        url: "/favicon/android-chrome-192x192.png",
+        sizes: "192x192",
+      },
+      {
+        rel: "android-chrome",
+        url: "/favicon/android-chrome-512x512.png",
+        sizes: "512x512",
+      },
+    ],
   },
   robots: {
     index: false,
@@ -103,7 +123,7 @@ export default async function RootLayout({ children, params }: Props) {
         <ThemeProvider
           attribute="class"
           defaultTheme="dark"
-          enableSystem
+          enableSystem={false}
           disableTransitionOnChange
         >
           {children}
