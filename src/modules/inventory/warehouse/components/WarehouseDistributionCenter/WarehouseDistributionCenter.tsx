@@ -38,7 +38,7 @@ const WarehouseDistributionCenter = () => {
   }
 
   return (
-    <FormPaper title={t('fields.distributionCenters')} actions={<></>}>
+    <FormPaper variant={{ title: 'h4' }} title={t('fields.distributionCenters')} actions={<AddDistributionCenter />}>
       <Stack
         sx={{
           '& .MuiStack-root': {
@@ -55,7 +55,6 @@ const WarehouseDistributionCenter = () => {
         gap={2}
         divider={<Divider flexItem />}
       >
-        <AddDistributionCenter />
         <TagList
           value={warehouse?.distributionCenters || []}
           limit={10}
@@ -90,7 +89,7 @@ const AddDistributionCenter = () => {
   const { warehouseId } = useWarehouseDetail();
   return (
     <>
-      <AddButton action={onOpen}>{t('add')}</AddButton>
+      <AddButton action={onOpen}>{t('common:add')}</AddButton>
 
       <WarehouseAddDistributionCentersModal
         onClose={onClose}

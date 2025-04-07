@@ -7,6 +7,7 @@ import { STOCK_PERMISSIONS } from 'modules/inventory/product-stock/constants/sto
 import { WAREHOUSE_PERMISSIONS } from './warehouse.permissions';
 import { PRODUCT_PERMISSIONS } from 'modules/inventory/product/constants';
 import { USER_PERMISSIONS } from 'modules/security/users/constants/warehouse.permissions';
+import { DistributionCenterIcon } from 'modules/inventory/common/components/Icons/DistributionCenterIcon';
 
 const path = '/inventory/warehouses';
 
@@ -23,7 +24,6 @@ export const warehouseTabs: TabRouteType[] = [
       }),
     translate: true,
   },
-
   {
     path: `${path}/:id/inventory`,
     to: '/inventory',
@@ -36,6 +36,18 @@ export const warehouseTabs: TabRouteType[] = [
       }),
     translate: true,
     permissions: [STOCK_PERMISSIONS.VIEW, PRODUCT_PERMISSIONS.PRODUCT_VIEW],
+  },
+  {
+    path: `${path}/:id/distribution-centers`,
+    to: '/distribution-centers',
+    label: 'fields.distributionCenters',
+    render: () =>
+      renderTabLabel({
+        locale: 'warehouse',
+        label: 'fields.distributionCenters',
+        Icon: DistributionCenterIcon,
+      }),
+    translate: true,
   },
   {
     path: `${path}/:id/supplier`,
