@@ -29,7 +29,8 @@
     "verify": {
       "totalOrders": "Órdenes",
       "orderInDispatch": "En despacho",
-      "orderCompleted": "Órdenes completada"
+      "orderCompleted": "Órdenes completada",
+      "orderInDifferentDistributionCenter": "En diferentes C. Distribución"
     }
   },
   "status": {

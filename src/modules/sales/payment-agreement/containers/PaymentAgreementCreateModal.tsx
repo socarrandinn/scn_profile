@@ -10,7 +10,7 @@ import { PaymentAgreementForm, PaymentAgreementFormSkeleton } from '../component
 import { IPaymentAgreement, IPaymentAgreementVerify, PaymentAgreementDTO } from '../interfaces';
 import PaymentAgreementVerifySummary from '../components/PaymentAgreementSummary/PaymentAgreementVerifySummary';
 import usePaymentAgreementCreateForm, { initPaymentAgreementValues } from '../hooks/usePaymentAgreementCreateForm';
-import { useIsValid } from '../hooks/useIsValid';
+import { useIsValid } from '../../common/hooks/useIsValid';
 
 type PaymentAgreementCreateModalProps = {
   open: boolean;

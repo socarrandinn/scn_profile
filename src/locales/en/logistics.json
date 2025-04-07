@@ -1,5 +1,6 @@
 {
   "list": "Logistics Providers",
+  "select": "Select Logistics Providers",
   "description": "Logistics providers are the partners in charge of storing and preparing orders, which will help you maintain exhaustive control of the storage and distribution services in your supply chain.",
   "create": "Create Logistic Provider",
   "edit": "Edit Logistic Provider",

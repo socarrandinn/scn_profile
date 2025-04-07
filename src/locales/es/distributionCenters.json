@@ -1,11 +1,11 @@
 {
   "list": "Centros de Distribución",
   "name":"Centro de Distribución",
-  "create": "Crear centro de distribución",
-  "select": "Seleccionar centro de distribución",
-  "add":"Adicionar centro de distribución",
+  "create": "Crear Centro de Distribución",
+  "select": "Seleccionar Centro de Distribución",
+  "add":"Adicionar Centro de Distribución",
   "deleteMany": "Debe tener Centros de Distribución seleccionados para realizar esta operación",
-  "edit": "Editar centro de distribución",
+  "edit": "Editar Centro de Distribución",
   "distributionCenter": {
     "deleteMany": "¿Estás seguro de que deseas eliminar estos centros de distribución?",
     "visibilityMany":"¿Estás seguro de que deseas cambiar la visibilidad de estos centros de distribución?"

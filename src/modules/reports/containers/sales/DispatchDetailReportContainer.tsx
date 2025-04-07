@@ -5,6 +5,7 @@ import { DashboardNoPermission } from 'components/DashboardNoPermission';
 import { APEX_CHARTS_OPTIONS } from 'components/libs/analytic/constants/bar.chart.constants';
 import { PageLayout } from 'layouts/index';
 import ReportDispatchSuborderCountBar from 'modules/reports/components/dispatch/ReportDispatchSuborderCountBar';
+import { renderDispatchRegion } from 'modules/sales/dispatch/components/DispatchRegion/DispatchRegion';
 import { useDispatchDetail } from 'modules/sales/dispatch/contexts/dispatchContext';
 import { ISubordersByRegion } from 'modules/sales/dispatch/interfaces';
 import { useMemo } from 'react';
@@ -28,7 +29,7 @@ const DispatchDetailReportContainer = () => {
     const categories: string[] = [];
     const data: number[] = [];
     dispatch?.metrics?.subordersByRegion.forEach((item: ISubordersByRegion) => {
-      categories.push(item?.state || '');
+      categories.push(renderDispatchRegion({ value: item?.state }));
       data.push(item.totalSuborders);
     });
     return { categories, data, title: t('fields.metrics.subordersByRegion'), serieName: t('report.count') };

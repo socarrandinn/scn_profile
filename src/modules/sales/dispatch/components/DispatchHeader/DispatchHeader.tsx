@@ -17,10 +17,12 @@ import { ArrowForwardIosOutlined } from '@mui/icons-material';
 import { useToggle } from '@dfl/hook-utils';
 import DispatchDetailReportContainer from 'modules/reports/containers/sales/DispatchDetailReportContainer';
 import { DispatchIcon } from 'modules/sales/common/components/icons/DispatchIcon';
+import { useBreadcrumbName } from '@dfl/mui-admin-layout';
 
 const DispatchHeader = () => {
   const { isOpen, onToggle } = useToggle(false);
   const { isLoading, dispatch } = useDispatchDetail();
+  useBreadcrumbName(dispatch?._id || '', dispatch?.name, isLoading);
 
   const skeleton = (
     <Box>

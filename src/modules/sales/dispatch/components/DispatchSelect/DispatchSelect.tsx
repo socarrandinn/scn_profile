@@ -38,7 +38,7 @@ const DispatchSelect = ({ name, required, multiple, label, helperText }: Dispatc
       queryKey={DISPATCHES_LIST_KEY}
       autoHighlight
       isOptionEqualToValue={isOptionEqualToValue}
-      fieldValue={'_id'}
+      // fieldValue={'_id'}
       loadValue
       fetchValueFunc={multiple ? DispatchService.search : DispatchService.getOne}
       id='select-dispatch'

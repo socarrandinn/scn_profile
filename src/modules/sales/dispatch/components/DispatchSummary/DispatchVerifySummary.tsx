@@ -1,11 +1,10 @@
+import { memo } from 'react';
 import { Stack } from '@mui/material';
 import { CounterBox } from 'components/libs/analytic/CounterBox';
-import { memo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { ListAltOutlined } from '@mui/icons-material';
 import { IDispatchVerify } from '../../interfaces';
 import CounterBoxSkeleton from 'components/libs/analytic/CounterBox/CounterBoxSkeleton';
-import { renderDispatchRegion } from '../DispatchRegion/DispatchRegion';
 
 type Props = {
   data: IDispatchVerify;
@@ -16,7 +15,7 @@ const DispatchVerifySummary = ({ data, isLoading }: Props) => {
 
   if (isLoading) {
     return (
-      <Stack gap={{ xs: 1, md: 2 }} flexDirection={{ xs: 'column', md: 'row' }} mb={2}>
+      <Stack gap={{ xs: 1, md: 2 }} flexDirection={{ xs: 'column', md: 'row' }} mb={4}>
         <CounterBoxSkeleton />
         <CounterBoxSkeleton />
         <CounterBoxSkeleton />
@@ -25,7 +24,7 @@ const DispatchVerifySummary = ({ data, isLoading }: Props) => {
   }
 
   return (
-    <Stack gap={{ xs: 1, md: 2 }} flexDirection={{ xs: 'column', md: 'row' }} flexWrap='wrap' mb={2}>
+    <Stack gap={{ xs: 1, md: 2 }} flexDirection={{ xs: 'column', md: 'row' }} flexWrap='wrap' mb={4}>
       <CounterBox
         title={t('fields.verify.orderInDispatch')}
         value={data?.orderInDispatch}
@@ -36,6 +35,17 @@ const DispatchVerifySummary = ({ data, isLoading }: Props) => {
         variant='contented'
         color='error'
         hidden={!data?.orderInDispatch}
+      />
+      <CounterBox
+        title={t('fields.verify.orderInDifferentDistributionCenter')}
+        value={data?.orderInDifferentDistributionCenter}
+        flexGrow={1}
+        currency={false}
+        icon={ListAltOutlined}
+        isLoading={isLoading}
+        variant='contented'
+        color='error'
+        hidden={!data?.orderInDifferentDistributionCenter}
       />
       <CounterBox
         title={t('fields.verify.orderCompleted')}
@@ -60,22 +70,6 @@ const DispatchVerifySummary = ({ data, isLoading }: Props) => {
         color='primary'
         hidden={!data?.totalOrders}
       />
-
-      {data?.subordersByRegion?.map((reg) => (
-        <CounterBox
-          key={reg?.region}
-          title={t('fields.verify.totalOrders')}
-          value={reg?.totalOrders}
-          flexGrow={1}
-          currency={false}
-          icon={ListAltOutlined}
-          isLoading={isLoading}
-          variant='contented'
-          color='primary'
-        >
-          {renderDispatchRegion({ value: reg?.region })}
-        </CounterBox>
-      ))}
     </Stack>
   );
 };

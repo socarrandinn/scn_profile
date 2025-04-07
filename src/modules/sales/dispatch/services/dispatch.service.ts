@@ -1,9 +1,9 @@
 import { ApiClientService, EntityApiService } from '@dfl/react-security';
-import { IDispatch, IDispatchVerify } from 'modules/sales/dispatch/interfaces';
+import { IDispatch, IDispatchVerify, IVerifyPayload } from 'modules/sales/dispatch/interfaces';
 
 class DispatchService extends EntityApiService<IDispatch> {
-  verify = (filters: any, search: any): Promise<IDispatchVerify> => {
-    return this.handleResponse(ApiClientService.post(this.getPath('/verify'), { filters, search }));
+  verify = (payload: IVerifyPayload): Promise<IDispatchVerify> => {
+    return this.handleResponse(ApiClientService.post(this.getPath('/verify'), payload));
   };
 
   add = (dispatchId: string | null, params: any) => {
