@@ -40,7 +40,6 @@ export const metadata: Metadata = {
   title: "SILVI-DEV",
   description: "Portafolio de desarrollo de software",
   viewport: "width=device-width, initial-scale=1",
-
   alternates: {
     canonical: new URL(`${config.env.appUrl}/en`),
     languages: {
