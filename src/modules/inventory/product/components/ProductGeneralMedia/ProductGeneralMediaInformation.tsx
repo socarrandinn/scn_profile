@@ -1,5 +1,5 @@
 import { memo, useCallback, useMemo } from 'react';
-import { Avatar, Box, Card } from '@mui/material';
+import { Avatar, Box, Button, Card, Typography } from '@mui/material';
 import { useTranslation } from 'react-i18next';
 import { imageUrl, HandlerError } from '@dfl/mui-react-common';
 import { FormPaper } from 'modules/common/components/FormPaper';
@@ -10,26 +10,8 @@ import ProductDetailMediaUpdateContainer from 'modules/inventory/product/contain
 import { IImageMedia } from 'modules/common/interfaces';
 import ProductGeneralMediaSkeleton from 'modules/inventory/product/components/ProductGeneralMediaForm/ProductGeneralMediaFormSkeleton';
 import { PRODUCT_PERMISSIONS } from '../../constants';
-
-type ProductMediaBoxProps = {
-  pictures: IImageMedia[];
-  height?: string;
-  width?: string;
-};
-
-export const ProductMediaBox = ({ pictures, height, width }: ProductMediaBoxProps) => (
-  <Box display='flex' flexDirection='row' alignItems='center'>
-    {pictures?.map((image: IImageMedia) => (
-      <Card key={image._id} style={{ maxWidth: 160, margin: 8, borderRadius: 6 }}>
-        <Avatar
-          sx={{ height: width || '155px', width: height || '155px' }}
-          alt={image?.thumb}
-          src={imageUrl(image?.url)}
-        />
-      </Card>
-    ))}
-  </Box>
-);
+import { ProductMedia } from '../ProductMedia';
+import ProductNoImage from '../ProductMedia/ProductNoImage';
 
 const ProductGeneralMediaInformation = () => {
   const { t } = useTranslation('product');
@@ -62,9 +44,11 @@ const ProductGeneralMediaInformation = () => {
     >
       {isLoading && <ProductGeneralMediaSkeleton />}
       {error && <HandlerError error={error} mapError={mapGetOneErrors} />}
-      {!isLoading && !error && product?.media?.length === 0 && t('section.media.message')}
+      {!isLoading && !error && product?.media?.length === 0 && (
+        <ProductNoImage />
+      )}
       {!isLoading && !error && (product?.media?.length as number) > 0 && (
-        <ProductMediaBox pictures={product?.media as IImageMedia[]} />
+        <ProductMedia pictures={product?.media as IImageMedia[]} />
       )}
     </FormPaper>
   );
