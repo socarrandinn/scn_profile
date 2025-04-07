@@ -127,7 +127,8 @@
     },
     "media": {
       "title": "Product Images",
-      "message": "The product has no images"
+      "message": "This product doesn't have an associated image.",
+      "description": "Images help your customers better recognize and value your products. Upload them now to highlight them!"
     },
     "deliveryTime": {
       "title": "Estimated Delivery Time",

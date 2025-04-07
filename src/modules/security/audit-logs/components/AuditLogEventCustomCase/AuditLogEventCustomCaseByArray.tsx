@@ -1,7 +1,6 @@
 import { TableCell } from '@mui/material';
 import { IImageMedia } from 'modules/common/interfaces';
 import { KeywordsDisplay } from 'modules/inventory/common/components/KeywordsDisplay';
-import { ProductMediaBox } from 'modules/inventory/product/components/ProductGeneralMedia/ProductGeneralMediaInformation';
 import { RegionListCell } from 'modules/inventory/product/components/ProductGeneralShippingInfo/RegionListCell';
 import TagsView from 'modules/inventory/settings/tags/components/TagsView/TagsView';
 import { memo } from 'react';
@@ -11,6 +10,7 @@ import WarehouseCostCell from '../TableCells/products/WarehouseCostCell';
 import { ContactList } from 'modules/common/components/ContactList';
 import { IGatewayConfig } from 'modules/sales/settings/payment-settings/interfaces';
 import GatewayConfigView from '../TableCells/GatewayConfigView';
+import { ProductMedia } from 'modules/inventory/product/components/ProductMedia';
 
 type AuditLogEventCustomCaseByArrayProps = {
   _key: string;
@@ -36,7 +36,7 @@ const AuditLogEventCustomCaseByArray = ({ _key, value }: AuditLogEventCustomCase
     case 'media':
       return (
         <TableCell>
-          <ProductMediaBox pictures={value as IImageMedia[]} height='80px' width='80px' />
+          <ProductMedia pictures={value as IImageMedia[]} height='80px' width='80px' />
         </TableCell>
       );
     case 'tags':
