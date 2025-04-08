@@ -1,6 +1,6 @@
 import React from "react";
 import SectionHeader from "@/components/core/section-header";
-import { Languages } from "lucide-react";
+import { CodeXml, Languages, Wrench } from "lucide-react";
 import { LanguageRating } from "@/components/core/language-rating";
 import { SkillCodeContent } from "./skill-code-content";
 import { codingSkills, SkillType, tools, ToolType } from "@/constants/skill";
@@ -25,11 +25,13 @@ const SkillsContent = async ({ t }: Props) => {
         skills={codingSkills}
         types={Object.keys(SkillType)}
         title="resumen:skills.code"
+        icon={<CodeXml />}
       />
       <SkillCodeContent
         skills={tools}
         types={Object.keys(ToolType)}
         title="resumen:skills.tools"
+        icon={<Wrench />}
       />
 
       <article>
