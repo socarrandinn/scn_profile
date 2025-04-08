@@ -2,7 +2,8 @@ import { memo, useCallback, useMemo, useRef, useState } from 'react';
 import { Editor } from '@tinymce/tinymce-react';
 import { Box, FormHelperText, Skeleton, styled, useTheme } from '@mui/material';
 import { FormLabel } from '@dfl/mui-react-common';
-import { defaultEditorConfig } from './default-editor-config';
+// import { defaultEditorConfig } from './default-editor-config';
+import { StyleEditorContainer, config } from './config';
 
 const StyledEditorContainer = styled('div')(({ theme }) => ({
   '.tox-tinymce': {
@@ -66,7 +67,7 @@ const TinyMceEditor = ({
 
   const wrapperConfig = useMemo(() => {
     const settings = {
-      ...defaultEditorConfig,
+      ...config,
     };
     if (maxHeight) {
       settings.maxHeight = maxHeight;
@@ -94,39 +95,40 @@ const TinyMceEditor = ({
 
   const borderColor = error ? 'red' : 'white';
   return (
-    <FormLabel label={label} required={required}>
-      <Box border={`1px solid ${borderColor}`} borderRadius={2} id={props?.name}>
-        <StyledEditorContainer>
-          {/* TODO: find a better way to show skeleton when loading... */}
-          {!loaded && <Skeleton height={minHeight || 50} />}
-          <Editor
-            disabled={disabled || inputProps?.readOnly}
-            value={value}
-            {...props}
-            onScriptsLoad={onLoad}
-            onInit={(evt, editor) => {
-              onLoad();
-              // @ts-ignore
-              editorRef.current = editor;
+    <StyleEditorContainer>
+      <FormLabel label={label} required={required}>
+        <Box border={`1px solid ${borderColor}`} borderRadius={2} id={props?.name}>
+          <StyledEditorContainer>
+            {!loaded && <Skeleton height={minHeight || 50} />}
+            <Editor
+              disabled={disabled || inputProps?.readOnly}
+              value={value}
+              {...props}
+              onScriptsLoad={onLoad}
+              onInit={(evt, editor) => {
+                onLoad();
+                // @ts-ignore
+                editorRef.current = editor;
 
-              if (autoFocus) {
-                editor?.execCommand('mceFocus');
-              }
-            }}
-            // @ts-ignore
-            init={wrapperConfig}
-            onEditorChange={handleChange}
-          />
-        </StyledEditorContainer>
-      </Box>
-      {helperText ? (
-        <FormHelperText sx={{ marginLeft: 2.3 }} error={error}>
-          {helperText}
-        </FormHelperText>
-      ) : (
-        <></>
-      )}
-    </FormLabel>
+                if (autoFocus) {
+                  editor?.execCommand('mceFocus');
+                }
+              }}
+              // @ts-ignore
+              init={wrapperConfig}
+              onEditorChange={handleChange}
+            />
+          </StyledEditorContainer>
+        </Box>
+        {helperText ? (
+          <FormHelperText sx={{ marginLeft: 2.3 }} error={error}>
+            {helperText}
+          </FormHelperText>
+        ) : (
+          <></>
+        )}
+      </FormLabel>
+    </StyleEditorContainer>
   );
 };
 
