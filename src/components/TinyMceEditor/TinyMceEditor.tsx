@@ -1,28 +1,8 @@
 import { memo, useCallback, useMemo, useRef, useState } from 'react';
 import { Editor } from '@tinymce/tinymce-react';
-import { Box, FormHelperText, Skeleton, styled, useTheme } from '@mui/material';
+import { Box, FormHelperText, Skeleton, useTheme } from '@mui/material';
 import { FormLabel } from '@dfl/mui-react-common';
-// import { defaultEditorConfig } from './default-editor-config';
 import { StyleEditorContainer, config } from './config';
-
-const StyledEditorContainer = styled('div')(({ theme }) => ({
-  '.tox-tinymce': {
-    borderColor: `${theme.palette.mode === 'dark' ? theme.palette.divider : '#eee'} !important`,
-  },
-  '.tox-statusbar': {
-    borderTopColor: `${theme.palette.mode === 'dark' ? theme.palette.divider : '#eee'} !important`,
-  },
-  '.tox .tox-toolbar-overlord, .tox .tox-statusbar, .tox-toolbar__primary, .tox-editor-header, .tox-edit-area__iframe':
-    {
-      backgroundColor: `${theme.palette.mode === 'dark' ? theme.palette.divider : '#eee'} !important`,
-    },
-  '.tox .tox-tbtn svg, #tox-icon-highlight-bg-color__color': {
-    fill: `${theme.palette.mode === 'dark' ? '#FFF' : '#222f3e'} !important`,
-  },
-  '.tox .tox-statusbar a, .tox .tox-statusbar__path-item, .tox .tox-statusbar__wordcount': {
-    color: `${theme.palette.mode === 'dark' ? 'rgb(255 255 255 / 70%)' : 'rgb(247 247 247 / 70%)'} !important`,
-  },
-}));
 
 const defaultValue = '<p></p>';
 
@@ -95,40 +75,38 @@ const TinyMceEditor = ({
 
   const borderColor = error ? 'red' : 'white';
   return (
-    <StyleEditorContainer>
-      <FormLabel label={label} required={required}>
-        <Box border={`1px solid ${borderColor}`} borderRadius={2} id={props?.name}>
-          <StyledEditorContainer>
-            {!loaded && <Skeleton height={minHeight || 50} />}
-            <Editor
-              disabled={disabled || inputProps?.readOnly}
-              value={value}
-              {...props}
-              onScriptsLoad={onLoad}
-              onInit={(evt, editor) => {
-                onLoad();
-                // @ts-ignore
-                editorRef.current = editor;
-
-                if (autoFocus) {
-                  editor?.execCommand('mceFocus');
-                }
-              }}
+    <FormLabel label={label} required={required}>
+      <Box border={`1px solid ${borderColor}`} borderRadius={2} id={props?.name}>
+        <StyleEditorContainer>
+          {!loaded && <Skeleton height={minHeight || 50} />}
+          <Editor
+            disabled={disabled || inputProps?.readOnly}
+            value={value}
+            {...props}
+            onScriptsLoad={onLoad}
+            onInit={(evt, editor) => {
+              onLoad();
               // @ts-ignore
-              init={wrapperConfig}
-              onEditorChange={handleChange}
-            />
-          </StyledEditorContainer>
-        </Box>
-        {helperText ? (
-          <FormHelperText sx={{ marginLeft: 2.3 }} error={error}>
-            {helperText}
-          </FormHelperText>
-        ) : (
-          <></>
-        )}
-      </FormLabel>
-    </StyleEditorContainer>
+              editorRef.current = editor;
+
+              if (autoFocus) {
+                editor?.execCommand('mceFocus');
+              }
+            }}
+            // @ts-ignore
+            init={wrapperConfig}
+            onEditorChange={handleChange}
+          />
+        </StyleEditorContainer>
+      </Box>
+      {helperText ? (
+        <FormHelperText sx={{ marginLeft: 2.3 }} error={error}>
+          {helperText}
+        </FormHelperText>
+      ) : (
+        <></>
+      )}
+    </FormLabel>
   );
 };
 
