@@ -18,11 +18,11 @@ const IncidenceCommentItem = ({ data }: IncidenceCommentItemProps) => {
 
   return (
     <FlexBox gap={'9px'}>
-      <AvatarMedia avatar={data?.createdBy?.avatar} sx={{ height: '30px', width: '30px', mt: 0.5 }} />
+      <AvatarMedia avatar={data?.createdBy?.avatar} sx={{ height: '30px', width: '30px' }} />
       <div className='w-full'>
-        <FlexBox alignItems={'center'} justifyContent={'space-between'} gap={1} sx={{ mb: '5px' }}>
+        <FlexBox alignItems={'center'} gap={1} sx={{ mb: '2.5px' }}>
           <Typography variant='body1' fontWeight={600}>{data?.createdBy?.fullName}</Typography>
-          <Typography>{time.charAt(0).toUpperCase() + time.slice(1)}</Typography>
+          <Typography>{time}</Typography>
         </FlexBox>
         <Box sx={{ background: '#F2F4F8', borderRadius: '5px', mb: 1 }}>
           <Typography variant='body2' color='#2B3445' sx={{ p: '10px' }}>

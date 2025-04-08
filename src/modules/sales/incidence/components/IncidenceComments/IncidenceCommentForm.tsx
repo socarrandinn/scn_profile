@@ -1,4 +1,4 @@
-import { memo, useMemo } from 'react';
+import { memo, useCallback, useMemo } from 'react';
 import { ChildrenProps, Form, FormTextField, HandlerError, IconButton } from '@dfl/mui-react-common';
 import { CircularProgress, Divider, Grid, InputAdornment, useTheme } from '@mui/material';
 import { useTranslation } from 'react-i18next';
@@ -9,6 +9,8 @@ import { ArrowRightIcon } from 'components/icons/ArrowRightIcon';
 import { AttachFileForm } from 'components/FileDropZone';
 import { useFieldArray } from 'react-hook-form';
 import FileItem from 'components/FileDropZone/FileTypes/File/FileItem';
+import { FilePreview } from 'components/FileDropZone/FilePreview';
+import DeleteIcon from 'components/icons/DeleteIcon';
 
 type IncidenceCommentFormProps = ChildrenProps & {
   incidenceId: string;
@@ -25,6 +27,13 @@ const IncidenceCommentForm = ({ incidenceId, children }: IncidenceCommentFormPro
   const isDisabled = useMemo(() => {
     return Boolean(message === '' && files?.length === 0);
   }, [message, files?.length]);
+
+  const handleDelete = useCallback(
+    (index: number) => {
+      remove(index);
+    },
+    [remove],
+  );
 
   return (
     <>
@@ -84,11 +93,24 @@ const IncidenceCommentForm = ({ incidenceId, children }: IncidenceCommentFormPro
             />
           </Grid>
           {files &&
-            <Grid item xs={12}>
+            <Grid item xs={12} display={'flex'} gap={2}>
               {files?.map((file, index) => (
-                <div key={index} className='flex gap-2 flex-col'>
-                  <FileItem field={file} remove={remove} index={index} type={TYPE_DROP.FILE} />
-                </div>
+                <FilePreview
+                  data={file}
+                  key={index}
+                  actions={
+                    <IconButton
+                      tooltip={t('dropZone:deleteFile')}
+                      color='error'
+                      size='small'
+                      onClick={() => {
+                        handleDelete(index);
+                      }}
+                    >
+                      <DeleteIcon fontSize='small' />
+                    </IconButton>
+                  }
+                />
               ))}
             </Grid>
           }

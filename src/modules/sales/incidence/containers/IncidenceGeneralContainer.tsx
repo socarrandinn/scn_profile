@@ -24,22 +24,15 @@ const IncidenceGeneralContainer = () => {
     <Stack mb={{ xs: 2, md: 4 }}>
       <DetailLayout>
         <DetailContent ghost>
-          <FormPaper title={t('list')} sx={{ marginTop: 0 }} variant={{ title: 'h4' }} mbHeader={1}>
-            <ErrorNote
-              title={incidence?.cause?.name}
-              message={incidence?.subCause?.name ? `(${t('fields.subCause')}) ${incidence?.subCause?.name}` : undefined}
-            />
+          <FormPaper nm title={t('fields.description')} variant={{ title: 'h4' }} mbHeader={1}>
+            {incidence?.description}
           </FormPaper>
-          {incidence?.description !== '\n' && incidence?.description !== '' &&
-            <FormPaper title={t('fields.description')} variant={{ title: 'h4' }} mbHeader={1}>
-              {incidence?.description}
-            </FormPaper>
-          }
+
           {incidence?.evidence &&
             <FormPaper title={t('common:evidence')} variant={{ title: 'h4' }} mbHeader={1}>
               <div className='flex gap-4 items-center'>
                 {incidence?.evidence?.map((file) =>
-                  <FilePreview key={file?.url} data={file}/>
+                  <FilePreview key={file?.url} data={file} />
                 )}
               </div>
             </FormPaper>

@@ -46,9 +46,9 @@ const IncidenceActionsHeader = ({ title, noActions, message, code, incidenceTitl
               {code || 'INC15236236'}
             </Typography>
           </FlexBox>
-          {!noNote && <FlexBox className='text-lg font-bold'>
+          {!noNote &&
             <ErrorNote message={message || 'El cliente reporta haber recibido una pasta de bocadito en mal estado'} title={incidenceTitle} />
-          </FlexBox>}
+          }
         </FlexBox>
       </Grid>
 
