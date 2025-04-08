@@ -8,6 +8,7 @@
   },
   "event": {
     "title": "Evento",
+    "ADD_ACTION": "Acción adicionada",
     "UPDATE_ENABLED": "Habilitado",
     "ADD_COMMENT": "Comentario Agregado",
     "UPDATE_RESPONSIBLE": "Responsable Actualizado",

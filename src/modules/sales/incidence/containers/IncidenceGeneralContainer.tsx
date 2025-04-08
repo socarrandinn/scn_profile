@@ -11,6 +11,7 @@ import ErrorNote from 'modules/common/components/ErrorNote/ErrorNote';
 import { useTranslation } from 'react-i18next';
 import { FormPaper } from 'modules/common/components/FormPaper';
 import { FilePreview } from 'components/FileDropZone/FilePreview';
+import { IncidenceActions } from '../components/IncidenceActions';
 
 const IncidenceGeneralContainer = () => {
   const { incidence, incidenceId } = useIncidenceDetail();
@@ -31,21 +32,21 @@ const IncidenceGeneralContainer = () => {
           {incidence?.evidence &&
             <FormPaper title={t('common:evidence')} variant={{ title: 'h4' }} mbHeader={1}>
               <div className='flex gap-4 items-center'>
-                {incidence?.evidence?.map((file) =>
-                  <FilePreview key={file?.url} data={file} />
+                {incidence?.evidence?.map((file, index) =>
+                  <FilePreview key={index} data={file} />
                 )}
               </div>
             </FormPaper>
           }
           <IncidenceComments incidenceId={incidenceId} />
         </DetailContent>
-        <DetailSummary ghost width={{ md: 398, lg: 400, xl: 420 }}>
+        <DetailSummary ghost width={{ md: 398, lg: 400, xl: 450 }}>
           <Form id='incidence-update-form' control={control}>
             <ResponsibleForm data={incidence as IIncidence} />
           </Form>
+          <IncidenceActions id={incidenceId} />
         </DetailSummary>
       </DetailLayout>
-
     </Stack >
   );
 };

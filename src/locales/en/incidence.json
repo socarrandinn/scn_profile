@@ -81,8 +81,14 @@
     "total": "TOTAL",
     "expensesTotal": "EXPENSES TOTAL"
   },
+  "historyActions": "History of actions performed",
   "chooseProductToChange": "Select the product you want to change from the list of products in the order",
   "actions": {
+    "title": "Actions performed",
+    "subtitle": "Add here the actions you have taken to contact the customer and add solutions",
+    "CONTACT_CUSTOMER": "Contact to customer",
+     "CONTACT_RESPONSIBLE": "Contact to responsible",
+     "CONTACT_RECIPIENT": "Contact to recipient",
     "fields": {
       "product": "Products",
       "price": "Price",

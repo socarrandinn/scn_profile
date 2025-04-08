@@ -9,6 +9,7 @@
   "event": {
     "title": "Event",
     "UPDATE_ENABLED": "Enabled",
+    "ADD_ACTION": "Action Added",
     "ADD_COMMENT": "Comment Added",
     "UPDATE_RESPONSIBLE": "Responsible Updated",
     "UPDATE_SETTINGS": "Updated",
