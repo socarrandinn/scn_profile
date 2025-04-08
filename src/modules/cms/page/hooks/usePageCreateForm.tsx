@@ -23,7 +23,12 @@ const initValues: IPage = {
 const usePageCreateForm = (onClose: () => void, defaultValues: IPage = initValues) => {
   const { t } = useTranslation('page');
   const queryClient = useQueryClient();
-  const { control, handleSubmit, reset: resetForm, watch } = useForm({
+  const {
+    control,
+    handleSubmit,
+    reset: resetForm,
+    watch,
+  } = useForm({
     resolver: yupResolver(pageSchema),
     defaultValues,
   });
@@ -32,26 +37,27 @@ const usePageCreateForm = (onClose: () => void, defaultValues: IPage = initValue
     if (defaultValues) resetForm(defaultValues);
   }, [defaultValues, resetForm]);
 
-  const { mutate, reset: resetMutation, error, isLoading, isSuccess, data } = useMutation(
-    (page: IPage) => PageService.saveOrUpdate(page),
-    {
-      onSuccess: (data, values) => {
-        queryClient.invalidateQueries([PAGES_LIST_KEY]);
-        values?._id && queryClient.invalidateQueries([values._id]);
-        toast.success(t(values?._id ? 'successUpdate' : 'successCreated'));
-        onClose?.();
-        resetForm();
-      },
+  const {
+    mutate,
+    reset: resetMutation,
+    error,
+    isLoading,
+    isSuccess,
+    data,
+  } = useMutation((page: IPage) => PageService.saveOrUpdate(page), {
+    onSuccess: (data, values) => {
+      queryClient.invalidateQueries([PAGES_LIST_KEY]);
+      values?._id && queryClient.invalidateQueries([values._id]);
+      toast.success(t(values?._id ? 'successUpdate' : 'successCreated'));
+      onClose?.();
+      resetForm();
     },
-  );
+  });
 
-  const reset = useCallback(
-    () => {
-      resetForm()
-      resetMutation()
-    },
-    [resetForm, resetMutation],
-  )
+  const reset = useCallback(() => {
+    resetForm();
+    resetMutation();
+  }, [resetForm, resetMutation]);
 
   return {
     control,

@@ -9,7 +9,7 @@ export const seoSchema = Yup.object().shape({
 });
 
 export const contentSchema = Yup.object().shape({
-  content: Yup.string().min(2, 'min-2'),
+  content: Yup.string(),
 });
 
 export const pageSchema = Yup.object()
