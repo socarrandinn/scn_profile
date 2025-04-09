@@ -23,12 +23,11 @@ const IncidenceSolutionsMenu = () => {
     <>
       <Button
         variant='contained'
+        color='success'
         fullWidth
         onClick={handleClick}
-        size="small"
-        aria-controls={open ? 'incidence-solutions-menu' : undefined}
-        aria-haspopup="true"
-        aria-expanded={open ? 'true' : undefined}
+        sx={{ borderRadius: 2, minHeight: '44px', mt: 2, boxShadow: 'rgba(17, 12, 46, 0.15) 0px 48px 100px 0px', '&:hover': { backgroundColor: 'primary.main' } }}
+        size='large'
         startIcon={<SolutionsIcon />}
         endIcon={<ArrowOutward />}
       >
@@ -40,9 +39,9 @@ const IncidenceSolutionsMenu = () => {
         open={open}
         onClose={handleClose}
       >
-        {INCIDENCE_SOLUTIONS_VALUES?.map((type: INCIDENCE_SOLUTION_ENUM) => (
-          <MenuItem key={type} value={type}>
-            {t(`solutions.${type}`)}
+        {INCIDENCE_SOLUTIONS_VALUES?.map((solution: INCIDENCE_SOLUTION_ENUM) => (
+          <MenuItem key={solution} value={solution}>
+            {t(`solutions.${solution}`)}
           </MenuItem>
         ))}
       </StyledMenu>

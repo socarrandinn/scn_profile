@@ -51,11 +51,11 @@ const IncidenceActions = ({ id }: { id: string }) => {
           sx={{
             width: 50,
             height: 50,
-            backgroundColor: 'primary.main',
-            '&:hover': { backgroundColor: 'primary.dark' },
+            backgroundColor: 'success.main',
+            '&:hover': { backgroundColor: 'primary.main' },
           }}
         >
-          <Add sx={{ color: 'white' }} />
+          <Add sx={{ color: 'white' }} fontSize='large' />
         </IconButton>
       </FlexBox>
 
