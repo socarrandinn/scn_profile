@@ -4,7 +4,7 @@ import { IClients } from 'modules/crm/clients/interfaces';
 import { createdATColumn, emailColumn, phoneColumn } from 'modules/common/constants/common.columns';
 import { CLIENTS_PERMISSIONS } from 'modules/crm/clients/constants/clients.permissions';
 import { IImageMedia } from 'modules/common/interfaces';
-import { RolesCell } from 'modules/security/users/components/RolesCell';
+import { RolesUserCell } from 'modules/security/users/components/RolesCell';
 import { AvatarNameCell } from 'modules/common/components/AvatarNameCell';
 import { userFullNameColumn, userStatusColumn } from 'modules/security/users/constants/user.columns';
 
@@ -25,7 +25,7 @@ export const clientRolesColumn: HeadCell = {
   field: 'security.roles',
   headerName: 'clients:roles',
   disablePadding: true,
-  renderCell: (roles: any) => <RolesCell roles={roles}></RolesCell>,
+  renderCell: (roles: any) => <RolesUserCell roles={roles}></RolesUserCell>,
 };
 
 export const clientsActionsColumn: HeadCell<IClients> = {

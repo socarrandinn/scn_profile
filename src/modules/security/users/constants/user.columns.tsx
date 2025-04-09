@@ -2,7 +2,7 @@ import { UserStatus } from 'modules/security/users/components/UserStatus';
 import { UserRowActions } from 'modules/security/users/components/UserRowActions';
 import { CellType, HeadCell } from '@dfl/mui-admin-layout';
 import { createdATColumn, emailColumn, phoneColumn } from 'modules/common/constants/common.columns';
-import { RolesCell } from 'modules/security/users/components/RolesCell';
+import { RolesUserCell } from 'modules/security/users/components/RolesCell';
 import { AvatarNameCell } from 'modules/common/components/AvatarNameCell';
 import { getFullName } from 'utils/index';
 import { IUserInvite } from '../interfaces/IUserInvite';
@@ -26,7 +26,7 @@ export const userStatusColumn: HeadCell = {
 export const userRolesColumn: HeadCell = {
   field: 'security.roles',
   headerName: 'users:roles',
-  renderCell: (roles: any) => <RolesCell roles={roles}></RolesCell>,
+  renderCell: (roles: any) => <RolesUserCell roles={roles}></RolesUserCell>,
 };
 
 export const userInviteByColumn: HeadCell = {

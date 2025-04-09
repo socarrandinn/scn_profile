@@ -1,3 +1,5 @@
+import { ROLE_TYPE_ENUM } from '../constants/role-provider.enum';
+
 export interface IRole {
   _id?: string;
   role?: string;
@@ -6,6 +8,7 @@ export interface IRole {
   description: string;
   permissions?: string[];
   createdAt?: Date;
+  type?: ROLE_TYPE_ENUM;
   isAdmin?: boolean;
   isSystemRole?: boolean;
   isSpaceOwner?: boolean;
