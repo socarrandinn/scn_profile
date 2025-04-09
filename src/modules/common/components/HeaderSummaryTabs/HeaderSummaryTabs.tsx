@@ -57,7 +57,6 @@ const HeaderSummaryTabs = ({
             {badge}
           </Box>
         )}
-
         <Content>
           <Box>
             <Typography variant='h1'>{title}</Typography>

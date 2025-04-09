@@ -45,7 +45,7 @@ const ProductGeneralMediaInformation = () => {
       {isLoading && <ProductGeneralMediaSkeleton />}
       {error && <HandlerError error={error} mapError={mapGetOneErrors} />}
       {!isLoading && !error && product?.media?.length === 0 && (
-        <ProductNoImage />
+        <ProductNoImage onClick={handleToggle} />
       )}
       {!isLoading && !error && (product?.media?.length as number) > 0 && (
         <ProductMedia pictures={product?.media as IImageMedia[]} />
