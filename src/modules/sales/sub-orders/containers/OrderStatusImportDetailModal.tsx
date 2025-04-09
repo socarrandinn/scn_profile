@@ -3,20 +3,20 @@ import { LoadingButton } from '@mui/lab';
 import { Button, DialogActions, DialogContent } from '@mui/material';
 import { memo, useCallback, useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
-import { IOrderStatusDetailCallback, ORDER_STATUS_SUMMARY_CASE } from '../interfaces';
+import { IOrderStatusSummary, ORDER_STATUS_SUMMARY_CASE } from '../interfaces';
 import OrderStatusContainer from './OrderStatusContainer';
 
 type OrderStatusImportDetailModalProps = {
   open: boolean;
   onClose: () => void;
   summaryCase: ORDER_STATUS_SUMMARY_CASE;
-  details: IOrderStatusDetailCallback | undefined;
+  summary: IOrderStatusSummary;
   successDataError?: any[];
 };
 const OrderStatusImportDetailModal = ({
   open,
   summaryCase,
-  details,
+  summary,
   onClose,
   successDataError,
 }: OrderStatusImportDetailModalProps) => {
@@ -31,7 +31,7 @@ const OrderStatusImportDetailModal = ({
     <DialogForm open={open} aria-labelledby={'stock-creation-title'} onClose={handleClose} maxWidth={'sm'}>
       <DialogContent>
         <OrderStatusContainer
-          details={details}
+          summary={summary}
           _case={summaryCase}
           onClose={onClose}
           successDataError={successDataError}

@@ -1,35 +1,43 @@
 import { memo } from 'react';
-import { IOrderStatusDetailCallback, ORDER_STATUS_SUMMARY_CASE } from '../interfaces';
+import { IOrderStatusSummary, ORDER_STATUS_SUMMARY_CASE } from '../interfaces';
 import ErrorNoExist from '../components/ErrorContents/SuborderNoExist';
+import { OrderStatusDataError } from '../components/OrderStatusDataError';
+import { OrderWithErrors } from '../components/OrderWithErrors';
 
 type OrderStatusContainerProps = {
   _case: ORDER_STATUS_SUMMARY_CASE;
-  details?: IOrderStatusDetailCallback;
+  summary?: IOrderStatusSummary;
   successDataError?: any[];
   onClose: () => void;
 };
 
-const OrderStatusContainer = ({ _case, details, onClose, successDataError }: OrderStatusContainerProps) => {
+const OrderStatusContainer = ({ _case, summary, onClose, successDataError }: OrderStatusContainerProps) => {
   switch (_case) {
     case ORDER_STATUS_SUMMARY_CASE.statusNoExist:
       return (
         <ErrorNoExist
-          items={details?.statusNoExist || []}
+          items={summary?.details?.statusNoExist || []}
           onInitialClose={onClose}
           title='subOrder:statusImport.summary.error.statusNoExist'
+          label='subOrder:emptyData.noStatus'
         />
       );
     case ORDER_STATUS_SUMMARY_CASE.suborderNoExist:
       return (
         <ErrorNoExist
-          items={details?.suborderNoExist || []}
+          items={summary?.details?.suborderNoExist || []}
           onInitialClose={onClose}
           title='subOrder:statusImport.summary.error.suborderNoExist'
+          label='subOrder:emptyData.noCode'
         />
       );
 
     case ORDER_STATUS_SUMMARY_CASE.dataError:
-      return <>dataError</>; // <OrderStatusDataError dataError={successDataError || []} onInitialClose={onClose} />;
+      return <OrderStatusDataError dataError={successDataError || []} onInitialClose={onClose} />;
+
+    case ORDER_STATUS_SUMMARY_CASE.suborderWithErrors:
+      return <OrderWithErrors dataError={summary?.summary?.suborderWithErrors || []} onInitialClose={onClose} />;
+
     default:
       return <></>;
   }
