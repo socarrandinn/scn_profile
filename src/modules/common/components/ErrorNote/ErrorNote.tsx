@@ -23,6 +23,7 @@ const ErrorNote = ({ title, message }: Props) => {
       position={'relative'}
       overflow={'hidden'}
       minHeight={59}
+      maxWidth={650}
       alignItems={'center'}
       mt={2}
       mb={1}

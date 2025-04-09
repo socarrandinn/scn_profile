@@ -3,6 +3,7 @@ import '@dfl/yup-validations';
 import { ICausesIncidence } from 'modules/sales/settings/causes-incidence/interfaces';
 import { IFile } from 'components/FileDropZone/interfaces/IFile';
 import { mapperFile } from 'utils/file-utils';
+import { INCIDENCE_ACTION_ENUM, INCIDENCE_ACTIONS_VALUES } from '../constants/incidence-action.enum';
 
 export const incidenceSchema = Yup.object().shape({
   description: Yup.string(),
@@ -38,4 +39,9 @@ export const incidenceCommentSchema = Yup.object().shape({
       schema.min(1, 'required').transform((values) => values?.map((file: IFile) => mapperFile(file)) || []),
     otherwise: (schema) => schema.transform((values) => values?.map((file: IFile) => mapperFile(file)) || []),
   }),
+});
+
+export const incidenceActionsSchema = Yup.object().shape({
+  note: Yup.string(),
+  actionType: Yup.string().oneOf(INCIDENCE_ACTIONS_VALUES ),
 });

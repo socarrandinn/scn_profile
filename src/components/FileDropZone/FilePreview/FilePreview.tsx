@@ -1,21 +1,25 @@
 import { Typography } from '@mui/material';
 import { DOCUMENTS_DICTIONARY } from '../constants/doc-dictionary';
-import UnknownDocIcon from 'components/libs/Icons/doc-types-icon/UnknownDocIcon';
 import { IFile } from '../interfaces/IFile';
-import { downloadFile } from 'utils/file-utils';
-import { memo } from 'react';
+import { downloadFile, formatSize } from 'utils/file-utils';
+import { memo, ReactNode, useMemo } from 'react';
+import { LongText } from '@dfl/mui-react-common';
+import { normalizeText } from 'utils/normalize-string';
 
 type Props = {
   data: IFile;
-  hideLabel?: boolean;
+  actions?: ReactNode
 };
 
-const FilePreview = ({ data, hideLabel }: Props) => {
+
+const FilePreview = ({ data, actions }: Props) => {
   if (!data || typeof data === 'undefined') return null;
 
   const mimetypeArray = !data.originalname ? '' : data.originalname?.split('.');
   const docType = mimetypeArray.length < 1 || !mimetypeArray ? 'undefined' : mimetypeArray?.[mimetypeArray?.length - 1];
-  const Icon = DOCUMENTS_DICTIONARY[docType] ?? UnknownDocIcon;
+  const Icon = DOCUMENTS_DICTIONARY[docType] ?? <></>;
+  const size = useMemo(() => formatSize(data?.size), [data?.size]);
+
 
   const handleDownload = (e?: React.MouseEvent<HTMLSpanElement, MouseEvent>) => {
     e?.preventDefault();
@@ -24,13 +28,15 @@ const FilePreview = ({ data, hideLabel }: Props) => {
   };
 
   return (
-    <div className='hover:underline cursor-pointer' onClick={handleDownload}>
+    <div className='flex p-[9px_18px_9px_11px] gap-3 items-center rounded-lg bg-[#F2F4F8] cursor-pointer max-w-64'>
       <Icon />
-      {!hideLabel && (
-        <Typography className='text-sm leading-tight' variant='body1'>
-          {data.originalname}
+      <div className='flex flex-col'>
+        <LongText fontWeight={500} variant='body1' text={normalizeText(data?.originalname)} lineClamp={1} onClick={handleDownload} sx={{ '&:hover': { textDecoration: 'underline' } }} />
+        <Typography fontWeight={300} variant='body1'>
+          {size}
         </Typography>
-      )}
+      </div>
+      {actions}
     </div>
   );
 };

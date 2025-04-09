@@ -90,7 +90,7 @@ const AttachFileForm = ({
         <FormLabel label={formLabel}>
           <HandlerError error={error} errors={FILE_ERROR} />
 
-          <ConditionContainer active={showDropzoneWrapper} alternative={<> {children}</>}>
+          <ConditionContainer active={showDropzoneWrapper} alternative={<>{children}</>}>
             <Box {...getRootProps()}>
               <input {...getInputProps()} />
               <IconButton tooltip={t('breadcrumb:upload')} sx={{ mt: 0.9 }}>

@@ -31,7 +31,7 @@ const IncidenceHeaderDetails = () => {
             title={incidence?.code as string}
             orderCode={incidence?.orderReference?.code}
             noActions
-            noNote
+            incidenceTitle={incidence?.cause?.name}
             referenceType={incidence?.referenceType}
           >
             <FlexBox alignItems={'center'} gap={4} mb={1}>

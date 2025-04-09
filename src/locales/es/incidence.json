@@ -81,8 +81,21 @@
     "total": "TOTAL",
     "expensesTotal": "TOTAL DE GASTOS"
   },
+  "addSolution": "Añadir solución",
+  "solutions": {
+    "REIMBURSEMENTS": "Crear reembolso monetario",
+    "REPLACE": "Reemplazar producto",	
+    "EXCHANGE": "Cambio de producto",
+    "COMPENSATION": "Compensaciones"
+  },
+  "historyActions": "Historial de acciones realizadas",
   "chooseProductToChange": "Seleccione el producto que desea cambiar del listado de productos de la orden",
   "actions": {
+    "CONTACT_CUSTOMER": "Contactar al cliente",
+    "CONTACT_RESPONSIBLE": "Contactar al responsable",
+    "CONTACT_RECIPIENT": "Contactar destinatario",
+    "title": "Acciones realizadas",
+    "subtitle": "Añada aquí las acciones que ha realizado para contactar al cliente y añada soluciones",
     "fields": {
       "product": "Producto",
       "price": "Precio",

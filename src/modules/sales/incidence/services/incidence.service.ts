@@ -24,6 +24,10 @@ class IncidenceService extends EntityApiService<IIncidence> {
   addComments = (incidenceId: string, params: any) => {
     return this.handleResponse(ApiClientService.post(this.getPath(`/${incidenceId}/comments`), params));
   };
+
+  addActions = (incidenceId: string, params: any) => {
+    return this.handleResponse(ApiClientService.patch(this.getPath(`/${incidenceId}/add-actions`), params));
+  };
 }
 
 export default new IncidenceService('/ms-sales/api/incidence');

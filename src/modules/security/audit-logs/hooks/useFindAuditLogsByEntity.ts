@@ -3,12 +3,10 @@ import { AuditLogService } from '../services';
 import { AUDIT_LOG_BY_ENTITY_LIST_KEY } from '../constants';
 import { useTableRequest } from '@dfl/mui-admin-layout';
 
-export const useFindAuditLogsByEntity = (entityId: string) => {
-  const { fetch, queryKey } = useTableRequest((params, config) =>
-    AuditLogService.searchByEntity(entityId, params, config),
-  );
+export const useFindAuditLogsByEntity = (entityId: string, filters?: any) => {
+  const { fetch, queryKey } = useTableRequest(() => AuditLogService.searchByEntity(entityId, { filters }));
 
-  return useQuery([AUDIT_LOG_BY_ENTITY_LIST_KEY, queryKey, entityId], fetch, {
+  return useQuery([AUDIT_LOG_BY_ENTITY_LIST_KEY, queryKey, entityId, filters], fetch, {
     enabled: !!entityId,
   });
 };
