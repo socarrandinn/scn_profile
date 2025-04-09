@@ -81,6 +81,13 @@
     "total": "TOTAL",
     "expensesTotal": "EXPENSES TOTAL"
   },
+  "addSolution": "Add solution",
+  "solutions": {
+    "REIMBURSEMENTS": "Create monetary reimbursement",
+    "REPLACE": "Product replacement",	
+    "EXCHANGE": "Product exchange",
+    "COMPENSATION": "Compensations"
+  },
   "historyActions": "History of actions performed",
   "chooseProductToChange": "Select the product you want to change from the list of products in the order",
   "actions": {

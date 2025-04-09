@@ -7,17 +7,10 @@ import { TermFilter } from '@dofleini/query-builder';
 import { Timeline, TimelineConnector, TimelineContent, TimelineItem, timelineItemClasses, TimelineSeparator } from '@mui/lab';
 import CheckCircleIcon from 'modules/inventory/product-stock/components/Icons/CheckCircleIcon';
 import { format } from 'date-fns';
+import { IAuditLogEntity } from 'modules/security/audit-logs/interfaces';
 
-const IncidenceHistoryActions = () => {
+const IncidenceHistoryActions = ({ data }: { data: IAuditLogEntity[] }) => {
   const { t } = useTranslation('incidence');
-  const { incidenceId } = useIncidenceDetail();
-
-  const filters = useMemo(() => {
-    return new TermFilter({ field: 'event', value: 'ADD_ACTION' })
-  }, []);
-
-  const { data } = useFindAuditLogsByEntity(incidenceId, filters);
-  console.log(data);
 
   return (
     <>
@@ -28,8 +21,8 @@ const IncidenceHistoryActions = () => {
           padding: 0,
         },
       }}>
-        {data?.data?.map((action: any, index: number) => {
-          const isLast = index === data.data.length - 1;
+        {data?.map((action: IAuditLogEntity, index: number) => {
+          const isLast = index === data?.length - 1;
           return (
             <TimelineItem>
               <TimelineSeparator>

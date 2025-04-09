@@ -44,7 +44,7 @@ const IncidenceGeneralContainer = () => {
           <Form id='incidence-update-form' control={control}>
             <ResponsibleForm data={incidence as IIncidence} />
           </Form>
-          <IncidenceActions id={incidenceId} />
+          <IncidenceActions />
         </DetailSummary>
       </DetailLayout>
     </Stack >

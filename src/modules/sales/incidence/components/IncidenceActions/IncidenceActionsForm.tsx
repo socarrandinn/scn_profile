@@ -1,48 +1,12 @@
 import { memo, useCallback, useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Form, FormTextField, HandlerError, LoadingButton } from '@dfl/mui-react-common';
-import { Box, Button, Chip, IconButton, InputAdornment, Menu, MenuItem, MenuProps, Stack, styled, Typography } from '@mui/material';
+import { FlexBox, Form, FormTextField, HandlerError, LoadingButton } from '@dfl/mui-react-common';
+import { Box, Button, Chip, IconButton, MenuItem, Stack, Typography } from '@mui/material';
 import { INCIDENCE_ACTION_ENUM, INCIDENCE_ACTIONS_VALUES } from '../../constants/incidence-action.enum';
 import { Add, Close } from '@mui/icons-material';
 import useIncidenceAddActions from '../../hooks/useIncidenceAddActions';
+import { StyledMenu } from './styled';
 
-const StyledMenu = styled((props: MenuProps) => (
-  <Menu
-    elevation={0}
-    anchorOrigin={{
-      vertical: 'bottom',
-      horizontal: 'right',
-    }}
-    transformOrigin={{
-      vertical: 'top',
-      horizontal: 'right',
-    }}
-    {...props}
-  />
-))(({ theme }) => ({
-  '& .MuiPaper-root': {
-    borderRadius: 5,
-    minWidth: 200,
-    marginTop: 4,
-    boxShadow: '0px 0px 11.3px 5px rgba(43, 52, 69, 0.08)',
-    '& .MuiMenu-list': {
-      padding: '8px 0',
-    },
-    '& .MuiMenuItem-root': {
-      '&:hover': {
-        borderLeft: `5px solid ${theme.palette.primary.main}`,
-        backgroundColor: '#F1F8EB',
-      },
-      '&:active': {
-        backgroundColor: '#F1F8EB',
-        borderLeft: `5px solid ${theme.palette.primary.main}`,
-      },
-    },
-    ...theme.applyStyles('dark', {
-      color: theme.palette.grey[300],
-    }),
-  },
-}));
 
 const IncidenceActions = ({ id }: { id: string }) => {
   const { t } = useTranslation('incidence');
@@ -58,7 +22,8 @@ const IncidenceActions = ({ id }: { id: string }) => {
 
   const handleClose = useCallback(() => {
     setAnchorEl(null);
-    reset()
+    reset();
+    selectedAction && setSelectedAction(null);
   }, [reset]);
 
   const handleSelectAction = useCallback((action: INCIDENCE_ACTION_ENUM) => {
@@ -74,27 +39,26 @@ const IncidenceActions = ({ id }: { id: string }) => {
   return (
     <Form onSubmit={onSubmit} control={control} isLoading={isLoading} setValue={setValue} watch={watch} id={'form'}>
       <HandlerError error={error} />
-      <FormTextField
-        name='note'
-        label={t('common:optionalNote')}
-        placeholder={t('common:addNote')}
-        InputProps={{
-          endAdornment: (
-            <InputAdornment position='end'>
-              <IconButton
-                onClick={handleClick}
-                size="small"
-                sx={{
-                  backgroundColor: 'primary.main',
-                  '&:hover': { backgroundColor: 'primary.dark' },
-                }}
-              >
-                <Add sx={{ color: 'white' }} />
-              </IconButton>
-            </InputAdornment>
-          ),
-        }}
-      />
+      <FlexBox alignItems={'center'} gap={1}>
+        <FormTextField
+          name='note'
+          label={t('common:optionalNote')}
+          placeholder={t('common:addNote')}
+        />
+        <IconButton
+          onClick={handleClick}
+          size="small"
+          sx={{
+            width: 50,
+            height: 50,
+            backgroundColor: 'primary.main',
+            '&:hover': { backgroundColor: 'primary.dark' },
+          }}
+        >
+          <Add sx={{ color: 'white' }} />
+        </IconButton>
+      </FlexBox>
+
       {selectedAction && (
         <>
           <Box mt={2}>

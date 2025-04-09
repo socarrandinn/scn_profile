@@ -81,6 +81,13 @@
     "total": "TOTAL",
     "expensesTotal": "TOTAL DE GASTOS"
   },
+  "addSolution": "Añadir solución",
+  "solutions": {
+    "REIMBURSEMENTS": "Crear reembolso monetario",
+    "REPLACE": "Reemplazar producto",	
+    "EXCHANGE": "Cambio de producto",
+    "COMPENSATION": "Compensaciones"
+  },
   "historyActions": "Historial de acciones realizadas",
   "chooseProductToChange": "Seleccione el producto que desea cambiar del listado de productos de la orden",
   "actions": {
