@@ -15,11 +15,12 @@ type TagsEditFormProps = {
 
 const TagsEditForm = ({ error, control, isLoading, onSubmit, tagName }: TagsEditFormProps) => {
   const { hazTotalTag } = useTagStore();
+
   return (
     <Box>
       <HandlerError error={error} />
       <Form onSubmit={onSubmit} control={control} isLoading={isLoading} id={'form-tags'}>
-        <TagsForm control={control} isEdit={!hazTotalTag} name={tagName} />
+        <TagsForm control={control} isEdit={!hazTotalTag} name={tagName} formEdit/>
       </Form>
     </Box>
   );

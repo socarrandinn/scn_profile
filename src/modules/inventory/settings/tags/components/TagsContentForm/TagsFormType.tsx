@@ -1,7 +1,7 @@
 import { ISummaryTags, TAG_TYPE_ENUM } from 'modules/inventory/settings/tags/interfaces';
 import { Fragment, memo, useMemo } from 'react';
-import { ChildrenProps, FormDatePickerField, FormTextField } from '@dfl/mui-react-common';
-import { IconButton, Stack, Tooltip, Typography } from '@mui/material';
+import { ChildrenProps, FormDatePickerField, FormTextField, IconButton } from '@dfl/mui-react-common';
+import { Box, Stack, Typography } from '@mui/material';
 import { useTranslation } from 'react-i18next';
 import DeleteIcon from 'components/icons/DeleteIcon';
 import TagArraySelect from './TagArraySelect/TagArraySelect';
@@ -77,7 +77,7 @@ const TagFormLayout = ({
         <Typography>{tag.name}</Typography>
         <div>
           {isBoolean && children}
-          <RemoveAction onRemove={onRemoveTag} ruleRequired={tag.ruleRequired} />
+          <RemoveAction onRemove={onRemoveTag} ruleRequired={tag.ruleRequired || false} />
         </div>
       </Stack>
       {!isBoolean && children}
@@ -90,8 +90,9 @@ const RemoveAction = ({ onRemove, ruleRequired }: { onRemove: () => void; ruleRe
   if (onRemove === undefined) return <></>;
 
   return (
-    <Tooltip title={t('remove')}>
+    <Box>
       <IconButton
+        tooltip={t('remove')}
         disabled={ruleRequired}
         size='small'
         color='error'
@@ -101,6 +102,6 @@ const RemoveAction = ({ onRemove, ruleRequired }: { onRemove: () => void; ruleRe
       >
         <DeleteIcon fontSize='inherit' />
       </IconButton>
-    </Tooltip>
+    </Box>
   );
 };
