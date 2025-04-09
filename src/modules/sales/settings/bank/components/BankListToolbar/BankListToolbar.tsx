@@ -8,7 +8,7 @@ import { PermissionCheck } from '@dfl/react-security';
 import { getDefaultFilterKeys } from 'utils/custom-filters';
 import TableToolbarActions from 'components/libs/table/toolbar/TableToolbarActions';
 import { TableHeaderOptions } from 'components/libs/table';
-import { bankFilters } from '../../constants';
+import { defaultBankFilters } from '../../constants';
 import { useToggle } from '@dfl/hook-utils';
 
 const useToolbarSetting = () => {
@@ -21,7 +21,7 @@ const useToolbarSetting = () => {
       },
       filter: {
         activeMenu: true,
-        defaultFilterKeys: getDefaultFilterKeys(bankFilters),
+        defaultFilterKeys: getDefaultFilterKeys(defaultBankFilters),
       },
     };
   }, []);

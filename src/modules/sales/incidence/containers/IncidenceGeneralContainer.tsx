@@ -7,7 +7,6 @@ import { Form } from '@dfl/mui-react-common';
 import { useForm } from 'react-hook-form';
 import { useIncidenceDetail } from '../context/IncidenceDetailContext';
 import { IIncidence } from '../interfaces';
-import ErrorNote from 'modules/common/components/ErrorNote/ErrorNote';
 import { useTranslation } from 'react-i18next';
 import { FormPaper } from 'modules/common/components/FormPaper';
 import { FilePreview } from 'components/FileDropZone/FilePreview';

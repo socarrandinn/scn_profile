@@ -1,5 +1,5 @@
 import { Filter, FilterType } from '@dfl/mui-admin-layout';
-import { TermFilter } from '@dofleini/query-builder';
+import { EmptyFilter, OperatorFilter, TermFilter } from '@dofleini/query-builder';
 import { provinces } from '../state-codes';
 import { AddressService } from 'modules/common/service';
 import { ADDRESS_STATE_LIST_KEY } from '../address.queries';
@@ -87,5 +87,29 @@ export const getVisibleFilter = (field?: string, header?: string) => ({
     value: STATUS[key],
     translate: true,
     label: `common:fields.visible.${key.toLocaleLowerCase()}`,
+  })),
+});
+
+export const getBoleanFilter = (field: string, header: string) => ({
+  filter: header,
+  translate: true,
+  type: FilterType.FIXED_LIST,
+  key: field,
+  field,
+  transform: (value: any) => {
+    console.log(value);
+    if (Array.isArray(value)) return undefined;
+    if (value === 'false' || value === false) {
+      return new OperatorFilter({
+        type: 'OR',
+        filters: [new TermFilter({ field, value }), new TermFilter({ field, value: null })],
+      });
+    }
+    return new TermFilter({ field, value });
+  },
+  options: Object.keys(STATUS).map((key) => ({
+    value: STATUS[key],
+    translate: true,
+    label: `causesIncidence:notification.${key.toLocaleLowerCase()}`,
   })),
 });

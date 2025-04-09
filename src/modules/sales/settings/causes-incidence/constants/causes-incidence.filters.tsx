@@ -6,7 +6,7 @@ import { transformWhitObjectId } from 'modules/common/constants/object-id';
 import { EmptyFilter, ExistFilter, OperatorFilter, TermFilter } from '@dofleini/query-builder';
 import { INCIDENCE_AUDIENCE_TARGET } from '../interfaces';
 
-enum ACTIVE_STATUS {
+export enum ACTIVE_STATUS {
   ACTIVE = 'ACTIVE',
   INACTIVE = 'INACTIVE',
 }
