@@ -1,14 +1,14 @@
 {
   "list": "Suborders",
   "name": "Suborder",
-  "deleteMany": "You must select orders to perform this operation",
-  "successDeleted": "Suborder successfully deleted",
-  "successUpdate": "Suborder successfully updated",
-  "successCreated": "Suborder successfully created",
-  "successUpdateDriver": "Driver successfully updated",
-  "successStatusBulkUpdate": "Suborders statuses successfully updated",
-  "successStatusUpdate": "Suborder status successfully updated",
-  "importStatusSuccess": "Statuses successfully imported",
+  "deleteMany": "You must have selected orders to perform this operation",
+  "successDeleted": "Suborder deleted successfully",
+  "successUpdate": "Suborder updated successfully",
+  "successCreated": "Suborder created successfully",
+  "successUpdateDriver": "Carrier updated successfully",
+  "successStatusBulkUpdate": "Suborders' statuses updated successfully",
+  "successStatusUpdate": "Suborder status updated successfully",
+  "importStatusSuccess": "Statuses imported successfully",
   "fields": {
     "code": "Invoice",
     "description": "Description",
@@ -20,7 +20,7 @@
   "details": {
     "products": "Products",
     "total": "Total",
-    "logistic": "Logistics",
+    "logistic": "Logistic",
     "distributionCenter": "Distribution Center",
     "shippingPackage": {
       "weight": "<bold>Weight</bold> {{weight}}"
@@ -33,7 +33,7 @@
     "statusImport": "Import Statuses"
   },
   "changeStatus": {
-    "title": "Change Status",
+    "title": "Change status",
     "selected": "Selected ({{ count }})",
     "all": "All filtered ({{ count }})",
     "totalOrders": "orders",
@@ -41,26 +41,33 @@
   },
   "statusImport": {
     "title": "Import Statuses",
-    "subtitle": "First, download the available Excel template. Fill in the required information in the file, then import the file",
-    "downloadTemplate": "Download Template",
+    "subtitle": "First, download the available Excel template. Fill in the required information in the file, then import it",
+    "downloadTemplate": "Download template",
     "fields": {
       "uploadFile": "Upload files or drag to import"
     },
     "loading": "Validating data",
     "summary": {
       "success": {
-        "title": "Total statuses uploaded",
-        "total": "Successful status change"
+        "title": "Total uploaded statuses",
+        "total": "Status change successful"
       },
       "error": {
         "title": "Total errors",
         "suborderNoExist": "Non-existent suborders",
         "statusNoExist": "Non-existent statuses",
+        "suborderWithErrors": "Suborders with errors",
         "dataError": "Invalid data"
       }
     }
   },
+  "emptyData": {
+    "noStatus": "No status",
+    "noCode": "No Code"
+  },
   "errors": {
     "STATUS_NOT_ALLOWED": "The new status is not allowed from the current status."
-  }
+  },
+  "reason": "Reason:",
+  "value": "Value:"
 }

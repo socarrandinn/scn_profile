@@ -29,6 +29,15 @@ const SuccessCardItems = ({
           title={t('statusImport.summary.error.dataError')}
           count={successData?.dataError?.length || 0}
           variant='outlined'
+          action={
+            <ItemAction
+              disabled={(successData?.dataError?.length ?? 0) === 0}
+              color='error'
+              onOpen={() => {
+                handleOpen(ORDER_STATUS_SUMMARY_CASE.dataError);
+              }}
+            />
+          }
         />
       )}
 
@@ -49,18 +58,35 @@ const SuccessCardItems = ({
           }
         />
       )}
-      {summary?.details?.statusNoExist?.length > 0 && (
+      {summary?.details?.suborderNoExist?.length > 0 && (
         <CardItem
           color='error'
-          title={t('statusImport.summary.error.statusNoExist')}
-          count={summary?.details?.statusNoExist?.length || 0}
+          title={t('statusImport.summary.error.suborderNoExist')}
+          count={summary?.details?.suborderNoExist?.length || 0}
           variant='outlined'
           action={
             <ItemAction
-              disabled={(summary?.details?.statusNoExist?.length ?? 0) === 0}
+              disabled={(summary?.details?.suborderNoExist?.length ?? 0) === 0}
               color='error'
               onOpen={() => {
                 handleOpen(ORDER_STATUS_SUMMARY_CASE.suborderNoExist);
+              }}
+            />
+          }
+        />
+      )}
+      {summary?.summary?.suborderWithErrors?.length > 0 && (
+        <CardItem
+          color='error'
+          title={t('statusImport.summary.error.suborderWithErrors')}
+          count={summary?.summary?.suborderWithErrors?.length || 0}
+          variant='outlined'
+          action={
+            <ItemAction
+              disabled={(summary?.summary?.suborderWithErrors?.length ?? 0) === 0}
+              color='error'
+              onOpen={() => {
+                handleOpen(ORDER_STATUS_SUMMARY_CASE.suborderWithErrors);
               }}
             />
           }
@@ -71,7 +97,7 @@ const SuccessCardItems = ({
         onClose={onClose}
         open={isOpen}
         summaryCase={summaryCase}
-        details={summary?.details}
+        summary={summary}
         successDataError={successData?.dataError}
       />
     </Stack>

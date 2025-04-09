@@ -56,11 +56,18 @@
         "title": "Total de errores",
         "suborderNoExist": "Subórdenes no existentes",
         "statusNoExist": "Estados no existentes",
+        "suborderWithErrors": "Subórdenes con errores",
         "dataError": "Datos no válidos"
       }
     }
   },
+  "emptyData": {
+    "noStatus": "Sin estado",
+    "noCode": "Sin Código"
+  },
   "errors": {
     "STATUS_NOT_ALLOWED": "El nuevo estado no está permitido desde el estado actual."
-  }
+  },
+  "reason": "Razón:",
+  "value": "Valor:"
 }

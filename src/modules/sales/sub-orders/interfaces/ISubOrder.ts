@@ -18,6 +18,18 @@ export enum ORDER_STATUS_SUMMARY_CASE {
   suborderNoExist = 'suborderNoExist',
   statusNoExist = 'statusNoExist',
   dataError = 'dataError',
+  suborderWithErrors = 'suborderWithErrors',
+}
+
+export interface ISuborderWhitError {
+  code: string;
+  count: 1;
+  details: [
+    {
+      reason: string;
+      value?: string;
+    },
+  ];
 }
 
 export interface IOrderStatusSummary {
@@ -28,6 +40,7 @@ export interface IOrderStatusSummary {
     error: number;
     suborderNoExist: string[];
     statusNoExist: string[];
+    suborderWithErrors: ISuborderWhitError[];
   };
 
   showDetail: boolean;
