@@ -1,6 +1,8 @@
-import { Filter, FilterType } from '@dfl/mui-admin-layout';
-import { EmptyFilter, TermFilter } from '@dofleini/query-builder';
+import { Filter, FilterType, FilterValue } from '@dfl/mui-admin-layout';
+import { EmptyFilter, OperatorFilter, TermFilter } from '@dofleini/query-builder';
 import { ORDER_STATUS_TYPE_ENUM } from './order-status-type';
+import { ACTIVE_STATUS, getActiveFilter } from '../../causes-incidence/constants/causes-incidence.filters';
+import { STATUS } from 'modules/common/constants';
 
 const isTrackingAllowedFilter: Filter = {
   filter: 'orderStatus:fields.tracking',
@@ -49,4 +51,29 @@ const orderStatusTypeFilter: Filter = {
   })),
 };
 
-export const orderStatusFilters = [isTrackingAllowedFilter, orderStatusTypeFilter];
+export const orderFilter: Filter = {
+  filter: 'orderStatus:fields.priority',
+  translate: true,
+  type: FilterType.NUMBER,
+  key: 'order',
+  field: 'order',
+};
+
+export const notificationFilter: Filter = {
+  filter: 'causesIncidence:notification.title',
+  translate: true,
+  type: FilterType.FIXED_LIST,
+  key: 'notification',
+  field: 'notification.enabled',
+  transform: (value: any) => {
+    if (Array.isArray(value)) return undefined;
+    return new TermFilter({ field: 'notification.enabled', value });
+  },
+  options: Object.keys(STATUS).map((key) => ({
+    value: STATUS[key],
+    translate: true,
+    label: `causesIncidence:notification.${key.toLocaleLowerCase()}`,
+  })),
+};
+
+export const orderStatusFilters = [orderFilter, notificationFilter, isTrackingAllowedFilter, orderStatusTypeFilter];
