@@ -15,9 +15,10 @@ type TagsFormProps = {
   name: TAG_NAMES;
   isEdit?: boolean;
   ruleRequired?: boolean;
+  formEdit?: boolean;
 };
 
-const TagsForm = ({ control, name, isEdit = false, ruleRequired }: TagsFormProps) => {
+const TagsForm = ({ control, name, isEdit = false, formEdit = false, ruleRequired }: TagsFormProps) => {
   const { t } = useTranslation('tags');
   const { data: requiredTags } = useFindTagByRequired(name);
 
@@ -61,6 +62,7 @@ const TagsForm = ({ control, name, isEdit = false, ruleRequired }: TagsFormProps
         name={name}
         ruleRequired={ruleRequired}
         requiredTags={getTagDefaultValue(requiredTags?.data)}
+        formEdit={formEdit}
       />
     </Stack>
   );

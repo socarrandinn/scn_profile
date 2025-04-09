@@ -41,7 +41,7 @@ const SupplierTags = () => {
         <Stack gap={{ xs: 1, md: 2 }}>
           {providerProducts?.tags?.supplier &&
             requiredTagList(providerProducts?.tags?.supplier as unknown as Record<string, ISummaryTags>)?.map((tag) => (
-              <TagItem key={tag?._id} tag={tag} />
+              <TagItem key={tag?._id || tag.tag} tag={tag} />
             ))}
         </Stack>
       )}
