@@ -28,6 +28,7 @@ const IncidenceHeaderDetails = () => {
         <FlexBox justifyContent={'space-between'} mb={1} alignItems={'flex-start'}>
           <IncidenceActionsHeader
             code={incidence?.code}
+            orderId={incidence?.orderReference?._id}
             title={incidence?.code as string}
             orderCode={incidence?.orderReference?.code}
             noActions

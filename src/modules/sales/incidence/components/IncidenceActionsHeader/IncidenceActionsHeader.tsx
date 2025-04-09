@@ -16,6 +16,7 @@ type Props = ChildrenProps & {
   title: string;
   action?: () => void;
   code?: string;
+  orderId?: string;
   noNote?: boolean;
   message?: string;
   incidenceTitle?: string;
@@ -23,7 +24,7 @@ type Props = ChildrenProps & {
   noActions?: boolean;
 };
 
-const IncidenceActionsHeader = ({ title, noActions, message, code, incidenceTitle, orderCode, children, action, referenceType, noNote }: Props) => {
+const IncidenceActionsHeader = ({ title, noActions, message, code, incidenceTitle, orderCode, children, action, referenceType, noNote, orderId }: Props) => {
   const { t } = useTranslation('incidence');
   const type = useMemo(() => referenceType === ORDER_REFERENCE_TYPE.ORDER ? 'orders' : 'sub-orders', [referenceType]);
 
@@ -36,7 +37,7 @@ const IncidenceActionsHeader = ({ title, noActions, message, code, incidenceTitl
           </Typography>
           {children}
           <FlexBox gap={0.5} sx={{ color: '#9499A1' }}>
-            <ReactLink to={`/sales/${type as string}/${orderCode as string}/general`} className='text-primary' fontSize={16} fontWeight={500}>
+            <ReactLink to={`/sales/${type as string}/${orderId as string}/general`} className='text-primary' fontSize={16} fontWeight={500}>
               {orderCode || 'ORD023233653689'}
             </ReactLink>
             <Typography fontSize={21} lineHeight='22px'>
