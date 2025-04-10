@@ -8,7 +8,6 @@ import useIncidenceCommentCreateForm from '../../hooks/useIncidenceCommentsCreat
 import { ArrowRightIcon } from 'components/icons/ArrowRightIcon';
 import { AttachFileForm } from 'components/FileDropZone';
 import { useFieldArray } from 'react-hook-form';
-import FileItem from 'components/FileDropZone/FileTypes/File/FileItem';
 import { FilePreview } from 'components/FileDropZone/FilePreview';
 import DeleteIcon from 'components/icons/DeleteIcon';
 

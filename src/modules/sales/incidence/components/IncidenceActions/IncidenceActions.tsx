@@ -2,7 +2,6 @@ import { memo, useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { FormPaper } from 'modules/common/components/FormPaper';
 import IncidenceActionsForm from './IncidenceActionsForm';
-import { Typography } from '@mui/material';
 import IncidenceHistoryActions from '../IncidenceHistoryActions';
 import { useIncidenceDetail } from '../../context/IncidenceDetailContext';
 import { TermFilter } from '@dofleini/query-builder';
@@ -11,15 +10,7 @@ import IncidenceSolutionsMenu from '../IncidenceSolutionsMenu/IncidenceSolutions
 
 const IncidenceActions = () => {
   const { t } = useTranslation('incidence');
-  const { incidenceId } = useIncidenceDetail();
-
-  const filters = useMemo(() => {
-    return new TermFilter({ field: 'event', value: 'ADD_ACTION' })
-  }, []);
-
-  const { data } = useFindAuditLogsByEntity(incidenceId, filters);
-
-
+  const { incidenceId, incidence } = useIncidenceDetail();
 
   return (
     <FormPaper
@@ -30,7 +21,7 @@ const IncidenceActions = () => {
     >
       <IncidenceActionsForm id={incidenceId} />
       <IncidenceSolutionsMenu />
-      {data?.data?.length > 0 && <IncidenceHistoryActions data={data?.data} />}
+      {incidence?.actions && <IncidenceHistoryActions data={incidence?.actions} />}
     </FormPaper>
   );
 };

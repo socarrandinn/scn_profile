@@ -1,7 +1,6 @@
 import { memo, useCallback, useMemo } from 'react';
-import { Avatar, Box, Button, Card, Typography } from '@mui/material';
 import { useTranslation } from 'react-i18next';
-import { imageUrl, HandlerError } from '@dfl/mui-react-common';
+import { HandlerError } from '@dfl/mui-react-common';
 import { FormPaper } from 'modules/common/components/FormPaper';
 import { useProductDetail } from 'modules/inventory/product/contexts/ProductDetail';
 import { mapGetOneErrors } from 'constants/errors';

@@ -1,5 +1,5 @@
 import { Filter, FilterType } from '@dfl/mui-admin-layout';
-import { EmptyFilter, OperatorFilter, TermFilter } from '@dofleini/query-builder';
+import { OperatorFilter, TermFilter } from '@dofleini/query-builder';
 import { provinces } from '../state-codes';
 import { AddressService } from 'modules/common/service';
 import { ADDRESS_STATE_LIST_KEY } from '../address.queries';

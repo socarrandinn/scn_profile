@@ -8,17 +8,10 @@ import { Section } from 'modules/common/components/HeaderSummaryTabs/styled';
 import { IncidenceStatusPicker } from '../IncidenceStatusPicker';
 import { INCIDENCE_STATUS_ENUM } from '../../constants/incidence-status';
 import { DateValue, FlexBox } from '@dfl/mui-react-common';
-import { useTranslation } from 'react-i18next';
-import { Button } from '@mui/material';
-import { EditIcon } from 'components/icons/EditIcon';
-import { MoreVert } from '@mui/icons-material';
-import { useToggle } from '@dfl/hook-utils';
-import IncidenceCreateModal from '../../containers/IncidenceCreateModal';
+import { IncidenceHeaderActions } from '../IncidenceHeaderActions';
 
 const IncidenceHeaderDetails = () => {
-  const { t } = useTranslation('incidence');
   const { incidence, isLoading, error, incidenceId } = useIncidenceDetail();
-  const { isOpen, onClose, onOpen } = useToggle();
 
   if (isLoading || error) return <HeaderSummaryTabsSkeleton />;
 
@@ -30,8 +23,8 @@ const IncidenceHeaderDetails = () => {
             code={incidence?.code}
             orderId={incidence?.orderReference?._id}
             title={incidence?.code as string}
+            actions={<IncidenceHeaderActions />}
             orderCode={incidence?.orderReference?.code}
-            noActions
             incidenceTitle={incidence?.cause?.name}
             referenceType={incidence?.referenceType}
           >
@@ -44,13 +37,8 @@ const IncidenceHeaderDetails = () => {
               />
             </FlexBox>
           </IncidenceActionsHeader>
-          <div className='flex gap-2 items-center'>
-            <Button variant='outlined' startIcon={<EditIcon />} onClick={onOpen}>
-              {t('common:edit')}
-            </Button>
-            <MoreVert />
-          </div>
         </FlexBox>
+
         <RouterTab
           tabs={incidenceTabs}
           prefix={`/sales/incidences/${incidenceId}`}
@@ -60,14 +48,6 @@ const IncidenceHeaderDetails = () => {
           allowScrollButtonsMobile
         />
       </Section >
-      <IncidenceCreateModal
-        title={'edit'}
-        open={isOpen}
-        onClose={onClose}
-        initValue={incidence}
-        loadingInitData={isLoading}
-        dataError={error}
-      />
     </>
   );
 };

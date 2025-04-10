@@ -1,4 +1,4 @@
-import { Stack } from '@mui/material';
+import { Grid, Stack } from '@mui/material';
 import { memo } from 'react';
 import { DetailContent, DetailLayout, DetailSummary } from '@dfl/mui-form-layout';
 import { IncidenceComments } from '../components/IncidenceComments';
@@ -30,11 +30,13 @@ const IncidenceGeneralContainer = () => {
 
           {incidence?.evidence &&
             <FormPaper title={t('common:evidence')} variant={{ title: 'h4' }} mbHeader={1}>
-              <div className='flex gap-4 items-center'>
+              <Grid container spacing={2}>
                 {incidence?.evidence?.map((file, index) =>
-                  <FilePreview key={index} data={file} />
+                  <Grid key={index} item xs={12} sm={6} md={3}>
+                    <FilePreview key={index} data={file} />
+                  </Grid>
                 )}
-              </div>
+              </Grid>
             </FormPaper>
           }
           <IncidenceComments incidenceId={incidenceId} />

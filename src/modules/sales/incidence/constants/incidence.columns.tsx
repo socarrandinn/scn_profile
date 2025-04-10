@@ -76,7 +76,7 @@ export const incidenceActionsColumn: HeadCell<IIncidence> = {
   permissions: INCIDENCE_PERMISSIONS.INCIDENCE_WRITE,
   headerName: 'common:actions',
   disablePadding: true,
-  component: IncidenceRowActions,
+  renderCell: (value: string, data: IIncidence) => <IncidenceRowActions rowId={data?._id as string} incidence={data} />,
 };
 
 export const incidenceColumns: Array<HeadCell<any>> = [

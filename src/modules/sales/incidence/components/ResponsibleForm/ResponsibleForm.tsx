@@ -1,4 +1,3 @@
-import { Typography } from '@mui/material';
 import { FormPaper } from 'modules/common/components/FormPaper';
 import ResponsibleCell from 'modules/sales/common/components/ResponsibleCell/ResponsibleCell';
 import { memo } from 'react';

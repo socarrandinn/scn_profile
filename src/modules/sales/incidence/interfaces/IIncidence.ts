@@ -9,6 +9,7 @@ export interface IIncidence {
   description: string;
   orderReference?: any;
   cause?: any;
+  actions?: IIncidenceActions[];
   code?: string;
   subCause?: any;
   status: INCIDENCE_STATUS_ENUM;
@@ -20,8 +21,9 @@ export interface IIncidence {
 }
 
 export interface IIncidenceActions {
-  actionType: INCIDENCE_ACTION_ENUM;
+  actionType: INCIDENCE_ACTION_ENUM | null;
   note?: string;
+  date: Date;
 }
 
 export interface IIncidenceComment {
