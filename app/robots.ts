@@ -1,13 +1,17 @@
-const baseUrl = process.env.NEXT_PUBLIC_APP_URL;
+import config from "@/lib/admin/config";
+import { MetadataRoute } from "next";
 
-export default function robots() {
+export default function robots(): MetadataRoute.Robots {
   return {
     rules: [
       {
         userAgent: "*",
+        allow: "/",
+        disallow: [
+          "/api/", // Recomendable bloquear endpoints API
+        ],
       },
     ],
-    sitemap: `${baseUrl}/sitemap.xml`,
-    host: baseUrl,
+    sitemap: `${config.env.app.url}/sitemap.xml`,
   };
 }
