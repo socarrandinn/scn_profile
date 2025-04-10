@@ -23,7 +23,7 @@ export interface IIncidence {
 export interface IIncidenceActions {
   actionType: INCIDENCE_ACTION_ENUM | null;
   note?: string;
-  date?: string;
+  date: Date;
 }
 
 export interface IIncidenceComment {

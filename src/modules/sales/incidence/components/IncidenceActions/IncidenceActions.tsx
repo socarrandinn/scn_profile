@@ -10,13 +10,7 @@ import IncidenceSolutionsMenu from '../IncidenceSolutionsMenu/IncidenceSolutions
 
 const IncidenceActions = () => {
   const { t } = useTranslation('incidence');
-  const { incidenceId } = useIncidenceDetail();
-
-  const filters = useMemo(() => {
-    return new TermFilter({ field: 'event', value: 'ADD_ACTION' })
-  }, []);
-
-  const { data } = useFindAuditLogsByEntity(incidenceId, filters);
+  const { incidenceId, incidence } = useIncidenceDetail();
 
   return (
     <FormPaper
@@ -27,7 +21,7 @@ const IncidenceActions = () => {
     >
       <IncidenceActionsForm id={incidenceId} />
       <IncidenceSolutionsMenu />
-      {data?.data?.length > 0 && <IncidenceHistoryActions data={data?.data} />}
+      {incidence?.actions && <IncidenceHistoryActions data={incidence?.actions} />}
     </FormPaper>
   );
 };

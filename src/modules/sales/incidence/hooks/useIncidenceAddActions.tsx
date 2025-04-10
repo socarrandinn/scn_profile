@@ -12,7 +12,8 @@ import { Dispatch, SetStateAction, useCallback } from 'react';
 
 const initValues: IIncidenceActions = {
   actionType: INCIDENCE_ACTION_ENUM.CONTACT_CUSTOMER,
-  note: ''
+  note: '',
+  date: new Date(),
 };
 
 const useIncidenceAddActions = (
