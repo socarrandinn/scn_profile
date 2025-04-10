@@ -50,12 +50,12 @@ const IncidenceForm = ({ initValue }: { initValue?: IIncidence }) => {
         )}
       </Grid>
       {shouldShowSubCause && (
-        <Grid item xs={12}>
+        <Grid item xs={12} sx={{ mt: 1.5 }}>
           <CausesIncidenceCustomSelect required name='subCause' label={t('childIncidence')} fetchOption={childFilter} key={`subCause-${cause?._id as string}`} />
         </Grid>
       )}
       <Grid item xs={12}>
-        <div className='flex items-center gap-2 my-3'>
+        <div className='flex items-center gap-2 my-2'>
           <Typography>{t('fields.status')}</Typography>
           <IncidenceStatusPicker value={INCIDENCE_STATUS_ENUM.OPEN} readOnly />
           <Typography variant='caption' sx={{ ml: 0.5 }}>
