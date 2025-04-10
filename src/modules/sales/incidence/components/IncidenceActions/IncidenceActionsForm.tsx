@@ -7,7 +7,6 @@ import { Add, Close } from '@mui/icons-material';
 import useIncidenceAddActions from '../../hooks/useIncidenceAddActions';
 import { StyledMenu } from './styled';
 
-
 const IncidenceActions = ({ id }: { id: string }) => {
   const { t } = useTranslation('incidence');
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
@@ -24,7 +23,7 @@ const IncidenceActions = ({ id }: { id: string }) => {
     setAnchorEl(null);
     reset();
     selectedAction && setSelectedAction(null);
-  }, [reset]);
+  }, [reset, selectedAction]);
 
   const handleSelectAction = useCallback((action: INCIDENCE_ACTION_ENUM) => {
     setSelectedAction(action);
@@ -100,7 +99,7 @@ const IncidenceActions = ({ id }: { id: string }) => {
         onClose={handleClose}
       >
         {INCIDENCE_ACTIONS_VALUES.map((type: INCIDENCE_ACTION_ENUM) => (
-          <MenuItem key={type} value={type} onClick={() => handleSelectAction(type)}>
+          <MenuItem key={type} value={type} onClick={() => { handleSelectAction(type); }}>
             {t(`actions.${type}`)}
           </MenuItem>
         ))}

@@ -2,7 +2,6 @@ import { memo, useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { FormPaper } from 'modules/common/components/FormPaper';
 import IncidenceActionsForm from './IncidenceActionsForm';
-import { Typography } from '@mui/material';
 import IncidenceHistoryActions from '../IncidenceHistoryActions';
 import { useIncidenceDetail } from '../../context/IncidenceDetailContext';
 import { TermFilter } from '@dofleini/query-builder';
@@ -18,8 +17,6 @@ const IncidenceActions = () => {
   }, []);
 
   const { data } = useFindAuditLogsByEntity(incidenceId, filters);
-
-
 
   return (
     <FormPaper

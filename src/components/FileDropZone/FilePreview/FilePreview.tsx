@@ -11,15 +11,12 @@ type Props = {
   actions?: ReactNode
 };
 
-
 const FilePreview = ({ data, actions }: Props) => {
   if (!data || typeof data === 'undefined') return null;
 
   const mimetypeArray = !data.originalname ? '' : data.originalname?.split('.');
   const docType = mimetypeArray.length < 1 || !mimetypeArray ? 'undefined' : mimetypeArray?.[mimetypeArray?.length - 1];
   const Icon = DOCUMENTS_DICTIONARY[docType] ?? <></>;
-  const size = useMemo(() => formatSize(data?.size), [data?.size]);
-
 
   const handleDownload = (e?: React.MouseEvent<HTMLSpanElement, MouseEvent>) => {
     e?.preventDefault();
@@ -33,7 +30,7 @@ const FilePreview = ({ data, actions }: Props) => {
       <div className='flex flex-col'>
         <LongText fontWeight={500} variant='body1' text={normalizeText(data?.originalname)} lineClamp={1} onClick={handleDownload} sx={{ '&:hover': { textDecoration: 'underline' } }} />
         <Typography fontWeight={300} variant='body1'>
-          {size}
+          {formatSize(data?.size)}
         </Typography>
       </div>
       {actions}

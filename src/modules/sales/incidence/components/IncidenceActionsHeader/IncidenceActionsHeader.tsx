@@ -53,7 +53,6 @@ const IncidenceActionsHeader = ({ title, actions, message, code, incidenceTitle,
         </FlexBox>
       </Grid>
 
-
       <Grid item xs={12} md={3}>
         <FlexBox gap={1} height='100%' justifyContent={{ xs: 'flex-start', md: 'flex-end' }}>
           {actions ||

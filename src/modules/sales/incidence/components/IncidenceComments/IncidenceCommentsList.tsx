@@ -20,7 +20,7 @@ const IncidenceCommentsList = ({ comments }: IncidenceCommentsListProps) => {
     return showAll ? comments : comments.slice(0, VISIBLE_COUNT);
   }, [showAll, comments]);
 
-  const handleToggle = () => setShowAll((prev) => !prev);
+  const handleToggle = () => { setShowAll((prev) => !prev); };
   return (
     <>
       <FlexBox flexDirection="column" gap={1}>

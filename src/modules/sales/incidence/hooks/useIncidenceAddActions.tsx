@@ -3,7 +3,6 @@ import toast from 'react-hot-toast';
 import { useTranslation } from 'react-i18next';
 import { useMutation, useQueryClient } from '@tanstack/react-query';
 import { IncidenceService } from '../services';
-import { INCIDENCE_ACTIONS_LIST, INCIDENCE_COMMENTS_LIST } from '../constants';
 import { IIncidenceActions } from '../interfaces';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { incidenceActionsSchema } from '../schemas/incidence.schema';

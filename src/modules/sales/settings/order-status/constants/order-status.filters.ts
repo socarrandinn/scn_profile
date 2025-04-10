@@ -1,7 +1,6 @@
-import { Filter, FilterType, FilterValue } from '@dfl/mui-admin-layout';
-import { EmptyFilter, OperatorFilter, TermFilter } from '@dofleini/query-builder';
+import { Filter, FilterType } from '@dfl/mui-admin-layout';
+import { EmptyFilter, TermFilter } from '@dofleini/query-builder';
 import { ORDER_STATUS_TYPE_ENUM } from './order-status-type';
-import { ACTIVE_STATUS, getActiveFilter } from '../../causes-incidence/constants/causes-incidence.filters';
 import { STATUS } from 'modules/common/constants';
 
 const isTrackingAllowedFilter: Filter = {
