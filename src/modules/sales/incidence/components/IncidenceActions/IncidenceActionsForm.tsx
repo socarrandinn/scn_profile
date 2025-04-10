@@ -1,7 +1,7 @@
 import { memo, useCallback, useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { FlexBox, Form, FormTextField, HandlerError, LoadingButton } from '@dfl/mui-react-common';
-import { Box, Button, Chip, IconButton, MenuItem, Stack, Typography } from '@mui/material';
+import { FlexBox, Form, FormTextField, HandlerError, IconButton, LoadingButton } from '@dfl/mui-react-common';
+import { Box, Button, Chip, MenuItem, Stack, Typography } from '@mui/material';
 import { INCIDENCE_ACTION_ENUM, INCIDENCE_ACTIONS_VALUES } from '../../constants/incidence-action.enum';
 import { Add, Close } from '@mui/icons-material';
 import useIncidenceAddActions from '../../hooks/useIncidenceAddActions';
@@ -55,6 +55,7 @@ const IncidenceActions = ({ id }: { id: string }) => {
           placeholder={t('common:addNote')}
         />
         <IconButton
+          tooltip={t('addActions')}
           onClick={handleClick}
           size="small"
           sx={{
@@ -76,6 +77,7 @@ const IncidenceActions = ({ id }: { id: string }) => {
               onDelete={handleDeleteAction}
               deleteIcon={
                 <IconButton
+                  tooltip={t('common:delete')}
                   size="small"
                   onClick={handleDeleteAction}
                   sx={{ backgroundColor: '#D4D6DB', width: 24, height: 24 }}

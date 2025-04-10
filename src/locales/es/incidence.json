@@ -15,6 +15,7 @@
   "successCreated": "Elemento creado satisfactoriamente",
   "assignResponsible": "Asigne a un responsable de esta incidencia",
   "successAssignResponsible": "Responsable asignado satisfactoriamente",
+  "addActions": "Adicionar acciones",
   "fields": {
     "name": "Nombre",
     "description": "Descripción",

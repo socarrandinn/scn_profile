@@ -7,8 +7,8 @@ import { IIncidenceActions } from '../interfaces';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { incidenceActionsSchema } from '../schemas/incidence.schema';
 import { INCIDENCE_ACTION_ENUM } from '../constants/incidence-action.enum';
-import { AUDIT_LOG_BY_ENTITY_LIST_KEY } from 'modules/security/audit-logs/constants';
 import { Dispatch, SetStateAction, useCallback } from 'react';
+import { INCIDENCES_ONE_KEY } from '../constants';
 
 const initValues: IIncidenceActions = {
   actionType: INCIDENCE_ACTION_ENUM.CONTACT_CUSTOMER,
@@ -50,7 +50,7 @@ const useIncidenceAddActions = (
     () => IncidenceService.addActions(incidenceId, { note, actionType }),
     {
       onSuccess: () => {
-        queryClient.invalidateQueries([AUDIT_LOG_BY_ENTITY_LIST_KEY]);
+        queryClient.invalidateQueries([incidenceId, INCIDENCES_ONE_KEY]);
         toast.success(t('addCommentSuccess'));
         reset();
         setSelectedAction(null);
