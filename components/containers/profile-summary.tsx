@@ -34,7 +34,7 @@ const ProfileSummary = async ({ params }: PageProps) => {
         {/* image profile */}
         <div className="profile-avatar lg:-mt-24 -mt-16">
           <Avatar className="w-24 h-24 lg:w-28 lg:h-28 border-2 border-primary scale">
-            <AvatarImage src="/images/profile/avatar-retro.webp" />
+            <AvatarImage src="/images/profile/avatar.webp" />
             <AvatarFallback className="bg-primary/80 backdrop-blur-sm">
               <User />
             </AvatarFallback>

@@ -36,12 +36,12 @@ const lekton = localFont({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL(config.env.appUrl),
-  title: "SILVI-DEV",
+  metadataBase: new URL(config.env.app.url),
+  title: config.env.app.name,
   description: "Portafolio de desarrollo de software",
   viewport: "width=device-width, initial-scale=1",
   alternates: {
-    canonical: new URL(`${config.env.appUrl}/en`),
+    canonical: new URL(`${config.env.app.url}/en`),
     languages: {
       "en-US": "/en-US",
       "es-ES": "/es-ES",
@@ -52,21 +52,17 @@ export const metadata: Metadata = {
     google: "notranslate",
   },
   icons: {
-    icon: [
-      { url: "/favicon/favicon.ico", sizes: "any" },
-      { url: "/favicon/favicon-16x16.png", type: "image/png", sizes: "16x16" },
-      { url: "/favicon/favicon-32x32.png", type: "image/png", sizes: "32x32" },
-    ],
-    apple: [{ url: "/favicon/apple-touch-icon.png", sizes: "180x180" }],
+    icon: [{ url: "/favicon.svg", sizes: "any", color: "oklch(.89 .24 83)" }],
+    apple: [{ url: "/favicon.svg", sizes: "180x180" }],
     other: [
       {
         rel: "android-chrome",
-        url: "/favicon/android-chrome-192x192.png",
+        url: "/favicon.svg",
         sizes: "192x192",
       },
       {
         rel: "android-chrome",
-        url: "/favicon/android-chrome-512x512.png",
+        url: "/favicon.svg",
         sizes: "512x512",
       },
     ],

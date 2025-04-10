@@ -1,9 +1,9 @@
-import * as React from "react";
 import { Menu } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Drawer, DrawerContent, DrawerTrigger } from "@/components/ui/drawer";
 import { NavigationMenu, NavigationMenuList } from "../ui/navigation-menu";
 import { NavLinks } from "./navbar/navbar-link";
+import Logo from "../core/logo";
 
 export function DrawerDemo() {
   return (
@@ -19,6 +19,7 @@ export function DrawerDemo() {
             {/* Lista de Enlaces */}
             <NavigationMenu orientation="horizontal" className="w-full">
               <NavigationMenuList className="grid grid-cols-1 gap-2 md:gap-4 mx-auto isZoom">
+                <Logo className="w-10 h-10 mb-2 mx-auto" />
                 <NavLinks />
               </NavigationMenuList>
             </NavigationMenu>

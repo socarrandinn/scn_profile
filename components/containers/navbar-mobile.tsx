@@ -3,10 +3,16 @@ import { DrawerDemo } from "./drawer-menu";
 import { ModeToggle } from "../ui/mode-toggle";
 import LanguageChanger from "../core/language-changer/language-changer";
 
+import Logo from "../core/logo";
+import config from "@/lib/admin/config";
+
 const NavarMobile = async ({ locale }: { locale: string }) => {
   return (
     <div className="flex lg:hidden justify-between items-center ">
-      <h1> </h1>
+      <div className="flex flex-row gap-2 items-center">
+        <Logo className="w-6 h-6" />
+        {config.env.app.name}
+      </div>
       <div className="flex flex-row gap-1">
         <LanguageChanger locale={locale} />
         <ModeToggle />

@@ -5,7 +5,10 @@ const config = {
     emailAdmin: process.env.NEXT_PUBLIC_EMAIL_ADMIN!,
 
     //metadata
-    appUrl: process.env.NEXT_PUBLIC_APP_URL! || "http://localhost:3000",
+    app: {
+      url: process.env.NEXT_PUBLIC_APP_URL! || "http://localhost:3000",
+      name: process.env.NEXT_PUBLIC_APP_NAME! || "SILVIDEV",
+    },
   },
 };
 
