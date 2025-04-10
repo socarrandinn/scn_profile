@@ -24,6 +24,7 @@ export interface IIncidenceActions {
   actionType: INCIDENCE_ACTION_ENUM | null;
   note?: string;
   date: Date;
+  user?: Partial<IUser>;
 }
 
 export interface IIncidenceComment {

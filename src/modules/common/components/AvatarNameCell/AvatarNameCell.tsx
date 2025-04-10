@@ -1,5 +1,5 @@
 import { memo, ReactNode, useMemo } from 'react';
-import { Stack, StackProps, Typography } from '@mui/material';
+import { Stack, StackProps, SxProps, Typography } from '@mui/material';
 import { LongText } from '@dfl/mui-react-common';
 import { ReactLink, useSecurity } from '@dfl/react-security';
 import { IImageMedia } from 'modules/common/interfaces';
@@ -13,6 +13,7 @@ type AvatarNameCellProps = StackProps & {
   variant?: 'circular' | 'rounded' | 'square';
   image?: IImageMedia;
   hideImage?: boolean;
+  avatarProps?: SxProps;
   hideLink?: boolean;
   permissions?: string | string[];
   icon?: ReactNode;
@@ -27,6 +28,7 @@ const AvatarNameCell = ({
   hideImage,
   hideLink,
   permissions,
+  avatarProps,
   icon,
   ...props
 }: AvatarNameCellProps) => {
@@ -36,7 +38,7 @@ const AvatarNameCell = ({
     () => (
       <Stack flexDirection={'row'} alignItems={'center'} gap={1} {...props}>
         {!hideImage && (
-          <AvatarMedia name={name} avatar={image} variant={variant}>
+          <AvatarMedia name={name} avatar={image} variant={variant} sx={avatarProps}>
             {icon || <NoFoodIcon fontSize='small' />}
           </AvatarMedia>
         )}
