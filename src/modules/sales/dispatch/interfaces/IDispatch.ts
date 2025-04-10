@@ -38,6 +38,7 @@ export interface IDispatchVerify {
   orderInDispatch: number;
   orderCompleted: number;
   orderInDifferentDistributionCenter: number;
+  orderInPaymentAgreement: number;
   subordersByRegion: Array<{
     totalOrders: number;
     region: string;
