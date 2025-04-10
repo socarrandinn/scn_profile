@@ -10,6 +10,10 @@ import { IIncidenceActions } from '../../interfaces';
 const IncidenceHistoryActions = ({ data }: { data: IIncidenceActions[] }) => {
   const { t } = useTranslation('incidence');
 
+  const sortedData = [...(data || [])].sort(
+    (a, b) => new Date(b?.date).getTime() - new Date(a?.date).getTime()
+  );
+
   return (
     <>
       <Typography variant='h4' mt={4}>{t('historyActions')}</Typography>
@@ -19,7 +23,7 @@ const IncidenceHistoryActions = ({ data }: { data: IIncidenceActions[] }) => {
           padding: 0,
         },
       }}>
-        {data?.map((action: IIncidenceActions, index: number) => {
+        {sortedData?.map((action: IIncidenceActions, index: number) => {
           const isLast = index === data?.length - 1;
           return (
             <TimelineItem key={index}>
