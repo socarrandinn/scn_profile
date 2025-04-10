@@ -79,8 +79,8 @@ const FileDropZone = ({
     maxSize,
     onDrop,
     disabled: isUploading,
-    noClick: !isEmpty(fields),
-    noKeyboard: !isEmpty(fields),
+    noClick: isUploading,
+    noKeyboard: isUploading,
   });
 
   const formLabel = required && isString(label) ? `${label}*` : label;
@@ -103,7 +103,7 @@ const FileDropZone = ({
                   <CircularProgress />
                 </Box>
               ) : (
-                <DropTitle type={type} title={dropTitle} sx={sxTitle}/>
+                <DropTitle type={type} title={dropTitle} sx={sxTitle} />
               )}
             </Typography>
           </DropzoneWrapper>
