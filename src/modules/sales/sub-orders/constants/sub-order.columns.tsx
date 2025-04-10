@@ -3,7 +3,6 @@ import { IOrder } from 'modules/sales/common/interfaces/IOrder';
 import { SUB_ORDER_ROUTE } from './sub-order.route';
 import { OrderCodeCell } from 'modules/sales/common/components/OrderCodeCell';
 import { ORDER_PERMISSIONS } from 'modules/sales/common/constants/order-permissions';
-import { IDistributionCenters } from 'modules/inventory/distribution-centers/interfaces';
 import { ReactLink } from '@dfl/react-security';
 
 export const subOrderCodeColumn: HeadCell<IOrder> = {
@@ -20,11 +19,9 @@ export const subOrderDistributionCenterColumn: HeadCell<IOrder> = {
   field: 'distributionCenter',
   headerName: 'distributionCenters:name',
   disablePadding: false,
-  permissions: [ORDER_PERMISSIONS.ORDER_VIEW],
   align: CellAlign.CENTER,
-  renderCell: (dc: IDistributionCenters) => (
-    <ReactLink to={dc?._id as string} underline={'hover'}>
-      {dc?.name}
-    </ReactLink>
+  permissions: [ORDER_PERMISSIONS.ORDER_VIEW],
+  renderCell: (value: { _id: string; name: string }) => (
+    <ReactLink to={`/inventory/distribution-centers/${value?._id}/general`}>{value?.name}</ReactLink>
   ),
 };
