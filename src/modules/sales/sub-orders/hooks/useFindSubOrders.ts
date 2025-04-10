@@ -1,7 +1,7 @@
 import { useQuery } from '@tanstack/react-query';
 import { useTableRequest } from '@dfl/mui-admin-layout';
 import { SubOrderService } from '../services';
-import { SUB_ORDERS_LIST_KEY } from '../constants/sub-order.queries';
+import { SUB_ORDERS_DISPATCH_LIST_KEY, SUB_ORDERS_LIST_KEY } from '../constants/sub-order.queries';
 import { useMemo } from 'react';
 import { TermFilter } from '@dofleini/query-builder';
 import { useDispatchDetail } from 'modules/sales/dispatch/contexts/dispatchContext';
@@ -29,5 +29,5 @@ export const useFindDispatchSubOrders = () => {
 
   const { fetch, queryKey } = useTableRequest(SubOrderService.search, filters);
 
-  return useQuery([SUB_ORDERS_LIST_KEY, queryKey], fetch, { enabled: !!dispatch?._id });
+  return useQuery([SUB_ORDERS_DISPATCH_LIST_KEY, queryKey], fetch, { enabled: !!dispatch?._id });
 };

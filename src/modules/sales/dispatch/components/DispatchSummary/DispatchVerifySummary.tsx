@@ -19,6 +19,7 @@ const DispatchVerifySummary = ({ data, isLoading }: Props) => {
         <CounterBoxSkeleton />
         <CounterBoxSkeleton />
         <CounterBoxSkeleton />
+        <CounterBoxSkeleton />
       </Stack>
     );
   }
@@ -46,6 +47,17 @@ const DispatchVerifySummary = ({ data, isLoading }: Props) => {
         variant='contented'
         color='error'
         hidden={!data?.orderInDifferentDistributionCenter}
+      />
+      <CounterBox
+        title={t('fields.verify.orderInPaymentAgreement')}
+        value={data?.orderInPaymentAgreement}
+        flexGrow={1}
+        currency={false}
+        icon={ListAltOutlined}
+        isLoading={isLoading}
+        variant='contented'
+        color='error'
+        hidden={!data?.orderInPaymentAgreement}
       />
       <CounterBox
         title={t('fields.verify.orderCompleted')}
