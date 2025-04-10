@@ -1,4 +1,4 @@
-import { memo, useCallback, useState } from 'react';
+import { memo, useCallback, useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { FlexBox, Form, FormTextField, HandlerError, LoadingButton } from '@dfl/mui-react-common';
 import { Box, Button, Chip, IconButton, MenuItem, Stack, Typography } from '@mui/material';
@@ -13,7 +13,15 @@ const IncidenceActions = ({ id }: { id: string }) => {
   const open = Boolean(anchorEl);
   const [selectedAction, setSelectedAction] = useState<INCIDENCE_ACTION_ENUM | null>(null);
 
-  const { onSubmit, control, watch, setValue, error, isLoading, reset } = useIncidenceAddActions(id, { actionType: selectedAction as INCIDENCE_ACTION_ENUM });
+  const {
+    onSubmit,
+    control,
+    watch,
+    setValue,
+    error,
+    isLoading,
+    reset,
+  } = useIncidenceAddActions(id, setSelectedAction);
 
   const handleClick = useCallback((event: React.MouseEvent<HTMLElement>) => {
     setAnchorEl(event.currentTarget);
@@ -22,13 +30,14 @@ const IncidenceActions = ({ id }: { id: string }) => {
   const handleClose = useCallback(() => {
     setAnchorEl(null);
     reset();
-    selectedAction && setSelectedAction(null);
-  }, [reset, selectedAction]);
+    setSelectedAction(null);
+  }, [reset]);
 
   const handleSelectAction = useCallback((action: INCIDENCE_ACTION_ENUM) => {
     setSelectedAction(action);
+    setValue('actionType', action);
     setAnchorEl(null);
-  }, []);
+  }, [setValue]);
 
   const handleDeleteAction = useCallback(() => {
     setSelectedAction(null);
@@ -36,11 +45,12 @@ const IncidenceActions = ({ id }: { id: string }) => {
   }, [reset]);
 
   return (
-    <Form onSubmit={onSubmit} control={control} isLoading={isLoading} setValue={setValue} watch={watch} id={'form'}>
+    <Form onSubmit={onSubmit} control={control} isLoading={isLoading} setValue={setValue} watch={watch} id="form">
       <HandlerError error={error} />
-      <FlexBox alignItems={'center'} gap={1}>
+      <FlexBox alignItems="center" gap={1}>
         <FormTextField
-          name='note'
+          control={control}
+          name="note"
           label={t('common:optionalNote')}
           placeholder={t('common:addNote')}
         />
@@ -54,7 +64,7 @@ const IncidenceActions = ({ id }: { id: string }) => {
             '&:hover': { backgroundColor: 'primary.main' },
           }}
         >
-          <Add sx={{ color: 'white' }} fontSize='large' />
+          <Add sx={{ color: 'white' }} fontSize="large" />
         </IconButton>
       </FlexBox>
 
@@ -76,15 +86,15 @@ const IncidenceActions = ({ id }: { id: string }) => {
             />
           </Box>
 
-          <Stack gap={1} flexDirection={'row'} sx={{ justifyContent: 'end', mt: 2 }}>
-            <Button variant='grey' onClick={handleDeleteAction}>
+          <Stack gap={1} flexDirection="row" sx={{ justifyContent: 'end', mt: 2 }}>
+            <Button variant="grey" onClick={handleDeleteAction}>
               {t('common:cancel')}
             </Button>
             <LoadingButton
               loading={isLoading}
-              variant='contained'
-              type='submit'
-              form='form'
+              variant="contained"
+              type="submit"
+              form="form"
             >
               {t('common:save')}
             </LoadingButton>
@@ -93,13 +103,13 @@ const IncidenceActions = ({ id }: { id: string }) => {
       )}
 
       <StyledMenu
-        id='incidence-actions'
+        id="incidence-actions"
         open={open}
         anchorEl={anchorEl}
         onClose={handleClose}
       >
         {INCIDENCE_ACTIONS_VALUES.map((type: INCIDENCE_ACTION_ENUM) => (
-          <MenuItem key={type} value={type} onClick={() => { handleSelectAction(type); }}>
+          <MenuItem key={type} value={type} onClick={() => handleSelectAction(type)}>
             {t(`actions.${type}`)}
           </MenuItem>
         ))}
