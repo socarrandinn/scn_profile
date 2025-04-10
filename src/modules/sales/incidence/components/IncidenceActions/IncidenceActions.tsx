@@ -1,11 +1,9 @@
-import { memo, useMemo } from 'react';
+import { memo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { FormPaper } from 'modules/common/components/FormPaper';
 import IncidenceActionsForm from './IncidenceActionsForm';
 import IncidenceHistoryActions from '../IncidenceHistoryActions';
 import { useIncidenceDetail } from '../../context/IncidenceDetailContext';
-import { TermFilter } from '@dofleini/query-builder';
-import { useFindAuditLogsByEntity } from 'modules/security/audit-logs/hooks/useFindAuditLogsByEntity';
 import IncidenceSolutionsMenu from '../IncidenceSolutionsMenu/IncidenceSolutionsMenu';
 
 const IncidenceActions = () => {

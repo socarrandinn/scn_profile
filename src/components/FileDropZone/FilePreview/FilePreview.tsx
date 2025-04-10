@@ -2,7 +2,7 @@ import { Typography } from '@mui/material';
 import { DOCUMENTS_DICTIONARY } from '../constants/doc-dictionary';
 import { IFile } from '../interfaces/IFile';
 import { downloadFile, formatSize } from 'utils/file-utils';
-import { memo, ReactNode, useMemo } from 'react';
+import { memo, ReactNode } from 'react';
 import { LongText } from '@dfl/mui-react-common';
 import { normalizeText } from 'utils/normalize-string';
 

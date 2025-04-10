@@ -1,4 +1,4 @@
-import { memo, useCallback, useEffect, useState } from 'react';
+import { memo, useCallback, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { FlexBox, Form, FormTextField, HandlerError, LoadingButton } from '@dfl/mui-react-common';
 import { Box, Button, Chip, IconButton, MenuItem, Stack, Typography } from '@mui/material';
@@ -109,7 +109,7 @@ const IncidenceActions = ({ id }: { id: string }) => {
         onClose={handleClose}
       >
         {INCIDENCE_ACTIONS_VALUES.map((type: INCIDENCE_ACTION_ENUM) => (
-          <MenuItem key={type} value={type} onClick={() => handleSelectAction(type)}>
+          <MenuItem key={type} value={type} onClick={() => { handleSelectAction(type); }}>
             {t(`actions.${type}`)}
           </MenuItem>
         ))}
