@@ -1,9 +1,9 @@
+import { memo } from 'react';
 import { ReactLink } from '@dfl/react-security';
 import { Avatar, Stack } from '@mui/material';
 import { TransTypography } from 'components/TransTypography';
 import { DistributionCenterIcon } from 'modules/inventory/common/components/Icons/DistributionCenterIcon';
 import { IDistributionCenters } from 'modules/inventory/distribution-centers/interfaces';
-import { memo } from 'react';
 
 type Props = {
   showLogistic?: boolean;
@@ -25,7 +25,7 @@ const OrderDistributionCenter = ({ distributionCenter, showLogistic }: Props) =>
         {showLogistic && (
           <Stack flexDirection={'row'} gap={0.5}>
             <TransTypography fontWeight={600} message='subOrder:details.logistic' />
-            <ReactLink to={`/inventory/distribution-centers/${distributionCenter?.logistic?._id as string}/general`}>
+            <ReactLink to={`/inventory/settings/logistics/${distributionCenter?.logistic?._id as string}/general`}>
               {distributionCenter?.logistic?.name}
             </ReactLink>
           </Stack>
