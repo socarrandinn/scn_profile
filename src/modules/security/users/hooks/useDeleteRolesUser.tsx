@@ -15,13 +15,23 @@ export const useDeleteRolesUser = (_id: string, allRoles: IRoleSetting[], onClos
   const isMe = useMemo(() => (pathname?.includes('/account') ? 'me' : ''), [pathname]);
 
   return useMutation(
-    async (role: IRoleSetting) =>
-      await UserAdminService.addRoles(
-        _id,
-        allRoles.filter((r) => r._id !== role._id).map((role) => role?.role),
-        role?.space,
-      ),
+    async (role: IRoleSetting) => {
+      const rolesInSameSpace = allRoles.filter((r) => r?.space === role?.space);
+      const remainingRoles = rolesInSameSpace.filter((r) => r?._id !== role?._id);
+      const rolesToSend = remainingRoles.map((r) => r?.role);
 
+      console.log('Enviando a UserAdminService.addRoles:', {
+        userId: _id,
+        roles: rolesToSend,
+        space: role?.space,
+      });
+
+      return await UserAdminService.addRoles(
+        _id,
+        rolesToSend,
+        role.space,
+      );
+    },
     {
       onSuccess: () => {
         toast.success(t('successDeleted'));
