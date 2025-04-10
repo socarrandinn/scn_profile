@@ -1,10 +1,11 @@
-import { useCallback, useState, useEffect, memo } from 'react';
+import { useCallback, useState, useEffect, memo, Dispatch, SetStateAction } from 'react';
 import { List, ListItem, ListItemText, Skeleton, Switch, Typography, Box } from '@mui/material';
 import { useUserDetail } from 'modules/security/users/contexts/UserDetailContext';
 import { useTranslation } from 'react-i18next';
 import { useUpdateUserSecurity } from 'modules/security/users/hooks/useUpdateUserSecurity';
 import { styled } from '@mui/material/styles';
 import LinearProgress, { linearProgressClasses } from '@mui/material/LinearProgress';
+import { IUser } from '../../interfaces/IUser';
 
 const BorderLinearProgress = styled(LinearProgress)(() => ({
   height: 14,
@@ -25,9 +26,14 @@ export const LoadingSwitch = ({ name, color, checked, onChange, isLoading, varia
   );
 };
 
-const UserActions = () => {
+type UserActionsProps = {
+  user: IUser;
+  setUser?: Dispatch<SetStateAction<IUser | undefined>>;
+  isLoading?: boolean;
+}
+
+const UserActions = ({ user, setUser, isLoading }: UserActionsProps) => {
   const { t } = useTranslation('users');
-  const { user, setUser, isLoading } = useUserDetail();
   const [checkedLocked, setCheckedLocked] = useState(false);
   const [checkedVerified, setCheckedVerified] = useState(false);
   const { mutate, isLoading: isChanging, variables } = useUpdateUserSecurity(user);
