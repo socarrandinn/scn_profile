@@ -1,36 +1,40 @@
 {
   "list": "Dispatches",
-  "create": "Create new Dispatch",
+  "create": "Create New Dispatch",
   "update": "Add to Dispatch",
-  "deleteMany": "You must select Dispatches to perform this operation",
+  "deleteMany": "You must have selected Dispatches to perform this operation",
   "edit": "Edit Dispatch",
-  "successDeleted": "Dispatch successfully deleted",
-  "successSubOrderDeleted": "Dispatch suborder successfully deleted",
-  "successUpdate": "Dispatch successfully updated",
-  "successCreated": "Dispatch successfully created",
-  "confirmationDeleteSubOrder": "This action will only remove the order from the dispatch. You can add it to another dispatch later if desired. Are you sure you want to remove the order from the dispatch?",
+  "successDeleted": "Dispatch deleted successfully",
+  "successSubOrderDeleted": "Dispatch Suborder deleted successfully",
+  "successUpdate": "Dispatch updated successfully",
+  "successCreated": "Dispatch created successfully",
+  "confirmationDeleteSubOrder": "This action will only remove the order from the dispatch; you can later add it to another dispatch if desired. Are you sure you want to remove the order from the dispatch?",
   "goDispatch": "Dispatch",
   "fields": {
     "name": "Name",
     "description": "Description",
-    "createdAt": "Start Date",
-    "updatedAt": "End Date",
+    "createdAt": "Start date",
+    "updatedAt": "End date",
     "status": "Status",
     "metrics": {
-      "suborderCount": "Number of Orders",
-      "totalUniqueProducts": "Total Unique Products",
-      "totalProducts": "Total Products",
-      "totalWeight": "Total Weight",
-      "totalVolume": "Total Volume",
-      "subordersByRegion": "Involved Provinces",
-      "minDate": "Start Date",
-      "maxDate": "End Date"
+      "suborderCount": "Number of orders",
+      "totalUniqueProducts": "Total unique products",
+      "totalProducts": "Total products",
+      "totalWeight": "Total weight",
+      "totalVolume": "Total volume",
+      "subordersByRegion": "Involved provinces",
+      "minDate": "Start date",
+      "maxDate": "End date"
     },
     "verify": {
       "totalOrders": "Orders",
-      "orderInDispatch": "In Dispatch",
-      "orderCompleted": "Completed Orders",
-      "orderInDifferentDistributionCenter": "In Different Distribution Centers"
+      "orderInDispatch": "In dispatch",
+      "orderCompleted": "Completed orders",
+      "orderInDifferentDistributionCenter": "In different Distribution Centers",
+      "orderInPaymentAgreement": "In payment agreement",
+      "totalProducts": "Products",
+      "totalVolume": "Total volume",
+      "totalWeight": "Total weight"
     }
   },
   "status": {
@@ -47,20 +51,20 @@
     "action": "Dispatch",
     "menus": {
       "create": {
-        "title": "Create Dispatch",
+        "title": "Create dispatch",
         "selected": "Selected ({{ count }})",
         "all": "All filtered ({{ count }})"
       },
       "addTo": {
-        "title": "Add to Dispatch",
+        "title": "Add to dispatch",
         "selected": "Selected ({{ count }})",
         "all": "All filtered ({{ count }})"
       }
     }
   },
-  "inDispatch": "In Dispatch",
-  "noDispatch": "No Dispatch",
+  "inDispatch": "In dispatch",
+  "noDispatch": "Without dispatch",
   "errors": {
-    "INVALID_DISPATCH": "The provided dispatch data is invalid"
+    "INVALID_DISPATCH": "The provided dispatch data is incorrect"
   }
 }
