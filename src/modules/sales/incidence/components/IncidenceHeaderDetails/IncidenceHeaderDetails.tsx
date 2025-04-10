@@ -8,18 +8,10 @@ import { Section } from 'modules/common/components/HeaderSummaryTabs/styled';
 import { IncidenceStatusPicker } from '../IncidenceStatusPicker';
 import { INCIDENCE_STATUS_ENUM } from '../../constants/incidence-status';
 import { DateValue, FlexBox } from '@dfl/mui-react-common';
-import { useTranslation } from 'react-i18next';
-import { Button } from '@mui/material';
-import { EditIcon } from 'components/icons/EditIcon';
-import { useToggle } from '@dfl/hook-utils';
-import IncidenceCreateModal from '../../containers/IncidenceCreateModal';
-import DeleteIcon from 'components/icons/DeleteIcon';
-import { Delete } from '@mui/icons-material';
+import { IncidenceHeaderActions } from '../IncidenceHeaderActions';
 
 const IncidenceHeaderDetails = () => {
-  const { t } = useTranslation('incidence');
   const { incidence, isLoading, error, incidenceId } = useIncidenceDetail();
-  const { isOpen, onClose, onOpen } = useToggle();
 
   if (isLoading || error) return <HeaderSummaryTabsSkeleton />;
 
@@ -31,16 +23,7 @@ const IncidenceHeaderDetails = () => {
             code={incidence?.code}
             orderId={incidence?.orderReference?._id}
             title={incidence?.code as string}
-            actions={
-              <>
-                <Button variant='contained' color='error' startIcon={<DeleteIcon />} onClick={onOpen} sx={{ boxShadow: '8px 16px 32px rgba(43, 52, 69, 0.22)' }}>
-                  {t('common:edit')}
-                </Button>
-                <Button variant='outlined' startIcon={<EditIcon />} onClick={onOpen}>
-                  {t('common:edit')}
-                </Button>
-              </>
-            }
+            actions={<IncidenceHeaderActions />}
             orderCode={incidence?.orderReference?.code}
             incidenceTitle={incidence?.cause?.name}
             referenceType={incidence?.referenceType}
@@ -65,14 +48,6 @@ const IncidenceHeaderDetails = () => {
           allowScrollButtonsMobile
         />
       </Section >
-      <IncidenceCreateModal
-        title={'edit'}
-        open={isOpen}
-        onClose={onClose}
-        initValue={incidence}
-        loadingInitData={isLoading}
-        dataError={error}
-      />
     </>
   );
 };
