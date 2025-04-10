@@ -60,11 +60,11 @@ const getArray = (data: IWarehouse): any[] => {
   const array = [
     {
       label: 'fields.contact.phones',
-      value: renderContactList(data?.contacts?.phones),
+      value: renderContactList(data?.contacts?.phones) || '-',
     },
     {
       label: 'fields.contact.emails',
-      value: renderContactList(data?.contacts?.emails),
+      value: renderContactList(data?.contacts?.emails) || '-',
     },
   ];
   return array;

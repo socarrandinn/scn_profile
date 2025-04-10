@@ -12,7 +12,7 @@ type ContactListProps = {
 
 const ContactList = ({ contacts }: ContactListProps) => {
   const { t } = useTranslation('phoneTypes');
-  if (isEmpty(contacts)) return <></>;
+  if (isEmpty(contacts)) return <>-</>;
 
   return (
     <List dense sx={{ p: 0 }}>
@@ -24,7 +24,7 @@ const ContactList = ({ contacts }: ContactListProps) => {
                 <Typography fontWeight={800}>{`${t(contact?.label)}:`}</Typography>
                 <Typography variant={'body1'} sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
                   {contact?.value}
-                  {contact?.principal ? <CheckCircle fontSize='small' color='success' /> : ''}
+                  {contact?.principal ? <CheckCircle fontSize='small' color='success' /> : '-'}
                 </Typography>
               </Stack>
             }

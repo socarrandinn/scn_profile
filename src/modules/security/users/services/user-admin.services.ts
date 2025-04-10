@@ -62,18 +62,12 @@ class UserAdminService extends EntityApiService<IUser> {
   };
 
   addRoles = (userId: string | undefined, roles: string[], space?: string) => {
-    if (userId && roles) {
-      if (roles.length) {
-        return this.handleResponse(
-          ApiClientService.patch(`/ms-auth/api/users/admin/${userId}/roles`, {
-            roles,
-            space,
-          }),
-        );
-      }
-      return Promise.resolve();
-    }
-    return Promise.reject(new Error('You must need an userId and a list of roles'));
+    return this.handleResponse(
+      ApiClientService.patch(`/ms-auth/api/users/admin/${userId}/roles`, {
+        roles,
+        space,
+      }),
+    );
   };
 
   updateAvatar = (avatar: string | undefined, userId: string | undefined) => {
