@@ -19,7 +19,7 @@ const ProfileSummary = async ({ params }: PageProps) => {
   return (
     <Card
       className={cn(
-        "relative border-0 lg:border-1 border-primary/50 lg:min-w-[22rem] z-20 !py-0 !m-0  !min-h-[85vh] md:min-h-auto",
+        "relative border-0 lg:border-1 border-primary/50 lg:min-w-[22rem] z-20 !py-0 !m-0 !min-h-[35rem]",
         "summary-bg",
       )}
     >

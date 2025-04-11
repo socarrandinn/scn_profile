@@ -11,7 +11,7 @@ const NavarMobile = async ({ locale }: { locale: string }) => {
     <div className="flex lg:hidden justify-between items-center ">
       <div className="flex flex-row gap-2 items-center">
         <Logo className="w-6 h-6" />
-        {config.env.app.name}
+        <p>{config.env.app.name}</p>
       </div>
       <div className="flex flex-row gap-1">
         <LanguageChanger locale={locale} />

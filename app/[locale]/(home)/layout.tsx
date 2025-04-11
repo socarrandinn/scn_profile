@@ -31,7 +31,7 @@ const HomeLayout = async ({
       locale={locale}
       resources={resources}
     >
-      <main className="flex flex-col lg:flex-row container gap-4 h-auto lg:max-h-[92vh] !mb-5 ">
+      <main className="flex flex-col lg:flex-row container gap-4 h-auto min-h-[35rem] lg:max-h-[92vh] !mb-5 ">
         <NavarMobile locale={locale} />
         <VerticalNav locale={locale} />
         <ProfileSummary params={params} />
