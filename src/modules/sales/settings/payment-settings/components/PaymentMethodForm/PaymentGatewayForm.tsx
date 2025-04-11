@@ -35,7 +35,7 @@ const PaymentGatewayForm = ({ data }: { data: IGatewayConfig[] }) => {
             name={`gatewayConfig.${index}`}
             icon={PAYMENT_GATEWAY_ICON[gateway?.gateway]}
             multiple
-            title={t(`payment.gateway.${gateway?.gateway}`)}
+            title={t(`order:payment.gateway.${gateway?.gateway}`)}
           />
         </Grid>
       ))}
