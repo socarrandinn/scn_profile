@@ -77,7 +77,8 @@
         "banners": "Gestión de banners",
         "media": "Gestión de medias",
         "testimonial": "Gestión de Testimonios",
-        "navigation": "Gestión de navegación"
+        "navigation": "Gestión de navegación",
+        "pages": "Gestión de Páginas"	
       }
     },
     "reports": {
@@ -94,8 +95,8 @@
         "offers_coupon": "Gestión de Ofertas y Cupones",
         "suborders": "Gestión de Subórdenes",
         "status_orders": "Gestión de Estados de órdenes",
-        "issues": "Gestión de Incidencia",
-        "shipping": "Gestión de Envíos"
+        "shipping": "Gestión de Envíos",
+        "incidence": "Gestión de Incidencias"
       }
     },
     "clients": {
@@ -113,7 +114,7 @@
         "products": "Gestión de Productos",
         "warehouses": "Gestión de Almacenes",
         "distribution_centers": "Gestión de Centros de Distribución",
-        "stock": "Gestión de Stock",
+        "stock": "Gestión de Inventario",
         "providers": "Gestión de Proveedores"
       }
     }
@@ -125,6 +126,10 @@
     "PRODUCT_WRITE": "Gestionar producto",
     "PRODUCT_PRICE": "Ver precio del producto",
     "LOGISTIC_PROVIDER_VIEW": "Ver proveedor logístico",
+    "INCIDENCE_VIEW": "Ver incidencia", 
+    "INCIDENCE_WRITE": "Gestionar incidencia",
+    "PAGE_VIEW": "Ver páginas",
+    "PAGE_WRITE": "Gestionar páginas",
     "LOGISTIC_PROVIDER_WRITE": "Gestionar proveedor logístico",
     "MANUFACTURE_VIEW": "Ver fabricante",
     "MANUFACTURE_WRITE": "Gestionar fabricante",
