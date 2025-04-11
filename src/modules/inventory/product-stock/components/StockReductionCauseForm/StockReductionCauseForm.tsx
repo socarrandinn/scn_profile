@@ -6,7 +6,7 @@ import { FormSelectProviderType } from 'modules/inventory/provider/common/compon
 import { ProvidersByTypeSelect } from 'modules/inventory/provider/common/components/ProvidersByTypeSelect';
 import { StockReductionCauseSelect } from 'modules/inventory/settings/stock-reduction-cause/components/StockReductionCauseSelect';
 import { IStockReductionCause } from 'modules/inventory/settings/stock-reduction-cause/interfaces';
-import { memo } from 'react';
+import { memo, useEffect } from 'react';
 import { useWatch } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
 
@@ -20,6 +20,10 @@ const StockReductionCauseForm = ({ control, setValue }: Props) => {
 
   const selectedCause: IStockReductionCause = useWatch({ control, name: 'cause' });
   const selectedProviderType: string = useWatch({ control, name: 'providerType' });
+
+  useEffect(() => {
+    setValue('responsible', null);
+  }, [selectedProviderType, setValue]);
 
   return (
     <>

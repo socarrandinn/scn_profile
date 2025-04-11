@@ -17,6 +17,7 @@ export const ownershipColumn: HeadCell = {
       hideImage
       name={data?.ownershipName}
       permissions={[LOGISTICS_PERMISSIONS.LOGISTICS_VIEW]}
+      key={data?.type}
     />
   ),
 };
@@ -24,14 +25,14 @@ export const ownershipColumn: HeadCell = {
 export const ownershipTypeColumn: HeadCell = {
   field: 'ownershipType',
   headerName: 'product:otherCost.ownershipType',
-  renderCell: (name, otherCost: IOtherCost) => <Typography>{t(`provider:${otherCost?.ownershipType}`)}</Typography>,
+  renderCell: (name, otherCost: IOtherCost) => <Typography key={otherCost?.ownership}>{t(`provider:${otherCost?.ownershipType}`)}</Typography>,
 };
 
 export const costColumn: HeadCell = {
   field: 'value',
   headerName: 'product:otherCost.cost',
   renderCell: (value, data) =>
-    data?.type === PriceType.PERCENT ? <PercentValue value={value} /> : <CurrencyValue value={value} currency='$' />,
+    data?.type === PriceType.PERCENT ? <PercentValue value={value} key={value} /> : <CurrencyValue value={value} currency='$' key={value} />,
 };
 
 export const otherCostColumns: Array<HeadCell<any>> = [ownershipColumn, ownershipTypeColumn, costColumn];
