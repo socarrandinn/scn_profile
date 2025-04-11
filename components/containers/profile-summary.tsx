@@ -10,6 +10,7 @@ import { INFO } from "@/constants/info";
 import { cn } from "@/lib/utils";
 import { PageProps } from "@/definitions/page-types";
 import initTranslations from "@/app/i18n";
+import Logo from "../core/logo";
 
 const ProfileSummary = async ({ params }: PageProps) => {
   const { locale } = await params;
@@ -23,6 +24,7 @@ const ProfileSummary = async ({ params }: PageProps) => {
         "summary-bg",
       )}
     >
+      <Logo className="absolute top-4 right-4 w-10 h-10 z-10" />
       <Image
         src={"/images/profile/bg-profile.webp"}
         className="bg-contain rounded-md"

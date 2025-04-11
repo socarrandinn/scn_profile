@@ -4,14 +4,12 @@ import {
 } from "@radix-ui/react-navigation-menu";
 import LanguageChanger from "../../core/language-changer/language-changer";
 import { ModeToggle } from "@/components/ui/mode-toggle";
-import Logo from "@/components/core/logo";
 
 export async function VerticalLanguageNav({ locale }: { locale: string }) {
   return (
     <nav>
-      <NavigationMenu className="lg:h-auto w-18 p-4 bg-card rounded-md">
-        <NavigationMenuList className="flex flex-col gap-2 md:gap-4 items-center justify-center">
-          <Logo className="w-10 h-10" />
+      <NavigationMenu className="lg:h-auto w-21 p-2 bg-card rounded-md">
+        <NavigationMenuList className="flex flex-col gap-2  items-center justify-center">
           <ModeToggle />
           <LanguageChanger locale={locale} />
         </NavigationMenuList>

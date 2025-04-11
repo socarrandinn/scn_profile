@@ -7,7 +7,7 @@ import { CardContent } from "@/components/ui/card";
 import PageHeader from "@/components/ui/page-header";
 import { PageProps } from "@/definitions/page-types";
 
-const i18nNamespaces = ["common", "contact"];
+const i18nNamespaces = ["common", "contact", "errors"];
 
 const ContactMePage = async ({ params }: PageProps) => {
   const { locale } = await params;

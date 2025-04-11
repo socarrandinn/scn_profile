@@ -18,7 +18,7 @@ export const ServiceIcon = ({ service }: { service: IAboutMeService }) => {
         </AvatarFallback>
       </Avatar>
       <h1 className="font-bold">{t(service?.title)}</h1>
-      <p className="font-normal text-md lg:text-md">
+      <p className="font-normal text-md sm:text-sm ">
         {t(service?.description)}
       </p>
     </article>

@@ -31,13 +31,13 @@ const TimeLineItem = ({
             <DateValue value={dateRange?.from} format="MM-yyyy" /> -{" "}
             <DateValue value={dateRange?.to} format="MM-yyyy" />
           </Badge>
-          <div className="flex flex-col  w-full">
-            <h3 className="text-color-secondary text-lg font-semibold ">
+          <div className="flex flex-col gap-1 w-full">
+            <p className="text-sm text-primary">{companyName}</p>
+            <h3 className="text-color-secondary text-md lg:text-lg font-semibold ">
               {jobTitle}
             </h3>
-            <p className="text-sm text-primary"> {companyName}</p>
             <TransTypography
-              className="text-color text-md mt-2"
+              className="  text-md sm:text-sm mt-2"
               message={description}
             />
           </div>

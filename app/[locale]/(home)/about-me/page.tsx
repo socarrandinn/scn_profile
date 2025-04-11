@@ -90,7 +90,10 @@ type Props = {
 const AboutMeItem = ({ title, value }: Props) => {
   return (
     <div className="flex flex-row gap-2 items-center">
-      <TransTypography className="uppercase font-bold" message={title} />
+      <TransTypography
+        className="uppercase font-bold text-md sm:text-sm"
+        message={title}
+      />
       {value}
     </div>
   );
