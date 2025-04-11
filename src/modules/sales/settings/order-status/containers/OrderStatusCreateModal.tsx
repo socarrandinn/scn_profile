@@ -46,6 +46,8 @@ const OrderStatusCreateModal = ({
       isLoading={loadingInitData}
       title={t(title)}
       aria-labelledby={'orderStatus-creation-title'}
+      fullWidth
+      maxWidth={'sm'}
     >
       <DialogContent>
         {dataError && <HandlerError error={dataError} />}
@@ -63,7 +65,18 @@ const OrderStatusCreateModal = ({
           </ConditionContainer>
         )}
       </DialogContent>
-      <DialogActions>
+      <DialogActions
+        sx={{
+          display: 'flex',
+          width: '100%',
+          gap: 1,
+          justifyContent: 'end',
+          flexDirection: { xs: 'column-reverse', md: 'row' },
+          '& .MuiButton-root': {
+            width: { xs: '100%', md: 'auto' },
+          },
+        }}
+      >
         <Button variant='grey' onClick={handleClose}>
           {t('common:cancel')}
         </Button>

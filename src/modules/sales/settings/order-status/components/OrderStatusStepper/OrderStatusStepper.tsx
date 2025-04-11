@@ -10,10 +10,10 @@ interface IOrderStatusStepper {
 
 const OrderStatusStepper = ({ activeStep, steps }: IOrderStatusStepper) => {
   return (
-    <Box sx={{ width: '100%' }}>
+    <Box sx={{ width: '100%', overflowX: { xs: 'scroll', lg: 'hidden' }, pb: { xs: 2, lg: 0 } }}>
       <Stepper activeStep={activeStep} alternativeLabel connector={<Connector />}>
         {steps?.map((status) => (
-          <Step key={status._id}>
+          <Step key={status._id} sx={{ minWidth: 140 }}>
             <StepLabel StepIconComponent={StepComponent}>{status.title}</StepLabel>
           </Step>
         ))}

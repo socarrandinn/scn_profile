@@ -7,7 +7,7 @@ const OrderStatusStepperContainer = () => {
   const { data } = useFindOrderStatuses();
 
   return (
-    <Paper sx={{ padding: '1rem', margin: '1rem auto', width: '100%' }}>
+    <Paper sx={{ padding: '1rem', margin: '1rem auto', width: '100%', position: 'relative' }}>
       <OrderStatusStepper
         activeStep={1}
         steps={
