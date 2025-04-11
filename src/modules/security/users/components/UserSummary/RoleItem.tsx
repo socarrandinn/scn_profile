@@ -31,11 +31,18 @@ const RoleItem = ({ role, roles, userId, readOnly }: RoleListProps) => {
       <ListItemText primary={role?.name} />
 
       {!readOnly && (
-        <IconButton tooltip={t('delete')} onClick={deleteHandler} size={'small'} disabled={isLoading} sx={{ p: 0 }}>
+        <IconButton
+          tooltip={t('delete')}
+          onClick={deleteHandler}
+          size={'small'}
+          disabled={isLoading || role?.role === '678e76542365b4e6393f2214'}
+          sx={{ p: 0 }}
+        >
           {isLoading ? <CircularProgress size={16} /> : <DeleteIcon fontSize={'small'} color={'error'} />}
         </IconButton>
-      )}
-    </ListItem>
+      )
+      }
+    </ListItem >
   );
 };
 
