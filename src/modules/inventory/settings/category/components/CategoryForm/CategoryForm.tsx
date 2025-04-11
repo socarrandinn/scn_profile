@@ -1,18 +1,12 @@
 import { FormEventHandler, memo } from 'react';
-import {
-  Form,
-  FormColorPicker,
-  FormFontIconPickerLine,
-  FormLabel,
-  FormTextField,
-  HandlerError,
-} from '@dfl/mui-react-common';
+import { Form, FormFontIconPickerLine, FormLabel, FormTextField, HandlerError } from '@dfl/mui-react-common';
 import { Grid } from '@mui/material';
 import { useTranslation } from 'react-i18next';
 import { CategorySelect } from 'modules/inventory/settings/category/components/CategorySelect';
 
 import { useWatch } from 'react-hook-form';
 import { FormUploadCategoryImagen } from '../CategoryUpdateImage/FormUploadCategoryImagen';
+import FormCustomColorPicker from 'components/fields/FormCustomColorPicker';
 
 type CategoryFormProps = {
   error: any;
@@ -28,7 +22,7 @@ const CategoryForm = ({ error, control, isLoading, onSubmit }: CategoryFormProps
   return (
     <div>
       <HandlerError error={error} />
-      <Form onSubmit={onSubmit} control={control} isLoading={isLoading} size={'small'} id={'CategoryForm'} dark>
+      <Form onSubmit={onSubmit} control={control} isLoading={isLoading} size={'small'} id={'CategoryForm'}>
         <Grid
           container
           spacing={{
@@ -50,7 +44,7 @@ const CategoryForm = ({ error, control, isLoading, onSubmit }: CategoryFormProps
             <FormTextField fullWidth autoFocus required name='name' label={t('fields.name')} />
           </Grid>
           <Grid item xs={12}>
-            <FormColorPicker fullWidth required name='color' label={t('fields.color')} />
+            <FormCustomColorPicker required name='color' label={t('fields.color')} />
           </Grid>
           <Grid item xs={12}>
             <FormLabel label={t('fields.icon')} required />
