@@ -41,7 +41,7 @@ const IncidenceGeneralContainer = () => {
           }
           <IncidenceComments incidenceId={incidenceId} />
         </DetailContent>
-        <DetailSummary ghost width={{ md: 398, lg: 399, xl: 400 }}>
+        <DetailSummary ghost width={{ md: 398, lg: 400, xl: 420 }}>
           <Form id='incidence-update-form' control={control}>
             <ResponsibleForm data={incidence as IIncidence} />
           </Form>

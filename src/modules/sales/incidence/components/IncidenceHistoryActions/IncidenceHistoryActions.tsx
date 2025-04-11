@@ -2,10 +2,10 @@ import { Typography } from '@mui/material';
 import { memo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Timeline, TimelineConnector, TimelineContent, TimelineItem, timelineItemClasses, TimelineSeparator } from '@mui/lab';
-import CheckCircleIcon from 'modules/inventory/product-stock/components/Icons/CheckCircleIcon';
 import { format } from 'date-fns';
 import { INCIDENCE_ACTION_ENUM } from '../../constants/incidence-action.enum';
 import { IIncidenceActions } from '../../interfaces';
+import { AvatarMedia } from 'components/AvatarMedia';
 
 const IncidenceHistoryActions = ({ data }: { data: IIncidenceActions[] }) => {
   const { t } = useTranslation('incidence');
@@ -28,15 +28,22 @@ const IncidenceHistoryActions = ({ data }: { data: IIncidenceActions[] }) => {
           return (
             <TimelineItem key={index}>
               <TimelineSeparator>
-                <CheckCircleIcon />
-                {!isLast && <TimelineConnector sx={{ backgroundColor: 'primary.main', marginY: 0.5 }} />}
+                <AvatarMedia
+                  name={action?.user?.fullName}
+                  avatar={action?.user?.avatar}
+                  sx={{ width: 36, height: 36 }}
+                />
+                {!isLast && <TimelineConnector sx={{ backgroundColor: 'primary.main' }} />}
               </TimelineSeparator>
               <TimelineContent sx={{ pt: 0, paddingRight: 0 }}>
-                <Typography variant='h4'>{t(`actions.${action?.actionType as INCIDENCE_ACTION_ENUM}`)}</Typography>
+                <Typography variant='body1' fontWeight={500}>{action?.user?.fullName}</Typography>
                 <Typography variant='body2' sx={{ fontWeight: 300 }}>
                   {format(new Date(action?.date), 'dd/MM/yyyy H:mm aa')}
                 </Typography>
-                {action?.note && <Typography sx={{ py: 0.5 }}>{action?.note}</Typography>}
+                <Typography fontSize={15} fontWeight={500} sx={{ pt: 0.5 }}>
+                  {t(`actions.${action?.actionType as INCIDENCE_ACTION_ENUM}`)}
+                </Typography>
+                {action?.note && <Typography>{action?.note}</Typography>}
               </TimelineContent>
             </TimelineItem>
           )
