@@ -45,7 +45,6 @@ const DeleteButton = ({ reset, ...props }: DeleteButtonProps) => {
         color={'error'}
         loading={props.isLoading}
         onClick={onOpen}
-        sx={{ boxShadow: '8px 16px 32px rgba(43, 52, 69, 0.22)' }}
       >
         {t('delete')}
       </LoadingButton>
