@@ -55,9 +55,8 @@ export const clientTabs: TabRouteType[] = [
         locale: 'clients',
         label: 'tabs.security',
         Icon: AssessmentOutlinedIcon,
-        disabled: true,
       }),
-    disabled: true,
+    permissions: ['ADMIN'],
   },
   {
     path: `${path}/:id/activity`,

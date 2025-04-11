@@ -4,11 +4,14 @@ import ClientRecipientsPage from 'modules/crm/clients/pages/tabs/ClientRecipient
 import ClientHistoryChange from '../pages/tabs/ClientHistoryChange';
 import ClientActivity from 'modules/crm/clients/pages/tabs/ClientActivity';
 import ClientOrderListPage from 'modules/crm/clients/pages/tabs/ClientOrderListPage';
+import ClientSecurity from '../pages/tabs/ClientSecurity';
+import { CLIENTS_PERMISSIONS } from '../constants';
 
 const clientDetailsRoutes: RouteConfig = {
   general: {
     path: '/general',
     component: ClientGeneralPage,
+    permissions: [CLIENTS_PERMISSIONS.CLIENTS_VIEW]
   },
   orders: {
     path: '/orders',
@@ -18,10 +21,11 @@ const clientDetailsRoutes: RouteConfig = {
     path: '/recipients',
     component: ClientRecipientsPage,
   },
-  // security: {
-  //   path: '/security',
-  //   component: ClientSecurityPage,
-  // },
+  security: {
+    path: '/security',
+    component: ClientSecurity,
+    permissions: ['ADMIN'],
+  },
   activity: {
     path: '/activity',
     component: ClientActivity,
@@ -29,6 +33,7 @@ const clientDetailsRoutes: RouteConfig = {
   history_change: {
     path: '/history_change',
     component: ClientHistoryChange,
+    permissions: ['ADMIN'],
   },
 };
 

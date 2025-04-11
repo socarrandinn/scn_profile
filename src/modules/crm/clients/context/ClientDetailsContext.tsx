@@ -1,15 +1,16 @@
-import { createContext, Dispatch, SetStateAction, useContext } from 'react';
+import { createContext, Dispatch, SetStateAction, useContext, useEffect, useState } from 'react';
 import { useParams } from 'react-router';
 import { useBreadcrumbName } from '@dfl/mui-admin-layout';
 import { IClients } from 'modules/crm/clients/interfaces';
 import { useFindOneClients } from 'modules/crm/clients/hooks/useFindOneClients';
 import useMultipleToggle from 'hooks/useMultipleToggle';
+import { IUser } from 'modules/security/users/interfaces/IUser';
 
 // Data value of the provider context
 type ClientContextValue = {
   client?: IClients;
   isLoading: boolean;
-  setClient?: Dispatch<SetStateAction<IClients | undefined>>;
+  setUser?: Dispatch<SetStateAction<IUser | undefined>>;
   error?: any;
   clientId?: string;
   onAllToggle?: (open?: boolean) => void;
@@ -48,9 +49,17 @@ const ClientDetailsProvider = (props: ClientContextProps) => {
 
   useBreadcrumbName(client?._id || '', client?.fullName, isLoading);
 
+  const [user, setUser] = useState<IUser>();
+
+  useEffect(() => {
+    if (client) {
+      setUser(client);
+    }
+  }, [client, setUser]);
+
   return (
     <ClientContext.Provider
-      value={{ client, isLoading, error, clientId, onAllToggle, onOneClose, onOneOpen, state, allOpen, onOneToggle }}
+      value={{ client, setUser, isLoading, error, clientId, onAllToggle, onOneClose, onOneOpen, state, allOpen, onOneToggle }}
       {...props}
     />
   );

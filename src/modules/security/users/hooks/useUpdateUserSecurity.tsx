@@ -4,6 +4,7 @@ import { USERS_ONE_KEY } from 'modules/security/users/constants/queries';
 import { IUser } from 'modules/security/users/interfaces/IUser';
 import toast from 'react-hot-toast';
 import { useTranslation } from 'react-i18next';
+import { CLIENTS_ONE_KEY } from 'modules/crm/clients/constants';
 
 export const useUpdateUserSecurity = (
   user: IUser | undefined,
@@ -18,6 +19,7 @@ export const useUpdateUserSecurity = (
       onClose?.();
       if (invalidateQuery) {
         queryClient.invalidateQueries([user?._id, USERS_ONE_KEY]);
+        queryClient.invalidateQueries([user?._id, CLIENTS_ONE_KEY]);
       }
       toast.success(t('successUpdate'));
     },

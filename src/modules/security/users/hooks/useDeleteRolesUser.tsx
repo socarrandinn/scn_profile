@@ -6,6 +6,7 @@ import { UserAdminService } from 'modules/security/users/services';
 import { IRoleSetting } from 'modules/security/users/interfaces/IRoleSetting';
 import { useMemo } from 'react';
 import { useLocation } from 'react-router';
+import { CLIENTS_ONE_KEY } from 'modules/crm/clients/constants';
 
 export const useDeleteRolesUser = (_id: string, allRoles: IRoleSetting[], onClose?: () => void) => {
   const queryClient = useQueryClient();
@@ -38,6 +39,7 @@ export const useDeleteRolesUser = (_id: string, allRoles: IRoleSetting[], onClos
         onClose?.();
         isMe && queryClient.invalidateQueries([USER_ME_KEY]);
         queryClient.invalidateQueries([_id, USERS_ONE_KEY]);
+        queryClient.invalidateQueries([_id, CLIENTS_ONE_KEY]);
       },
       onError: () => {
         toast.error(t('common:errors.generalErrorMessage'));

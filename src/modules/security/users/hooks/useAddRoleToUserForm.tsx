@@ -9,6 +9,7 @@ import { IUser } from 'modules/security/users/interfaces/IUser';
 import { UserAdminService } from 'modules/security/users/services';
 import { USER_ME_KEY, USERS_ONE_KEY } from '../constants/queries';
 import { useLocation } from 'react-router';
+import { CLIENTS_LIST_KEY, CLIENTS_ONE_KEY } from 'modules/crm/clients/constants';
 
 const useAddRoleToUserForm = (user: IUser | undefined, onClose: () => void, space?: string) => {
   const queryClient = useQueryClient();
@@ -42,6 +43,7 @@ const useAddRoleToUserForm = (user: IUser | undefined, onClose: () => void, spac
       onSuccess: () => {
         isMe && queryClient.invalidateQueries([USER_ME_KEY]);
         queryClient.invalidateQueries([user?._id, USERS_ONE_KEY]);
+        queryClient.invalidateQueries([user?._id, CLIENTS_ONE_KEY]);
         toast.success(t('successUpdateRoles'));
         onClose?.();
       },
