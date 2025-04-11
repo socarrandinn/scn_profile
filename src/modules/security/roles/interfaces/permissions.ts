@@ -64,10 +64,7 @@ export enum SalesStatusPermissions {
   ORDER_STATUS_WRITE = 'ORDER_STATUS_WRITE',
   ORDER_STATUS_VIEW = 'ORDER_STATUS_VIEW',
 }
-export enum SalesCauseIncidencePermissions {
-  CAUSES_INCIDENCE_WRITE = 'CAUSES_INCIDENCE_WRITE',
-  CAUSES_INCIDENCE_VIEW = 'CAUSES_INCIDENCE_VIEW',
-}
+
 export enum SalesOfferPermissions {
   COUPON_WRITE = 'COUPON_WRITE',
   COUPON_VIEW = 'COUPON_VIEW',
@@ -114,9 +111,6 @@ export enum SecurityUserPermissions {
   USER_INVITE_VIEW = 'USER_INVITE_VIEW',
   PROVIDER_USER_WRITE = 'PROVIDER_USER_WRITE',
   PROVIDER_USER_VIEW = 'PROVIDER_USER_VIEW',
-  // USER = 'USER',
-  // SPACE_VIEW = 'SPACE_VIEW',
-  // SPACE_WRITE = 'SPACE_WRITE',
 }
 
 /* content section */

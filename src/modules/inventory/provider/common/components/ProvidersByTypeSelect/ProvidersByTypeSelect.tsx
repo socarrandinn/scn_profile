@@ -61,8 +61,9 @@ const ProvidersByTypeSelect = ({
   const fetchFunc = useCallback(() => ProviderService.searchProvidersByType(ownershipType), [ownershipType]);
 
   const getOneFunc = useCallback(
-    (params?: any) => {
-      return ProviderService.getOneByType(params, ownershipType);
+    (id?: string) => {
+      console.log('params', id, ownershipType);
+      return ProviderService.getOneByType(id as string, ownershipType);
     },
     [ownershipType],
   );
@@ -78,13 +79,6 @@ const ProvidersByTypeSelect = ({
     [setValue, parentName, name],
   );
 
-  useEffect(() => {
-    setValue?.(name, null);
-    if (parentName) {
-      setValue?.(`${parentName}.ownershipName`, null);
-    }
-  }, [type, setValue, name, parentName]);
-
   return (
     <FormAsyncSelectAutocompleteField
       {...props}
@@ -97,7 +91,7 @@ const ProvidersByTypeSelect = ({
       disableCloseOnSelect={multiple}
       fetchFunc={fetchFunc}
       fetchValueFunc={multiple ? fetchFunc : getOneFunc}
-      queryKey={`${ownershipType}_LIST`}
+      queryKey={`${type}_LIST_KEY`}
       autoHighlight
       isOptionEqualToValue={isOptionEqualToValue}
       id={'select-provider'}

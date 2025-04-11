@@ -1,3 +1,4 @@
+import { INCIDENCE_PERMISSIONS } from 'modules/sales/incidence/constants';
 import { IModule, Permission } from './IRole';
 import {
   ClientDisallowedWordPermissions,
@@ -15,7 +16,6 @@ import {
   InventoryStockPermissions,
   InventoryWarehousePermissions,
   ReportPermissions,
-  SalesCauseIncidencePermissions,
   SalesOfferPermissions,
   SalesOrderPermissions,
   SalesShippingPermissions,
@@ -25,6 +25,8 @@ import {
   SecurityRolePermissions,
   SecurityUserPermissions,
 } from './permissions';
+import { CAUSES_INCIDENCE_PERMISSIONS } from 'modules/sales/settings/causes-incidence/constants';
+import { PAGE_PERMISSIONS } from 'modules/cms/page/constants';
 
 export const permissionSection: Record<string, IModule[]> = {
   security: [
@@ -43,11 +45,17 @@ export const permissionSection: Record<string, IModule[]> = {
   ],
   sales: [
     { label: 'orders', permissions: Object.values(SalesOrderPermissions) as unknown as Permission[] },
+    { label: 'suborders', permissions: Object.values(SalesSubOrderPermissions) as unknown as Permission[] },
     { label: 'unpaid_orders', permissions: Object.values(SalesUnPaidOrderPermissions) as unknown as Permission[] },
-    { label: 'Suborders', permissions: Object.values(SalesSubOrderPermissions) as unknown as Permission[] },
     { label: 'status_orders', permissions: Object.values(SalesStatusPermissions) as unknown as Permission[] },
+    {
+      label: 'incidence',
+      permissions: Object.values({
+        ...INCIDENCE_PERMISSIONS,
+        ...CAUSES_INCIDENCE_PERMISSIONS,
+      }) as unknown as Permission[],
+    },
     { label: 'offers_coupon', permissions: Object.values(SalesOfferPermissions) as unknown as Permission[] },
-    { label: 'issues', permissions: Object.values(SalesCauseIncidencePermissions) as unknown as Permission[] },
     { label: 'shipping', permissions: Object.values(SalesShippingPermissions) as unknown as Permission[] },
   ],
   clients: [
@@ -62,6 +70,7 @@ export const permissionSection: Record<string, IModule[]> = {
   content: [
     { label: 'collections', permissions: Object.values(ContentCollectionPermissions) as unknown as Permission[] },
     { label: 'banners', permissions: Object.values(ContentBannerPermissions) as unknown as Permission[] },
+    { label: 'pages', permissions: Object.values(PAGE_PERMISSIONS) as unknown as Permission[] },
     { label: 'media', permissions: Object.values(ContentMediaPermissions) as unknown as Permission[] },
     { label: 'navigation', permissions: Object.values(ContentNavigationPermissions) as unknown as Permission[] },
     { label: 'testimonial', permissions: Object.values(ContentTestimonialPermissions) as unknown as Permission[] },

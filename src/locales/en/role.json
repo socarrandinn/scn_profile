@@ -77,7 +77,8 @@
         "banners": "Banner Management",
         "media": "Media Management",
         "testimonial": "Testimonial Management",
-        "navigation": "Navigation Management"
+        "navigation": "Navigation Management",
+        "pages": "Pages Management"
       }
     },
     "reports": {
@@ -94,8 +95,8 @@
         "offers_coupon": "Offer and Coupon Management",
         "Suborders": "Suborder Management",
         "status_orders": "Order Status Management",
-        "issues": "Issue Management",
-        "shipping": "Shipping Management"
+        "shipping": "Shipping Management",
+        "incidence": "Incidences Management"
       }
     },
     "clients": {
@@ -124,6 +125,10 @@
     "PRODUCT_VIEW": "View product",
     "PRODUCT_WRITE": "Manage product",
     "PRODUCT_PRICE": "View product price",
+    "INCIDENCE_VIEW": "View incidence", 
+    "INCIDENCE_WRITE": "Manage incidence",
+    "PAGE_VIEW": "View pages",
+    "PAGE_WRITE": "Manage pages",
     "LOGISTIC_PROVIDER_VIEW": "View logistic provider",
     "LOGISTIC_PROVIDER_WRITE": "Manage logistic provider",
     "MANUFACTURE_VIEW": "View manufacturer",

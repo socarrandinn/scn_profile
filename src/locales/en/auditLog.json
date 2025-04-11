@@ -56,12 +56,14 @@
     "UPDATE_CUSTOM_MESSAGE": "Custom Message Updated",
     "PASSWORD_RESET": "Password Reset",
     "UPDATE_STATUS": "Status Updated",
-    "VALIDATE": "Validated"
+    "VALIDATE": "Validated",
+    "CREATE_MONEY_REFUND": "Money Refund Created"
   },
   "module": {
     "title": "Modules",
     "PRODUCT": "Product",
     "CURRENCY": "Currency Settings",
+    "DISPATCH": "Dispatch",
     "ROLE_ADMIN": "Administrator Role",
     "ROLE_PUBLIC": "Public Role",
     "SUPPLIER": "Product Supplier",
