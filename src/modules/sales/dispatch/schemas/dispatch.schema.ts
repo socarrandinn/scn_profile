@@ -11,10 +11,6 @@ export const dispatchSchema = Yup.object().shape({
 // create dispatch
 export const dispatchCreateSchema = Yup.object()
   .shape({
-    logistic: Yup.string()
-      .required('required')
-      .transform((l) => l?._id || l),
-
     space: Yup.string()
       .required('required')
       .transform((l) => l?._id || l),

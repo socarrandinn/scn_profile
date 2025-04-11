@@ -10,6 +10,7 @@
   "successCreated": "Despacho creado satisfactoriamente",
   "confirmationDeleteSubOrder": "Está acción solamente removerá la orden del despacho, posteriormente podrá agregarla a otro despacho si así lo desea. ¿Está seguro que desea eliminar la orden del despacho?",
   "goDispatch": "Despacho",
+  "commonSubOrderInDistributionCenter": "Centro de Distribución en común de subórdenes seleccionadas",
   "fields": {
     "name": "Nombre",
     "description": "Descripción",
@@ -30,7 +31,7 @@
       "totalOrders": "Órdenes",
       "orderInDispatch": "En despacho",
       "orderCompleted": "Órdenes completada",
-      "orderInDifferentDistributionCenter": "En diferentes C. Distribución",
+      "orderInDifferentDistributionCenter": "En diferente centros de distribución ",
       "orderInPaymentAgreement": "En pago por acuerdo",
       "totalProducts": "Productos",
       "totalVolume": "Volumen total",

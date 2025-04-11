@@ -36,21 +36,21 @@ const DispatchCreateModal = ({
   const { t } = useTranslation('dispatch');
   const { query } = useTableSearch();
 
+  // valid dispatch
+  const { data, isInitialLoading } = useDispatchVerify({ query, filters }, open && !!filters);
+  const { isValid } = useIsValid(initValue, data);
+
   const _initValue: Partial<DispatchDTO> = useMemo(
     () =>
       pick(
-        { ...(initValue as IDispatch), filters, space: null, logistic: null },
+        { ...(initValue as IDispatch), filters, space: data?.distributionCenter?._id, logistic: null },
 
-        initValue?._id ? ['_id', 'name'] : ['_id', 'name', 'filters', 'logistic', 'space'],
+        initValue?._id ? ['_id', 'name'] : ['_id', 'name', 'filters', 'space'],
       ),
-    [initValue, filters],
+    [initValue, filters, data?.distributionCenter?._id],
   );
 
-  const { control, onSubmit, isLoading, reset, error, space } = useDispatchCreateForm(onClose, _initValue, schema);
-
-  // valid dispatch
-  const { data, isInitialLoading } = useDispatchVerify({ query, filters, space }, open && !!filters && !!space);
-  const { isValid } = useIsValid(initValue, data);
+  const { control, onSubmit, isLoading, reset, error } = useDispatchCreateForm(onClose, _initValue, schema);
 
   const handleClose = useCallback(() => {
     onClose?.();
@@ -84,6 +84,7 @@ const DispatchCreateModal = ({
               control={control}
               onSubmit={onSubmit}
               isEdit={!!initValue?._id}
+              isValid={isValid}
             />
           </ConditionContainer>
         )}

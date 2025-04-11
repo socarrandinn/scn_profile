@@ -14,8 +14,6 @@ import { dispatchCreateSchema } from '../schemas/dispatch.schema';
 const initValues: Partial<DispatchDTO> = {
   name: '',
   filters: {},
-
-  logistic: null,
   space: null,
 };
 
