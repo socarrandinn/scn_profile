@@ -1,3 +1,4 @@
+import { IDistributionCenters } from 'modules/inventory/distribution-centers/interfaces';
 import { DISPATCH_STATUS_ENUM } from '../constants/dispatch.enum';
 
 export interface IDispatch {
@@ -14,7 +15,6 @@ export interface IDispatch {
 export type DispatchDTO = Pick<IDispatch, 'name' | '_id'> & {
   filters: any;
   space?: string | null;
-  logistic?: string | null;
 };
 
 export interface IDispatchMetrics {
@@ -43,7 +43,10 @@ export interface IDispatchVerify {
     totalOrders: number;
     region: string;
   }>;
+  ordersByState: Record<string, number>;
   isValid: boolean;
+
+  distributionCenter: Pick<IDistributionCenters, '_id' | 'name'>;
 }
 
 export interface IVerifyPayload {

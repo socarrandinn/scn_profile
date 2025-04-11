@@ -4,7 +4,7 @@ import { memo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { ListAltOutlined } from '@mui/icons-material';
 import { IDispatchMetrics } from '../../interfaces';
-import { renderDispatchRegion } from '../DispatchRegion/DispatchRegion';
+import { renderStateValue } from '../DispatchRegion/DispatchRegion';
 import { WeightIcon } from 'modules/sales/common/components/OrderShipping/icons/WeightIcon';
 import { VolumeIcon } from 'modules/sales/common/components/OrderShipping/icons/VolumeIcon';
 
@@ -28,21 +28,18 @@ const DispatchSummary = ({ metrics, isLoading }: Props) => {
         hidden={!metrics?.suborderCount}
       />
 
-      {metrics?.subordersByRegion?.map((reg) => (
-        <CounterBox
-          key={reg?.state}
-          title={t('fields.verify.totalOrders')}
-          value={reg?.totalSuborders}
-          flexGrow={1}
-          currency={false}
-          icon={ListAltOutlined}
-          isLoading={isLoading}
-          variant='contented'
-          color='primary'
-        >
-          {renderDispatchRegion({ value: reg?.state })}
-        </CounterBox>
-      ))}
+      <CounterBox
+        title={t('fields.verify.totalOrders')}
+        renderValue={renderStateValue}
+        value={metrics?.subordersByRegion}
+        small
+        flexGrow={1}
+        variant={'contented'}
+        color={'primary'}
+        icon={ListAltOutlined}
+        loading={isLoading}
+        currency={false}
+      />
 
       <CounterBox
         title={t('fields.verify.totalProducts')}

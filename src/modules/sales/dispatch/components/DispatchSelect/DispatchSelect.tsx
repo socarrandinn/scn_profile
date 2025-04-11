@@ -13,6 +13,7 @@ type DispatchSelectProps = {
   placeholder?: string;
   helperText?: string;
   multiple?: boolean;
+  disabled?: boolean;
 };
 
 const renderLabel = (option: IDispatch) => option.name || '';
@@ -26,9 +27,10 @@ const renderOption = (props: any, option: IDispatch, { selected }: any) => {
   );
 };
 
-const DispatchSelect = ({ name, required, multiple, label, helperText }: DispatchSelectProps) => {
+const DispatchSelect = ({ name, required, multiple, label, helperText, ...props }: DispatchSelectProps) => {
   return (
     <FormAsyncSelectAutocompleteField
+      {...props}
       multiple={multiple}
       required={required}
       label={label}

@@ -48,13 +48,8 @@ const DispatchUpdateModal = ({
   );
 
   // valid dispatch
-  const { isInitialLoading, data } = useDispatchVerify(
-    { query, filters, space: dispatch?.space },
-    open && !!filters && !!dispatch?.space,
-  );
+  const { isInitialLoading, data } = useDispatchVerify({ query, filters, space: dispatch?.space }, open && !!filters);
   const { isValid } = useIsValid(initValue, data);
-
-  console.log(dispatch, 'dispatch');
 
   const handleClose = useCallback(() => {
     onClose?.();
@@ -75,7 +70,7 @@ const DispatchUpdateModal = ({
           <HandlerError error={dataError} errors={DISPATCH_ERRORS} mapError={mapGetOneErrors} />
         )}
 
-        <DispatchVerifySummary data={data as IDispatchVerify} isLoading={isInitialLoading} />
+        <DispatchVerifySummary data={data as IDispatchVerify} isLoading={isInitialLoading} isValid={isValid} />
 
         {!dataError && (
           <ConditionContainer active={!loadingInitData} alternative={<DispatchFormSkeleton />}>

@@ -5,11 +5,12 @@
   "deleteMany": "You must have selected Dispatches to perform this operation",
   "edit": "Edit Dispatch",
   "successDeleted": "Dispatch deleted successfully",
-  "successSubOrderDeleted": "Dispatch Suborder deleted successfully",
+  "successSubOrderDeleted": "Dispatch suborder removed successfully",
   "successUpdate": "Dispatch updated successfully",
   "successCreated": "Dispatch created successfully",
-  "confirmationDeleteSubOrder": "This action will only remove the order from the dispatch; you can later add it to another dispatch if desired. Are you sure you want to remove the order from the dispatch?",
+  "confirmationDeleteSubOrder": "This action will only remove the order from the dispatch. You can later add it to another dispatch if desired. Are you sure you want to remove the order from the dispatch?",
   "goDispatch": "Dispatch",
+  "commonSubOrderInDistributionCenter": "Common Distribution Center for selected suborders",
   "fields": {
     "name": "Name",
     "description": "Description",
@@ -17,7 +18,7 @@
     "updatedAt": "End date",
     "status": "Status",
     "metrics": {
-      "suborderCount": "Number of orders",
+      "suborderCount": "Order count",
       "totalUniqueProducts": "Total unique products",
       "totalProducts": "Total products",
       "totalWeight": "Total weight",
@@ -30,7 +31,7 @@
       "totalOrders": "Orders",
       "orderInDispatch": "In dispatch",
       "orderCompleted": "Completed orders",
-      "orderInDifferentDistributionCenter": "In different Distribution Centers",
+      "orderInDifferentDistributionCenter": "In different distribution centers",
       "orderInPaymentAgreement": "In payment agreement",
       "totalProducts": "Products",
       "totalVolume": "Total volume",
@@ -63,8 +64,8 @@
     }
   },
   "inDispatch": "In dispatch",
-  "noDispatch": "Without dispatch",
+  "noDispatch": "No dispatch",
   "errors": {
-    "INVALID_DISPATCH": "The provided dispatch data is incorrect"
+    "INVALID_DISPATCH": "The provided dispatch data is invalid"
   }
 }

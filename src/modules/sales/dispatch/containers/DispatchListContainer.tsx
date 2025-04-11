@@ -18,7 +18,7 @@ const DispatchListContainer = () => {
         total={data?.total}
         isLoading={isLoading}
         error={error}
-        select
+        // select
       />
       <DispatchEditModal />
     </Box>
