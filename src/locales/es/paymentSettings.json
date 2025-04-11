@@ -28,6 +28,34 @@
     "acceptedCurrencies": "Monedas aceptadas",
     "gateway": "Pasarelas"
   },
+  "payment": {
+    "paid": "Estado de pago",
+    "paidAt":"Fecha de pago",
+    "amount": "Monto",
+    "exchangeRate": "Tasa de cambio",
+    "currency": "Moneda",
+    "method": {
+      "title": "Método de Pago",
+      "CREDIT_CARD": "Tarjeta de crédito",
+      "PAYPAL": "Paypal",
+      "TROPIPAY": "Saldo Tropipay",
+      "TROPIPAY_BALANCE": "Saldo de Tropipay",
+      "BANK_TRANSFER": "Transferencia bancaria",
+      "INTERNAL_WALLET": "Billetera interna",
+      "CASH_ON_PICK_UP": "Pago en recogida"
+    },
+    "gateway": {
+      "title": "Pasarela de Pago",
+      "null": "Sin Pago",
+      "tropipay": "Tropipay",
+      "stripe": "Stripe",
+      "paypal": "Paypal",
+      "elavon": "Elavon",
+      "bill-pocket": "Bill-Pocket",
+      "redsys": "Redsys",
+      "ducapp": "Ducapp"
+    }
+  },
   "mode": {
     "MANUAL": "Ingresa y ajusta el rate manualmente",
     "AUTOMATIC": "El rate se calculará automáticamente según las reglas definidas"

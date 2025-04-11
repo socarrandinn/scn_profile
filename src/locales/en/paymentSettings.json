@@ -18,6 +18,34 @@
   "paymentMethod": {
     "info": "Payment methods are the options available to customers when making purchases in the store."
   },
+  "payment": {
+    "paid": "Payment status",
+    "paidAt": "Payment date",
+    "amount": "Amount",
+    "exchangeRate": "Exchange rate",
+    "currency": "Currency",
+    "method": {
+      "title": "Payment method",
+      "CREDIT_CARD": "Credit card",
+      "PAYPAL": "Paypal",
+      "TROPIPAY": "Tropipay balance",
+      "TROPIPAY_BALANCE": "Tropipay balance",
+      "BANK_TRANSFER": "Bank transfer",
+      "INTERNAL_WALLET": "Internal wallet",
+      "CASH_ON_PICK_UP": "Cash on pickup"
+    },
+    "gateway": {
+      "title": "Payment gateway",
+      "null": "No payment",
+      "tropipay": "Tropipay",
+      "stripe": "Stripe",
+      "paypal": "Paypal",
+      "elavon": "Elavon",
+      "bill-pocket": "Bill-Pocket",
+      "redsys": "Redsys",
+      "ducapp": "Ducapp"
+    }
+  },
   "fields": {
     "name": "Name",
     "description": "Description",
