@@ -3,17 +3,26 @@ import SectionHeader from "@/components/core/section-header";
 import SkillChip from "@/components/core/skill-chip";
 import { Button } from "@/components/ui/button";
 import { SkillProps, SkillType } from "@/constants/skill";
-import { cn } from "@/lib/utils";
 import { CodeXml } from "lucide-react";
 import { ReactNode, useCallback, useState } from "react";
-import { AnimatePresence, motion } from "motion/react";
+import { Variants, AnimatePresence, motion } from "motion/react";
 import { useTranslation } from "react-i18next";
+import { cn } from "@/lib/utils";
 
 type Props = {
   skills: SkillProps[];
   types: string[];
   title: string;
   icon: ReactNode;
+};
+
+const variants: Variants = {
+  initial: { scale: 0.9 },
+  hover: { scale: 1 },
+  click: {
+    scale: 1.1,
+    transition: { duration: 0.5, type: "spring", stiffness: 300 },
+  },
 };
 export const SkillCodeContent = ({ skills, types, title, icon }: Props) => {
   const { t } = useTranslation("resumen");
@@ -39,14 +48,17 @@ export const SkillCodeContent = ({ skills, types, title, icon }: Props) => {
         {types.map((type) => (
           <motion.span
             key={type}
-            initial={{ scale: 1 }}
-            whileTap={{ scale: 0.8 }}
-            exit={{ scale: 1.2 }}
-            transition={{ type: "spring", stiffness: 300 }}
+            initial="initial"
+            whileHover={"hover"}
+            whileTap={"click"}
+            variants={variants}
           >
             <Button
               onClick={() => handleCheck(type)}
-              className={cn("", check === type ? "bg-primary" : "")}
+              className={cn(
+                "hover:text-white",
+                check === type ? "bg-primary" : "",
+              )}
               variant={"ghost"}
               size={"sm"}
             >

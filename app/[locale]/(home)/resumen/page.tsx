@@ -9,7 +9,7 @@ import PageHeader from "@/components/ui/page-header";
 import { PageProps } from "@/definitions/page-types";
 
 const i18nNamespaces = ["resumen", "education", "experience"];
-const AboutMe = async ({ params }: PageProps) => {
+const ResumenPage = async ({ params }: PageProps) => {
   const { locale } = await params;
   const { resources, t } = await initTranslations(locale, i18nNamespaces);
   return (
@@ -54,4 +54,4 @@ const AboutMe = async ({ params }: PageProps) => {
   );
 };
 
-export default AboutMe;
+export default ResumenPage;

@@ -31,5 +31,10 @@
     "Freelance",
     "Ingeniero de Software",
     "Diseñador UI/UX"
-  ]
+  ],
+  "construction": {
+    "cite": "Sitio en Construcción",
+    "message": "Lo sentimos, este sección se encuentra en construcción. Por favor, vuelva pronto.",
+    "contact": "¿Preguntas? Contáctenos:"
+  }
 }

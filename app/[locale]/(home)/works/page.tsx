@@ -5,7 +5,7 @@ import InConstruction from "@/components/core/in-construction";
 import { PageProps } from "@/definitions/page-types";
 
 const i18nNamespaces = ["resumen", "common"];
-const BlogPage = async ({ params }: PageProps) => {
+const WorksPage = async ({ params }: PageProps) => {
   const { locale } = await params;
   const { resources, t } = await initTranslations(locale, i18nNamespaces);
   return (
@@ -21,4 +21,4 @@ const BlogPage = async ({ params }: PageProps) => {
   );
 };
 
-export default BlogPage;
+export default WorksPage;

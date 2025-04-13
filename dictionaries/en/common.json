@@ -19,7 +19,7 @@
   },
   "menu": {
     "about": "About",
-    "resumen": "Summary",
+    "resumen": "Resume",
     "works": "Works",
     "contact": "Contact",
     "blog": "Blog",
@@ -28,8 +28,13 @@
   "roles": [
     "Front-end Developer",
     "Programmer",
-    "Freelance",
+    "Freelancer",
     "Software Engineer",
     "UI/UX Designer"
-  ]
+  ],
+  "construction": {
+    "cite": "Site Under Construction",
+    "message": "Sorry, this section is under construction. Please come back soon.",
+    "contact": "Questions? Contact us:"
+  }
 }
