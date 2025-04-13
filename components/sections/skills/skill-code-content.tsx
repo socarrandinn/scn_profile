@@ -6,7 +6,7 @@ import { SkillProps, SkillType } from "@/constants/skill";
 import { cn } from "@/lib/utils";
 import { CodeXml } from "lucide-react";
 import { ReactNode, useCallback, useState } from "react";
-import { AnimatePresence, motion } from "framer-motion";
+import { AnimatePresence, motion } from "motion/react";
 import { useTranslation } from "react-i18next";
 
 type Props = {
@@ -37,20 +37,22 @@ export const SkillCodeContent = ({ skills, types, title, icon }: Props) => {
       />
       <div className="gap-2 flex flex-wrap">
         {types.map((type) => (
-          <motion.div
+          <motion.span
             key={type}
-            whileTap={{ scale: 0.6 }}
-            transition={{ type: "spring", stiffness: 500 }}
+            initial={{ scale: 1 }}
+            whileTap={{ scale: 0.8 }}
+            exit={{ scale: 1.2 }}
+            transition={{ type: "spring", stiffness: 300 }}
           >
             <Button
+              onClick={() => handleCheck(type)}
               className={cn("", check === type ? "bg-primary" : "")}
               variant={"ghost"}
               size={"sm"}
-              onClick={() => handleCheck(type)}
             >
               {t(`types.${type}`)}
             </Button>
-          </motion.div>
+          </motion.span>
         ))}
       </div>
       <div className="flex flex-row flex-wrap gap-3 w-full transition duration-200">

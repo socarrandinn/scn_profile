@@ -10,7 +10,14 @@ const nextConfig: NextConfig = {
   },
 
   experimental: {
-    optimizePackageImports: ["framer-motion"],
+    optimizePackageImports: [
+      "motion",
+      "react-leaflet",
+      "leaflet",
+      "leaflet-defaulticon-compatibility",
+      "react-i18next",
+      "react-hook-form",
+    ],
   },
 };
 

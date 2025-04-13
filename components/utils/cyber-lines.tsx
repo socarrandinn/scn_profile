@@ -1,6 +1,4 @@
-"use client";
-
-import { motion } from "framer-motion";
+import * as motion from "motion/react-client";
 
 const lines = [
   { x: 1253.6, width: 4.5 },
