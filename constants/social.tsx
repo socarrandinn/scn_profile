@@ -3,6 +3,7 @@ import Github from "@/components/icons/social/github";
 import GitLab from "@/components/icons/social/gitlab";
 import Instagram from "@/components/icons/social/instagram";
 import WhatsApp from "@/components/icons/social/whatsApp";
+import LinkedinIcon from "@/components/icons/social/linkedin";
 
 export const socials: ISocial[] = [
   {
@@ -14,6 +15,11 @@ export const socials: ISocial[] = [
     icon: <Instagram />,
     href: "https://www.instagram.com/socarrandin/",
     label: "Instagram",
+  },
+  {
+    icon: <LinkedinIcon />,
+    href: "https://www.linkedin.com/in/socarrandin/",
+    label: "Linkedin",
   },
   {
     icon: <Github />,

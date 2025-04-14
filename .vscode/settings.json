@@ -1,6 +1,7 @@
 {
   "cSpell.words": [
     "escalabilidad",
+    "Linkedin",
     "Renderizado",
     "Supabase",
     "wagmi"
@@ -21,6 +22,6 @@
     "editor.formatOnSave": true,
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
- 
+
   "prettier.requireConfig": true
 }
