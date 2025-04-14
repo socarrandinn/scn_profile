@@ -1,18 +1,20 @@
 import { memo } from 'react';
 import { Table } from '@dfl/mui-admin-layout';
 import Box from '@mui/material/Box';
-import { subOrderColumns } from 'modules/sales/common/constants/order-columns';
 import { DispatchSubOrderListToolbar } from '../components/DispatchSubOrderListToolbar';
-import { dispatchSubOrderColumn } from '../constants';
-import { useFindDispatchSubOrders } from '../hooks/useDispatchTabs';
+import { useFindDispatchWarehouses } from '../hooks/useDispatchTabs';
+import { dispatchWarehouseColumn } from '../constants';
+import { warehouseColumns } from 'modules/inventory/warehouse/constants';
 
-const DispatchSubOrderListContainer = () => {
-  const { isLoading, error, data, filters, search } = useFindDispatchSubOrders();
+const DispatchWarehouseListContainer = () => {
+  const { isLoading, error, data, filters, search } = useFindDispatchWarehouses();
   return (
     <Box>
       <DispatchSubOrderListToolbar filters={filters} total={data?.total} search={search as string} />
       <Table
-        columns={dispatchSubOrderColumn(subOrderColumns)}
+        columns={dispatchWarehouseColumn(
+          warehouseColumns?.filter((column) => !(column.field as string)?.match(/actions/)),
+        )}
         data={data?.data}
         total={data?.total}
         isLoading={isLoading}
@@ -24,4 +26,4 @@ const DispatchSubOrderListContainer = () => {
   );
 };
 
-export default memo(DispatchSubOrderListContainer);
+export default memo(DispatchWarehouseListContainer);

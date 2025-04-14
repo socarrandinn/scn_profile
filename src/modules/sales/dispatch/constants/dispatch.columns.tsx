@@ -13,7 +13,7 @@ export const dispatchNameColumn: HeadCell<IDispatch> = {
   headerName: 'dispatch:fields.name',
   disablePadding: false,
   renderCell: (name: string, data?: IDispatch) => (
-    <ReactLink to={DISPATCH_ROUTE.DETAIL(data?._id as string)} underline='hover'>
+    <ReactLink to={`${DISPATCH_ROUTE.DETAIL(data?._id as string)}/orders`} underline='hover'>
       {name}
     </ReactLink>
   ),
@@ -71,5 +71,11 @@ export const dispatchSubOrderActionsColumn: HeadCell<IDispatch> = {
   component: DispatchSubOrderRowActions,
 };
 
-// by details payment agreement suborder list
+// by details -> tabs -> suborder list
 export const dispatchSubOrderColumn = (subOrderColumn: any[]) => [...subOrderColumn, dispatchSubOrderActionsColumn];
+
+// by details -> tabs -> product list
+export const dispatchProductColumn = (productColumn: any[]) => [...productColumn];
+
+// by details -> tabs -> warehouse list
+export const dispatchWarehouseColumn = (warehouseColumn: any[]) => [...warehouseColumn];

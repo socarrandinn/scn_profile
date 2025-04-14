@@ -1,13 +1,13 @@
 import { Stack } from '@mui/material';
 import { memo } from 'react';
 import DispatchHeader from '../components/DispatchHeader/DispatchHeader';
-import DispatchSubOrders from '../components/DispatchSubOrders/DispatchSubOrders';
+import DispatchDetailsTabs from '../pages/DispatchDetailsTabs';
 
 const DispatchDetailContainer = () => {
   return (
     <Stack>
       <DispatchHeader />
-      <DispatchSubOrders />
+      <DispatchDetailsTabs />
     </Stack>
   );
 };

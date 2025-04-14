@@ -65,6 +65,11 @@
   },
   "inDispatch": "En despacho",
   "noDispatch": "Sin despacho",
+  "tabs": {
+    "orders": "Subórdenes",
+    "products": "Productos",
+    "warehouses": "Almacenes"
+  },
   "errors": {
     "INVALID_DISPATCH": "Los datos proporcionados para el despacho son incorrectos"
   }

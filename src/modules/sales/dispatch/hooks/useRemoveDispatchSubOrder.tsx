@@ -4,7 +4,7 @@ import { useTranslation } from 'react-i18next';
 import { TermFilter } from '@dofleini/query-builder';
 import { useMemo } from 'react';
 import { DispatchService } from '../services';
-import { SUB_ORDERS_DISPATCH_LIST_KEY } from 'modules/sales/sub-orders/constants/sub-order.queries';
+import { DISPATCH_SUB_ORDER_LIST_KEY } from 'modules/sales/common/constants/order-query';
 
 export const useRemoveDispatchSubOrder = (dispatchId: string, orderId: string, onClose: () => void) => {
   const queryClient = useQueryClient();
@@ -14,7 +14,7 @@ export const useRemoveDispatchSubOrder = (dispatchId: string, orderId: string, o
     onSuccess: (data) => {
       toast.success(t('successSubOrderDeleted'));
       onClose?.();
-      queryClient.invalidateQueries([SUB_ORDERS_DISPATCH_LIST_KEY]);
+      queryClient.invalidateQueries([DISPATCH_SUB_ORDER_LIST_KEY]);
       queryClient.invalidateQueries([dispatchId]);
     },
   });

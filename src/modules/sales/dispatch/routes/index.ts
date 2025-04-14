@@ -10,7 +10,7 @@ const routes: RouteConfig = {
   },
 
   DispatchDetails: {
-    path: '/:id',
+    path: '/:id/*',
     permissions: DISPATCH_PERMISSIONS.DISPATCH_VIEW,
     component: DispatchDetails,
   },
