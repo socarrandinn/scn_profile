@@ -58,7 +58,7 @@ const ScoreAction = ({ open, onClose, title = 'common:scoreConfirmation', onChan
       </DialogContent>
       <DialogActions>
         <Button variant='grey' onClick={onClose}>
-          {cancelCountdown !== null ? `${t('cancel')} (${cancelCountdown}s)` : t('cancel')}
+          {cancelCountdown !== null ? `${t('close')} (${cancelCountdown}s)` : t('cancel')}
         </Button>
         {!isData && (
           <LoadingButton form='form' type='submit' autoFocus variant={'contained'} loading={isLoading}>

@@ -22,7 +22,11 @@ const ProviderUsersContainer = ({ path, provider, providerType }: UserProviderPr
       userType={SPACE_TYPE.PROVIDER}
     >
       <AddUser provider={provider} providerType={providerType} />
-      <InviteUser provider={provider} providerType={providerType} />
+      <InviteUser
+        provider={provider}
+        providerType={providerType}
+        redirect={path} // tab -> /users
+      />
     </UserListContainer>
   );
 };

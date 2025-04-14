@@ -39,7 +39,7 @@ const OrderStatusImportDetailModal = ({
       </DialogContent>
       <DialogActions sx={{ mt: 2 }}>
         <Button variant='grey' onClick={handleClose}>
-          {t('common:cancel')}
+          {t('common:close')}
         </Button>
         {!_disableAction && (
           <LoadingButton variant='contained' type={'submit'} loading={false} form='error-list-form'>
