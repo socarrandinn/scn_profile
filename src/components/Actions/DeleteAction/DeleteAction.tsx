@@ -50,7 +50,7 @@ const DeleteAction = ({
       </DialogContent>
       <DialogActions>
         <Button variant='grey' onClick={onClose}>
-          {cancelCountdown !== null ? `${t('cancel')} (${cancelCountdown}s)` : t('cancel')}
+          {cancelCountdown !== null ? `${t('close')} (${cancelCountdown}s)` : t('cancel')}
         </Button>
         {!isData && (
           <LoadingButton onClick={handleDelete} autoFocus variant={'contained'} color={'error'} loading={isLoading}>

@@ -10,7 +10,7 @@ import { USERS_INVITATION_LIST_KEY } from 'modules/security/users/constants/quer
 import { useParams } from 'react-router';
 import { ProviderProps } from '../AddUser/AddUser';
 
-const InviteUser = ({ provider, providerType }: ProviderProps) => {
+const InviteUser = ({ provider, providerType, redirect = '/security/providers-users' }: ProviderProps) => {
   const { t } = useTranslation('users');
   const { isOpen, onClose, onOpen } = useToggle(false);
   const { id } = useParams();
@@ -28,7 +28,7 @@ const InviteUser = ({ provider, providerType }: ProviderProps) => {
         apiPath={'/providers/invite'}
         validationScheme={userProviderSchema}
         queryKey={USERS_INVITATION_LIST_KEY}
-        redirect={'/security/providers-users'}
+        redirect={redirect}
         rolesType={ROLE_TYPE_ENUM.PROVIDER}
       >
         <SelectProviderAndType provider={provider} />
