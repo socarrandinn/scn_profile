@@ -2,7 +2,6 @@ import TranslationsProvider from "@/app/contexts/translation-provider";
 import initTranslations from "@/app/i18n";
 import PageContainer from "@/components/containers/page-container";
 import TransTypography from "@/components/core/trans-typography";
-import PlansContainer from "@/components/sections/payment-plans/payment-plan-container";
 import ServiceContainer from "@/components/sections/service/service-container";
 import { CardContent } from "@/components/ui/card";
 import PageHeader from "@/components/ui/page-header";
@@ -66,7 +65,8 @@ const AboutMe = async ({ params }: PageProps) => {
           </CardContent>
         </section>
 
-        <section className="mt-5 md:mt-10">
+        {/* section plans */}
+        {/*  <section className="mt-5 md:mt-10">
           <PageHeader
             variant="compuse"
             title={"about-me:payment_plans.title"}
@@ -75,7 +75,7 @@ const AboutMe = async ({ params }: PageProps) => {
           <CardContent>
             <PlansContainer params={params} />
           </CardContent>
-        </section>
+        </section> */}
       </PageContainer>
     </TranslationsProvider>
   );

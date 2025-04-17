@@ -1,15 +1,14 @@
-
-
-export interface ITimeLine{
+export interface ITimeLine {
   dateRange: {
-    from: string,
-    to:string
+    from: string;
+    to: string;
   };
   jobTitle: string;
   companyName: string;
   description: string;
-  buttonText?: string; 
+  buttonText?: string;
   className?: string;
   isButtonVisible?: boolean;
-  isFirst?: boolean
+  isFirst?: boolean;
+  address?: string;
 }

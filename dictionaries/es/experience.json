@@ -1,14 +1,16 @@
 {
+  "title": "Experiencia Laboral",
   "experiences": [
     {
       "dateRange": {
         "from": "2022-06-15",
-        "to": "now"
+        "to": null
       },
       "jobTitle": "Desarrollador Frontend & Soporte Técnico",
       "companyName": "Dofleini Software",
       "description": "Desarrollo aplicaciones con ReactJS, TypeScript y Next.js, optimizando backoffice y e-commerce. Además, brindo soporte técnico, resolviendo incidencias y asegurando el correcto funcionamiento de los sistemas. Combino habilidades técnicas con atención al detalle para mejorar la experiencia de usuario y la eficiencia operativa",
-      "isButtonVisible": false
+      "isButtonVisible": false,
+      "address": "Habana, Cuba"
     },
     {
       "dateRange": {
@@ -18,7 +20,8 @@
       "jobTitle": "FullStack Symfony Developer",
       "companyName": "Grupos de Empresas Mayorista de Bienes y otros usos de consumo",
       "description": "Desarrollé un sistema de gestión empresarial en Symfony, PHP y PostgreSQL, enfocado en la contabilidad de unidades básicas. Seguí el patrón MVC y la metodología Scrum, implementando módulos de inventario, clientes, proveedores y facturación.",
-      "isButtonVisible": false
+      "isButtonVisible": false,
+      "address": "Habana, Cuba"
     }
   ]
 }

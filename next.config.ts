@@ -17,6 +17,7 @@ const nextConfig: NextConfig = {
       "leaflet-defaulticon-compatibility",
       "react-i18next",
       "react-hook-form",
+      "react-pdf/renderer",
     ],
   },
 };

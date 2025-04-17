@@ -1,9 +1,10 @@
 {
+  "title": "Work Experience",
   "experiences": [
     {
       "dateRange": {
         "from": "2022-06-15",
-        "to": "now"
+        "to": null
       },
       "jobTitle": "Frontend Developer & Technical Support",
       "companyName": "Dofleini Software",

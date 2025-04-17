@@ -1,4 +1,5 @@
 {
+  "title": "Educación",
   "educations": [
     {
       "dateRange": {
@@ -7,8 +8,9 @@
       },
       "jobTitle": "Ingeniero en Ciencias Informáticas",
       "companyName": "Universidad de las Ciencias Informáticas",
-      "description": " Graduado de Ingeniero en Ciencias Informáticas el 2014 en la Universidad de las Ciencias Informáticas de la Habana,Cuba",  
-      "isButtonVisible": false
+      "description": "Graduado de Ingeniero en Ciencias Informáticas el 2014 en la Universidad de las Ciencias Informáticas de la Habana,Cuba",
+      "isButtonVisible": false,
+      "address": "Habana, Cuba"
     }
   ]
 }

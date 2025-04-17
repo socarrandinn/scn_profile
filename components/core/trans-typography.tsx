@@ -2,7 +2,7 @@
 import { memo } from "react";
 import { Trans } from "react-i18next";
 
-const defaultComponents = {
+export const defaultComponents = {
   primary: <span className="text-primary" />,
   secondary: <span className="text-secondary" />,
   white: <span className="text-white" />,
