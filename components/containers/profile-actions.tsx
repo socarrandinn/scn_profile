@@ -5,10 +5,13 @@ import { Button } from "../ui/button";
 import { CloudDownloadIcon, Send } from "lucide-react";
 import { useRouter } from "next/navigation";
 import { useTranslation } from "react-i18next";
-import Link from "next/link";
+import { downloadCV } from "@/app/actions/download-cv";
+import useToggle from "@/hooks/use-toggle";
+import { Loading } from "../ui/loading";
 
 const ProfileActions = () => {
   const { push } = useRouter();
+  const { isOpen, onClose, onOpen } = useToggle(false);
   const { t } = useTranslation("common");
   const goToContact = useCallback(
     (to: string) => {
@@ -17,17 +20,30 @@ const ProfileActions = () => {
     [push],
   );
 
+  const handleDownload = async () => {
+    onOpen();
+    await downloadCV();
+    onClose();
+  };
+
   return (
     <CardFooter className="mt-auto w-full !px-2 m-0 grid grid-cols-2 justify-between fade-line-top">
-      <Link href={"/api/generate-cv-pdf"}>
-        <Button
-          variant="ghost"
-          className="w-full button-rectangle flex items-center group uppercase"
-        >
-          {t("downloadCV")}
-          <CloudDownloadIcon className="group-hover:animate-bounce" />
-        </Button>
-      </Link>
+      <Button
+        onClick={handleDownload}
+        variant="ghost"
+        className="w-full button-rectangle flex items-center group uppercase"
+        disabled={isOpen}
+      >
+        {isOpen ? (
+          <Loading size="md" />
+        ) : (
+          <>
+            {t("downloadCV")}
+            <CloudDownloadIcon className="group-hover:animate-bounce" />
+          </>
+        )}
+      </Button>
+
       <Button
         variant="ghost"
         className="w-full button-rectangle flex items-center group fade-line-left uppercase"

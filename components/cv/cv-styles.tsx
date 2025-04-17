@@ -18,7 +18,7 @@ export const styles = StyleSheet.create({
     fontWeight: 300,
   },
   section: {
-    marginBottom: 20,
+    marginBottom: 40,
   },
   h1: {
     fontSize: 20,

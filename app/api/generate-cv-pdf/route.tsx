@@ -29,7 +29,6 @@ export async function GET(request: NextRequest) {
       headers: {
         "Content-Type": "application/pdf",
         "Content-Disposition": `attachment; filename="cv-${locale}.pdf"`,
-        "Cache-Control": "public, max-age=3600",
       },
     });
   } catch {
