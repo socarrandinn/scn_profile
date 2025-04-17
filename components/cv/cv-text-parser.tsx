@@ -13,7 +13,6 @@ export const pdfComponents = {
   error: (props: TextProps) => <Text style={styles.error} {...props} />,
   bold: (props: TextProps) => <Text style={styles.bold} {...props} />,
   semibold: (props: TextProps) => <Text style={styles.semibold} {...props} />,
-  mbr: (props: TextProps) => <Text style={styles.mbr} {...props} />,
 };
 
 const tagRegex = /<(\w+)>(.*?)<\/\1>/g;
@@ -33,7 +32,6 @@ export const parseI18nText = (text: string) => {
 
     // Manejar tags de auto-cierre como <breakWord/>
     if (fullMatch.endsWith("/>") || !fullMatch.includes("</")) {
-      console.log("entre");
       const Component = pdfComponents[tag as keyof typeof pdfComponents];
       if (Component) {
         elements.push(<Component key={match.index} />);
