@@ -50,7 +50,7 @@ const ProfileSummary = async ({ params }: PageProps) => {
         <TypingTitle texts={roles} className="mb-4" />
         <ProfileSocialNetwork />
 
-        <ProfileActions />
+        <ProfileActions locale={locale} />
       </Card>
     </Card>
   );

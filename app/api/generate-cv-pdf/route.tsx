@@ -1,9 +1,7 @@
-// app/api/generate-pdf/route.ts
-import { NextResponse, NextRequest } from "next/server";
+import { NextRequest, NextResponse } from "next/server";
 import { renderToStream } from "@react-pdf/renderer";
 import { CvTemplate } from "@/components/cv/cv-template";
 import initTranslations from "@/app/i18n";
-import i18nConfig from "@/next-i18next.config";
 
 const i18nNamespaces = [
   "common",
@@ -14,11 +12,8 @@ const i18nNamespaces = [
   "resumen",
 ];
 export async function POST(request: NextRequest) {
+  const { locale } = await request.json();
   try {
-    // Get the current locale from the cookie or use the default
-    const locale =
-      request?.cookies?.get("NEXT_LOCALE")?.value || i18nConfig?.defaultLocale;
-
     // Inicializar i18next en el servidor
     const { t } = await initTranslations(locale, i18nNamespaces);
 

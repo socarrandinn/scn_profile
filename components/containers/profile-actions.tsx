@@ -7,7 +7,7 @@ import { useRouter } from "next/navigation";
 import { DownloadCVButton } from "../download-cv-button";
 import TransTypography from "../core/trans-typography";
 
-const ProfileActions = () => {
+const ProfileActions = ({ locale }: { locale: string }) => {
   const { push } = useRouter();
 
   const goToContact = useCallback(
@@ -19,7 +19,7 @@ const ProfileActions = () => {
 
   return (
     <CardFooter className="mt-auto w-full !px-2 m-0 grid grid-cols-2 justify-between fade-line-top">
-      <DownloadCVButton />
+      <DownloadCVButton locale={locale} />
 
       <Button
         variant="ghost"

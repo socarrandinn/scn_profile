@@ -7,13 +7,13 @@ import { Button } from "./ui/button";
 import { Loading } from "./ui/loading";
 import TransTypography from "./core/trans-typography";
 
-export function DownloadCVButton() {
+export function DownloadCVButton({ locale }: { locale: string }) {
   const [isLoading, setIsLoading] = useState(false);
 
   const handleDownload = async () => {
     setIsLoading(true);
     try {
-      const result = await downloadCV();
+      const result = await downloadCV(locale);
 
       if (!result.success) {
         alert(result.error || "Error al descargar el CV");

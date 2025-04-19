@@ -1,13 +1,14 @@
 "use server";
 import config from "@/lib/admin/config";
 
-export const downloadCV = async () => {
+export const downloadCV = async (locale: string) => {
   try {
     const response = await fetch(`${config.env.app.url}/api/generate-cv-pdf`, {
       method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        locale,
+      }),
     });
 
     if (!response.ok) {
