@@ -9,7 +9,10 @@ export function DrawerDemo() {
   return (
     <Drawer direction="left">
       <DrawerTrigger asChild>
-        <Button variant="link" className="p-0">
+        <Button
+          variant="link"
+          className="p-0 hover:cursor-pointer text-color hover:[&>svg]:text-primary"
+        >
           <Menu className="h-6 w-6" />
         </Button>
       </DrawerTrigger>
