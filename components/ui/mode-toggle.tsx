@@ -48,30 +48,10 @@ const rayVariant: Variants = {
   },
 };
 
-/* const shineVariant: Variants = {
-  hidden: {
-    opacity: 0,
-    scale: 2,
-    strokeDasharray: "20, 1000",
-    strokeDashoffset: "0",
-    filter: " blur(0px)",
-  },
-  visible: {
-    opacity: [0, 1, 0],
-    strokeDashoffset: [0, -50, -100],
-    filter: ["blur(0px)", "blur(2px)", "blur(0px)"],
-    transition: {
-      duration: 0.75,
-      ease: "linear",
-    },
-  },
-}; */
-
 const sunPath =
   "M20 27.6667C24.2342 27.6667 27.6667 24.2342 27.6667 20C27.6667 15.7658 24.2342 12.3333 20 12.3333C15.7658 12.3333 12.3333 15.7658 12.3333 20C12.3333 24.2342 15.7658 27.6667 20 27.6667Z";
 const moonPath =
   "M18.33 35.33C27.7188 35.33 35.33 27.7188 35.33 18.33C21.5335 25.6886 12.9301 19.2817 18.33 1.33C8.94116 1.33 1.33 8.94116 1.33 18.33C1.33 27.7188 8.94116 35.33 18.33 35.33Z";
-/* "M20 27.6667C24.2342 27.6667 27.6667 24.2342 27.6667 20C21.4447 23.3186 17.5648 20.4292 20 12.3333C15.7658 12.3333 12.3333 15.7658 12.3333 20C12.3333 24.2342 15.7658 27.6667 20 27.6667Z"; */
 
 const toggleVariant: Variants = {
   moon: {
@@ -98,7 +78,7 @@ export function ModeToggle() {
         size="sm"
       >
         <m.svg
-          strokeWidth={4}
+          strokeWidth={2}
           width="40"
           height="40"
           viewBox="0 0 40 40"
