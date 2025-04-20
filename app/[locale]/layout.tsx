@@ -40,6 +40,8 @@ export const metadata: Metadata = {
   title: config.env.app.name,
   description: "Portafolio de desarrollo de software",
   viewport: "width=device-width, initial-scale=1",
+  manifest: "/manifest.json",
+  themeColor: "#000000",
   alternates: {
     canonical: new URL(`${config.env.app.url}/en`),
     languages: {
