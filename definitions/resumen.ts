@@ -5,10 +5,12 @@ export interface ITimeLine {
   };
   jobTitle: string;
   companyName: string;
-  description: string;
+  description: string[] | string;
   buttonText?: string;
   className?: string;
-  isButtonVisible?: boolean;
   isFirst?: boolean;
   address?: string;
+
+  isButtonVisible?: boolean;
+  route?: string;
 }

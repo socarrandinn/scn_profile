@@ -8,7 +8,7 @@ import { CardContent } from "@/components/ui/card";
 import PageHeader from "@/components/ui/page-header";
 import { PageProps } from "@/definitions/page-types";
 
-const i18nNamespaces = ["resumen", "education", "experience"];
+const i18nNamespaces = ["resumen", "education", "experience", "common"];
 const ResumenPage = async ({ params }: PageProps) => {
   const { locale } = await params;
   const { resources, t } = await initTranslations(locale, i18nNamespaces);

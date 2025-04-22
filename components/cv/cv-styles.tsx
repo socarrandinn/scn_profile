@@ -81,4 +81,19 @@ export const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
   },
+
+  customBullet: {
+    position: "relative", // relative
+    marginLeft: 4,
+    paddingLeft: 4,
+  },
+  bullet: {
+    position: "absolute",
+    top: 8,
+    left: -4,
+    width: 4,
+    height: 4,
+    backgroundColor: "#3b82f6",
+    borderRadius: 8,
+  },
 });

@@ -23,7 +23,7 @@ export const CvTemplate = ({ t }: Props) => {
 
   return (
     <Document>
-      <Page size="A4" style={styles.page}>
+      <Page size="A4" style={[styles.page, { paddingBottom: 60 }]}>
         <View style={styles.section}>
           <Text style={[styles.h1, { textAlign: "center" }]}>{INFO?.name}</Text>
           <View
@@ -92,6 +92,11 @@ const Item = (item: ITimeLine) => {
   const form = getFormat(item?.dateRange?.from);
   const to = getFormat(item?.dateRange?.to);
 
+  const _description =
+    typeof item?.description === "string"
+      ? [item?.description]
+      : item?.description;
+
   return (
     <View>
       <View style={[styles.flexRow, { justifyContent: "space-between" }]}>
@@ -106,9 +111,15 @@ const Item = (item: ITimeLine) => {
           </Text>
         </View>
       </View>
-      <Text style={[styles.mt5, { fontWeight: "light" }]}>
-        {item?.description}
-      </Text>
+
+      <View style={[styles.flexCol, { gap: 4, marginTop: 4 }]}>
+        {_description?.map((desc, index) => (
+          <View key={index} style={[styles.customBullet]}>
+            <View style={styles.bullet} />
+            <Text style={[styles.mt5, { fontWeight: "light" }]}>{desc}</Text>
+          </View>
+        ))}
+      </View>
     </View>
   );
 };

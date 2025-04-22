@@ -8,8 +8,26 @@
       },
       "jobTitle": "Frontend Developer & Technical Support",
       "companyName": "Dofleini Software",
-      "description": "I develop applications using ReactJS, TypeScript, and Next.js, optimizing backoffice and e-commerce platforms. Additionally, I provide technical support, resolving issues and ensuring systems run smoothly. I combine technical skills with attention to detail to enhance user experience and operational efficiency.",
-      "isButtonVisible": false
+      "description": "Developed applications using ReactJS, TypeScript and Next.js, optimizing backoffice systems and e-commerce platforms. Provided technical support, resolving incidents and ensuring proper system functionality. Combined technical skills with attention to detail to enhance user experience and operational efficiency.",
+      "isButtonVisible": false,
+      "address": "Havana, Cuba"
+    },
+    {
+      "dateRange": {
+        "from": "2024-07-26",
+        "to": "2024-11-26"
+      },
+      "jobTitle": "Frontend Developer",
+      "companyName": "QBA.CREDIT",
+      "description": [
+        "As lead frontend developer, built a web application with React.js and TypeScript for a loan management system, collaborating with the backend team. Implemented modules for investments, suppliers and projects, featuring a dual-role system for clients (businesses) and investors (individuals or legal entities) with different permissions and functionalities.",
+        "Developed a comprehensive user, role and permission management system, integrating the interface with a NestJS API built by another team member while ensuring efficient coordination between both components.",
+        "Led frontend development of an administrative system using Forest Admin, creating custom actions and dynamic forms. Built the user, role and permission management system from scratch, integrating it with a NestJS API developed by another team member."
+      ],
+      "isButtonVisible": true,
+      "address": "Havana, Cuba",
+      "url": "https://app.qba.credit",
+      "skills": []
     },
     {
       "dateRange": {
@@ -17,9 +35,10 @@
         "to": "2015-10-01"
       },
       "jobTitle": "FullStack Symfony Developer",
-      "companyName": "Wholesale Business Group for Goods and Other Consumer Uses",
-      "description": "I developed a business management system using Symfony, PHP, and PostgreSQL, focusing on basic unit accounting. I followed the MVC pattern and Scrum methodology, implementing inventory, customer, supplier, and billing modules.",
-      "isButtonVisible": false
+      "companyName": "Wholesale Business Group for Consumer Goods",
+      "description": "Developed an enterprise management system using Symfony, PHP and PostgreSQL focused on basic accounting units. Followed MVC pattern and Scrum methodology, implementing inventory, customer, supplier and billing modules.",
+      "isButtonVisible": false,
+      "address": "Havana, Cuba"
     }
   ]
 }

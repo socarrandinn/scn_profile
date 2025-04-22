@@ -14,6 +14,23 @@
     },
     {
       "dateRange": {
+        "from": "2024-07-26",
+        "to": "2024-11-26"
+      },
+      "jobTitle": "Desarrollador Frontend",
+      "companyName": "QBA.CREDIT",
+      "description": [
+        "Desarrollé como frontend principal una aplicación web con React.js y TypeScript para un sistema de gestión de préstamos, trabajando en colaboración con el equipo backend. Implementé módulos para inversiones, proveedores y proyectos, el cual se basaba en un sistema de con dos tipos de usuarios: cliente (empresas) e inversor (personas físicas o jurídicas), con diferentes permisos y funcionalidades.",
+        "Implementé un sistema de gestión de usuarios, roles y permisos, integrando la interfaz mediante una API desarrollada por otro miembro del equipo en NestJS, coordinando eficientemente ambos componentes.",
+        "Lideré el desarrollo frontend de un sistema administrativo con Forest Admin, creando acciones personalizadas y formularios dinámicos. Construí desde cero el sistema de gestión de usuarios, roles y permisos, integrando la interfaz mediante una API desarrollada por otro miembro del equipo en NestJS, coordinando eficientemente ambos componentes"
+      ],
+      "isButtonVisible": true,
+      "address": "Habana, Cuba",
+      "url": "https://app.qba.credit",
+      "skills": []
+    },
+    {
+      "dateRange": {
         "from": "2014-10-01",
         "to": "2015-10-01"
       },
