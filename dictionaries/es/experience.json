@@ -8,7 +8,10 @@
       },
       "jobTitle": "Desarrollador Frontend & Soporte Técnico",
       "companyName": "Dofleini Software",
-      "description": "Desarrollo aplicaciones con ReactJS, TypeScript y Next.js, optimizando backoffice y e-commerce. Además, brindo soporte técnico, resolviendo incidencias y asegurando el correcto funcionamiento de los sistemas. Combino habilidades técnicas con atención al detalle para mejorar la experiencia de usuario y la eficiencia operativa",
+      "description": [
+        "Desarrollo aplicaciones web utilizando <primary>ReactJS, TypeScript y Next.js</primary>, con un enfoque en la optimización de <primary>backoffice</primary> y plataformas de <primary>e-commerce</primary>. Mi trabajo no solo se limita al desarrollo, sino que también incluyo el soporte técnico, resolviendo incidencias de manera oportuna y garantizando el correcto funcionamiento de los sistemas en producción",
+        "Combino sólidas habilidades técnicas con una alta atención al detalle, lo que me permite mejorar la experiencia de usuario y aumentar la eficiencia operativa en cada proyecto que llevo adelante."
+      ],
       "isButtonVisible": false,
       "address": "Habana, Cuba"
     },
@@ -18,11 +21,10 @@
         "to": "2024-11-26"
       },
       "jobTitle": "Desarrollador Frontend",
-      "companyName": "QBA.CREDIT",
+      "companyName": "QbaCredit",
       "description": [
-        "Desarrollé como frontend principal una aplicación web con React.js y TypeScript para un sistema de gestión de préstamos, trabajando en colaboración con el equipo backend. Implementé módulos para inversiones, proveedores y proyectos, el cual se basaba en un sistema de con dos tipos de usuarios: cliente (empresas) e inversor (personas físicas o jurídicas), con diferentes permisos y funcionalidades.",
-        "Implementé un sistema de gestión de usuarios, roles y permisos, integrando la interfaz mediante una API desarrollada por otro miembro del equipo en NestJS, coordinando eficientemente ambos componentes.",
-        "Lideré el desarrollo frontend de un sistema administrativo con Forest Admin, creando acciones personalizadas y formularios dinámicos. Construí desde cero el sistema de gestión de usuarios, roles y permisos, integrando la interfaz mediante una API desarrollada por otro miembro del equipo en NestJS, coordinando eficientemente ambos componentes"
+        "Desarrollé, como frontend principal, una aplicación web con React.js y TypeScript para un sistema de gestión de préstamos, en colaboración con el equipo backend. Implementé los módulos <primary>loan, investment, extraction, providers, project, pool, profit, payment, reimbursements y authentication</primary>. El sistema contempla dos tipos de usuarios: clientes (personas jurídicas) e inversores (personas físicas o jurídicas), cada uno con permisos y funcionalidades diferenciadas.",
+        "Desarrollé el frontend de un sistema administrativo utilizando <primary>Forest Admin</primary>, creando acciones personalizadas y formularios dinámicos. Se trata de un sistema de gestión de proyectos (admin), cuya interfaz integré con la API desarrollada por él otro miembro del equipo en NestJS."
       ],
       "isButtonVisible": true,
       "address": "Habana, Cuba",
@@ -36,7 +38,15 @@
       },
       "jobTitle": "FullStack Symfony Developer",
       "companyName": "Grupos de Empresas Mayorista de Bienes y otros usos de consumo",
-      "description": "Desarrollé un sistema de gestión empresarial en Symfony, PHP y PostgreSQL, enfocado en la contabilidad de unidades básicas. Seguí el patrón MVC y la metodología Scrum, implementando módulos de inventario, clientes, proveedores y facturación.",
+      "description": [
+        "Diseñé y estructuré la base de datos en PostgreSQL utilizando Doctrine ORM.",
+        "Implementé control de acceso por roles para garantizar la seguridad del sistema.",
+        "Desarrollé formularios dinámicos con validaciones personalizadas usando Symfony Forms.",
+        "Automatización de procesos contables, incluyendo cierres mensuales y reportes financieros.",
+        "Integración de librerías externas para la generación de PDFs y envío de correos con facturas.",
+        "Participación activa en dailys y sprint plannings bajo metodología Scrum.",
+        "Optimicé el rendimiento de consultas SQL y entidades mediante índices y mejoras en Doctrine."
+      ],
       "isButtonVisible": false,
       "address": "Habana, Cuba"
     }

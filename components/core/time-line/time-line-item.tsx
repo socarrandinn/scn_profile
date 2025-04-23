@@ -40,12 +40,12 @@ const TimeLineItem = ({
             {isButtonVisible && (
               <Link href={route ?? "/resume"} className="w-full">
                 <Button
-                  variant={"outline"}
+                  variant={"default"}
                   className="group ml-auto flex flex-row items-center"
                   size={"sm"}
                 >
                   <TransTypography
-                    className="text-md sm:text-sm leading-normal"
+                    className="text-md sm:text-sm "
                     message={buttonText}
                   />
                   <span className="material-symbols-outlined ml-2 text-md group-hover:translate-x-1 transition-transform duration-300">
@@ -62,13 +62,13 @@ const TimeLineItem = ({
             </h3>
 
             {/* descripciones */}
-            <ul className="flex flex-col gap-4 mt-2 ml-3">
+            <ul className="flex flex-col gap-2 mt-2 ml-3">
               {_description?.map((desc, index) => (
                 <li
                   key={index}
                   className="before:absolute before:top-0 before:left-0 relative before:w-1 before:h-1 before:bg-primary before:rounded-full before:-translate-x-2.5 before:translate-y-2.5 before:shadow-md"
                 >
-                  {desc}
+                  <TransTypography message={desc} />
                 </li>
               ))}
             </ul>

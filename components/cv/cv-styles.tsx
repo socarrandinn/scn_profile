@@ -89,11 +89,11 @@ export const styles = StyleSheet.create({
   },
   bullet: {
     position: "absolute",
-    top: 8,
+    top: 10,
     left: -4,
-    width: 4,
-    height: 4,
-    backgroundColor: "#3b82f6",
+    width: 3,
+    height: 3,
+    backgroundColor: "#000000",
     borderRadius: 8,
   },
 });

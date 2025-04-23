@@ -112,11 +112,13 @@ const Item = (item: ITimeLine) => {
         </View>
       </View>
 
-      <View style={[styles.flexCol, { gap: 4, marginTop: 4 }]}>
+      <View style={[styles.flexCol, { gap: 2, marginTop: 4, marginLeft: 8 }]}>
         {_description?.map((desc, index) => (
           <View key={index} style={[styles.customBullet]}>
             <View style={styles.bullet} />
-            <Text style={[styles.mt5, { fontWeight: "light" }]}>{desc}</Text>
+            <Text style={[styles.mt5, { fontWeight: "light" }]}>
+              {parseI18nText(desc)}
+            </Text>
           </View>
         ))}
       </View>

@@ -8,7 +8,10 @@
       },
       "jobTitle": "Frontend Developer & Technical Support",
       "companyName": "Dofleini Software",
-      "description": "Developed applications using ReactJS, TypeScript and Next.js, optimizing backoffice systems and e-commerce platforms. Provided technical support, resolving incidents and ensuring proper system functionality. Combined technical skills with attention to detail to enhance user experience and operational efficiency.",
+      "description": [
+        "Develop web applications using <primary>ReactJS, TypeScript, and Next.js</primary>, focusing on optimizing <primary>backoffice</primary> systems and <primary>e-commerce</primary> platforms. My role goes beyond development by also providing technical support, resolving incidents promptly, and ensuring the proper operation of production systems.",
+        "I combine strong technical skills with high attention to detail, which allows me to enhance user experience and increase operational efficiency in every project I lead."
+      ],
       "isButtonVisible": false,
       "address": "Havana, Cuba"
     },
@@ -18,11 +21,10 @@
         "to": "2024-11-26"
       },
       "jobTitle": "Frontend Developer",
-      "companyName": "QBA.CREDIT",
+      "companyName": "QbaCredit",
       "description": [
-        "As lead frontend developer, built a web application with React.js and TypeScript for a loan management system, collaborating with the backend team. Implemented modules for investments, suppliers and projects, featuring a dual-role system for clients (businesses) and investors (individuals or legal entities) with different permissions and functionalities.",
-        "Developed a comprehensive user, role and permission management system, integrating the interface with a NestJS API built by another team member while ensuring efficient coordination between both components.",
-        "Led frontend development of an administrative system using Forest Admin, creating custom actions and dynamic forms. Built the user, role and permission management system from scratch, integrating it with a NestJS API developed by another team member."
+        "Led the frontend development of a web application using React.js and TypeScript for a loan management system, working closely with the backend team. Implemented the <primary>loan, investment, extraction, providers, project, pool, profit, payment, reimbursements, and authentication</primary> modules. The system supports two types of users: clients (legal entities) and investors (natural or legal persons), each with distinct permissions and functionalities.",
+        "Built the frontend of an admin system using <primary>Forest Admin</primary>, creating custom actions and dynamic forms. This is a project management platform (admin) whose interface I integrated with the API developed by another team member in NestJS."
       ],
       "isButtonVisible": true,
       "address": "Havana, Cuba",
@@ -35,8 +37,16 @@
         "to": "2015-10-01"
       },
       "jobTitle": "FullStack Symfony Developer",
-      "companyName": "Wholesale Business Group for Consumer Goods",
-      "description": "Developed an enterprise management system using Symfony, PHP and PostgreSQL focused on basic accounting units. Followed MVC pattern and Scrum methodology, implementing inventory, customer, supplier and billing modules.",
+      "companyName": "Wholesale Business Group for Goods and Other Consumer Uses",
+      "description": [
+        "Designed and structured the database in PostgreSQL using Doctrine ORM.",
+        "Implemented role-based access control to ensure system security.",
+        "Developed dynamic forms with custom validations using Symfony Forms.",
+        "Automated accounting processes, including monthly closures and financial reporting.",
+        "Integrated external libraries for PDF generation and invoice email delivery.",
+        "Actively participated in daily meetings and sprint plannings using Scrum methodology.",
+        "Optimized SQL queries and Doctrine entities through indexing and performance tuning."
+      ],
       "isButtonVisible": false,
       "address": "Havana, Cuba"
     }
